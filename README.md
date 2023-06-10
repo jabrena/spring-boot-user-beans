@@ -1,5 +1,7 @@
 # Spring boot User Beans
 
+[![CI Builds](https://github.com/jabrena/spring-boot-user-beans/actions/workflows/build.yaml/badge.svg?branch=main)](https://github.com/jabrena/spring-boot-user-beans/actions/workflows/build.yaml)
+
 A project to learn to understand better the Beans that you use in your projects.
 
 ![](./docs/user-beans.png)
