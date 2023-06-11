@@ -10,7 +10,9 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 
-@SpringBootTest
+import info.jab.ms.support.TestApplication;
+
+@SpringBootTest(classes = TestApplication.class)
 class ListBeanDependencyTests {
 
 	@Autowired
