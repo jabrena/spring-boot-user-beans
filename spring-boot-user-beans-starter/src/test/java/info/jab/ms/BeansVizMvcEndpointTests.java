@@ -13,10 +13,11 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-@SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
+import info.jab.ms.support.TestApplication;
+
+@SpringBootTest(classes = TestApplication.class, webEnvironment=WebEnvironment.RANDOM_PORT)
 class BeansVizMvcEndpointTests {
 
     @Autowired
