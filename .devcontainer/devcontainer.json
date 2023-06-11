@@ -38,8 +38,7 @@
 				"vmware.vscode-spring-boot",
 				"ms-azuretools.vscode-docker",
 				"redhat.vscode-xml",
-				"redhat.vscode-yaml",
-				"prettier-standard-vscode"
+				"redhat.vscode-yaml"
 			]
 		}
 	}
