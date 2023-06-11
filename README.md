@@ -25,6 +25,7 @@ spring init -d=web,devtools --build=maven --force ./
 
 - https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/package-summary.html
 - https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/package-summary.html
+- https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/
 - https://www.jetbrains.com/help/idea/spring-diagrams.html#spring-beans-diagram
 - https://github.com/making/beansviz-spring-boot-actuator
 - https://docs.spring.io/spring-boot/docs/current/reference/html/cli.html#cli.using-the-cli
