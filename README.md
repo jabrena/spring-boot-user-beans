@@ -8,8 +8,9 @@ A project to learn about the Beans that you maintain in memory when you run your
 
 ## Requirements
 
-- [ ] Offer a tool to be used to understand better the beans that you use in your application.
-- [ ] Generate an inventory with the following relationship: 
+- [ ] Design a tool to be used to understand better the beans that you use in your application.
+- [x] List of user dependencies
+- [ ] Generate an inventory with the following relationship:
     - 1 Maven dependency : n Beans in memory
 - [ ] Understand better the Spring Bean container
 
@@ -21,10 +22,12 @@ https://en.wikipedia.org/wiki/Convention_over_configuration
 
 ## How to run in local
 
-```
+```bash
+mvn clean verify
 mvn spring-boot:run -pl examples/hello-world/ -am
 curl http://localhost:8080/beansviz
-http://localhost:8080
+curl http://localhost:8080/api/v1/user-beans/dependencies
+curl http://localhost:8080
 ```
 
 ## Configuration
