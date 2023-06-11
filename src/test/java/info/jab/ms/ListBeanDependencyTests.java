@@ -12,9 +12,10 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.config.DependencyDescriptor;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-@Disabled
 @SpringBootTest
 class ListBeanDependencyTests {
 
@@ -39,36 +40,18 @@ class ListBeanDependencyTests {
 		AtomicInteger counter = new AtomicInteger(1);
 		String SPACE = " ";
 
+		ConfigurableListableBeanFactory bf = 
+			(ConfigurableListableBeanFactory) applicationContext.getAutowireCapableBeanFactory();
+    
 		Arrays.stream(allBeanNames)
 				.map(beanName -> {
 
-					/* 
-					Object bean = beanFactory.getBean(beanName);
-        			String[] dependencies = beanFactory.getDependenciesForBean(beanName);
+					String[] dependencies = bf.getDependenciesForBean(beanName);
         
-        			System.out.println("Dependencies for bean: " + beanName);
+        			//System.out.println("Dependencies for bean: " + beanName);
 					for (String dependency : dependencies) {
 						System.out.println(dependency);
 					}
-
-
-					if (StringUtils.hasText(beanName)) {
-						String[] dependentBeanNames = BeanFactoryUtils.dependentBeanNames(beanFactory, beanName);
-						
-						System.out.println("Dependencies for bean: " + beanName);
-						for (String dependentBeanName : dependentBeanNames) {
-							System.out.println(dependentBeanName);
-						}
-        			}
-					
-					DependencyDescriptor[] dependencies = beanFactory.getBeanDefinition(beanName)
-									.getResolvableDependencies();
-							
-					System.out.println("Dependencies for bean: " + beanName);
-					for (DependencyDescriptor dependency : dependencies) {
-						System.out.println(dependency.getResolvableType());
-					}
-					*/
 
 					return new StringBuilder()
 							.append(counter.getAndIncrement())
