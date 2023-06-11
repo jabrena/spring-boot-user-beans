@@ -1,4 +1,4 @@
-package info.jab.ms;
+package info.jab.ms.rd;
 
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
