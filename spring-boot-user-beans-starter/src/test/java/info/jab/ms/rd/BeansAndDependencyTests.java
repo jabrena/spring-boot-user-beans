@@ -1,17 +1,18 @@
 package info.jab.ms.rd;
 
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Function;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 
-import info.jab.ms.support.TestApplication;
+import info.jab.support.TestApplication;
 
 @SpringBootTest(classes = TestApplication.class)
 public class BeansAndDependencyTests {
- 
+
 	@Autowired
 	private ApplicationContext context;
 
@@ -30,11 +31,16 @@ public class BeansAndDependencyTests {
 
                     System.out.println(counter.incrementAndGet());
                 //if (beanPackageInfo.contains("org.example.dependency")) {
-                    System.out.println("Bean: " + beanName);
+                    System.out.println("Bean: " + removePackage.apply(beanName));
                     System.out.println("Package: " + beanPackageInfo);
                     System.out.println();
                 //}
             }
         }
     }
+
+    Function<String, String> removePackage = (beanName) -> {
+        var beanNameParts = beanName.split("\\.");
+        return (beanNameParts.length > 0) ? beanNameParts[beanNameParts.length - 1] : beanName;
+    };
 }

@@ -15,30 +15,34 @@ import org.springframework.http.ResponseEntity;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import info.jab.ms.support.TestApplication;
+import info.jab.support.TestApplication;
 
-@SpringBootTest(classes = TestApplication.class, webEnvironment=WebEnvironment.RANDOM_PORT)
+@SpringBootTest(
+        classes = TestApplication.class,
+        webEnvironment=WebEnvironment.RANDOM_PORT)
 class BeansVizMvcEndpointTests {
 
     @Autowired
     private TestRestTemplate restTemplate;
-     
+
     @LocalServerPort
     int randomServerPort;
 
     @Test
-    public void verifyThatEndpointGenerateValidJSON() throws Exception {
+    public void shouldReceiveGoodJSON() throws Exception {
 
+        //Given
         final String baseUrl = "http://localhost:" + randomServerPort + "/beansviz";
         URI uri = new URI(baseUrl);
-         
-        ResponseEntity<String> result = this.restTemplate.getForEntity(uri, String.class);
-         
-        assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
 
+        //When
+        ResponseEntity<String> result = this.restTemplate.getForEntity(uri, String.class);
         ObjectMapper mapper = new ObjectMapper();
-        var json = mapper.readTree(result.getBody());
-        //TODO pending assert
+        var expectedNotNull = mapper.readTree(result.getBody());
+
+        //Then
+        assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
+        assertThat(expectedNotNull).isNotNull();
     }
 
 }
