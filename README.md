@@ -4,7 +4,7 @@
 
 A project to learn about the Beans that you maintain in memory when you run your projects.
 
-![](./docs/user-beans.png)
+![](./docs/user-beans2.png)
 
 ## Requirements
 
