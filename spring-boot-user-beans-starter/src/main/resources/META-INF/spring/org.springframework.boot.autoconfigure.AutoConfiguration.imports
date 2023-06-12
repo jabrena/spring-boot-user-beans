@@ -1,3 +1,4 @@
 info.jab.ms.BeansVizMvcEndpoint
 info.jab.ms.BeansVizMvcHandler
 info.jab.userbeans.UserDependenciesController
+info.jab.d3.D3GraphEndpoint2

@@ -38,15 +38,11 @@ text {
   <script src="//d3js.org/d3.v3.min.js"></script>
   <script>
 
-fetch("/graph2-example.json")
+fetch("/graph2")
 .then(response => response.json())
 .then(data => {
 
-  // http://blog.thomsonreuters.com/index.php/mobile-patent-suits-graphic-of-the-day/
   var links = data;
-
-  console.log(links);
-
   var nodes = {};
 
   // Compute the distinct nodes from the links.
@@ -55,8 +51,8 @@ fetch("/graph2-example.json")
     link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
   });
 
-  var width = 1024,
-      height = 800;
+  var width = 2000,
+      height = 2000;
 
   var force = d3.layout.force()
       .nodes(d3.values(nodes))
@@ -67,14 +63,15 @@ fetch("/graph2-example.json")
       .on("tick", tick)
       .start();
 
-  var svg = d3.select("body").append("svg")
+  var svg = d3.select("body")
+      .append("svg")
       .attr("width", width)
       .attr("height", height);
 
   // Per-type markers, as they don't inherit styles.
   svg.append("defs").selectAll("marker")
       .data(["suit", "licensing", "resolved"])
-    .enter().append("marker")
+      .enter().append("marker")
       .attr("id", function(d) { return d; })
       .attr("viewBox", "0 -5 10 10")
       .attr("refX", 15)
@@ -82,7 +79,7 @@ fetch("/graph2-example.json")
       .attr("markerWidth", 6)
       .attr("markerHeight", 6)
       .attr("orient", "auto")
-    .append("path")
+      .append("path")
       .attr("d", "M0,-5L10,0L0,5");
 
   var path = svg.append("g").selectAll("path")
@@ -93,13 +90,13 @@ fetch("/graph2-example.json")
 
   var circle = svg.append("g").selectAll("circle")
       .data(force.nodes())
-    .enter().append("circle")
+      .enter().append("circle")
       .attr("r", 6)
       .call(force.drag);
 
   var text = svg.append("g").selectAll("text")
       .data(force.nodes())
-    .enter().append("text")
+      .enter().append("text")
       .attr("x", 8)
       .attr("y", ".31em")
       .text(function(d) { return d.name; });
@@ -124,7 +121,6 @@ fetch("/graph2-example.json")
 
 })
 .catch(error => {
-  // Handle any errors that occur during the fetch request
   console.log('Error:', error);
 });
 
