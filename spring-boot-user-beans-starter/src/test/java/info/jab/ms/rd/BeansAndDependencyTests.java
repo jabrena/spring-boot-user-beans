@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 
-import info.jab.ms.support.TestApplication;
+import info.jab.support.TestApplication;
 
 @SpringBootTest(classes = TestApplication.class)
 public class BeansAndDependencyTests {
