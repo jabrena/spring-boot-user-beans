@@ -1,6 +1,7 @@
 package info.jab.ms.rd;
 
 import java.util.concurrent.atomic.AtomicInteger;
+
 import java.util.function.Function;
 
 import org.junit.jupiter.api.Test;
