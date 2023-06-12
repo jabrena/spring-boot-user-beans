@@ -26,6 +26,7 @@ https://en.wikipedia.org/wiki/Convention_over_configuration
 mvn clean verify
 mvn spring-boot:run -pl examples/hello-world/ -am
 curl http://localhost:8080/beansviz
+curl http://localhost:8080/graph2
 curl http://localhost:8080/api/v1/user-beans/dependencies
 curl http://localhost:8080
 ```
