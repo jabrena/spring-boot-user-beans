@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      .links line {
+        stroke: #999;
+        stroke-opacity: 0.6;
+        marker-end: url(#arrow);
+      }
+    
+      .nodes path {
+        stroke-width: 4px;
+        cursor: pointer;
+      }
+    
+      text {
+        font-family: sans-serif;
+        font-size: 12px;
+        /* horizontal */
+        text-anchor: middle;
+        /* vertical */
+        dominant-baseline: central;
+        cursor: pointer;
+      }
+      html, body { margin:0; padding:0; overflow:hidden }
+      .svg { position:fixed; top:0; left:0; height:100%; width:100% }
+    </style>
+    <script src="d3.v4.min.js"></script>
+  </head>
+  <body>
+    <svg class="svg"></svg>
+    <script src="graph.js"></script>
+  </body>
+</html>
