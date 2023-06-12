@@ -10,7 +10,7 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 
-import info.jab.ms.support.TestApplication;
+import info.jab.support.TestApplication;
 
 @SpringBootTest(classes = TestApplication.class)
 class ListBeanDependencyTests {
@@ -27,23 +27,18 @@ class ListBeanDependencyTests {
 	@Test
 	void contextLoads() {
 
-		displayAllBeans();
-
-	}
-
-	private void displayAllBeans() {
 		String[] allBeanNames = applicationContext.getBeanDefinitionNames();
 		AtomicInteger counter = new AtomicInteger(1);
 		String SPACE = " ";
 
-		ConfigurableListableBeanFactory bf = 
+		ConfigurableListableBeanFactory bf =
 			(ConfigurableListableBeanFactory) applicationContext.getAutowireCapableBeanFactory();
-    
+
 		Arrays.stream(allBeanNames)
 				.map(beanName -> {
 
 					String[] dependencies = bf.getDependenciesForBean(beanName);
-        
+
         			//System.out.println("Dependencies for bean: " + beanName);
 					for (String dependency : dependencies) {
 						System.out.println(dependency);
