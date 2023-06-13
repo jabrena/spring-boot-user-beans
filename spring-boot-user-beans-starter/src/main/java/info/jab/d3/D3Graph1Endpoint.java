@@ -16,14 +16,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController()
-public class D3GraphEndpoint2  {
+public class D3Graph1Endpoint  {
 
 	@Autowired
 	private BeansEndpoint beansEndpoint;
 
-	@GetMapping(path= "/graph2", produces = MediaType.APPLICATION_JSON_VALUE)
-	ResponseEntity<String> generateGraph2() {
-		
+	@GetMapping(path= "/graph1", produces = MediaType.APPLICATION_JSON_VALUE)
+	ResponseEntity<String> graph1() {
+		return generateGraph1Data();
+	}
+
+	private ResponseEntity<String> generateGraph1Data() {
+
+		List<String> listBean = new ArrayList<>();
 		List<Edge> listDependencies = new ArrayList<>();
 
 		Map<String, ContextBeansDescriptor> context = beansEndpoint.beans().getContexts();
@@ -32,12 +37,15 @@ public class D3GraphEndpoint2  {
 			Map<String, BeanDescriptor> beans = value.getBeans();
 			beans.forEach((key2, value2) -> {
 				String source = value2.getType().getSimpleName();
+				listBean.add(source);
 
 				List<String> dependencies = Arrays.asList(value2.getDependencies());
 				dependencies.stream().forEach(dep -> {
 					var depParts = dep.split("\\.");
 					String dependencyValue = (depParts.length > 0) ? depParts[depParts.length - 1] : dep;
-					listDependencies.add(new Edge(source, dependencyValue));
+					if(listBean.contains(dependencyValue)) {
+						listDependencies.add(new Edge(source, dependencyValue));
+					}
 				});
 
 			});
@@ -46,28 +54,42 @@ public class D3GraphEndpoint2  {
 		return ResponseEntity
 				.status(HttpStatus.OK)
 				.contentType(MediaType.APPLICATION_JSON)
-				.body(generateJSON(listDependencies));
+				.body(generateJSON(listBean, listDependencies));
 	}
 
 	private record Edge(String from, String to) {};
 
 	//TODO Not generate the response as a String.
-	private String generateJSON(List<Edge> nodeLinkList) {
+	private String generateJSON(List<String> beanList, List<Edge> nodeLinkList) {
 
 		StringBuilder result = new StringBuilder();
 
-		result.append("[\n");
+		result.append("{\n");
+		result.append("    \"nodes\": [\n");
 
-		for(Edge linkNode : nodeLinkList) {
-			if(linkNode.equals(nodeLinkList.get(nodeLinkList.size() - 1))) {
-				result.append("        {\"source\": \"" + linkNode.from() + "\", \"target\": \"" + linkNode.to() + "\", \"type\": \"licensing\"}\n");
+		for(String beanName : beanList) {
+			if(beanName.equals(beanList.get(beanList.size() - 1))) {
+				result.append("        {\"id\": \"" + beanName + "\", \"group\": \"" + beanName + "\"}\n");
 			} else {
-				result.append("        {\"source\": \"" + linkNode.from() + "\", \"target\": \"" + linkNode.to() + "\", \"value\": \"licensing\"},\n");
+				result.append("        {\"id\": \"" + beanName + "\", \"group\": \"" + beanName + "\"},\n");
 			}
 		}
 
-		result.append("]\n");
+		result.append("    ],\n");
+		result.append("    \"links\": [\n");
+
+		for(Edge linkNode : nodeLinkList) {
+			if(linkNode.equals(nodeLinkList.get(nodeLinkList.size() - 1))) {
+				result.append("        {\"source\": \"" + linkNode.from() + "\", \"target\": \"" + linkNode.to() + "\", \"value\": 1}\n");
+			} else {
+				result.append("        {\"source\": \"" + linkNode.from() + "\", \"target\": \"" + linkNode.to() + "\", \"value\": 1},\n");
+			}
+		}
+
+		result.append("    ]\n");
+		result.append("}\n");
 
 		return result.toString();
 	}
+
 }

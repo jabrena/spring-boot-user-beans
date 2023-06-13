@@ -8,10 +8,12 @@ A project to learn about the Beans that you maintain in memory when you run your
 
 ## Requirements
 
-- [ ] Visualize Beans running in the container
-- [ ] Learn to disable beans not used
+- [x] Visualize Beans running in the container
 - [x] List of user dependencies (Jars)
-- [ ] Understand what Beans comes from that dependency
+- [x] List of user dependencies (Jars) & packages
+- [x] List of user beans
+- [ ] List of dependencies (Jars) & Beans
+- [ ] Learn to disable beans not used
 
 ## Convention over configuration
 
@@ -24,8 +26,11 @@ https://en.wikipedia.org/wiki/Convention_over_configuration
 ```bash
 mvn clean verify
 mvn spring-boot:run -pl examples/hello-world/ -am
+curl http://localhost:8080/graph1
 curl http://localhost:8080/graph2
-curl http://localhost:8080/api/v1/user-beans/dependencies
+curl -v http://localhost:8080/api/v1/user-beans/dependencies
+curl -v http://localhost:8080/api/v1/user-beans/dependencies/packages
+curl -v http://localhost:8080/api/v1/user-beans/beans
 curl http://localhost:8080
 ```
 

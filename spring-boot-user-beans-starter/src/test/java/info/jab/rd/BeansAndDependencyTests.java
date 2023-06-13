@@ -1,4 +1,4 @@
-package info.jab.ms.rd;
+package info.jab.rd;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -27,16 +27,10 @@ public class BeansAndDependencyTests {
             Class<?> beanClass = bean.getClass();
             Package beanPackage = beanClass.getPackage();
 
-            if (beanPackage != null) {
-                String beanPackageInfo = beanPackage.getName();
-
-                    System.out.println(counter.incrementAndGet());
-                //if (beanPackageInfo.contains("org.example.dependency")) {
-                    System.out.println("Bean: " + removePackage.apply(beanName));
-                    System.out.println("Package: " + beanPackageInfo);
-                    System.out.println();
-                //}
-            }
+            System.out.println(counter.incrementAndGet());
+            System.out.println("Bean: " + removePackage.apply(beanName));
+            System.out.println("Package: " + beanPackage.getName());
+            System.out.println();
         }
     }
 

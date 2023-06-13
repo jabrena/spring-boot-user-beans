@@ -1,9 +1,9 @@
 const radius = 36;//36
-    
+
 var force = -5; //-1200; //2400
 var decay_force = force;
 
-var resource = "/beansviz"; //"graph.json";
+var resource = "/graph1"; //"graph.json";
 
 var symbol = d3.symbol().size([radius * 100])
 
