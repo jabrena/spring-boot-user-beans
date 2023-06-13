@@ -1,5 +1,9 @@
-package info.jab.ms;
+package info.jab.d3;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.beans.BeansEndpoint;
@@ -8,22 +12,18 @@ import org.springframework.boot.actuate.beans.BeansEndpoint.ContextBeansDescript
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-
-@Service
-public class BeansVizMvcHandler {
+@RestController()
+public class D3Graph2Endpoint  {
 
 	@Autowired
 	private BeansEndpoint beansEndpoint;
 
-	ResponseEntity<String> beansviz() {
+	@GetMapping(path= "/graph2", produces = MediaType.APPLICATION_JSON_VALUE)
+	ResponseEntity<String> generateGraph2() {
 
-		List<String> listBean = new ArrayList<>();
 		List<Edge> listDependencies = new ArrayList<>();
 
 		Map<String, ContextBeansDescriptor> context = beansEndpoint.beans().getContexts();
@@ -32,15 +32,12 @@ public class BeansVizMvcHandler {
 			Map<String, BeanDescriptor> beans = value.getBeans();
 			beans.forEach((key2, value2) -> {
 				String source = value2.getType().getSimpleName();
-				listBean.add(source);
 
 				List<String> dependencies = Arrays.asList(value2.getDependencies());
 				dependencies.stream().forEach(dep -> {
 					var depParts = dep.split("\\.");
 					String dependencyValue = (depParts.length > 0) ? depParts[depParts.length - 1] : dep;
-					if(listBean.contains(dependencyValue)) {
-						listDependencies.add(new Edge(source, dependencyValue));
-					}
+					listDependencies.add(new Edge(source, dependencyValue));
 				});
 
 			});
@@ -49,40 +46,27 @@ public class BeansVizMvcHandler {
 		return ResponseEntity
 				.status(HttpStatus.OK)
 				.contentType(MediaType.APPLICATION_JSON)
-				.body(generateJSON(listBean, listDependencies));
+				.body(generateJSON(listDependencies));
 	}
 
 	private record Edge(String from, String to) {};
 
 	//TODO Not generate the response as a String.
-	private String generateJSON(List<String> beanList, List<Edge> nodeLinkList) {
+	private String generateJSON(List<Edge> nodeLinkList) {
 
 		StringBuilder result = new StringBuilder();
 
-		result.append("{\n");
-		result.append("    \"nodes\": [\n");
-
-		for(String beanName : beanList) {
-			if(beanName.equals(beanList.get(beanList.size() - 1))) {
-				result.append("        {\"id\": \"" + beanName + "\", \"group\": \"" + beanName + "\"}\n");
-			} else {
-				result.append("        {\"id\": \"" + beanName + "\", \"group\": \"" + beanName + "\"},\n");
-			}
-		}
-
-		result.append("    ],\n");
-		result.append("    \"links\": [\n");
+		result.append("[\n");
 
 		for(Edge linkNode : nodeLinkList) {
 			if(linkNode.equals(nodeLinkList.get(nodeLinkList.size() - 1))) {
-				result.append("        {\"source\": \"" + linkNode.from() + "\", \"target\": \"" + linkNode.to() + "\", \"value\": 1}\n");
+				result.append("        {\"source\": \"" + linkNode.from() + "\", \"target\": \"" + linkNode.to() + "\", \"type\": \"licensing\"}\n");
 			} else {
-				result.append("        {\"source\": \"" + linkNode.from() + "\", \"target\": \"" + linkNode.to() + "\", \"value\": 1},\n");
+				result.append("        {\"source\": \"" + linkNode.from() + "\", \"target\": \"" + linkNode.to() + "\", \"value\": \"licensing\"},\n");
 			}
 		}
 
-		result.append("    ]\n");
-		result.append("}\n");
+		result.append("]\n");
 
 		return result.toString();
 	}

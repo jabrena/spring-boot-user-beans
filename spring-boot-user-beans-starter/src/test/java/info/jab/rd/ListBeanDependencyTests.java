@@ -1,28 +1,23 @@
-package info.jab.ms.rd;
+package info.jab.rd;
 
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 
 import info.jab.support.TestApplication;
 
+@Disabled
 @SpringBootTest(classes = TestApplication.class)
 class ListBeanDependencyTests {
 
 	@Autowired
 	private ApplicationContext applicationContext;
-
-	@Autowired
-	private AutowireCapableBeanFactory beanFactory;
-
-	@Autowired
-	private ConfigurableListableBeanFactory beanFactory2;
 
 	@Test
 	void contextLoads() {

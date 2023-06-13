@@ -1,6 +1,5 @@
 package info.jab.userbeans;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import info.jab.support.TestApplication;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +11,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 
-import java.net.URI;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -34,7 +31,6 @@ class UserDependenciesControllerTests {
 
         //Given
         final String baseUrl = "http://localhost:" + randomServerPort + "/api/v1/user-beans/dependencies";
-        URI uri = new URI(baseUrl);
 
         //When
         //ResponseEntity<String[]> result = this.restTemplate.getForObject(uri, String[].class);

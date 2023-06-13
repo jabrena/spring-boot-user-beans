@@ -1,4 +1,4 @@
-package info.jab.ms;
+package info.jab.d3;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -20,7 +20,7 @@ import info.jab.support.TestApplication;
 @SpringBootTest(
         classes = TestApplication.class,
         webEnvironment=WebEnvironment.RANDOM_PORT)
-class BeansVizMvcEndpointTests {
+class D3Graph1EndpointTests {
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -32,7 +32,7 @@ class BeansVizMvcEndpointTests {
     public void shouldReceiveGoodJSON() throws Exception {
 
         //Given
-        final String baseUrl = "http://localhost:" + randomServerPort + "/beansviz";
+        final String baseUrl = "http://localhost:" + randomServerPort + "/graph1";
         URI uri = new URI(baseUrl);
 
         //When
