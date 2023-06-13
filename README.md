@@ -13,6 +13,7 @@ A project to learn about the Beans that you maintain in memory when you run your
 - [x] List of user dependencies (Jars) & packages
 - [x] List of user beans
 - [x] List of dependencies (Jars) & Beans
+- [ ] Review quality of results
 - [ ] Learn to disable beans not used
 
 ## Convention over configuration
