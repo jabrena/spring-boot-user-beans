@@ -1,4 +1,6 @@
 info.jab.d3.D3Graph1Endpoint
 info.jab.d3.D3Graph2Endpoint
 info.jab.userbeans.UserDependenciesController
+info.jab.userbeans.UserDependenciesService
 info.jab.userbeans.UserBeansController
+info.jab.userbeans.UserBeansService

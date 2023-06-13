@@ -12,7 +12,7 @@ A project to learn about the Beans that you maintain in memory when you run your
 - [x] List of user dependencies (Jars)
 - [x] List of user dependencies (Jars) & packages
 - [x] List of user beans
-- [ ] List of dependencies (Jars) & Beans
+- [x] List of dependencies (Jars) & Beans
 - [ ] Learn to disable beans not used
 
 ## Convention over configuration
@@ -30,6 +30,7 @@ curl http://localhost:8080/graph1
 curl http://localhost:8080/graph2
 curl -v http://localhost:8080/api/v1/user-beans/dependencies
 curl -v http://localhost:8080/api/v1/user-beans/dependencies/packages
+curl -v http://localhost:8080/api/v1/user-beans/dependencies/beans
 curl -v http://localhost:8080/api/v1/user-beans/beans
 curl http://localhost:8080
 ```
