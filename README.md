@@ -2,7 +2,9 @@
 
 [![CI Builds](https://github.com/jabrena/spring-boot-user-beans/actions/workflows/build.yaml/badge.svg?branch=main)](https://github.com/jabrena/spring-boot-user-beans/actions/workflows/build.yaml)
 
-A project to learn about the Beans that you maintain in memory when you run your projects.
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=jabrena_spring-boot-user-beans)
+
+A visual way to help developers to increase awareness about minimize the number of Beans in memory.
 
 ![](./docs/user-beans2.png)
 
