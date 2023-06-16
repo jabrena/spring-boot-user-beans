@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.List;
@@ -32,8 +33,8 @@ public class UserDependenciesService {
 		//target/classes
 		return Arrays.stream(classpathEntries)
 				.filter(path -> path.contains(".jar"))
-				.sorted()
 				.map(removePath)
+				.sorted()
 				.toList();
 	}
 
@@ -62,7 +63,9 @@ public class UserDependenciesService {
             }
         }
 
-		return list;
+		return list.stream()
+			.sorted(Comparator.comparing(DependencyDetail::packageName))
+			.toList();
     }
 
     private Set<String> listPackagesInJar(String jarPath) {
@@ -113,7 +116,7 @@ public class UserDependenciesService {
 					return new DependencyBeanDetail("UNKNOWN", be);
 				}
 			})
-			//.sorted()
+			.sorted(Comparator.comparing(DependencyBeanDetail::dependencyName))
 			.toList();
 	}
 

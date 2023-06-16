@@ -27,12 +27,12 @@ https://en.wikipedia.org/wiki/Convention_over_configuration
 ```bash
 mvn clean verify
 mvn spring-boot:run -pl examples/hello-world/ -am
-curl http://localhost:8080/graph1
-curl http://localhost:8080/graph2
-curl -v http://localhost:8080/api/v1/user-beans/dependencies
-curl -v http://localhost:8080/api/v1/user-beans/dependencies/packages
-curl -v http://localhost:8080/api/v1/user-beans/dependencies/beans
-curl -v http://localhost:8080/api/v1/user-beans/beans
+curl http://localhost:8080/graph1 | json_pp
+curl http://localhost:8080/graph2 | json_pp
+curl -v http://localhost:8080/api/v1/user-beans/dependencies | json_pp
+curl -v http://localhost:8080/api/v1/user-beans/dependencies/packages | json_pp
+curl -v http://localhost:8080/api/v1/user-beans/dependencies/beans | json_pp
+curl -v http://localhost:8080/api/v1/user-beans/beans | json_pp
 curl http://localhost:8080
 ```
 
