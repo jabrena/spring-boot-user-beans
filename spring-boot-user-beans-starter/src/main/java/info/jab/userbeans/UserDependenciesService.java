@@ -24,7 +24,7 @@ public class UserDependenciesService {
 	@Autowired
 	private UserBeansService userBeansService;
 
-	public List<String> getDependencies() {
+	List<String> getDependencies() {
 
 		String classpath = System.getProperty("java.class.path");
 		String[] classpathEntries = classpath.split(File.pathSeparator);
@@ -45,7 +45,7 @@ public class UserDependenciesService {
 
 	public record DependencyDetail(String dependencyName, String packageName) {}
 
-	public List<DependencyDetail> getDependenciesAndPackages() {
+	List<DependencyDetail> getDependenciesAndPackages() {
 
 		List<DependencyDetail> list = new ArrayList<>();
 
@@ -94,7 +94,7 @@ public class UserDependenciesService {
 
 	public record DependencyBeanDetail(String dependencyName, String beanName) {}
 
-	public List<DependencyBeanDetail> getDependenciesAndBeans() {
+	List<DependencyBeanDetail> getDependenciesAndBeans() {
 
 		List<DependencyBeanDetail> list = new ArrayList();
 

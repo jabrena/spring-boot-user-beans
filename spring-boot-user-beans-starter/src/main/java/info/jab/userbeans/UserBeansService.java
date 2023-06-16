@@ -16,7 +16,7 @@ public class UserBeansService {
 
 	public record BeanDetail(String beanName, String beanPackage) {}
 
-    public List<BeanDetail> getBeansDetails() {
+    List<BeanDetail> getBeansDetails() {
 
 		List<BeanDetail> list = new ArrayList<>();
 

@@ -17,7 +17,11 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 
-@SpringBootTest(classes = TestApplication.class)
+@SpringBootTest(
+    classes = TestApplication.class,
+    properties = {
+        "management.endpoints.web.exposure.include=beans,userbeans"
+    })
 class ActuatorBeanVsApplicationContextTests {
 
     @Autowired
