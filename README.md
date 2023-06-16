@@ -2,7 +2,9 @@
 
 [![CI Builds](https://github.com/jabrena/spring-boot-user-beans/actions/workflows/build.yaml/badge.svg?branch=main)](https://github.com/jabrena/spring-boot-user-beans/actions/workflows/build.yaml)
 
-A project to learn about the Beans that you maintain in memory when you run your projects.
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=jabrena_spring-boot-user-beans)
+
+A visual way to help developers to increase awareness about minimize the number of Beans in memory.
 
 ![](./docs/user-beans2.png)
 
@@ -27,13 +29,12 @@ https://en.wikipedia.org/wiki/Convention_over_configuration
 ```bash
 mvn clean verify
 mvn spring-boot:run -pl examples/hello-world/ -am
-curl http://localhost:8080/graph1
-curl http://localhost:8080/graph2
-curl -v http://localhost:8080/api/v1/user-beans/dependencies
-curl -v http://localhost:8080/api/v1/user-beans/dependencies/packages
-curl -v http://localhost:8080/api/v1/user-beans/dependencies/beans
-curl -v http://localhost:8080/api/v1/user-beans/beans
-curl http://localhost:8080
+curl http://localhost:8080/graph1 | json_pp
+curl http://localhost:8080/graph2 | json_pp
+curl -v http://localhost:8080/actuator/userbeans/dependencies | json_pp
+curl -v http://localhost:8080/actuator/userbeans/dependencies/packages | json_pp
+curl -v http://localhost:8080/actuator/userbeans/dependencies/beans | json_pp
+curl -v http://localhost:8080/actuator/userbeans/beans | json_pp
 ```
 
 ## Configuration

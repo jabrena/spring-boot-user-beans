@@ -1,4 +1,4 @@
-package info.jab.d3;
+package info.jab.userbeans;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,21 +12,15 @@ import org.springframework.boot.actuate.beans.BeansEndpoint.ContextBeansDescript
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
-@RestController()
-public class D3Graph1Endpoint  {
+@Service
+public class Graph1Service {
 
 	@Autowired
 	private BeansEndpoint beansEndpoint;
 
-	@GetMapping(path= "/graph1", produces = MediaType.APPLICATION_JSON_VALUE)
-	ResponseEntity<String> graph1() {
-		return generateGraph1Data();
-	}
-
-	private ResponseEntity<String> generateGraph1Data() {
+	ResponseEntity<String> generateGraph1Data() {
 
 		List<String> listBean = new ArrayList<>();
 		List<Edge> listDependencies = new ArrayList<>();

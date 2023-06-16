@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.List;
@@ -23,7 +24,7 @@ public class UserDependenciesService {
 	@Autowired
 	private UserBeansService userBeansService;
 
-	public List<String> getDependencies() {
+	List<String> getDependencies() {
 
 		String classpath = System.getProperty("java.class.path");
 		String[] classpathEntries = classpath.split(File.pathSeparator);
@@ -32,8 +33,8 @@ public class UserDependenciesService {
 		//target/classes
 		return Arrays.stream(classpathEntries)
 				.filter(path -> path.contains(".jar"))
-				.sorted()
 				.map(removePath)
+				.sorted()
 				.toList();
 	}
 
@@ -44,7 +45,7 @@ public class UserDependenciesService {
 
 	public record DependencyDetail(String dependencyName, String packageName) {}
 
-	public List<DependencyDetail> getDependenciesAndPackages() {
+	List<DependencyDetail> getDependenciesAndPackages() {
 
 		List<DependencyDetail> list = new ArrayList<>();
 
@@ -62,7 +63,9 @@ public class UserDependenciesService {
             }
         }
 
-		return list;
+		return list.stream()
+			.sorted(Comparator.comparing(DependencyDetail::packageName))
+			.toList();
     }
 
     private Set<String> listPackagesInJar(String jarPath) {
@@ -91,7 +94,7 @@ public class UserDependenciesService {
 
 	public record DependencyBeanDetail(String dependencyName, String beanName) {}
 
-	public List<DependencyBeanDetail> getDependenciesAndBeans() {
+	List<DependencyBeanDetail> getDependenciesAndBeans() {
 
 		List<DependencyBeanDetail> list = new ArrayList();
 
@@ -113,7 +116,7 @@ public class UserDependenciesService {
 					return new DependencyBeanDetail("UNKNOWN", be);
 				}
 			})
-			//.sorted()
+			.sorted(Comparator.comparing(DependencyBeanDetail::dependencyName))
 			.toList();
 	}
 
