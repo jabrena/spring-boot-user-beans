@@ -1,19 +1,17 @@
 package info.jab.userbeans;
 
-import org.apache.maven.model.Dependency;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import info.jab.support.TestApplication;
 import info.jab.userbeans.Graph2Service.DependencyCombo;
+import info.jab.userbeans.Graph2Service.EdgeOutput;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.io.IOException;
 import java.util.List;
 
 @SpringBootTest(
@@ -32,17 +30,11 @@ class Graph2ServiceTests {
 
         //Given
         //When
-        var rawResult = graph2Service.generateGraph2(null);
-        var resuls = toGraphData(rawResult);
+        var resuls = graph2Service.generateGraph2(null);
+        //var resuls = toGraphData(rawResult);
 
         //Then
         assertThat(resuls).hasSizeGreaterThan(200);
-    }
-
-    //TODO Refactor the method generateGraph2 to avoid it
-    private GraphData[] toGraphData(String result) throws IOException{
-        ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.readValue(result, GraphData[].class);
     }
 
     @Test
@@ -70,8 +62,7 @@ class Graph2ServiceTests {
             .findFirst().get();
 
         //When
-        String result2raw = graph2Service.generateGraph2(filterJar);
-        var result2 = toGraphData(result2raw);
+        List<EdgeOutput> result2 = graph2Service.generateGraph2(filterJar);
 
         //Then
         assertThat(unknownResults).isEqualTo(5);

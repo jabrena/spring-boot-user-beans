@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import info.jab.userbeans.Graph2Service.DependencyCombo;
+import info.jab.userbeans.Graph2Service.EdgeOutput;
 import info.jab.userbeans.UserBeansService.BeanDetail;
 import info.jab.userbeans.UserDependenciesService.Dependency;
 import info.jab.userbeans.UserDependenciesService.DependencyBeanDetail;
@@ -59,7 +60,7 @@ public class UserBeansEndpoint {
 	}
 
 	@GetMapping(path= "/graph2", produces = MediaType.APPLICATION_JSON_VALUE)
-	ResponseEntity<String> graph2(@RequestParam(required = false) String dependency) {
+	ResponseEntity<List<EdgeOutput>> graph2(@RequestParam(required = false) String dependency) {
 		return ResponseEntity.ok().body(graph2Service.generateGraph2(dependency));
 	}
 

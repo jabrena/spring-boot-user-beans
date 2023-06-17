@@ -44,7 +44,7 @@ public class Graph2Service {
 		return html;
 	}
 
-	String generateGraph2(String param) {
+	List<EdgeOutput> generateGraph2(String param) {
 
 		List<Edge> listDependencies = new ArrayList<>();
 
@@ -66,7 +66,6 @@ public class Graph2Service {
 		});
 
 		if(Objects.nonNull(param)) {
-			logger.debug("Filtering by: {}", param);
 
 			var results = userDependenciesService.getDependenciesAndBeans();
 			var resultsFilterd = results.stream()
@@ -83,33 +82,20 @@ public class Graph2Service {
 					.toList().contains(e.from))
 				.toList();
 
-			return generateJSON(list3);
+			//return generateJSON(list3);
+			return list3.stream()
+				.map(e -> new EdgeOutput(e.from, e.to, "Licencing"))
+				.toList();
 		}
 
-		return generateJSON(listDependencies);
+		//return generateJSON(listDependencies);
+		return listDependencies.stream()
+			.map(e -> new EdgeOutput(e.from, e.to, "Licencing"))
+			.toList();
 	}
 
 	private record Edge(String from, String to) {};
-
-	//TODO Not generate the response as a String.
-	private String generateJSON(List<Edge> nodeLinkList) {
-
-		StringBuilder result = new StringBuilder();
-
-		result.append("[\n");
-
-		for(Edge linkNode : nodeLinkList) {
-			if(linkNode.equals(nodeLinkList.get(nodeLinkList.size() - 1))) {
-				result.append("        {\"source\": \"" + linkNode.from() + "\", \"target\": \"" + linkNode.to() + "\", \"type\": \"licensing\"}\n");
-			} else {
-				result.append("        {\"source\": \"" + linkNode.from() + "\", \"target\": \"" + linkNode.to() + "\", \"value\": \"licensing\"},\n");
-			}
-		}
-
-		result.append("]\n");
-
-		return result.toString();
-	}
+	public record EdgeOutput(String source, String target, String type) {};
 
 	public record DependencyCombo(String dependency, String value, Long counter) {}
 
