@@ -26,7 +26,7 @@ public class UserBeansService {
 	private BeansEndpoint beansEndpoint;
 
 	@Autowired
-	private ApplicationContext context;
+	private ApplicationContext applicationContext;
 
     List<String> getBeansFromBeansEndpoint() {
         List<String> beanList = new ArrayList<>();
@@ -44,7 +44,7 @@ public class UserBeansService {
 
     List<String> getBeansFromApplicationContext() {
 
-        String[] beanNames = context.getBeanDefinitionNames();
+        String[] beanNames = applicationContext.getBeanDefinitionNames();
 
         return List.of(beanNames).stream().sorted().toList();
     }
@@ -67,7 +67,7 @@ public class UserBeansService {
         List<BeanDetail> result = new ArrayList<>();
         for(String beanName : beanListFromApplicationContext) {
             try {
-                Object bean = context.getBean(beanName);
+                Object bean = applicationContext.getBean(beanName);
                 Class<?> beanClass = bean.getClass();
 			    Package beanPackage = beanClass.getPackage();
 
@@ -91,7 +91,7 @@ public class UserBeansService {
         return result;
     }
 
-    public record BeanDocument(String beanName, String beanPackage, List<String> depedencies) {};
+    public record BeanDocument(String beanName, String beanPackage, List<String> depedencies) {}
 
     List<BeanDocument> getBeansDocuments() {
 
@@ -104,7 +104,7 @@ public class UserBeansService {
                 Object bean = value2;
 
                 Class<?> beanClass = bean.getClass();
-                String className = beanClass.getSimpleName();
+                //String className = beanClass.getSimpleName();
                 String packageName = beanClass.getPackageName();
                 List<String> dependencies = Arrays.asList(value2.getDependencies());
 
