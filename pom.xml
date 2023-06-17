@@ -21,7 +21,6 @@
 		<sonar.organization>jabrena</sonar.organization>
 		<sonar.projectKey>jabrena_${project.artifactId}</sonar.projectKey>
 		<sonar.login>18ec9b84411fa97bd8ed0ee09c4c4c09a3291981</sonar.login>
-		<sonar.branch.name>main</sonar.branch.name>
 	</properties>
 
 	<dependencyManagement>
