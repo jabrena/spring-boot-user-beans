@@ -142,7 +142,7 @@ public class UserDependenciesService {
 					jarPackages,
 					"",
 					"",
-					new ArrayList<String>());
+					new ArrayList<>());
 			})
 			.toList();
 	}

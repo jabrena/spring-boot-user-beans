@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
 @Service
 public class UserBeansService {
@@ -51,7 +51,7 @@ public class UserBeansService {
 
 	public record BeanDetail(String beanName, String beanPackage) {}
 
-    private Function<String, String> removePackage = (beanName) -> {
+    private UnaryOperator<String> removePackage = beanName -> {
         var beanNameParts = beanName.split("\\.");
         return (beanNameParts.length > 0) ? beanNameParts[beanNameParts.length - 1] : beanName;
     };
