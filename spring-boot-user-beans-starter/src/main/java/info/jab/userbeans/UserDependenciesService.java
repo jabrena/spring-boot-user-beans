@@ -143,7 +143,7 @@ public class UserDependenciesService {
 
 				return beanDocuments.stream()
 					.map(bd -> {
-						if(jarPackages.contains(bd)) {
+						if(jarPackages.contains(bd.beanPackage())) {
 							return new DependencyDocument(
 								dep.dependency(),
 								jarPackages,
