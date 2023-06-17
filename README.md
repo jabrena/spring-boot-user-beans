@@ -4,7 +4,7 @@
 
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=jabrena_spring-boot-user-beans)
 
-A visual way to help developers to increase awareness about minimize the number of Beans in memory.
+A visual way to help the developers to increase the awareness about the idea to minimize the number of Beans that they maintain in memory.
 
 ![](./docs/user-beans2.png)
 
@@ -40,7 +40,7 @@ curl -v http://localhost:8080/actuator/userbeans/beans | json_pp
 Enabling this spring boot property to enable this feature:
 
 ```
-management.endpoints.web.exposure.include=beans
+management.endpoints.web.exposure.include=beans,userbeans
 ```
 
 ## Spring Boot CLI

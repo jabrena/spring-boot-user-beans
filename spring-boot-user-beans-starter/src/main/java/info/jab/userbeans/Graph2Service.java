@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.beans.BeansEndpoint;
@@ -20,7 +21,10 @@ public class Graph2Service {
 	@Autowired
 	private BeansEndpoint beansEndpoint;
 
-	ResponseEntity<String> generateGraph2() {
+	@Autowired
+	private UserDependenciesService userDependenciesService;
+
+	ResponseEntity<String> generateGraph2(String param) {
 
 		List<Edge> listDependencies = new ArrayList<>();
 
@@ -40,6 +44,13 @@ public class Graph2Service {
 
 			});
 		});
+
+		if(!Objects.isNull(param)) {
+			var filterList = userDependenciesService.getDependenciesAndPackages().stream()
+				.filter(dd -> dd.dependencyName().equals(param))
+				.toList();
+		}
+
 
 		return ResponseEntity
 				.status(HttpStatus.OK)
