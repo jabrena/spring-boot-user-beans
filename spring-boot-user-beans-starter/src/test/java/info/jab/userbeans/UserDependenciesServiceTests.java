@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest(
     classes = TestApplication.class,
     properties = {"management.endpoints.web.exposure.include=beans,userbeans"})
-public class UserDependenciesServiceTests {
+class UserDependenciesServiceTests {
 
     @Autowired
     private UserDependenciesService userDependenciesService;
