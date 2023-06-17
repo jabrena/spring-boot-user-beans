@@ -49,7 +49,7 @@ public class UserBeansServiceTests {
         AtomicInteger counter = new AtomicInteger(0);
         result.stream()
             //.filter(bd -> !bd.beanPackage().contains("org.springframework.boot.actuate.beans"))
-            .sorted(Comparator.comparing(BeanDocument::beanPackage))
+            .sorted(Comparator.comparing(BeanDocument::beanName))
             .forEach(bd -> {
                 System.out.println(counter.incrementAndGet() + " " + bd.beanName() + " | " + bd.beanPackage());
             });

@@ -6,8 +6,11 @@ import org.springframework.boot.actuate.beans.BeansEndpoint.BeanDescriptor;
 import org.springframework.boot.actuate.beans.BeansEndpoint.ContextBeansDescriptor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.aop.framework.AopProxyUtils;
+import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 
 import java.util.ArrayList;
@@ -108,6 +111,15 @@ public class UserBeansService {
                 String packageName = beanClass.getPackageName();
                 List<String> dependencies = Arrays.asList(value2.getDependencies());
 
+                Class<?> targetClass = AopUtils.getTargetClass(bean);
+
+                if (AopUtils.isJdkDynamicProxy(bean)) {
+                    Class<?>[] proxiedInterfaces = AopProxyUtils.proxiedUserInterfaces(bean);
+                    Assert.isTrue(proxiedInterfaces.length == 1, "Only one proxied interface expected");
+                    targetClass = proxiedInterfaces[0];
+                }
+
+                /*
                 if(beanName.indexOf(".") != -1) {
                     StringBuilder sb = new StringBuilder();
                     var beanNameParts = beanName.split("\\.");
@@ -123,8 +135,9 @@ public class UserBeansService {
                         packageName = packageName.split("-")[1];
                     }
                 }
+                */
 
-                list.add(new BeanDocument(removePackage.apply(beanName), packageName, dependencies));
+                list.add(new BeanDocument(removePackage.apply(beanName), targetClass.getPackageName(), dependencies));
 			});
         });
 
