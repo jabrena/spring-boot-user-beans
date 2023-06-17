@@ -24,7 +24,7 @@ public class UserDependenciesServiceTests {
         var result = userDependenciesService.getDependencies();
 
         //Then
-        assertThat(result.size()).isGreaterThan(80);
+        assertThat(result).hasSizeGreaterThan(80);
     }
 
     @Test
@@ -34,7 +34,7 @@ public class UserDependenciesServiceTests {
         var result = userDependenciesService.getDependenciesAndBeans();
 
         //Then
-        assertThat(result.size()).isGreaterThan(100);
+        assertThat(result).hasSizeGreaterThan(100);
     }
 
     @Test
@@ -44,6 +44,6 @@ public class UserDependenciesServiceTests {
         var result = userDependenciesService.getDependenciesAndPackages();
 
         //Then
-        assertThat(result.size()).isGreaterThan(1500);
+        assertThat(result).hasSizeGreaterThan(1500);
     }
 }

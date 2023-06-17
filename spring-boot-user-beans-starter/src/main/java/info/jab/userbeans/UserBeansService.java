@@ -11,7 +11,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -41,20 +40,14 @@ public class UserBeansService {
 			});
 		});
 
-        return beanList.stream()
-            .sorted()
-            .peek(str -> logger.info(str))
-            .toList();
+        return beanList.stream().sorted().toList();
     }
 
     List<String> getBeansFromApplicationContext() {
 
         String[] beanNames = context.getBeanDefinitionNames();
 
-        return List.of(beanNames).stream()
-            .sorted()
-            .peek(str -> logger.info(str))
-            .toList();
+        return List.of(beanNames).stream().sorted().toList();
     }
 
     List<BeanDetail> getBeansDetails() {

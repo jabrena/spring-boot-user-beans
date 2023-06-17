@@ -4,21 +4,15 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.actuate.beans.BeansEndpoint;
 import org.springframework.boot.actuate.endpoint.web.annotation.RestControllerEndpoint;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import info.jab.userbeans.UserBeansEndpoint.DependencyCombo;
 import info.jab.userbeans.UserBeansService.BeanDetail;
 import info.jab.userbeans.UserDependenciesService.Dependency;
 import info.jab.userbeans.UserDependenciesService.DependencyBeanDetail;

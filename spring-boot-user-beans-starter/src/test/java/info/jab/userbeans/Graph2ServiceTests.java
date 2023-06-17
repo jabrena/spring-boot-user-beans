@@ -18,7 +18,7 @@ import java.util.List;
 @SpringBootTest(
     classes = TestApplication.class,
     properties = {"management.endpoints.web.exposure.include=beans,userbeans"})
-public class Graph2ServiceTests {
+class Graph2ServiceTests {
 
     @Autowired
     private Graph2Service graph2Service;
@@ -38,7 +38,7 @@ public class Graph2ServiceTests {
         myObjects = objectMapper.readValue(rawResult, GraphData[].class);
 
         //Then
-        assertThat(myObjects.length).isGreaterThan(200);
+        assertThat(myObjects).hasSizeGreaterThan(200);
     }
 
     @Test
@@ -50,6 +50,6 @@ public class Graph2ServiceTests {
         result.stream().forEach(System.out::println);
 
         //Then
-        assertThat(result.size()).isEqualTo(10);
+        assertThat(result).hasSize(10);
     }
 }

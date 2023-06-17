@@ -20,20 +20,20 @@ public class UserBeansServiceTests {
     void testGetBeansFromBeansEndpoint() {
         var result = userBeansService.getBeansFromBeansEndpoint();
 
-        assertThat(result.size()).isGreaterThan(200);
+        assertThat(result).hasSizeGreaterThan(200);
     }
 
     @Test
     void testGetBeansFromApplicationContext() {
         var result = userBeansService.getBeansFromApplicationContext();
 
-        assertThat(result.size()).isGreaterThan(200);
+        assertThat(result).hasSizeGreaterThan(200);
     }
 
         @Test
     void testGetBeansDetails() {
         var result = userBeansService.getBeansDetails();
 
-        assertThat(result.size()).isGreaterThan(100);
+        assertThat(result).hasSizeGreaterThan(100);
     }
 }

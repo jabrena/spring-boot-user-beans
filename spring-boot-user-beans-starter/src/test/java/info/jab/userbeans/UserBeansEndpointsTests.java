@@ -40,7 +40,7 @@ class UserBeansEndpointsTests {
 
     @Test
     @DisplayName("/actuator/userbeans/beans")
-    public void shouldReturnBeans() throws Exception {
+    void shouldReturnBeans() throws Exception {
 
         //Given
         final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/beans";
@@ -54,12 +54,12 @@ class UserBeansEndpointsTests {
 
         //Then
         assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
-        assertThat(result.getBody().size()).isGreaterThan(100);
+        assertThat(result.getBody()).hasSizeGreaterThan(100);
     }
 
     @Test
     @DisplayName("/actuator/userbeans/dependencies")
-    public void shouldReturnTheJarsUsedInTheApp() throws Exception {
+    void shouldReturnTheJarsUsedInTheApp() throws Exception {
 
         //Given
         final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/dependencies";
@@ -73,12 +73,12 @@ class UserBeansEndpointsTests {
 
         //Then
         assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
-        assertThat(result.getBody().size()).isGreaterThan(80);
+        assertThat(result.getBody()).hasSizeGreaterThan(80);
     }
 
     @Test
     @DisplayName("/actuator/userbeans/dependencies/packages")
-    public void shouldReturnThePackagesFromJars() throws Exception {
+    void shouldReturnThePackagesFromJars() throws Exception {
 
         //Given
         final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/dependencies/packages";
@@ -92,12 +92,12 @@ class UserBeansEndpointsTests {
 
         //Then
         assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
-        assertThat(result.getBody().size()).isGreaterThan(80);
+        assertThat(result.getBody()).hasSizeGreaterThan(80);
     }
 
     @Test
     @DisplayName("/actuator/userbeans/dependencies/beans")
-    public void shouldReturnTheBeansFromJars() throws Exception {
+    void shouldReturnTheBeansFromJars() throws Exception {
 
         //Given
         final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/dependencies/beans";
@@ -111,13 +111,13 @@ class UserBeansEndpointsTests {
 
         //Then
         assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
-        assertThat(result.getBody().size()).isGreaterThan(80);
+        assertThat(result.getBody()).hasSizeGreaterThan(80);
     }
 
     //UX
 
     @Test
-    public void shouldReturnAWebDocument() throws Exception {
+    void shouldReturnAWebDocument() throws Exception {
 
         //Given
         final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans";
@@ -133,7 +133,7 @@ class UserBeansEndpointsTests {
     }
 
     @Test
-    public void shouldGenerateAJSONForTheVisualization() throws Exception {
+    void shouldGenerateAJSONForTheVisualization() throws Exception {
 
         //Given
         final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/graph2";
@@ -152,7 +152,7 @@ class UserBeansEndpointsTests {
     }
 
     @Test
-    public void shouldReturnDataForCombo() throws Exception {
+    void shouldReturnDataForCombo() throws Exception {
 
         //Given
         final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/graph2-combo";
