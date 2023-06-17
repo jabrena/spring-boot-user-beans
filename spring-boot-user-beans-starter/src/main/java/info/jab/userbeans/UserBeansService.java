@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -26,8 +27,6 @@ public class UserBeansService {
 
 	@Autowired
 	private ApplicationContext context;
-
-	public record BeanDetail(String beanName, String beanPackage) {}
 
     List<String> getBeansFromBeansEndpoint() {
         List<String> beanList = new ArrayList<>();
@@ -50,12 +49,14 @@ public class UserBeansService {
         return List.of(beanNames).stream().sorted().toList();
     }
 
-    List<BeanDetail> getBeansDetails() {
+	public record BeanDetail(String beanName, String beanPackage) {}
 
-        Function<String, String> removePackage = (beanName) -> {
-            var beanNameParts = beanName.split("\\.");
-            return (beanNameParts.length > 0) ? beanNameParts[beanNameParts.length - 1] : beanName;
-        };
+    private Function<String, String> removePackage = (beanName) -> {
+        var beanNameParts = beanName.split("\\.");
+        return (beanNameParts.length > 0) ? beanNameParts[beanNameParts.length - 1] : beanName;
+    };
+
+    List<BeanDetail> getBeansDetails() {
 
         var beansFromBeansEndpoint = getBeansFromBeansEndpoint().stream()
             .map(String::toLowerCase)
@@ -89,4 +90,29 @@ public class UserBeansService {
 
         return result;
     }
+
+    public record BeanDocument(String beanName, String beanPackage, List<String> depedencies) {};
+
+    List<BeanDocument> getBeansDocuments() {
+
+        List<BeanDocument> list = new ArrayList<>();
+        Map<String, ContextBeansDescriptor> context = beansEndpoint.beans().getContexts();
+		context.forEach((key, value) -> {
+            Map<String, BeanDescriptor> beans = value.getBeans();
+			beans.forEach((key2, value2) -> {
+                String beanName = key2;
+                Object bean = value2;
+
+                Class<?> beanClass = bean.getClass();
+                String className = beanClass.getSimpleName();
+                String packageName = beanClass.getPackageName();
+                List<String> dependencies = Arrays.asList(value2.getDependencies());
+
+                list.add(new BeanDocument(removePackage.apply(beanName), packageName, dependencies));
+			});
+        });
+
+        return list;
+    }
+
 }

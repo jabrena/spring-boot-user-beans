@@ -4,9 +4,14 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import ch.qos.logback.core.model.processor.DependencyDefinition;
 import info.jab.support.TestApplication;
+import info.jab.userbeans.UserDependenciesService.DependencyDocument;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
+import java.io.File;
+import java.util.Comparator;
 
 @SpringBootTest(
     classes = TestApplication.class,
@@ -60,5 +65,21 @@ class UserDependenciesServiceTests {
 
         //Then
         assertThat(result).hasSizeGreaterThan(1500);
+    }
+
+    @Test
+    void getDependencyDocuments() {
+        //Given
+        //When
+        var result = userDependenciesService.getDependencyDocuments();
+
+        //Then
+        result.stream()
+            .filter(dd -> dd.dependency().contains("spring-boot-actuator"))
+            .sorted(Comparator.comparing(DependencyDocument::dependency))
+            .limit(2)
+            .forEach(dd -> {
+                System.out.println(dd.dependency() + " " + dd.packages().size());
+            });
     }
 }

@@ -1,5 +1,7 @@
 package info.jab.userbeans;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,14 +19,17 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
+import java.util.stream.Collectors;
 
 @Service
 public class UserDependenciesService {
 
+    private static final Logger logger = LoggerFactory.getLogger(Graph2Service.class);
+
 	@Autowired
 	private UserBeansService userBeansService;
 
-	public record Dependency(String dependency) {}
+	public record Dependency(String dependency, String classpath) {}
 
 	List<Dependency> getDependencies() {
 
@@ -35,8 +40,8 @@ public class UserDependenciesService {
 		//target/classes
 		return Arrays.stream(classpathEntries)
 				.filter(path -> path.contains(".jar"))
-				.map(removePath)
-				.map(Dependency::new)
+				//.map(removePath)
+				.map(str -> new Dependency(removePath.apply(str), str))
 				.sorted(Comparator.comparing(Dependency::dependency))
 				.toList();
 	}
@@ -89,7 +94,7 @@ public class UserDependenciesService {
             }
 
 		} catch (IOException e) {
-			// TODO: handle exception
+			logger.warn(e.getMessage());
 		}
 
         return packages;
@@ -98,8 +103,6 @@ public class UserDependenciesService {
 	public record DependencyBeanDetail(String dependencyName, String beanName) {}
 
 	List<DependencyBeanDetail> getDependenciesAndBeans() {
-
-		List<DependencyBeanDetail> list = new ArrayList();
 
 		List<DependencyDetail> dependencyDetail = getDependenciesAndPackages();
 		List<BeanDetail> beanList = userBeansService.getBeansDetails();
@@ -120,6 +123,27 @@ public class UserDependenciesService {
 				}
 			})
 			.sorted(Comparator.comparing(DependencyBeanDetail::dependencyName))
+			.toList();
+	}
+
+	public record DependencyDocument(
+		String dependency, List<String> packages, String beanName,
+		String beanPackage, List<String> beanDependencies) {}
+
+	public List<DependencyDocument> getDependencyDocuments() {
+
+		List<Dependency> jars = getDependencies();
+		return jars.stream()
+			.map(dep -> {
+				List<String> jarPackages = listPackagesInJar(dep.classpath()).stream()
+					.collect(Collectors.toList());
+				return new DependencyDocument(
+					dep.dependency(),
+					jarPackages,
+					"",
+					"",
+					new ArrayList<String>());
+			})
 			.toList();
 	}
 

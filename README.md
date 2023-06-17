@@ -29,6 +29,7 @@ https://en.wikipedia.org/wiki/Convention_over_configuration
 ```bash
 mvn clean verify
 mvn spring-boot:run -pl examples/hello-world/ -am -Puserbeans
+mvn clean test -Dtest=UserDependenciesServiceTests#getDependencyDocuments -pl spring-boot-user-beans-starter/
 
 #UX
 curl -v http://localhost:8080/actuator/userbeans/graph2-combo | json_pp
