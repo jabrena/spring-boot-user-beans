@@ -19,4 +19,4 @@ jobs:
 
       - name: Maven Verify
         run: |
-          ./mvnw --batch-mode --no-transfer-progress -B verify sonar:sonar
+          ./mvnw --batch-mode --no-transfer-progress -B verify
