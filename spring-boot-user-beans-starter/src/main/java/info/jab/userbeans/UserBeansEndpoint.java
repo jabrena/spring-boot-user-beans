@@ -10,7 +10,9 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.actuate.beans.BeansEndpoint;
 import org.springframework.boot.actuate.endpoint.web.annotation.RestControllerEndpoint;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -74,7 +76,7 @@ public class UserBeansEndpoint {
 
 		System.out.println(dependency);
 
-		return graph2Service.generateGraph2();
+		return graph2Service.generateGraph2(dependency);
 	}
 
 	public record DependencyCombo(String dependency, String value) {}

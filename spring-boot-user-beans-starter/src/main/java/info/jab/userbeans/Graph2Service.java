@@ -45,9 +45,30 @@ public class Graph2Service {
 			});
 		});
 
+		/*
 		if(!Objects.isNull(param)) {
-			var filterList = userDependenciesService.getDependenciesAndPackages().stream()
+			var filterList = userDependenciesService.getDependenciesAndBeans().stream()
 				.filter(dd -> dd.dependencyName().equals(param))
+				//.peek(System.out::println)
+				.toList();
+
+			System.out.println(source);
+			if (filterList.contains(source)) {
+				listDependencies.add(new Edge(source, dependencyValue));
+			}
+		} else {
+			listDependencies.add(new Edge(source, dependencyValue));
+		}
+		*/
+
+
+		System.out.println("----");
+
+		if(!Objects.isNull(param)) {
+			var filterList = userDependenciesService.getDependenciesAndBeans().stream()
+				.filter(dd -> dd.dependencyName().equals(param))
+				.map(dd -> dd.beanName())
+				.peek(System.out::println)
 				.toList();
 		}
 

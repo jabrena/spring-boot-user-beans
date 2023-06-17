@@ -35,6 +35,25 @@ class UserBeansEndpointsTests {
     int randomServerPort;
 
     @Test
+    public void shouldReceiveTheListOfBeans() throws Exception {
+
+        //Given
+        final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/beans";
+
+        //When
+        ResponseEntity<List<Dependency>> result = this.restTemplate.exchange(
+                baseUrl,
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<>() {
+                });
+
+        //Then
+        assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
+        //assertThat(result.getBody().size()).isGreaterThan(0);
+    }
+
+    @Test
     public void shouldReceiveTheListOfDependencies() throws Exception {
 
         //Given

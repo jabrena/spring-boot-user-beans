@@ -4,7 +4,7 @@
 
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=jabrena_spring-boot-user-beans)
 
-A visual way to help the developers to increase the awareness about the idea to minimize the number of Beans that they maintain in memory.
+A visual way to increase the developer awareness to minimize the number of Beans that they maintain in memory.
 
 ![](./docs/user-beans2.png)
 
@@ -29,6 +29,11 @@ https://en.wikipedia.org/wiki/Convention_over_configuration
 ```bash
 mvn clean verify
 mvn spring-boot:run -pl examples/hello-world/ -am
+
+#UX
+curl -v http://localhost:8080/actuator/userbeans/graph2-combo | json_pp
+curl -v http://localhost:8080/actuator/userbeans/graph2 | json_pp
+
 curl -v http://localhost:8080/actuator/userbeans/dependencies | json_pp
 curl -v http://localhost:8080/actuator/userbeans/dependencies/packages | json_pp
 curl -v http://localhost:8080/actuator/userbeans/dependencies/beans | json_pp
