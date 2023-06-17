@@ -73,9 +73,6 @@ public class UserBeansEndpoint {
 
 	@GetMapping(path= "/graph2", produces = MediaType.APPLICATION_JSON_VALUE)
 	ResponseEntity<String> graph2(@RequestParam(required = false) String dependency) {
-
-		System.out.println(dependency);
-
 		return graph2Service.generateGraph2(dependency);
 	}
 
@@ -83,17 +80,6 @@ public class UserBeansEndpoint {
 
 	@GetMapping(path= "/graph2-combo", produces = MediaType.APPLICATION_JSON_VALUE)
 	ResponseEntity<List<DependencyCombo>> graph_combo2() {
-
-		Map<String, Long> beanCountPerJar = userDependenciesService.getDependenciesAndBeans().stream()
-			.collect(Collectors.groupingBy(DependencyBeanDetail::dependencyName, Collectors.counting()));
-
-		var result = beanCountPerJar.entrySet().stream()
-			.map(e -> new DependencyCombo(e.getKey(), e.getKey() + " (" + e.getValue() + ")"))
-			.sorted(Comparator.comparing(DependencyCombo::dependency))
-			.toList();
-
-		return ResponseEntity.ok().body(result);
+		return graph2Service.generateGraph2Combo();
 	}
-
-
 }

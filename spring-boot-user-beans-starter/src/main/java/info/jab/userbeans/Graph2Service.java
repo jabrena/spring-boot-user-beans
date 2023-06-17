@@ -2,9 +2,10 @@ package info.jab.userbeans;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.beans.BeansEndpoint;
@@ -14,6 +15,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import info.jab.userbeans.UserBeansEndpoint.DependencyCombo;
+import info.jab.userbeans.UserDependenciesService.DependencyBeanDetail;
 
 @Service
 public class Graph2Service {
@@ -45,34 +49,6 @@ public class Graph2Service {
 			});
 		});
 
-		/*
-		if(!Objects.isNull(param)) {
-			var filterList = userDependenciesService.getDependenciesAndBeans().stream()
-				.filter(dd -> dd.dependencyName().equals(param))
-				//.peek(System.out::println)
-				.toList();
-
-			System.out.println(source);
-			if (filterList.contains(source)) {
-				listDependencies.add(new Edge(source, dependencyValue));
-			}
-		} else {
-			listDependencies.add(new Edge(source, dependencyValue));
-		}
-		*/
-
-
-		System.out.println("----");
-
-		if(!Objects.isNull(param)) {
-			var filterList = userDependenciesService.getDependenciesAndBeans().stream()
-				.filter(dd -> dd.dependencyName().equals(param))
-				.map(dd -> dd.beanName())
-				.peek(System.out::println)
-				.toList();
-		}
-
-
 		return ResponseEntity
 				.status(HttpStatus.OK)
 				.contentType(MediaType.APPLICATION_JSON)
@@ -99,5 +75,17 @@ public class Graph2Service {
 		result.append("]\n");
 
 		return result.toString();
+	}
+
+	public ResponseEntity<List<DependencyCombo>> generateGraph2Combo() {
+		Map<String, Long> beanCountPerJar = userDependenciesService.getDependenciesAndBeans().stream()
+			.collect(Collectors.groupingBy(DependencyBeanDetail::dependencyName, Collectors.counting()));
+
+		var result = beanCountPerJar.entrySet().stream()
+			.map(e -> new DependencyCombo(e.getKey(), e.getKey() + " (" + e.getValue() + ")"))
+			.sorted(Comparator.comparing(DependencyCombo::dependency))
+			.toList();
+
+		return ResponseEntity.ok().body(result);
 	}
 }

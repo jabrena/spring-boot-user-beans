@@ -67,7 +67,7 @@
 
 	<profiles>
 		<profile>
-			<id>user-beans</id>
+			<id>userbeans</id>
 
 			<dependencies>
 				<dependency>

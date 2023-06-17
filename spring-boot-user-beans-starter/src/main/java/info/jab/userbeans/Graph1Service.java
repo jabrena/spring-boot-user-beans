@@ -1,5 +1,7 @@
 package info.jab.userbeans;
 
+/*
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -87,3 +89,4 @@ public class Graph1Service {
 	}
 
 }
+*/
