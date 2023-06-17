@@ -1,6 +1,7 @@
 package info.jab.userbeans;
 
 import info.jab.support.TestApplication;
+import info.jab.userbeans.UserDependenciesService.Dependency;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,20 +35,37 @@ class UserBeansEndpointsTests {
     int randomServerPort;
 
     @Test
-    public void shouldReceiveTheListOfDependencies() throws Exception {
+    public void shouldReceiveTheListOfBeans() throws Exception {
 
         //Given
-        final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/dependencies";
+        final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/beans";
 
         //When
-        ResponseEntity<List<String>> result = this.restTemplate.exchange(
+        ResponseEntity<List<Dependency>> result = this.restTemplate.exchange(
                 baseUrl,
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<>() {
                 });
 
-        result.getBody().stream().sorted().forEach(System.out::println);
+        //Then
+        assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
+        //assertThat(result.getBody().size()).isGreaterThan(0);
+    }
+
+    @Test
+    public void shouldReceiveTheListOfDependencies() throws Exception {
+
+        //Given
+        final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/dependencies";
+
+        //When
+        ResponseEntity<List<Dependency>> result = this.restTemplate.exchange(
+                baseUrl,
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<>() {
+                });
 
         //Then
         assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));

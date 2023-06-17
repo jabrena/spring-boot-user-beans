@@ -24,7 +24,9 @@ public class UserDependenciesService {
 	@Autowired
 	private UserBeansService userBeansService;
 
-	List<String> getDependencies() {
+	public record Dependency(String dependency) {}
+
+	List<Dependency> getDependencies() {
 
 		String classpath = System.getProperty("java.class.path");
 		String[] classpathEntries = classpath.split(File.pathSeparator);
@@ -34,7 +36,8 @@ public class UserDependenciesService {
 		return Arrays.stream(classpathEntries)
 				.filter(path -> path.contains(".jar"))
 				.map(removePath)
-				.sorted()
+				.map(Dependency::new)
+				.sorted(Comparator.comparing(Dependency::dependency))
 				.toList();
 	}
 

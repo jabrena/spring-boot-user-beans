@@ -4,7 +4,7 @@
 
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=jabrena_spring-boot-user-beans)
 
-A visual way to help developers to increase awareness about minimize the number of Beans in memory.
+A visual way to increase the developer awareness to minimize the number of Beans that they maintain in memory.
 
 ![](./docs/user-beans2.png)
 
@@ -29,8 +29,11 @@ https://en.wikipedia.org/wiki/Convention_over_configuration
 ```bash
 mvn clean verify
 mvn spring-boot:run -pl examples/hello-world/ -am
-curl http://localhost:8080/graph1 | json_pp
-curl http://localhost:8080/graph2 | json_pp
+
+#UX
+curl -v http://localhost:8080/actuator/userbeans/graph2-combo | json_pp
+curl -v http://localhost:8080/actuator/userbeans/graph2 | json_pp
+
 curl -v http://localhost:8080/actuator/userbeans/dependencies | json_pp
 curl -v http://localhost:8080/actuator/userbeans/dependencies/packages | json_pp
 curl -v http://localhost:8080/actuator/userbeans/dependencies/beans | json_pp
@@ -42,7 +45,7 @@ curl -v http://localhost:8080/actuator/userbeans/beans | json_pp
 Enabling this spring boot property to enable this feature:
 
 ```
-management.endpoints.web.exposure.include=beans
+management.endpoints.web.exposure.include=beans,userbeans
 ```
 
 ## Spring Boot CLI
@@ -50,6 +53,20 @@ management.endpoints.web.exposure.include=beans
 ```
 sdk install springboot
 spring init -d=web,devtools --build=maven --force ./
+```
+
+## How to show the coverage on Codespaces?
+
+```bash
+# Step 1: Launch the webserver with the JACOCO Report
+mvn clean verify
+sdk install java 20-tem
+sdk use java 20-tem
+jwebserver -p 9000 -d "$(pwd)/coverage-module/target/site/jacoco-aggregate/"
+
+# Step 2: Stop the webserver & use the default Java version
+sdk env install
+sdk env
 ```
 
 ## References
@@ -63,3 +80,4 @@ spring init -d=web,devtools --build=maven --force ./
 - https://github.com/j3soon/directed-graph-visualization
 - https://d3js.org/
 - https://www.webjars.org/all
+- https://www.eclemma.org/jacoco/trunk/doc/maven.html
