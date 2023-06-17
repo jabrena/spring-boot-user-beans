@@ -14,6 +14,9 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>17</java.version>
 		<spring-boot.version>3.1.0</spring-boot.version>
+		<sonar.coverage.jacoco.xmlReportPaths>
+    		${project.basedir}/report-aggregate/target/site/jacoco-aggregate/jacoco.xml
+  		</sonar.coverage.jacoco.xmlReportPaths>
 	</properties>
 
 	<dependencyManagement>
@@ -70,42 +73,15 @@
 				<version>0.8.10</version>
 				<executions>
 					<execution>
-						<id>prepare-agent</id>
+						<id>report-aggregate</id>
+						<phase>verify</phase>
 						<goals>
-							<goal>prepare-agent</goal>
+							<goal>report-aggregate</goal>
 						</goals>
-					</execution>
-					<execution>
-						<id>report</id>
-						<goals>
-							<goal>report</goal>
-						</goals>
-						<configuration>
-							<formats>
-								<format>XML</format>
-							</formats>
-						</configuration>
 					</execution>
 				</executions>
 			</plugin>
 		</plugins>
 	</build>
-
-	<reporting>
-		<plugins>
-		<plugin>
-			<groupId>org.jacoco</groupId>
-			<artifactId>jacoco-maven-plugin</artifactId>
-			<reportSets>
-				<reportSet>
-					<reports>
-					<!-- select non-aggregate reports -->
-					<report>report</report>
-					</reports>
-				</reportSet>
-			</reportSets>
-		</plugin>
-		</plugins>
-	</reporting>
 
 </project>
