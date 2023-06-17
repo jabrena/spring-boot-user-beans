@@ -29,8 +29,6 @@ https://en.wikipedia.org/wiki/Convention_over_configuration
 ```bash
 mvn clean verify
 mvn spring-boot:run -pl examples/hello-world/ -am
-curl http://localhost:8080/graph1 | json_pp
-curl http://localhost:8080/graph2 | json_pp
 curl -v http://localhost:8080/actuator/userbeans/dependencies | json_pp
 curl -v http://localhost:8080/actuator/userbeans/dependencies/packages | json_pp
 curl -v http://localhost:8080/actuator/userbeans/dependencies/beans | json_pp

@@ -38,6 +38,23 @@ text {
 </style>
 </head>
 <body>
+  <form>
+    <select id="jars"></select>
+  </form>
+  <script>
+    fetch('/actuator/userbeans/dependencies')
+    .then(response => response.json())
+    .then(data => {
+      var selectElement = document.getElementById('jars');
+      data.forEach(obj => {
+        var option = document.createElement('option');
+        option.value = obj.dependency;
+        option.textContent = obj.dependency;
+        selectElement.appendChild(option);
+      });
+    })
+  .catch(error => console.log(error));
+  </script>
   <!-- TODO Upgrade to d3.v7.min.js -->
   <script
     src="//d3js.org/d3.v3.min.js"

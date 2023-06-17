@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import info.jab.userbeans.UserBeansService.BeanDetail;
+import info.jab.userbeans.UserDependenciesService.Dependency;
 import info.jab.userbeans.UserDependenciesService.DependencyBeanDetail;
 import info.jab.userbeans.UserDependenciesService.DependencyDetail;
 
@@ -31,7 +32,7 @@ public class UserBeansEndpoint {
 	}
 
 	@GetMapping(path= "dependencies", produces = MediaType.APPLICATION_JSON_VALUE)
-	ResponseEntity<List<String>> getDependencies() {
+	ResponseEntity<List<Dependency>> getDependencies() {
 		return ResponseEntity.ok(userDependenciesService.getDependencies());
 	}
 
