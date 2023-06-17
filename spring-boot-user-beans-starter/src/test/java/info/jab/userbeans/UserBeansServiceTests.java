@@ -5,9 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import info.jab.support.TestApplication;
+import info.jab.userbeans.UserBeansService.BeanDocument;
+import info.jab.userbeans.UserDependenciesService.DependencyDocument;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.Comparator;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @SpringBootTest(
@@ -45,7 +48,8 @@ public class UserBeansServiceTests {
 
         AtomicInteger counter = new AtomicInteger(0);
         result.stream()
-            //.filter(bd -> !bd.beanPackage().contains("actuate"))
+            //.filter(bd -> !bd.beanPackage().contains("org.springframework.boot.actuate.beans"))
+            .sorted(Comparator.comparing(BeanDocument::beanPackage))
             .forEach(bd -> {
                 System.out.println(counter.incrementAndGet() + " " + bd.beanName() + " | " + bd.beanPackage());
             });

@@ -108,6 +108,22 @@ public class UserBeansService {
                 String packageName = beanClass.getPackageName();
                 List<String> dependencies = Arrays.asList(value2.getDependencies());
 
+                if(beanName.indexOf(".") != -1) {
+                    StringBuilder sb = new StringBuilder();
+                    var beanNameParts = beanName.split("\\.");
+                    for(int x = 0; x <= beanNameParts.length - 2; x++) {
+                        sb.append(beanNameParts[x]);
+                        sb.append(".");
+                    }
+                    var newPackageName = sb.toString();
+                    packageName = newPackageName.substring(0, newPackageName.length() - 1);
+
+                    //Remove "-"
+                    if(packageName.indexOf("-") != -1) {
+                        packageName = packageName.split("-")[1];
+                    }
+                }
+
                 list.add(new BeanDocument(removePackage.apply(beanName), packageName, dependencies));
 			});
         });
