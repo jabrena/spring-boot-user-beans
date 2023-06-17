@@ -1,11 +1,9 @@
 package info.jab.userbeans;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.endpoint.web.annotation.RestControllerEndpoint;
 import org.springframework.http.MediaType;
@@ -13,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import info.jab.userbeans.Graph2Service.DependencyCombo;
 import info.jab.userbeans.UserBeansService.BeanDetail;
 import info.jab.userbeans.UserDependenciesService.Dependency;
 import info.jab.userbeans.UserDependenciesService.DependencyBeanDetail;
@@ -20,6 +19,8 @@ import info.jab.userbeans.UserDependenciesService.DependencyDetail;
 
 @RestControllerEndpoint(id = "userbeans")
 public class UserBeansEndpoint {
+
+    Logger logger = LoggerFactory.getLogger(Graph2Service.class);
 
 	@Autowired
 	private UserBeansService userBeansService;
@@ -53,27 +54,17 @@ public class UserBeansEndpoint {
 	private Graph2Service graph2Service;
 
 	@GetMapping(path= "/", produces = MediaType.TEXT_HTML_VALUE)
-	ResponseEntity<String> ux() {
-
-		var html = "";
-		try {
-			html = Files.readString(Paths.get(getClass().getClassLoader().getResource("static/graph2.html").toURI()));
-		} catch (IOException | URISyntaxException e) {
-			e.printStackTrace();
-		}
-
-		return ResponseEntity.ok().body(html);
+	ResponseEntity<String> loadWebDocument() {
+		return ResponseEntity.ok().body(graph2Service.generateHTML());
 	}
 
 	@GetMapping(path= "/graph2", produces = MediaType.APPLICATION_JSON_VALUE)
 	ResponseEntity<String> graph2(@RequestParam(required = false) String dependency) {
-		return graph2Service.generateGraph2(dependency);
+		return ResponseEntity.ok().body(graph2Service.generateGraph2(dependency));
 	}
-
-	public record DependencyCombo(String dependency, String value) {}
 
 	@GetMapping(path= "/graph2-combo", produces = MediaType.APPLICATION_JSON_VALUE)
 	ResponseEntity<List<DependencyCombo>> graph_combo2() {
-		return graph2Service.generateGraph2Combo();
+		return ResponseEntity.ok().body(graph2Service.generateGraph2Combo());
 	}
 }

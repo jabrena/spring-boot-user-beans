@@ -31,10 +31,25 @@ class UserDependenciesServiceTests {
     void testGetDependenciesAndBeans() {
         //Given
         //When
-        var result = userDependenciesService.getDependenciesAndBeans();
+        var results = userDependenciesService.getDependenciesAndBeans();
 
         //Then
-        assertThat(result).hasSizeGreaterThan(100);
+        assertThat(results).hasSizeGreaterThan(100);
+    }
+
+    @Test
+    void testGetDependenciesAndBeansWithFilter() {
+        //Given
+        var dependencyToFilter = "UNKNOWN";
+
+        //When
+        var results = userDependenciesService.getDependenciesAndBeans();
+        var resultsFilterd = results.stream()
+            .filter(dbd -> dbd.dependencyName().equals(dependencyToFilter))
+            .toList();
+
+        //Then
+        assertThat(resultsFilterd).hasSizeGreaterThan(0);
     }
 
     @Test

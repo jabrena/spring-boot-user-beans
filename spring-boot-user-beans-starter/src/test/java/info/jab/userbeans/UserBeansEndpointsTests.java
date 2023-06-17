@@ -1,7 +1,7 @@
 package info.jab.userbeans;
 
 import info.jab.support.TestApplication;
-import info.jab.userbeans.UserBeansEndpoint.DependencyCombo;
+import info.jab.userbeans.Graph2Service.DependencyCombo;
 import info.jab.userbeans.UserDependenciesService.Dependency;
 import info.jab.userbeans.UserDependenciesService.DependencyBeanDetail;
 import info.jab.userbeans.UserDependenciesService.DependencyDetail;
