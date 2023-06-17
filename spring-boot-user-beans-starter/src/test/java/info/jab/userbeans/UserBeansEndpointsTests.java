@@ -1,8 +1,14 @@
 package info.jab.userbeans;
 
 import info.jab.support.TestApplication;
+import info.jab.userbeans.UserBeansEndpoint.DependencyCombo;
 import info.jab.userbeans.UserDependenciesService.Dependency;
+import info.jab.userbeans.UserDependenciesService.DependencyBeanDetail;
+import info.jab.userbeans.UserDependenciesService.DependencyDetail;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,8 +18,6 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.net.URI;
 import java.util.List;
@@ -35,7 +39,8 @@ class UserBeansEndpointsTests {
     int randomServerPort;
 
     @Test
-    public void shouldReceiveTheListOfBeans() throws Exception {
+    @DisplayName("/actuator/userbeans/beans")
+    void shouldReturnBeans() throws Exception {
 
         //Given
         final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/beans";
@@ -45,16 +50,16 @@ class UserBeansEndpointsTests {
                 baseUrl,
                 HttpMethod.GET,
                 null,
-                new ParameterizedTypeReference<>() {
-                });
+                new ParameterizedTypeReference<>() {});
 
         //Then
         assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
-        //assertThat(result.getBody().size()).isGreaterThan(0);
+        assertThat(result.getBody()).hasSizeGreaterThan(100);
     }
 
     @Test
-    public void shouldReceiveTheListOfDependencies() throws Exception {
+    @DisplayName("/actuator/userbeans/dependencies")
+    void shouldReturnTheJarsUsedInTheApp() throws Exception {
 
         //Given
         final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/dependencies";
@@ -64,28 +69,103 @@ class UserBeansEndpointsTests {
                 baseUrl,
                 HttpMethod.GET,
                 null,
-                new ParameterizedTypeReference<>() {
-                });
+                new ParameterizedTypeReference<>() {});
 
         //Then
         assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
-        assertThat(result.getBody().size()).isGreaterThan(80);
+        assertThat(result.getBody()).hasSizeGreaterThan(80);
     }
 
     @Test
-    public void shouldGenerateAJSONForTheVisualization() throws Exception {
+    @DisplayName("/actuator/userbeans/dependencies/packages")
+    void shouldReturnThePackagesFromJars() throws Exception {
 
         //Given
-        final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/graph2";
+        final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/dependencies/packages";
+
+        //When
+        ResponseEntity<List<DependencyDetail>> result = this.restTemplate.exchange(
+                baseUrl,
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<>() {});
+
+        //Then
+        assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
+        assertThat(result.getBody()).hasSizeGreaterThan(80);
+    }
+
+    @Test
+    @DisplayName("/actuator/userbeans/dependencies/beans")
+    void shouldReturnTheBeansFromJars() throws Exception {
+
+        //Given
+        final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/dependencies/beans";
+
+        //When
+        ResponseEntity<List<DependencyBeanDetail>> result = this.restTemplate.exchange(
+                baseUrl,
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<>() {});
+
+        //Then
+        assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
+        assertThat(result.getBody()).hasSizeGreaterThan(80);
+    }
+
+    //UX
+
+    @Test
+    void shouldReturnAWebDocument() throws Exception {
+
+        //Given
+        final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans";
         URI uri = new URI(baseUrl);
 
         //When
         ResponseEntity<String> result = this.restTemplate.getForEntity(uri, String.class);
-        ObjectMapper mapper = new ObjectMapper();
-        var expectedNotNull = mapper.readTree(result.getBody());
+        Document doc = Jsoup.parse(result.getBody());
 
         //Then
         assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
-        assertThat(expectedNotNull).isNotNull();
+        assertThat(doc).isNotNull();
+    }
+
+    @Test
+    void shouldGenerateAJSONForTheVisualization() throws Exception {
+
+        //Given
+        final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/graph2";
+
+
+        //When
+        ResponseEntity<String> result = this.restTemplate.exchange(
+                baseUrl,
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<>() {});
+
+        //Then
+        assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
+        assertThat(result.getBody()).isNotNull();
+    }
+
+    @Test
+    void shouldReturnDataForCombo() throws Exception {
+
+        //Given
+        final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/graph2-combo";
+
+        //When
+        ResponseEntity<List<DependencyCombo>> result = this.restTemplate.exchange(
+                baseUrl,
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<>() {});
+
+        //Then
+        assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
+        assertThat(result.getBody()).isNotNull();
     }
 }

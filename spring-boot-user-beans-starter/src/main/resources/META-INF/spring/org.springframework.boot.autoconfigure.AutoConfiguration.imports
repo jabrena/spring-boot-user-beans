@@ -2,5 +2,4 @@ info.jab.userbeans.UserBeansEndpoint
 info.jab.userbeans.UserBeansService
 info.jab.userbeans.UserDependenciesService
 
-info.jab.userbeans.Graph1Service
 info.jab.userbeans.Graph2Service

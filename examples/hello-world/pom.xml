@@ -8,7 +8,7 @@
 		<artifactId>examples</artifactId>
 		<version>0.1.0-SNAPSHOT</version>
 	</parent>
-	
+
 	<groupId>info.jab.ms</groupId>
 	<artifactId>hello-world</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
@@ -30,21 +30,14 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
-		<!-- The new dependency -->
-		<dependency>
-			<groupId>info.jab.ms</groupId>
-			<artifactId>spring-boot-user-beans-starter</artifactId>
-			<version>0.1.0-SNAPSHOT</version>
-		</dependency>
 
-		<!-- 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
-		-->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -72,4 +65,17 @@
 		</plugins>
 	</build>
 
+	<profiles>
+		<profile>
+			<id>userbeans</id>
+
+			<dependencies>
+				<dependency>
+					<groupId>info.jab.ms</groupId>
+					<artifactId>spring-boot-user-beans-starter</artifactId>
+					<version>0.1.0-SNAPSHOT</version>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
 </project>

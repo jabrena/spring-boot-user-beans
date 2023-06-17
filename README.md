@@ -28,7 +28,7 @@ https://en.wikipedia.org/wiki/Convention_over_configuration
 
 ```bash
 mvn clean verify
-mvn spring-boot:run -pl examples/hello-world/ -am
+mvn spring-boot:run -pl examples/hello-world/ -am -Puserbeans
 
 #UX
 curl -v http://localhost:8080/actuator/userbeans/graph2-combo | json_pp
