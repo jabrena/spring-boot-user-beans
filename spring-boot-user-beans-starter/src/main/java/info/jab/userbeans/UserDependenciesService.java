@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 @Service
 public class UserDependenciesService {
 
-    private static final Logger logger = LoggerFactory.getLogger(Graph2Service.class);
+    private static final Logger logger = LoggerFactory.getLogger(UserDependenciesService.class);
 
 	@Autowired
 	private UserBeansService userBeansService;
@@ -135,8 +135,7 @@ public class UserDependenciesService {
 		List<Dependency> jars = getDependencies();
 		return jars.stream()
 			.map(dep -> {
-				List<String> jarPackages = listPackagesInJar(dep.classpath()).stream()
-					.collect(Collectors.toList());
+				List<String> jarPackages = listPackagesInJar(dep.classpath()).stream().toList();
 				return new DependencyDocument(
 					dep.dependency(),
 					jarPackages,
