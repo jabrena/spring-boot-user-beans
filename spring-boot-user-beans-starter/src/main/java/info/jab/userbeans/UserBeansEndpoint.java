@@ -4,14 +4,19 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.endpoint.web.annotation.RestControllerEndpoint;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import info.jab.userbeans.UserBeansEndpoint.DependencyCombo;
 import info.jab.userbeans.UserBeansService.BeanDetail;
 import info.jab.userbeans.UserDependenciesService.Dependency;
 import info.jab.userbeans.UserDependenciesService.DependencyBeanDetail;
@@ -65,7 +70,28 @@ public class UserBeansEndpoint {
 	}
 
 	@GetMapping(path= "/graph2", produces = MediaType.APPLICATION_JSON_VALUE)
-	ResponseEntity<String> graph2() {
+	ResponseEntity<String> graph2(@RequestParam(required = false) String dependency) {
+
+		System.out.println(dependency);
+
 		return graph2Service.generateGraph2();
 	}
+
+	public record DependencyCombo(String dependency, String value) {}
+
+	@GetMapping(path= "/graph2-combo", produces = MediaType.APPLICATION_JSON_VALUE)
+	ResponseEntity<List<DependencyCombo>> graph_combo2() {
+
+		Map<String, Long> beanCountPerJar = userDependenciesService.getDependenciesAndBeans().stream()
+			.collect(Collectors.groupingBy(DependencyBeanDetail::dependencyName, Collectors.counting()));
+
+		var result = beanCountPerJar.entrySet().stream()
+			.map(e -> new DependencyCombo(e.getKey(), e.getKey() + " (" + e.getValue() + ")"))
+			.sorted(Comparator.comparing(DependencyCombo::dependency))
+			.toList();
+
+		return ResponseEntity.ok().body(result);
+	}
+
+
 }
