@@ -12,6 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.File;
 import java.util.Comparator;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @SpringBootTest(
     classes = TestApplication.class,
@@ -74,12 +75,15 @@ class UserDependenciesServiceTests {
         var result = userDependenciesService.getDependencyDocuments();
 
         //Then
+        AtomicInteger counter = new AtomicInteger(0);
         result.stream()
-            .filter(dd -> dd.dependency().contains("spring-boot-actuator"))
+            //.filter(dd -> dd.dependency().contains("spring-boot-actuator"))
             .sorted(Comparator.comparing(DependencyDocument::dependency))
-            .limit(2)
+            //.limit(2)
             .forEach(dd -> {
+                counter.incrementAndGet();
                 System.out.println(dd.dependency() + " " + dd.packages().size());
             });
+            System.out.println(counter);
     }
 }

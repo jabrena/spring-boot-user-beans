@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import info.jab.userbeans.UserBeansService.BeanDetail;
+import info.jab.userbeans.UserBeansService.BeanDocument;
 
 import java.io.File;
 import java.io.IOException;
@@ -130,18 +131,34 @@ public class UserDependenciesService {
 		String dependency, List<String> packages, String beanName,
 		String beanPackage, List<String> beanDependencies) {}
 
+	record Tuple(String beanName, String beanPackage) {};
+
 	public List<DependencyDocument> getDependencyDocuments() {
 
+		List<BeanDocument> beanDocuments = userBeansService.getBeansDocuments();
 		List<Dependency> jars = getDependencies();
 		return jars.stream()
-			.map(dep -> {
+			.flatMap(dep -> {
 				List<String> jarPackages = listPackagesInJar(dep.classpath()).stream().toList();
-				return new DependencyDocument(
-					dep.dependency(),
-					jarPackages,
-					"",
-					"",
-					new ArrayList<>());
+
+				return beanDocuments.stream()
+					.map(bd -> {
+						if(jarPackages.contains(bd)) {
+							return new DependencyDocument(
+								dep.dependency(),
+								jarPackages,
+								bd.beanName(),
+								bd.beanPackage(),
+								bd.depedencies());
+						}
+						return new DependencyDocument(
+							"UKNOWN",
+							new ArrayList<>(),
+							bd.beanName(),
+							bd.beanPackage(),
+							bd.depedencies());
+					});
+
 			})
 			.toList();
 	}
