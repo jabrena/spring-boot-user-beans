@@ -17,6 +17,10 @@
 		<sonar.coverage.jacoco.xmlReportPaths>
     		${project.basedir}/coverage-module/target/site/jacoco-aggregate/jacoco.xml
   		</sonar.coverage.jacoco.xmlReportPaths>
+		<sonar.host.url>https://sonarcloud.io/</sonar.host.url>
+		<sonar.organization>jabrena</sonar.organization>
+		<sonar.projectKey>jabrena_${project.artifactId}</sonar.projectKey>
+		<sonar.login>18ec9b84411fa97bd8ed0ee09c4c4c09a3291981</sonar.login>
 	</properties>
 
 	<dependencyManagement>
@@ -87,6 +91,11 @@
                         </goals>
                     </execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.9.1.2184</version>
 			</plugin>
 		</plugins>
 	</build>
