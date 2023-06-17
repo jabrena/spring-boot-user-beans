@@ -55,6 +55,20 @@ sdk install springboot
 spring init -d=web,devtools --build=maven --force ./
 ```
 
+## How to show the coverage on Codespaces?
+
+```bash
+# Step 1: Launch the webserver with the JACOCO Report
+mvn clean verify
+sdk install java 20-tem
+sdk use java 20-tem
+jwebserver -p 9000 -d "$(pwd)/coverage-module/target/site/jacoco-aggregate/"
+
+# Step 2: Stop the webserver & use the default Java version
+sdk env install
+sdk env
+```
+
 ## References
 
 - https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/package-summary.html
@@ -66,3 +80,4 @@ spring init -d=web,devtools --build=maven --force ./
 - https://github.com/j3soon/directed-graph-visualization
 - https://d3js.org/
 - https://www.webjars.org/all
+- https://www.eclemma.org/jacoco/trunk/doc/maven.html

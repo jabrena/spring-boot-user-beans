@@ -85,11 +85,20 @@
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.8.10</version>
 				<executions>
+					<!-- to avoid bugs in some situations -->
 					<execution>
-						<id>report-aggregate</id>
+					<id>default-prepare-agent</id>
+					<goals>
+						<goal>prepare-agent</goal>
+					</goals>
+					</execution>
+
+					<!-- create report during maven verify phase -->
+					<execution>
+						<id>report</id>
 						<phase>verify</phase>
 						<goals>
-							<goal>report-aggregate</goal>
+							<goal>report</goal>
 						</goals>
 					</execution>
 					<!--
@@ -113,6 +122,7 @@
 					</execution>
 					-->
 
+					<!--
 					<execution>
 						<id>check</id>
 						<phase>verify</phase>
@@ -124,7 +134,7 @@
 								<directory>${code.coverage.project.folder}/target/classes</directory>
 							</fileSet>
 							<rules>
-								<!--
+
 								<rule>
 									<element>BUNDLE</element>
 									<limits>
@@ -135,11 +145,12 @@
 										</limit>
 									</limits>
 								</rule>
-								-->
+
 							</rules>
 							<dataFile>${code.coverage.overall.data.folder}/aggregate.exec</dataFile>
 						</configuration>
 					</execution>
+					-->
 				</executions>
 			</plugin>
 

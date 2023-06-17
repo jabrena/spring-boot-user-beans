@@ -15,7 +15,7 @@
 		<java.version>17</java.version>
 		<spring-boot.version>3.1.0</spring-boot.version>
 		<sonar.coverage.jacoco.xmlReportPaths>
-    		${project.basedir}/report-aggregate/target/site/jacoco-aggregate/jacoco.xml
+    		${project.basedir}/coverage-module/target/site/jacoco-aggregate/jacoco.xml
   		</sonar.coverage.jacoco.xmlReportPaths>
 	</properties>
 
@@ -41,6 +41,7 @@
 	<modules>
 		<module>spring-boot-user-beans-starter</module>
 		<module>examples</module>
+		<module>coverage-module</module>
 	</modules>
 
 	<build>
@@ -78,6 +79,13 @@
 							<goal>prepare-agent</goal>
 						</goals>
 					</execution>
+					<execution>
+                        <id>jacoco-report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
 				</executions>
 			</plugin>
 		</plugins>
