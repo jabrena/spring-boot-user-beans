@@ -101,28 +101,7 @@
 							<goal>report</goal>
 						</goals>
 					</execution>
-					<!--
-					<execution>
-						<id>merge-results</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>merge</goal>
-						</goals>
-						<configuration>
-							<fileSets>
-							<fileSet>
-								<directory>${code.coverage.project.folder}</directory>
-								<includes>
-								<include>**/target/jacoco.exec</include>
-								</includes>
-							</fileSet>
-							</fileSets>
-							<destFile>${code.coverage.overall.data.folder}/aggregate.exec</destFile>
-						</configuration>
-					</execution>
-					-->
 
-					<!--
 					<execution>
 						<id>check</id>
 						<phase>verify</phase>
@@ -150,7 +129,6 @@
 							<dataFile>${code.coverage.overall.data.folder}/aggregate.exec</dataFile>
 						</configuration>
 					</execution>
-					-->
 				</executions>
 			</plugin>
 
