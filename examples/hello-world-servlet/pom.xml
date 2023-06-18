@@ -10,9 +10,9 @@
 	</parent>
 
 	<groupId>info.jab.ms</groupId>
-	<artifactId>hello-world</artifactId>
+	<artifactId>hello-world-servlet</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
-	<name>hello-world</name>
+	<name>hello-world-servlet</name>
 	<description>Demo project for Spring Boot</description>
 	<packaging>jar</packaging>
 

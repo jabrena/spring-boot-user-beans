@@ -35,13 +35,6 @@
         </dependencies>
     </dependencyManagement>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-	</dependencies>
-
 	<modules>
 		<module>spring-boot-user-beans-starter</module>
 		<module>examples</module>

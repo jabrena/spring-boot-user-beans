@@ -28,7 +28,9 @@ https://en.wikipedia.org/wiki/Convention_over_configuration
 
 ```bash
 mvn clean verify
-mvn spring-boot:run -pl examples/hello-world/ -am -Puserbeans
+mvn spring-boot:run -pl examples/hello-world-servlet/ -am -Puserbeans
+mvn spring-boot:run -pl examples/hello-world-reactive/ -am -Puserbeans
+
 mvn clean test -Dtest=UserDependenciesServiceTests#getDependencyDocuments -pl spring-boot-user-beans-starter/
 mvn clean test -Dtest=UserBeansServiceTests#shouldReturnsAllBeansInformation -pl spring-boot-user-beans-starter/
 open http://localhost:8080/

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Directed Graph Visualization</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .link {
+            stroke: #999;
+            stroke-opacity: 0.6;
+        }
+        .node-text {
+            font-size: 12px;
+        }
+        .highlight {
+            stroke: #f00;
+            stroke-width: 2px;
+        }
+        #logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        #logo img {
+            width: 100px;
+            height: 30px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Spring_Framework_Logo_2018.svg/490px-Spring_Framework_Logo_2018.svg.png?20181210015349" alt="Spring Framework Logo">
+    <input type="text" id="searchInput" placeholder="Search">
+    <button id="searchButton">Search</button>
+    <button id="resetButton">Reset</button>
+</div>
+<div id="searchResultMessage"></div>
+
+<script>
+    const svg = d3.create("svg")
+        .attr("viewBox", `0 0 ${window.innerWidth} ${window.innerHeight}`)
+        .attr("width", "100%")
+        .attr("height", "100%");
+
+    const container = svg.append("g");
+
+    document.body.appendChild(svg.node());
+
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    const simulation = d3.forceSimulation()
+        .force("link", d3.forceLink().id((d) => d.id).distance(150))
+        .force("charge", d3.forceManyBody().strength(-300))
+        .force("center", d3.forceCenter(width / 2, height / 2));
+
+    const zoom = d3.zoom()
+        .scaleExtent([0.1, 4])
+        .on("zoom", zoomed);
+
+    svg.call(zoom)
+        .on("mousedown", mousedown)
+        .on("mousemove", mousemove)
+        .on("mouseup", mouseup);
+
+    let isDragging = false;
+    let startX, startY;
+
+    function zoomed(event) {
+        if (isDragging) return;
+        container.attr("transform", event.transform);
+    }
+
+    function mousedown(event) {
+        startX = event.clientX;
+        startY = event.clientY;
+        isDragging = true;
+    }
+
+    function mousemove(event) {
+        if (!isDragging) return;
+        const dx = event.clientX - startX;
+        const dy = event.clientY - startY;
+        startX = event.clientX;
+        startY = event.clientY;
+        svg.call(zoom.translateBy, dx, dy);
+    }
+
+    function mouseup() {
+        isDragging = false;
+    }
+
+    let nodes, links, node, link, label;
+
+    d3.json("./graph2.json").then((data) => {
+        links = data.map((d) => ({
+            source: d.source,
+            target: d.target,
+            type: d.type
+        }));
+
+        const nodesSet = new Set(data.flatMap((d) => [d.source, d.target]));
+        nodes = Array.from(nodesSet).map((d) => ({ id: d }));
+
+        simulation.nodes(nodes);
+        simulation.force("link").links(links);
+
+        link = container.append("g")
+            .attr("class", "links")
+            .selectAll("line")
+            .data(links)
+            .enter().append("line")
+            .attr("class", "link")
+            .attr("marker-end", "url(#arrowhead)");
+
+        node = container.append("g")
+            .attr("class", "nodes")
+            .selectAll("circle")
+            .data(nodes)
+            .enter().append("circle")
+            .attr("r", 5)
+            .attr("fill", "#ccc")
+            .call(drag(simulation));
+
+        node.append("title")
+            .text((d) => d.id);
+
+        label = container.append("g")
+            .attr("class", "node-labels")
+            .selectAll("text")
+            .data(nodes)
+            .enter().append("text")
+            .attr("class", "node-text")
+            .text((d) => d.id);
+
+        simulation.on("tick", () => {
+            link
+                .attr("x1", (d) => d.source.x)
+                .attr("y1", (d) => d.source.y)
+                .attr("x2", (d) => d.target.x)
+                .attr("y2", (d) => d.target.y);
+
+            node
+                .attr("cx", (d) => d.x)
+                .attr("cy", (d) => d.y);
+
+            label
+                .attr("x", (d) => d.x + 8)
+                .attr("y", (d) => d.y - 8);
+        });
+
+        const searchButton = document.getElementById("searchButton");
+        const resetButton = document.getElementById("resetButton");
+        const searchInput = document.getElementById("searchInput");
+        const searchResultMessage = document.getElementById("searchResultMessage");
+
+        searchButton.addEventListener("click", handleSearch);
+        resetButton.addEventListener("click", resetSearch);
+
+        function handleSearch() {
+            const searchText = searchInput.value.toLowerCase();
+
+            node.classed("highlight", false);
+            link.classed("highlight", false);
+
+            if (searchText.trim() === "") {
+                searchResultMessage.textContent = "";
+                return;
+            }
+
+            const matchedNodes = node.filter((d) => d.id.toLowerCase().includes(searchText));
+            const matchedLinks = link.filter((d) => d.source.id.toLowerCase().includes(searchText) || d.target.id.toLowerCase().includes(searchText));
+
+            matchedNodes.classed("highlight", true);
+            matchedLinks.classed("highlight", true);
+
+            if (matchedNodes.size() > 0) {
+                const bounds = getBounds(matchedNodes.nodes());
+                const dx = bounds.x + bounds.width / 2 - width / 2;
+                const dy = bounds.y + bounds.height / 2 - height / 2;
+                svg.transition().duration(750).call(zoom.transform, d3.zoomIdentity.translate(-dx, -dy).scale(1));
+            }
+
+            const message = `Found ${matchedNodes.size()} matching beans(s)`;
+            searchResultMessage.textContent = message;
+        }
+
+        function resetSearch() {
+            searchInput.value = "";
+            node.classed("highlight", false);
+            link.classed("highlight", false);
+            searchResultMessage.textContent = "";
+        }
+
+        function getBounds(elements) {
+            const bounds = elements[0].getBBox();
+            for (let i = 1; i < elements.length; i++) {
+                const bbox = elements[i].getBBox();
+                bounds.x = Math.min(bounds.x, bbox.x);
+                bounds.y = Math.min(bounds.y, bbox.y);
+                bounds.width = Math.max(bounds.width, bbox.x + bbox.width - bounds.x);
+                bounds.height = Math.max(bounds.height, bbox.y + bbox.height - bounds.y);
+            }
+            return bounds;
+        }
+    });
+
+    function drag(simulation) {
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+
+        return d3.drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended);
+    }
+</script>
+</body>
+</html>
