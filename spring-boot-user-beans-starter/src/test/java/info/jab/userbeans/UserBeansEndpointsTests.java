@@ -1,11 +1,14 @@
 package info.jab.userbeans;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import info.jab.support.TestApplication;
 import info.jab.userbeans.Graph2Service.DependencyCombo;
 import info.jab.userbeans.UserDependenciesService.Dependency;
 import info.jab.userbeans.UserDependenciesService.DependencyBeanDetail;
 import info.jab.userbeans.UserDependenciesService.DependencyDetail;
-
+import java.net.URI;
+import java.util.List;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.junit.jupiter.api.DisplayName;
@@ -19,17 +22,11 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 
-import java.net.URI;
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
 @SpringBootTest(
-        classes = TestApplication.class,
-        webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT,
-        properties = {
-            "management.endpoints.web.exposure.include=beans,userbeans"
-        })
+    classes = TestApplication.class,
+    webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
+    properties = { "management.endpoints.web.exposure.include=beans,userbeans" }
+)
 class UserBeansEndpointsTests {
 
     @Autowired
@@ -41,16 +38,17 @@ class UserBeansEndpointsTests {
     @Test
     @DisplayName("/actuator/userbeans/beans")
     void shouldReturnBeans() throws Exception {
-
         //Given
         final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/beans";
 
         //When
+        // @formatter:off
         ResponseEntity<List<Dependency>> result = this.restTemplate.exchange(
-                baseUrl,
-                HttpMethod.GET,
-                null,
-                new ParameterizedTypeReference<>() {});
+            baseUrl,
+            HttpMethod.GET,
+            null,
+            new ParameterizedTypeReference<>() {});
+        // @formatter:on
 
         //Then
         assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
@@ -60,16 +58,17 @@ class UserBeansEndpointsTests {
     @Test
     @DisplayName("/actuator/userbeans/dependencies")
     void shouldReturnTheJarsUsedInTheApp() throws Exception {
-
         //Given
         final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/dependencies";
 
         //When
+        // @formatter:off
         ResponseEntity<List<Dependency>> result = this.restTemplate.exchange(
-                baseUrl,
-                HttpMethod.GET,
-                null,
-                new ParameterizedTypeReference<>() {});
+            baseUrl,
+            HttpMethod.GET,
+            null,
+            new ParameterizedTypeReference<>() {});
+        // @formatter:on
 
         //Then
         assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
@@ -79,16 +78,17 @@ class UserBeansEndpointsTests {
     @Test
     @DisplayName("/actuator/userbeans/dependencies/packages")
     void shouldReturnThePackagesFromJars() throws Exception {
-
         //Given
         final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/dependencies/packages";
 
         //When
+        // @formatter:off
         ResponseEntity<List<DependencyDetail>> result = this.restTemplate.exchange(
-                baseUrl,
-                HttpMethod.GET,
-                null,
-                new ParameterizedTypeReference<>() {});
+            baseUrl,
+            HttpMethod.GET,
+            null,
+            new ParameterizedTypeReference<>() {});
+        // @formatter:on
 
         //Then
         assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
@@ -98,16 +98,17 @@ class UserBeansEndpointsTests {
     @Test
     @DisplayName("/actuator/userbeans/dependencies/beans")
     void shouldReturnTheBeansFromJars() throws Exception {
-
         //Given
         final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/dependencies/beans";
 
         //When
+        // @formatter:off
         ResponseEntity<List<DependencyBeanDetail>> result = this.restTemplate.exchange(
-                baseUrl,
-                HttpMethod.GET,
-                null,
-                new ParameterizedTypeReference<>() {});
+            baseUrl,
+            HttpMethod.GET,
+            null,
+            new ParameterizedTypeReference<>() {});
+        // @formatter:on
 
         //Then
         assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
@@ -117,8 +118,7 @@ class UserBeansEndpointsTests {
     //UX
 
     @Test
-    void shouldReturnAWebDocument() throws Exception {
-
+    void shouldReturnWebDocument() throws Exception {
         //Given
         final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans";
         URI uri = new URI(baseUrl);
@@ -133,18 +133,18 @@ class UserBeansEndpointsTests {
     }
 
     @Test
-    void shouldGenerateAJSONForTheVisualization() throws Exception {
-
+    void shouldGenerateTheRightData() throws Exception {
         //Given
         final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/graph2";
 
-
         //When
+        // @formatter:off
         ResponseEntity<String> result = this.restTemplate.exchange(
-                baseUrl,
-                HttpMethod.GET,
-                null,
-                new ParameterizedTypeReference<>() {});
+            baseUrl,
+            HttpMethod.GET,
+            null,
+            new ParameterizedTypeReference<>() {});
+        // @formatter:on
 
         //Then
         assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
@@ -153,16 +153,17 @@ class UserBeansEndpointsTests {
 
     @Test
     void shouldReturnDataForCombo() throws Exception {
-
         //Given
         final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/graph2-combo";
 
         //When
+        // @formatter:off
         ResponseEntity<List<DependencyCombo>> result = this.restTemplate.exchange(
-                baseUrl,
-                HttpMethod.GET,
-                null,
-                new ParameterizedTypeReference<>() {});
+            baseUrl,
+            HttpMethod.GET,
+            null,
+            new ParameterizedTypeReference<>() {});
+        // @formatter:on
 
         //Then
         assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));

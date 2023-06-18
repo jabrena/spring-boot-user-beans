@@ -71,6 +71,14 @@ sdk env install
 sdk env
 ```
 
+## Other commands
+
+```
+./mvnw prettier:write
+./mvnw versions:display-dependency-updates
+./mvnw versions:display-plugin-updates
+```
+
 ## References
 
 - https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/package-summary.html
