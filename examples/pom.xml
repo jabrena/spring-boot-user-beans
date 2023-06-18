@@ -17,7 +17,8 @@
     <name>examples</name>
 
     <modules>
-        <module>hello-world</module>
+        <module>hello-world-servlet</module>
+        <module>hello-world-reactive</module>
     </modules>
 
 </project>

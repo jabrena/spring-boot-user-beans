@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Directed Graph Visualization</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .link {
+            stroke: #999;
+            stroke-opacity: 0.6;
+        }
+        .node-text {
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    const svg = d3.create("svg")
+        .attr("viewBox", `0 0 ${window.innerWidth} ${window.innerHeight}`)
+        .attr("width", "100%")
+        .attr("height", "100%");
+
+    const container = svg.append("g");
+
+    document.body.appendChild(svg.node());
+
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    const simulation = d3.forceSimulation()
+        .force("link", d3.forceLink().id((d) => d.id).distance(150))
+        .force("charge", d3.forceManyBody().strength(-300))
+        .force("center", d3.forceCenter(width / 2, height / 2));
+
+    const zoom = d3.zoom()
+        .scaleExtent([0.1, 4])
+        .on("zoom", zoomed);
+
+    svg.call(zoom)
+        .on("mousedown", mousedown)
+        .on("mousemove", mousemove)
+        .on("mouseup", mouseup);
+
+    let isDragging = false;
+    let startX, startY;
+
+    function zoomed(event) {
+        if (isDragging) return;
+        container.attr("transform", event.transform);
+    }
+
+    function mousedown(event) {
+        startX = event.clientX;
+        startY = event.clientY;
+        isDragging = true;
+    }
+
+    function mousemove(event) {
+        if (!isDragging) return;
+        const dx = event.clientX - startX;
+        const dy = event.clientY - startY;
+        startX = event.clientX;
+        startY = event.clientY;
+        svg.call(zoom.translateBy, dx, dy);
+    }
+
+    function mouseup() {
+        isDragging = false;
+    }
+
+    d3.json("./graph2.json").then((data) => {
+        const links = data.map((d) => ({
+            source: d.source,
+            target: d.target,
+            type: d.type
+        }));
+
+        const nodesSet = new Set(data.flatMap((d) => [d.source, d.target]));
+        const nodes = Array.from(nodesSet).map((d) => ({ id: d }));
+
+        simulation.nodes(nodes);
+        simulation.force("link").links(links);
+
+        const link = container.append("g")
+            .attr("class", "links")
+            .selectAll("line")
+            .data(links)
+            .enter().append("line")
+            .attr("class", "link")
+            .attr("marker-end", "url(#arrowhead)");
+
+        const node = container.append("g")
+            .attr("class", "nodes")
+            .selectAll("circle")
+            .data(nodes)
+            .enter().append("circle")
+            .attr("r", 5)
+            .attr("fill", "#ccc")
+            .call(drag(simulation));
+
+        node.append("title")
+            .text((d) => d.id);
+
+        const label = container.append("g")
+            .attr("class", "node-labels")
+            .selectAll("text")
+            .data(nodes)
+            .enter().append("text")
+            .attr("class", "node-text")
+            .text((d) => d.id);
+
+        simulation.on("tick", () => {
+            link
+                .attr("x1", (d) => d.source.x)
+                .attr("y1", (d) => d.source.y)
+                .attr("x2", (d) => d.target.x)
+                .attr("y2", (d) => d.target.y);
+
+            node
+                .attr("cx", (d) => d.x)
+                .attr("cy", (d) => d.y);
+
+            label
+                .attr("x", (d) => d.x + 8)
+                .attr("y", (d) => d.y - 8);
+        });
+    });
+
+    function drag(simulation) {
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+
+        return d3.drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended);
+    }
+</script>
+</body>
+</html>

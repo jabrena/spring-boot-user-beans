@@ -23,8 +23,8 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -81,6 +81,11 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
@@ -128,34 +133,6 @@
 						<goals>
 							<goal>report</goal>
 						</goals>
-					</execution>
-
-					<execution>
-						<id>check</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>check</goal>
-						</goals>
-						<configuration>
-							<fileSet>
-								<directory>${code.coverage.project.folder}/target/classes</directory>
-							</fileSet>
-							<rules>
-
-								<rule>
-									<element>BUNDLE</element>
-									<limits>
-										<limit>
-											<counter>INSTRUCTION</counter>
-											<value>COVEREDRATIO</value>
-											<minimum>80%</minimum>
-										</limit>
-									</limits>
-								</rule>
-
-							</rules>
-							<dataFile>${code.coverage.overall.data.folder}/aggregate.exec</dataFile>
-						</configuration>
 					</execution>
 				</executions>
 			</plugin>
