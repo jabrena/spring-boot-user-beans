@@ -6,7 +6,7 @@
 
 A visual way to increase the developer awareness to minimize the number of Beans that they maintain in memory.
 
-![](./docs/user-beans2.png)
+![](./docs/user-beans3.png)
 
 ## Requirements
 
