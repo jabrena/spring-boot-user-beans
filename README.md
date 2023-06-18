@@ -29,6 +29,8 @@ https://en.wikipedia.org/wiki/Convention_over_configuration
 ```bash
 mvn clean verify
 mvn spring-boot:run -pl examples/hello-world/ -am -Puserbeans
+mvn clean test -Dtest=UserDependenciesServiceTests#getDependencyDocuments -pl spring-boot-user-beans-starter/
+mvn clean test -Dtest=UserBeansServiceTests#shouldReturnsAllBeansInformation -pl spring-boot-user-beans-starter/
 
 #UX
 curl -v http://localhost:8080/actuator/userbeans/graph2-combo | json_pp
@@ -67,6 +69,14 @@ jwebserver -p 9000 -d "$(pwd)/coverage-module/target/site/jacoco-aggregate/"
 # Step 2: Stop the webserver & use the default Java version
 sdk env install
 sdk env
+```
+
+## Other commands
+
+```
+./mvnw prettier:write
+./mvnw versions:display-dependency-updates
+./mvnw versions:display-plugin-updates
 ```
 
 ## References
