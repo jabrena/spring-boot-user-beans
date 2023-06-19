@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RestControllerEndpoint(id = "userbeans")
 public class UserBeansEndpoint {
 
-    Logger logger = LoggerFactory.getLogger(GraphService.class);
+    Logger logger = LoggerFactory.getLogger(UserBeansEndpoint.class);
 
     @Autowired
     private UserBeansService userBeansService;
