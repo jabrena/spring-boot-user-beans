@@ -93,11 +93,10 @@
 
     let nodes, links, node, link, label;
 
-    d3.json("/actuator/userbeans/graph2").then((data) => {
+    d3.json("/actuator/userbeans/graph").then((data) => {
         links = data.map((d) => ({
             source: d.source,
-            target: d.target,
-            type: d.type
+            target: d.target
         }));
 
         const nodesSet = new Set(data.flatMap((d) => [d.source, d.target]));

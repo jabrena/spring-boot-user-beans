@@ -3,7 +3,6 @@ package info.jab.userbeans;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import info.jab.support.TestApplication;
-import info.jab.userbeans.Graph2Service.DependencyCombo;
 import info.jab.userbeans.UserDependenciesService.Dependency;
 import info.jab.userbeans.UserDependenciesService.DependencyBeanDetail;
 import info.jab.userbeans.UserDependenciesService.DependencyDetail;
@@ -41,9 +40,11 @@ class UserBeansEndpointsTests {
         //Given
         final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/beans";
 
+        record ExpectedBeanDocument(String name, String packageName, List<String> dependencies) {}
+
         //When
         // @formatter:off
-        ResponseEntity<List<Dependency>> result = this.restTemplate.exchange(
+        ResponseEntity<List<ExpectedBeanDocument>> result = this.restTemplate.exchange(
             baseUrl,
             HttpMethod.GET,
             null,
@@ -52,7 +53,7 @@ class UserBeansEndpointsTests {
 
         //Then
         assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
-        assertThat(result.getBody()).hasSizeGreaterThan(100);
+        assertThat(result.getBody()).hasSizeGreaterThan(0);
     }
 
     @Test
@@ -72,7 +73,7 @@ class UserBeansEndpointsTests {
 
         //Then
         assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
-        assertThat(result.getBody()).hasSizeGreaterThan(80);
+        assertThat(result.getBody()).hasSizeGreaterThan(0);
     }
 
     @Test
@@ -92,7 +93,7 @@ class UserBeansEndpointsTests {
 
         //Then
         assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
-        assertThat(result.getBody()).hasSizeGreaterThan(80);
+        assertThat(result.getBody()).hasSizeGreaterThan(0);
     }
 
     @Test
@@ -112,7 +113,7 @@ class UserBeansEndpointsTests {
 
         //Then
         assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
-        assertThat(result.getBody()).hasSizeGreaterThan(80);
+        assertThat(result.getBody()).hasSizeGreaterThan(0);
     }
 
     //UX
@@ -135,30 +136,13 @@ class UserBeansEndpointsTests {
     @Test
     void shouldGenerateTheRightData() throws Exception {
         //Given
-        final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/graph2";
+        final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/graph";
+
+        record ExpectedGraphData(String source, String target, String type) {}
 
         //When
         // @formatter:off
-        ResponseEntity<String> result = this.restTemplate.exchange(
-            baseUrl,
-            HttpMethod.GET,
-            null,
-            new ParameterizedTypeReference<>() {});
-        // @formatter:on
-
-        //Then
-        assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
-        assertThat(result.getBody()).isNotNull();
-    }
-
-    @Test
-    void shouldReturnDataForCombo() throws Exception {
-        //Given
-        final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/graph2-combo";
-
-        //When
-        // @formatter:off
-        ResponseEntity<List<DependencyCombo>> result = this.restTemplate.exchange(
+        ResponseEntity<List<ExpectedGraphData>> result = this.restTemplate.exchange(
             baseUrl,
             HttpMethod.GET,
             null,

@@ -11,14 +11,20 @@ import org.springframework.boot.test.context.SpringBootTest;
     classes = TestApplication.class,
     properties = { "management.endpoints.web.exposure.include=beans,userbeans" }
 )
-public class UserBeansServiceTests {
+class GraphServiceTests {
 
     @Autowired
-    private UserBeansService userBeansService;
+    private GraphService graphService;
+
+    record GraphData(String source, String target) {}
 
     @Test
-    void shouldReturnsAllBeansInformation() {
-        var beanList = userBeansService.getBeansDocuments();
-        assertThat(beanList).hasSizeGreaterThan(200);
+    void shouldGenerateAllDataForTheGraph() throws Exception {
+        //Given
+        //When
+        var resuls = graphService.generateGraph();
+
+        //Then
+        assertThat(resuls).hasSizeGreaterThan(200);
     }
 }

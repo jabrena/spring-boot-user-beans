@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<groupId>info.jab.ms</groupId>
-	<artifactId>spring-boot-user-beans</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
-	<name>spring-boot-user-beans</name>
-	<description>Demo project for Spring Boot</description>
-	<packaging>pom</packaging>
+    <groupId>info.jab.ms</groupId>
+    <artifactId>spring-boot-user-beans</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <name>spring-boot-user-beans</name>
+    <description>Demo project for Spring Boot</description>
+    <packaging>pom</packaging>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>17</java.version>
-		<spring-boot.version>3.1.0</spring-boot.version>
-		<sonar.coverage.jacoco.xmlReportPaths>
-    		${project.basedir}/coverage-module/target/site/jacoco-aggregate/jacoco.xml
-  		</sonar.coverage.jacoco.xmlReportPaths>
-		<sonar.host.url>https://sonarcloud.io/</sonar.host.url>
-		<sonar.organization>jabrena</sonar.organization>
-		<sonar.projectKey>jabrena_${project.artifactId}</sonar.projectKey>
-		<sonar.login>18ec9b84411fa97bd8ed0ee09c4c4c09a3291981</sonar.login>
-	</properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>17</java.version>
+        <spring-boot.version>3.1.0</spring-boot.version>
+        <sonar.coverage.jacoco.xmlReportPaths>
+            ${project.basedir}/coverage-module/target/site/jacoco-aggregate/jacoco.xml
+        </sonar.coverage.jacoco.xmlReportPaths>
+        <sonar.host.url>https://sonarcloud.io/</sonar.host.url>
+        <sonar.organization>jabrena</sonar.organization>
+        <sonar.projectKey>jabrena_${project.artifactId}</sonar.projectKey>
+        <sonar.login>18ec9b84411fa97bd8ed0ee09c4c4c09a3291981</sonar.login>
+    </properties>
 
-	<dependencyManagement>
+    <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -35,61 +35,61 @@
         </dependencies>
     </dependencyManagement>
 
-	<modules>
-		<module>spring-boot-user-beans-starter</module>
-		<module>examples</module>
-		<module>coverage-module</module>
-	</modules>
+    <modules>
+        <module>spring-boot-user-beans-starter</module>
+        <module>examples</module>
+        <module>coverage-module</module>
+    </modules>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>${spring-boot.version}</version>
-				<configuration>
-          			<skip>true</skip>
-        		</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.11.0</version>
-				<configuration> <!-- Compile java 17 compatible bytecode -->
-					<source>${java.version}</source>
-					<target>${java.version}</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.1.2</version>
-			</plugin>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration> <!-- Compile java 17 compatible bytecode -->
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version>
+            </plugin>
 
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.10</version>
-				<executions>
-					<execution>
-						<id>prepare-unit-tests</id>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-					<execution>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.10</version>
+                <executions>
+                    <execution>
+                        <id>prepare-unit-tests</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
                         <id>jacoco-report</id>
                         <phase>test</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
                     </execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.sonarsource.scanner.maven</groupId>
-				<artifactId>sonar-maven-plugin</artifactId>
-				<version>3.9.1.2184</version>
-			</plugin>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.9.1.2184</version>
+            </plugin>
 
             <!-- Checkstyle -->
             <plugin>
@@ -159,8 +159,8 @@
                 </executions>
             </plugin>
 
-			<!-- https://mvnrepository.com/artifact/com.hubspot.maven.plugins/prettier-maven-plugin/ -->
-			<!-- https://github.com/jhipster/prettier-java/blob/main/CHANGELOG.md -->
+            <!-- https://mvnrepository.com/artifact/com.hubspot.maven.plugins/prettier-maven-plugin/ -->
+            <!-- https://github.com/jhipster/prettier-java/blob/main/CHANGELOG.md -->
             <plugin>
                 <groupId>com.hubspot.maven.plugins</groupId>
                 <artifactId>prettier-maven-plugin</artifactId>
@@ -189,24 +189,25 @@
                 </executions>
             </plugin>
 
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>versions-maven-plugin</artifactId>
-				<version>2.7</version>
-			</plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.7</version>
+            </plugin>
 
             <plugin>
-              <groupId>org.owasp</groupId>
-              <artifactId>dependency-check-maven</artifactId>
-              <executions>
-                  <execution>
-                      <goals>
-                          <goal>check</goal>
-                      </goals>
-                  </execution>
-              </executions>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <version>8.3.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
-		</plugins>
-	</build>
+        </plugins>
+    </build>
 
 </project>

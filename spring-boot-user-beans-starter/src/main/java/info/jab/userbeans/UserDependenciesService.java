@@ -1,6 +1,5 @@
 package info.jab.userbeans;
 
-import info.jab.userbeans.UserBeansService.BeanDetail;
 import info.jab.userbeans.UserBeansService.BeanDocument;
 import java.io.File;
 import java.io.IOException;
@@ -101,7 +100,7 @@ public class UserDependenciesService {
 
     List<DependencyBeanDetail> getDependenciesAndBeans() {
         List<DependencyDetail> dependencyDetail = getDependenciesAndPackages();
-        List<BeanDetail> beanList = userBeansService.getBeansDetails();
+        List<BeanDocument> beanList = userBeansService.getBeansDocuments();
 
         return beanList
             .stream()
@@ -149,7 +148,7 @@ public class UserDependenciesService {
                                 jarPackages,
                                 bd.beanName(),
                                 bd.beanPackage(),
-                                bd.depedencies()
+                                bd.dependencies()
                             );
                         }
                         return new DependencyDocument(
@@ -157,7 +156,7 @@ public class UserDependenciesService {
                             new ArrayList<>(),
                             bd.beanName(),
                             bd.beanPackage(),
-                            bd.depedencies()
+                            bd.dependencies()
                         );
                     });
             })
