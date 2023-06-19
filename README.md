@@ -30,15 +30,12 @@ https://en.wikipedia.org/wiki/Convention_over_configuration
 mvn clean verify
 mvn spring-boot:run -pl examples/hello-world-servlet/ -am -Puserbeans
 mvn spring-boot:run -pl examples/hello-world-reactive/ -am -Puserbeans
-
-mvn clean test -Dtest=UserDependenciesServiceTests#getDependencyDocuments -pl spring-boot-user-beans-starter/
-mvn clean test -Dtest=UserBeansServiceTests#shouldReturnsAllBeansInformation -pl spring-boot-user-beans-starter/
 open http://localhost:8080/
 
 #UX
-curl -v http://localhost:8080/actuator/userbeans/graph2-combo | json_pp
-curl -v http://localhost:8080/actuator/userbeans/graph2 | json_pp
+curl -v http://localhost:8080/actuator/userbeans/graph | json_pp
 
+#API
 curl -v http://localhost:8080/actuator/userbeans/dependencies | json_pp
 curl -v http://localhost:8080/actuator/userbeans/dependencies/packages | json_pp
 curl -v http://localhost:8080/actuator/userbeans/dependencies/beans | json_pp
@@ -60,7 +57,7 @@ sdk install springboot
 spring init -d=web,devtools --build=maven --force ./
 ```
 
-## How to show the coverage on Codespaces?
+## How to show the coverage on Codespaces?
 
 ```bash
 # Step 1: Launch the webserver with the JACOCO Report

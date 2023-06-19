@@ -1,11 +1,9 @@
 package info.jab.userbeans;
 
-import info.jab.userbeans.UserBeansService.BeanDetail;
 import info.jab.userbeans.UserBeansService.BeanDocument;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Enumeration;
 import java.util.HashSet;
@@ -27,19 +25,21 @@ public class UserDependenciesService {
     @Autowired
     private UserBeansService userBeansService;
 
-    public record Dependency(String dependency, String classpath) {}
+    public record Dependency(String dependency) {}
+
+    public static final String UNKNOWN_DEPENDENCY = "UNKNOWN";
 
     List<Dependency> getDependencies() {
-        String classpath = System.getProperty("java.class.path");
-        String[] classpathEntries = classpath.split(File.pathSeparator);
+        List<DependencyDocument> dependencyDocument = getDependencyDocuments();
 
-        //target/test-classes
-        //target/classes
-        return Arrays
-            .stream(classpathEntries)
-            .filter(path -> path.contains(".jar"))
-            //.map(removePath)
-            .map(str -> new Dependency(removePath.apply(str), str))
+        Set<Dependency> differentDependencies = new HashSet<>();
+        for (DependencyDocument dd : dependencyDocument) {
+            differentDependencies.add(new Dependency(dd.dependency()));
+        }
+
+        return differentDependencies
+            .stream()
+            .filter(dep -> !dep.dependency.equals(UNKNOWN_DEPENDENCY))
             .sorted(Comparator.comparing(Dependency::dependency))
             .toList();
     }
@@ -49,8 +49,9 @@ public class UserDependenciesService {
         return (pathParts.length > 0) ? pathParts[pathParts.length - 1] : fullPath;
     };
 
-    public record DependencyDetail(String dependencyName, String packageName) {}
+    public record DependencyDetail(String dependencyName, List<String> packages) {}
 
+    // @formatter:off
     List<DependencyDetail> getDependenciesAndPackages() {
         List<DependencyDetail> list = new ArrayList<>();
 
@@ -60,19 +61,17 @@ public class UserDependenciesService {
         for (String classpathEntry : classpathEntries) {
             if (classpathEntry.contains(".jar")) {
                 var jar = removePath.apply(classpathEntry);
-                Set<String> result = listPackagesInJar(classpathEntry);
-                var jarList = result
-                    .stream()
-                    .map(pkg -> {
-                        return new DependencyDetail(jar, pkg);
-                    })
-                    .toList();
-                list.addAll(jarList);
+                List<String> pkgs = listPackagesInJar(classpathEntry).stream().toList();
+                list.add(new DependencyDetail(jar, pkgs));
             }
         }
 
-        return list.stream().sorted(Comparator.comparing(DependencyDetail::packageName)).toList();
+        return list.stream()
+                .sorted(Comparator.comparing(DependencyDetail::dependencyName))
+                .toList();
     }
+
+    // @formatter:on
 
     private Set<String> listPackagesInJar(String jarPath) {
         Set<String> packages = new HashSet<>();
@@ -85,6 +84,7 @@ public class UserDependenciesService {
                     String packagePath = entry.getName().replace('/', '.');
                     if (!packagePath.isEmpty()) {
                         if (!packagePath.contains("META-INF")) {
+                            packagePath = packagePath.substring(0, packagePath.length() - 1);
                             packages.add(packagePath);
                         }
                     }
@@ -99,68 +99,48 @@ public class UserDependenciesService {
 
     public record DependencyBeanDetail(String dependencyName, String beanName) {}
 
+    // @formatter:off
     List<DependencyBeanDetail> getDependenciesAndBeans() {
-        List<DependencyDetail> dependencyDetail = getDependenciesAndPackages();
-        List<BeanDetail> beanList = userBeansService.getBeansDetails();
-
-        return beanList
-            .stream()
-            .map(bean -> {
-                var be = bean.beanName();
-                var pkg = bean.beanPackage();
-                var result = dependencyDetail
-                    .stream()
-                    .filter(dd -> {
-                        return dd.packageName().contains(pkg);
-                    })
-                    .findFirst();
-                if (result.isPresent()) {
-                    return new DependencyBeanDetail(result.get().dependencyName(), be);
-                } else {
-                    return new DependencyBeanDetail("UNKNOWN", be);
-                }
-            })
-            .sorted(Comparator.comparing(DependencyBeanDetail::dependencyName))
-            .toList();
+        List<DependencyDocument> dependencyDocument = getDependencyDocuments();
+        return dependencyDocument.stream()
+                .map(dd -> new DependencyBeanDetail(dd.dependency, dd.beanName))
+                .toList();
     }
+
+    // @formatter:on
 
     public record DependencyDocument(
-        String dependency,
-        List<String> packages,
         String beanName,
         String beanPackage,
-        List<String> beanDependencies
+        List<String> beanDependencies,
+        String dependency
     ) {}
 
+    // @formatter:off
     public List<DependencyDocument> getDependencyDocuments() {
         List<BeanDocument> beanDocuments = userBeansService.getBeansDocuments();
-        List<Dependency> jars = getDependencies();
-        return jars
-            .stream()
-            .flatMap(dep -> {
-                List<String> jarPackages = listPackagesInJar(dep.classpath()).stream().toList();
+        List<DependencyDetail> jars = getDependenciesAndPackages();
 
-                return beanDocuments
-                    .stream()
-                    .map(bd -> {
-                        if (jarPackages.contains(bd.beanPackage())) {
-                            return new DependencyDocument(
-                                dep.dependency(),
-                                jarPackages,
-                                bd.beanName(),
-                                bd.beanPackage(),
-                                bd.depedencies()
-                            );
-                        }
+        return beanDocuments
+            .stream()
+            .map(bd -> {
+                for (DependencyDetail dd : jars) {
+                    if (dd.packages.contains(bd.beanPackage())) {
                         return new DependencyDocument(
-                            "UKNOWN",
-                            new ArrayList<>(),
                             bd.beanName(),
                             bd.beanPackage(),
-                            bd.depedencies()
+                            bd.dependencies(),
+                            dd.dependencyName()
                         );
-                    });
+                    }
+                }
+                return new DependencyDocument(
+                        bd.beanName(),
+                        bd.beanPackage(),
+                        bd.dependencies(),
+                        UNKNOWN_DEPENDENCY);
             })
             .toList();
     }
+    // @formatter:on
 }
