@@ -1,7 +1,5 @@
 package info.jab.userbeans;
 
-import info.jab.userbeans.UserDependenciesService.Dependency;
-import info.jab.userbeans.UserDependenciesService.DependencyBeanDetail;
 import info.jab.userbeans.UserDependenciesService.DependencyDetail;
 import java.util.List;
 import org.slf4j.Logger;
@@ -30,7 +28,7 @@ public class UserBeansEndpoint {
     }
 
     @GetMapping(path = "dependencies", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<List<Dependency>> getDependencies() {
+    ResponseEntity<List<UserDependenciesService.Dependency>> getDependencies() {
         logger.info("GET /actuator/userbeans/dependencies");
         return ResponseEntity.ok(userDependenciesService.getDependencies());
     }
@@ -42,7 +40,7 @@ public class UserBeansEndpoint {
     }
 
     @GetMapping(path = "dependencies/beans", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<List<DependencyBeanDetail>> getDependenciesBeans() {
+    ResponseEntity<List<UserDependenciesService.DependencyBeanDetail>> getDependenciesBeans() {
         logger.info("GET /actuator/userbeans/dependencies/beans");
         return ResponseEntity.ok(userDependenciesService.getDependenciesAndBeans());
     }
