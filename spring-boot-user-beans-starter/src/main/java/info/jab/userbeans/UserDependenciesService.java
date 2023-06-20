@@ -22,8 +22,11 @@ public class UserDependenciesService {
 
     private static final Logger logger = LoggerFactory.getLogger(UserDependenciesService.class);
 
-    @Autowired
-    private UserBeansService userBeansService;
+    private final UserBeansService userBeansService;
+
+    public UserDependenciesService(UserBeansService userBeansService) {
+        this.userBeansService = userBeansService;
+    }
 
     public record Dependency(String dependency) {}
 

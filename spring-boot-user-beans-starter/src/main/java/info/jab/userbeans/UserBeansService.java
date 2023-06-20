@@ -17,8 +17,11 @@ public class UserBeansService {
 
     Logger logger = LoggerFactory.getLogger(UserBeansService.class);
 
-    @Autowired
-    private BeansEndpoint beansEndpoint;
+    private final BeansEndpoint beansEndpoint;
+
+    public UserBeansService(BeansEndpoint beansEndpoint) {
+        this.beansEndpoint = beansEndpoint;
+    }
 
     public record BeanDocument(String beanName, String beanPackage, List<String> dependencies) {}
 

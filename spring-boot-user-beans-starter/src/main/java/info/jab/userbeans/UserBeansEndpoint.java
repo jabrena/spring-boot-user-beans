@@ -1,6 +1,5 @@
 package info.jab.userbeans;
 
-import info.jab.userbeans.UserDependenciesService.DependencyDetail;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,12 +32,6 @@ public class UserBeansEndpoint {
         return ResponseEntity.ok(userDependenciesService.getDependencies());
     }
 
-    @GetMapping(path = "dependencies/packages", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<List<DependencyDetail>> getDependenciesPackages() {
-        logger.info("GET /actuator/userbeans/dependencies/packages");
-        return ResponseEntity.ok(userDependenciesService.getDependenciesAndPackages());
-    }
-
     @GetMapping(path = "dependencies/beans", produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<List<UserDependenciesService.DependencyBeanDetail>> getDependenciesBeans() {
         logger.info("GET /actuator/userbeans/dependencies/beans");
@@ -59,6 +52,6 @@ public class UserBeansEndpoint {
     @GetMapping(path = "/graph", produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<List<GraphService.Edge>> graph() {
         logger.info("GET /actuator/userbeans/graph");
-        return ResponseEntity.ok().body(graphService.generateGraph());
+        return ResponseEntity.ok().body(graphService.generateGraphData());
     }
 }
