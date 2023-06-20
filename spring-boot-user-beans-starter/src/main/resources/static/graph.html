@@ -93,7 +93,10 @@
 
     let nodes, links, node, link, label;
 
-    d3.json("/actuator/userbeans/graph").then((data) => {
+    var address = "/actuator/userbeans/graph";
+    //var address = "graph.json";
+
+    d3.json(address).then((data) => {
         links = data.map((d) => ({
             source: d.source,
             target: d.target
