@@ -1,390 +1,958 @@
-{
-    "nodes": [
-        {"id": "org.springframework.boot.actuate.beans.BeansEndpoint$ContextBeansDescriptor@27aa3712", "group": "org.springframework.boot.actuate.beans.BeansEndpoint$ContextBeansDescriptor@27aa3712"},
-        {"id": "CachingOperationInvokerAdvisor", "group": "CachingOperationInvokerAdvisor"},
-        {"id": "HandlerMapping", "group": "HandlerMapping"},
-        {"id": "ThreadPoolTaskExecutor", "group": "ThreadPoolTaskExecutor"},
-        {"id": "ObservationRegistryPostProcessor", "group": "ObservationRegistryPostProcessor"},
-        {"id": "OrderedCharacterEncodingFilter", "group": "OrderedCharacterEncodingFilter"},
-        {"id": "AopAutoConfiguration$ClassProxyingConfiguration$$Lambda$376/0x0000000801270228", "group": "AopAutoConfiguration$ClassProxyingConfiguration$$Lambda$376/0x0000000801270228"},
-        {"id": "AutoConfiguredHealthEndpointGroups", "group": "AutoConfiguredHealthEndpointGroups"},
-        {"id": "HealthEndpointProperties", "group": "HealthEndpointProperties"},
-        {"id": "WebEndpointDiscoverer", "group": "WebEndpointDiscoverer"},
-        {"id": "MultipartAutoConfiguration", "group": "MultipartAutoConfiguration"},
-        {"id": "DispatcherServletRegistrationConfiguration", "group": "DispatcherServletRegistrationConfiguration"},
-        {"id": "PreserveErrorControllerTargetClassPostProcessor", "group": "PreserveErrorControllerTargetClassPostProcessor"},
-        {"id": "JacksonObjectMapperBuilderConfiguration", "group": "JacksonObjectMapperBuilderConfiguration"},
-        {"id": "LogbackMetrics", "group": "LogbackMetrics"},
-        {"id": "InfoContributorProperties", "group": "InfoContributorProperties"},
-        {"id": "WebEndpointAutoConfiguration", "group": "WebEndpointAutoConfiguration"},
-        {"id": "MappingWebEndpointPathMapper", "group": "MappingWebEndpointPathMapper"},
-        {"id": "CachesEndpointAutoConfiguration", "group": "CachesEndpointAutoConfiguration"},
-        {"id": "PropertySourcesPlaceholderConfigurer", "group": "PropertySourcesPlaceholderConfigurer"},
-        {"id": "SimpleProperties", "group": "SimpleProperties"},
-        {"id": "BeanNameViewResolver", "group": "BeanNameViewResolver"},
-        {"id": "WebMvcEndpointManagementContextConfiguration", "group": "WebMvcEndpointManagementContextConfiguration"},
-        {"id": "ContentNegotiatingViewResolver", "group": "ContentNegotiatingViewResolver"},
-        {"id": "CorsEndpointProperties", "group": "CorsEndpointProperties"},
-        {"id": "StringHttpMessageConverter", "group": "StringHttpMessageConverter"},
-        {"id": "TomcatWebServerFactoryCustomizerConfiguration", "group": "TomcatWebServerFactoryCustomizerConfiguration"},
-        {"id": "TomcatServletWebServerFactoryCustomizer", "group": "TomcatServletWebServerFactoryCustomizer"},
-        {"id": "ServerProperties", "group": "ServerProperties"},
-        {"id": "HttpMessageConverters", "group": "HttpMessageConverters"},
-        {"id": "JsonComponentModule", "group": "JsonComponentModule"},
-        {"id": "TomcatWebSocketServletWebServerCustomizer", "group": "TomcatWebSocketServletWebServerCustomizer"},
-        {"id": "SpringMvcConfiguration", "group": "SpringMvcConfiguration"},
-        {"id": "BeansVizMvcHandler2", "group": "BeansVizMvcHandler2"},
-        {"id": "ConfigurationPropertiesReportEndpointWebExtension", "group": "ConfigurationPropertiesReportEndpointWebExtension"},
-        {"id": "SqlInitializationAutoConfiguration", "group": "SqlInitializationAutoConfiguration"},
-        {"id": "EmbeddedWebServerFactoryCustomizerAutoConfiguration", "group": "EmbeddedWebServerFactoryCustomizerAutoConfiguration"},
-        {"id": "MappingJackson2HttpMessageConverter", "group": "MappingJackson2HttpMessageConverter"},
-        {"id": "EnvironmentEndpointAutoConfiguration", "group": "EnvironmentEndpointAutoConfiguration"},
-        {"id": "MeterRegistryPostProcessor", "group": "MeterRegistryPostProcessor"},
-        {"id": "EndpointMediaTypes", "group": "EndpointMediaTypes"},
-        {"id": "JvmCompilationMetrics", "group": "JvmCompilationMetrics"},
-        {"id": "HealthEndpointWebExtensionConfiguration", "group": "HealthEndpointWebExtensionConfiguration"},
-        {"id": "SimpleStatusAggregator", "group": "SimpleStatusAggregator"},
-        {"id": "SystemMetricsAutoConfiguration", "group": "SystemMetricsAutoConfiguration"},
-        {"id": "ManagementServerProperties", "group": "ManagementServerProperties"},
-        {"id": "ServletWebServerFactoryCustomizer", "group": "ServletWebServerFactoryCustomizer"},
-        {"id": "UrlPathHelper", "group": "UrlPathHelper"},
-        {"id": "StartupTimeMetricsListenerAutoConfiguration", "group": "StartupTimeMetricsListenerAutoConfiguration"},
-        {"id": "ServletsMappingDescriptionProvider", "group": "ServletsMappingDescriptionProvider"},
-        {"id": "WebServerFactoryCustomizerBeanPostProcessor", "group": "WebServerFactoryCustomizerBeanPostProcessor"},
-        {"id": "", "group": ""},
-        {"id": "WebSocketServletAutoConfiguration", "group": "WebSocketServletAutoConfiguration"},
-        {"id": "DiskSpaceHealthIndicatorProperties", "group": "DiskSpaceHealthIndicatorProperties"},
-        {"id": "ObservationAutoConfiguration", "group": "ObservationAutoConfiguration"},
-        {"id": "SqlInitializationProperties", "group": "SqlInitializationProperties"},
-        {"id": "ControllerEndpointHandlerMapping", "group": "ControllerEndpointHandlerMapping"},
-        {"id": "EnvironmentEndpointProperties", "group": "EnvironmentEndpointProperties"},
-        {"id": "JvmMetricsAutoConfiguration", "group": "JvmMetricsAutoConfiguration"},
-        {"id": "Jackson2ObjectMapperBuilderCustomizerConfiguration", "group": "Jackson2ObjectMapperBuilderCustomizerConfiguration"},
-        {"id": "StringHttpMessageConverterConfiguration", "group": "StringHttpMessageConverterConfiguration"},
-        {"id": "ThreadDumpEndpointAutoConfiguration", "group": "ThreadDumpEndpointAutoConfiguration"},
-        {"id": "ApplicationAvailabilityAutoConfiguration", "group": "ApplicationAvailabilityAutoConfiguration"},
-        {"id": "StandardJackson2ObjectMapperBuilderCustomizer", "group": "StandardJackson2ObjectMapperBuilderCustomizer"},
-        {"id": "TaskSchedulerBuilder", "group": "TaskSchedulerBuilder"},
-        {"id": "MetricsEndpoint", "group": "MetricsEndpoint"},
-        {"id": "ObservationProperties", "group": "ObservationProperties"},
-        {"id": "TaskExecutionAutoConfiguration", "group": "TaskExecutionAutoConfiguration"},
-        {"id": "AopAutoConfiguration", "group": "AopAutoConfiguration"},
-        {"id": "InfoContributorAutoConfiguration", "group": "InfoContributorAutoConfiguration"},
-        {"id": "ObservationHandlerGrouping", "group": "ObservationHandlerGrouping"},
-        {"id": "DispatcherServletAutoConfiguration", "group": "DispatcherServletAutoConfiguration"},
-        {"id": "SimpleMeterRegistry", "group": "SimpleMeterRegistry"},
-        {"id": "ServletWebServerFactoryAutoConfiguration", "group": "ServletWebServerFactoryAutoConfiguration"},
-        {"id": "EnvironmentEndpoint", "group": "EnvironmentEndpoint"},
-        {"id": "DefaultErrorViewResolver", "group": "DefaultErrorViewResolver"},
-        {"id": "StartupTimeMetricsListener", "group": "StartupTimeMetricsListener"},
-        {"id": "EnableWebMvcConfiguration", "group": "EnableWebMvcConfiguration"},
-        {"id": "TomcatMetricsAutoConfiguration", "group": "TomcatMetricsAutoConfiguration"},
-        {"id": "WebMvcObservationAutoConfiguration", "group": "WebMvcObservationAutoConfiguration"},
-        {"id": "LogbackMetricsAutoConfiguration", "group": "LogbackMetricsAutoConfiguration"},
-        {"id": "WebMvcProperties", "group": "WebMvcProperties"},
-        {"id": "MeterFilterConfiguration", "group": "MeterFilterConfiguration"},
-        {"id": "LocaleCharsetMappingsCustomizer", "group": "LocaleCharsetMappingsCustomizer"},
-        {"id": "LoggersEndpointAutoConfiguration", "group": "LoggersEndpointAutoConfiguration"},
-        {"id": "ConfigurationPropertiesReportEndpoint", "group": "ConfigurationPropertiesReportEndpoint"},
-        {"id": "OrderedFormContentFilter", "group": "OrderedFormContentFilter"},
-        {"id": "JsonMixinModuleEntries", "group": "JsonMixinModuleEntries"},
-        {"id": "MultipartConfigElement", "group": "MultipartConfigElement"},
-        {"id": "OrderedRequestContextFilter", "group": "OrderedRequestContextFilter"},
-        {"id": "InternalResourceViewResolver", "group": "InternalResourceViewResolver"},
-        {"id": "RouterFunctionMapping", "group": "RouterFunctionMapping"},
-        {"id": "Jackson2ObjectMapperBuilder", "group": "Jackson2ObjectMapperBuilder"},
-        {"id": "ServletWebConfiguration", "group": "ServletWebConfiguration"},
-        {"id": "BeansEndpoint", "group": "BeansEndpoint"},
-        {"id": "TaskSchedulingProperties", "group": "TaskSchedulingProperties"},
-        {"id": "BeansVizMvcHandler", "group": "BeansVizMvcHandler"},
-        {"id": "HealthEndpointWebExtension", "group": "HealthEndpointWebExtension"},
-        {"id": "StandardServletMultipartResolver", "group": "StandardServletMultipartResolver"},
-        {"id": "AcceptHeaderLocaleResolver", "group": "AcceptHeaderLocaleResolver"},
-        {"id": "HandlerFunctionAdapter", "group": "HandlerFunctionAdapter"},
-        {"id": "WebEndpointServletConfiguration", "group": "WebEndpointServletConfiguration"},
-        {"id": "RequestMappingHandlerMapping", "group": "RequestMappingHandlerMapping"},
-        {"id": "IncludeExcludeEndpointFilter", "group": "IncludeExcludeEndpointFilter"},
-        {"id": "DefaultLifecycleProcessor", "group": "DefaultLifecycleProcessor"},
-        {"id": "SameManagementContextConfiguration", "group": "SameManagementContextConfiguration"},
-        {"id": "RequestMappingHandlerAdapter", "group": "RequestMappingHandlerAdapter"},
-        {"id": "JacksonMixinConfiguration", "group": "JacksonMixinConfiguration"},
-        {"id": "TomcatMetricsBinder", "group": "TomcatMetricsBinder"},
-        {"id": "JvmHeapPressureMetrics", "group": "JvmHeapPressureMetrics"},
-        {"id": "HttpEncodingAutoConfiguration", "group": "HttpEncodingAutoConfiguration"},
-        {"id": "WebMvcServletEndpointManagementContextConfiguration", "group": "WebMvcServletEndpointManagementContextConfiguration"},
-        {"id": "LifecycleAutoConfiguration", "group": "LifecycleAutoConfiguration"},
-        {"id": "LogFileWebEndpointAutoConfiguration", "group": "LogFileWebEndpointAutoConfiguration"},
-        {"id": "ProjectInfoProperties", "group": "ProjectInfoProperties"},
-        {"id": "MetricsEndpointAutoConfiguration", "group": "MetricsEndpointAutoConfiguration"},
-        {"id": "HttpClientObservationsAutoConfiguration", "group": "HttpClientObservationsAutoConfiguration"},
-        {"id": "ConversionServiceParameterValueMapper", "group": "ConversionServiceParameterValueMapper"},
-        {"id": "InfoEndpoint", "group": "InfoEndpoint"},
-        {"id": "MeterFilterConfiguration", "group": "MeterFilterConfiguration"},
-        {"id": "HealthContributorAutoConfiguration", "group": "HealthContributorAutoConfiguration"},
-        {"id": "InfoEndpointAutoConfiguration", "group": "InfoEndpointAutoConfiguration"},
-        {"id": "ClassLoaderMetrics", "group": "ClassLoaderMetrics"},
-        {"id": "ObservationRestTemplateCustomizer", "group": "ObservationRestTemplateCustomizer"},
-        {"id": "ManagementContextFactory", "group": "ManagementContextFactory"},
-        {"id": "ConfigurationPropertiesAutoConfiguration", "group": "ConfigurationPropertiesAutoConfiguration"},
-        {"id": "CachingMetadataReaderFactory", "group": "CachingMetadataReaderFactory"},
-        {"id": "ParameterNamesModuleConfiguration", "group": "ParameterNamesModuleConfiguration"},
-        {"id": "ContentNegotiationManager", "group": "ContentNegotiationManager"},
-        {"id": "CompositeMeterRegistryAutoConfiguration", "group": "CompositeMeterRegistryAutoConfiguration"},
-        {"id": "TaskSchedulingAutoConfiguration", "group": "TaskSchedulingAutoConfiguration"},
-        {"id": "AuditEventsEndpointAutoConfiguration", "group": "AuditEventsEndpointAutoConfiguration"},
-        {"id": "DefaultErrorAttributes", "group": "DefaultErrorAttributes"},
-        {"id": "HttpRequestHandlerAdapter", "group": "HttpRequestHandlerAdapter"},
-        {"id": "MappingsEndpointAutoConfiguration", "group": "MappingsEndpointAutoConfiguration"},
-        {"id": "BeanNameUrlHandlerMapping", "group": "BeanNameUrlHandlerMapping"},
-        {"id": "HealthEndpointConfiguration", "group": "HealthEndpointConfiguration"},
-        {"id": "RestTemplateObservationConfiguration", "group": "RestTemplateObservationConfiguration"},
-        {"id": "MultipartProperties", "group": "MultipartProperties"},
-        {"id": "ProjectInfoAutoConfiguration", "group": "ProjectInfoAutoConfiguration"},
-        {"id": "EmbeddedTomcat", "group": "EmbeddedTomcat"},
-        {"id": "DefaultMeterObservationHandler", "group": "DefaultMeterObservationHandler"},
-        {"id": "HeapDumpWebEndpointAutoConfiguration", "group": "HeapDumpWebEndpointAutoConfiguration"},
-        {"id": "SimpleUrlHandlerMapping", "group": "SimpleUrlHandlerMapping"},
-        {"id": "SimpleControllerHandlerAdapter", "group": "SimpleControllerHandlerAdapter"},
-        {"id": "SimpleMetricsExportAutoConfiguration", "group": "SimpleMetricsExportAutoConfiguration"},
-        {"id": "CachesEndpointWebExtension", "group": "CachesEndpointWebExtension"},
-        {"id": "ConfigurationPropertiesReportEndpointAutoConfiguration", "group": "ConfigurationPropertiesReportEndpointAutoConfiguration"},
-        {"id": "LifecycleProperties", "group": "LifecycleProperties"},
-        {"id": "MetricsProperties", "group": "MetricsProperties"},
-        {"id": "SessionFlashMapManager", "group": "SessionFlashMapManager"},
-        {"id": "AutoConfiguredHealthContributorRegistry", "group": "AutoConfiguredHealthContributorRegistry"},
-        {"id": "ConfigurationPropertiesReportEndpointProperties", "group": "ConfigurationPropertiesReportEndpointProperties"},
-        {"id": "ParameterNamesModule", "group": "ParameterNamesModule"},
-        {"id": "", "group": ""},
-        {"id": "BeansEndpointAutoConfiguration", "group": "BeansEndpointAutoConfiguration"},
-        {"id": "PropertiesMeterFilter", "group": "PropertiesMeterFilter"},
-        {"id": "SimpleHttpCodeStatusMapper", "group": "SimpleHttpCodeStatusMapper"},
-        {"id": "RestTemplateAutoConfiguration", "group": "RestTemplateAutoConfiguration"},
-        {"id": "UptimeMetrics", "group": "UptimeMetrics"},
-        {"id": "IncludeExcludeEndpointFilter", "group": "IncludeExcludeEndpointFilter"},
-        {"id": "PathMappedEndpoints", "group": "PathMappedEndpoints"},
-        {"id": "JvmThreadMetrics", "group": "JvmThreadMetrics"},
-        {"id": "ScheduledTasksEndpoint", "group": "ScheduledTasksEndpoint"},
-        {"id": "DiskSpaceMetricsBinder", "group": "DiskSpaceMetricsBinder"},
-        {"id": "HeapDumpWebEndpoint", "group": "HeapDumpWebEndpoint"},
-        {"id": "ServletManagementContextAutoConfiguration$$Lambda$703/0x00000008013ab7c0", "group": "ServletManagementContextAutoConfiguration$$Lambda$703/0x00000008013ab7c0"},
-        {"id": "FileDescriptorMetrics", "group": "FileDescriptorMetrics"},
-        {"id": "OnlyMetricsMeterObservationHandlerConfiguration", "group": "OnlyMetricsMeterObservationHandlerConfiguration"},
-        {"id": "ErrorMvcAutoConfiguration", "group": "ErrorMvcAutoConfiguration"},
-        {"id": "ServletEndpointDiscoverer", "group": "ServletEndpointDiscoverer"},
-        {"id": "EnvironmentEndpointWebExtension", "group": "EnvironmentEndpointWebExtension"},
-        {"id": "", "group": ""},
-        {"id": "NoOpValidator", "group": "NoOpValidator"},
-        {"id": "TomcatWebSocketConfiguration", "group": "TomcatWebSocketConfiguration"},
-        {"id": "ConditionsReportEndpoint", "group": "ConditionsReportEndpoint"},
-        {"id": "ApplicationAvailabilityBean", "group": "ApplicationAvailabilityBean"},
-        {"id": "HttpMessageConvertersAutoConfiguration", "group": "HttpMessageConvertersAutoConfiguration"},
-        {"id": "ResourceUrlProvider", "group": "ResourceUrlProvider"},
-        {"id": "HealthEndpoint", "group": "HealthEndpoint"},
-        {"id": "EnableSameManagementContextConfiguration", "group": "EnableSameManagementContextConfiguration"},
-        {"id": "TaskExecutionProperties", "group": "TaskExecutionProperties"},
-        {"id": "HandlerMapping", "group": "HandlerMapping"},
-        {"id": "FixedThemeResolver", "group": "FixedThemeResolver"},
-        {"id": "AvailabilityHealthContributorAutoConfiguration", "group": "AvailabilityHealthContributorAutoConfiguration"},
-        {"id": "PathPatternParser", "group": "PathPatternParser"},
-        {"id": "MvcAdditionalHealthEndpointPathsConfiguration", "group": "MvcAdditionalHealthEndpointPathsConfiguration"},
-        {"id": "ServletEndpointRegistrar", "group": "ServletEndpointRegistrar"},
-        {"id": "ThreadDumpEndpoint", "group": "ThreadDumpEndpoint"},
-        {"id": "DependsOnDatabaseInitializationPostProcessor", "group": "DependsOnDatabaseInitializationPostProcessor"},
-        {"id": "DispatcherServlet", "group": "DispatcherServlet"},
-        {"id": "TaskExecutorMetricsAutoConfiguration", "group": "TaskExecutorMetricsAutoConfiguration"},
-        {"id": "JvmInfoMetrics", "group": "JvmInfoMetrics"},
-        {"id": "ServletEndpointManagementContextConfiguration", "group": "ServletEndpointManagementContextConfiguration"},
-        {"id": "WebMvcAutoConfiguration", "group": "WebMvcAutoConfiguration"},
-        {"id": "DemoApplication$$SpringCGLIB$$0", "group": "DemoApplication$$SpringCGLIB$$0"},
-        {"id": "WebMvcEndpointHandlerMapping", "group": "WebMvcEndpointHandlerMapping"},
-        {"id": "ProcessorMetrics", "group": "ProcessorMetrics"},
-        {"id": "DispatcherServletsMappingDescriptionProvider", "group": "DispatcherServletsMappingDescriptionProvider"},
-        {"id": "ScheduledTasksEndpointAutoConfiguration", "group": "ScheduledTasksEndpointAutoConfiguration"},
-        {"id": "PropertyPlaceholderAutoConfiguration", "group": "PropertyPlaceholderAutoConfiguration"},
-        {"id": "IntegrationMetricsAutoConfiguration", "group": "IntegrationMetricsAutoConfiguration"},
-        {"id": "BeansVizMvcEndpoint", "group": "BeansVizMvcEndpoint"},
-        {"id": "MeterObservationHandlerConfiguration", "group": "MeterObservationHandlerConfiguration"},
-        {"id": "WebMvcAutoConfigurationAdapter", "group": "WebMvcAutoConfigurationAdapter"},
-        {"id": "ErrorPageRegistrarBeanPostProcessor", "group": "ErrorPageRegistrarBeanPostProcessor"},
-        {"id": "ErrorPageCustomizer", "group": "ErrorPageCustomizer"},
-        {"id": "WebConversionService", "group": "WebConversionService"},
-        {"id": "LoggersEndpoint", "group": "LoggersEndpoint"},
-        {"id": "DefaultErrorViewResolverConfiguration", "group": "DefaultErrorViewResolverConfiguration"},
-        {"id": "ControllerEndpointDiscoverer", "group": "ControllerEndpointDiscoverer"},
-        {"id": "DiskSpaceHealthIndicator", "group": "DiskSpaceHealthIndicator"},
-        {"id": "TomcatWebServerFactoryCustomizer", "group": "TomcatWebServerFactoryCustomizer"},
-        {"id": "JvmMemoryMetrics", "group": "JvmMemoryMetrics"},
-        {"id": "OnlyMetricsConfiguration", "group": "OnlyMetricsConfiguration"},
-        {"id": "EndpointAutoConfiguration", "group": "EndpointAutoConfiguration"},
-        {"id": "ConditionsReportEndpointAutoConfiguration", "group": "ConditionsReportEndpointAutoConfiguration"},
-        {"id": "DefaultRequestToViewNameTranslator", "group": "DefaultRequestToViewNameTranslator"},
-        {"id": "JacksonHttpMessageConvertersConfiguration", "group": "JacksonHttpMessageConvertersConfiguration"},
-        {"id": "AntPathMatcher", "group": "AntPathMatcher"},
-        {"id": "HandlerExceptionResolverComposite", "group": "HandlerExceptionResolverComposite"},
-        {"id": "DiskSpaceHealthContributorAutoConfiguration", "group": "DiskSpaceHealthContributorAutoConfiguration"},
-        {"id": "MetricsAutoConfiguration", "group": "MetricsAutoConfiguration"},
-        {"id": "BasicErrorController", "group": "BasicErrorController"},
-        {"id": "CachesEndpoint", "group": "CachesEndpoint"},
-        {"id": "PingHealthIndicator", "group": "PingHealthIndicator"},
-        {"id": "DispatcherServletRegistrationBean", "group": "DispatcherServletRegistrationBean"},
-        {"id": "MappingsEndpoint", "group": "MappingsEndpoint"},
-        {"id": "HealthEndpointGroupsBeanPostProcessor", "group": "HealthEndpointGroupsBeanPostProcessor"},
-        {"id": "WebEndpointProperties", "group": "WebEndpointProperties"},
-        {"id": "TomcatServletWebServerFactory", "group": "TomcatServletWebServerFactory"},
-        {"id": "MappingJackson2HttpMessageConverterConfiguration", "group": "MappingJackson2HttpMessageConverterConfiguration"},
-        {"id": "JacksonProperties", "group": "JacksonProperties"},
-        {"id": "StaticView", "group": "StaticView"},
-        {"id": "JacksonAutoConfiguration", "group": "JacksonAutoConfiguration"},
-        {"id": "JacksonObjectMapperConfiguration", "group": "JacksonObjectMapperConfiguration"},
-        {"id": "HealthEndpointAutoConfiguration", "group": "HealthEndpointAutoConfiguration"},
-        {"id": "WhitelabelErrorViewConfiguration", "group": "WhitelabelErrorViewConfiguration"},
-        {"id": "JsonMixinModule", "group": "JsonMixinModule"},
-        {"id": "DispatcherServletConfiguration", "group": "DispatcherServletConfiguration"},
-        {"id": "WebProperties", "group": "WebProperties"},
-        {"id": "JvmGcMetrics", "group": "JvmGcMetrics"},
-        {"id": "AdditionalHealthEndpointPathsWebMvcHandlerMapping", "group": "AdditionalHealthEndpointPathsWebMvcHandlerMapping"},
-        {"id": "ViewResolverComposite", "group": "ViewResolverComposite"},
-        {"id": "SimplePropertiesConfigAdapter", "group": "SimplePropertiesConfigAdapter"},
-        {"id": "WelcomePageHandlerMapping", "group": "WelcomePageHandlerMapping"},
-        {"id": "IncludeExcludeEndpointFilter", "group": "IncludeExcludeEndpointFilter"},
-        {"id": "ServletManagementContextAutoConfiguration", "group": "ServletManagementContextAutoConfiguration"},
-        {"id": "SimpleObservationRegistry", "group": "SimpleObservationRegistry"},
-        {"id": "CompositeUriComponentsContributor", "group": "CompositeUriComponentsContributor"},
-        {"id": "FiltersMappingDescriptionProvider", "group": "FiltersMappingDescriptionProvider"},
-        {"id": "ManagementContextAutoConfiguration", "group": "ManagementContextAutoConfiguration"},
-        {"id": "JacksonEndpointAutoConfiguration$$Lambda$627/0x000000080136a6c8", "group": "JacksonEndpointAutoConfiguration$$Lambda$627/0x000000080136a6c8"},
-        {"id": "HttpExchangesEndpointAutoConfiguration", "group": "HttpExchangesEndpointAutoConfiguration"},
-        {"id": "ObjectMapper", "group": "ObjectMapper"},
-        {"id": "FilterRegistrationBean", "group": "FilterRegistrationBean"},
-        {"id": "ClassProxyingConfiguration", "group": "ClassProxyingConfiguration"},
-        {"id": "LogFileWebEndpointProperties", "group": "LogFileWebEndpointProperties"},
-        {"id": "TaskExecutorBuilder", "group": "TaskExecutorBuilder"},
-        {"id": "JacksonEndpointAutoConfiguration", "group": "JacksonEndpointAutoConfiguration"},
-        {"id": "LAST_NODE", "group": "LAST_NODE"}
-    ],
-    "links": [
-        {"source": "CachingOperationInvokerAdvisor", "target": "EndpointAutoConfiguration", "value": 1},
-        {"source": "ThreadPoolTaskExecutor", "target": "TaskExecutionAutoConfiguration", "value": 1},
-        {"source": "OrderedCharacterEncodingFilter", "target": "HttpEncodingAutoConfiguration", "value": 1},
-        {"source": "AutoConfiguredHealthEndpointGroups", "target": "HealthEndpointConfiguration", "value": 1},
-        {"source": "AutoConfiguredHealthEndpointGroups", "target": "HealthEndpointProperties", "value": 1},
-        {"source": "WebEndpointDiscoverer", "target": "WebEndpointAutoConfiguration", "value": 1},
-        {"source": "MultipartAutoConfiguration", "target": "MultipartProperties", "value": 1},
-        {"source": "LogbackMetrics", "target": "LogbackMetricsAutoConfiguration", "value": 1},
-        {"source": "WebEndpointAutoConfiguration", "target": "WebEndpointProperties", "value": 1},
-        {"source": "MappingWebEndpointPathMapper", "target": "WebEndpointAutoConfiguration", "value": 1},
-        {"source": "TomcatServletWebServerFactoryCustomizer", "target": "ServletWebServerFactoryAutoConfiguration", "value": 1},
-        {"source": "TomcatServletWebServerFactoryCustomizer", "target": "ServerProperties", "value": 1},
-        {"source": "HttpMessageConverters", "target": "HttpMessageConvertersAutoConfiguration", "value": 1},
-        {"source": "JsonComponentModule", "target": "JacksonAutoConfiguration", "value": 1},
-        {"source": "ConfigurationPropertiesReportEndpointWebExtension", "target": "ConfigurationPropertiesReportEndpointAutoConfiguration", "value": 1},
-        {"source": "ConfigurationPropertiesReportEndpointWebExtension", "target": "ConfigurationPropertiesReportEndpointProperties", "value": 1},
-        {"source": "EndpointMediaTypes", "target": "WebEndpointAutoConfiguration", "value": 1},
-        {"source": "JvmCompilationMetrics", "target": "JvmMetricsAutoConfiguration", "value": 1},
-        {"source": "SimpleStatusAggregator", "target": "HealthEndpointConfiguration", "value": 1},
-        {"source": "SimpleStatusAggregator", "target": "HealthEndpointProperties", "value": 1},
-        {"source": "ServletWebServerFactoryCustomizer", "target": "ServletWebServerFactoryAutoConfiguration", "value": 1},
-        {"source": "ServletWebServerFactoryCustomizer", "target": "ServerProperties", "value": 1},
-        {"source": "", "target": "ObservationProperties", "value": 1},
-        {"source": "", "target": "MetricsProperties", "value": 1},
-        {"source": "ControllerEndpointHandlerMapping", "target": "WebMvcEndpointManagementContextConfiguration", "value": 1},
-        {"source": "ControllerEndpointHandlerMapping", "target": "CorsEndpointProperties", "value": 1},
-        {"source": "ControllerEndpointHandlerMapping", "target": "WebEndpointProperties", "value": 1},
-        {"source": "StandardJackson2ObjectMapperBuilderCustomizer", "target": "JacksonProperties", "value": 1},
-        {"source": "TaskSchedulerBuilder", "target": "TaskSchedulingAutoConfiguration", "value": 1},
-        {"source": "TaskSchedulerBuilder", "target": "TaskSchedulingProperties", "value": 1},
-        {"source": "MetricsEndpoint", "target": "MetricsEndpointAutoConfiguration", "value": 1},
-        {"source": "SimpleMeterRegistry", "target": "SimpleMetricsExportAutoConfiguration", "value": 1},
-        {"source": "EnvironmentEndpoint", "target": "EnvironmentEndpointAutoConfiguration", "value": 1},
-        {"source": "EnvironmentEndpoint", "target": "EnvironmentEndpointProperties", "value": 1},
-        {"source": "StartupTimeMetricsListener", "target": "StartupTimeMetricsListenerAutoConfiguration", "value": 1},
-        {"source": "EnableWebMvcConfiguration", "target": "WebMvcProperties", "value": 1},
-        {"source": "EnableWebMvcConfiguration", "target": "WebProperties", "value": 1},
-        {"source": "WebMvcObservationAutoConfiguration", "target": "ObservationProperties", "value": 1},
-        {"source": "WebMvcObservationAutoConfiguration", "target": "MetricsProperties", "value": 1},
-        {"source": "LocaleCharsetMappingsCustomizer", "target": "HttpEncodingAutoConfiguration", "value": 1},
-        {"source": "ConfigurationPropertiesReportEndpoint", "target": "ConfigurationPropertiesReportEndpointAutoConfiguration", "value": 1},
-        {"source": "ConfigurationPropertiesReportEndpoint", "target": "ConfigurationPropertiesReportEndpointProperties", "value": 1},
-        {"source": "OrderedFormContentFilter", "target": "WebMvcAutoConfiguration", "value": 1},
-        {"source": "MultipartConfigElement", "target": "MultipartAutoConfiguration", "value": 1},
-        {"source": "BeansEndpoint", "target": "BeansEndpointAutoConfiguration", "value": 1},
-        {"source": "HealthEndpointWebExtension", "target": "HealthEndpointWebExtensionConfiguration", "value": 1},
-        {"source": "HealthEndpointWebExtension", "target": "HealthEndpointProperties", "value": 1},
-        {"source": "StandardServletMultipartResolver", "target": "MultipartAutoConfiguration", "value": 1},
-        {"source": "IncludeExcludeEndpointFilter", "target": "WebEndpointAutoConfiguration", "value": 1},
-        {"source": "DefaultLifecycleProcessor", "target": "LifecycleAutoConfiguration", "value": 1},
-        {"source": "DefaultLifecycleProcessor", "target": "LifecycleProperties", "value": 1},
-        {"source": "TomcatMetricsBinder", "target": "TomcatMetricsAutoConfiguration", "value": 1},
-        {"source": "JvmHeapPressureMetrics", "target": "JvmMetricsAutoConfiguration", "value": 1},
-        {"source": "HttpEncodingAutoConfiguration", "target": "ServerProperties", "value": 1},
-        {"source": "ConversionServiceParameterValueMapper", "target": "EndpointAutoConfiguration", "value": 1},
-        {"source": "InfoEndpoint", "target": "InfoEndpointAutoConfiguration", "value": 1},
-        {"source": "ClassLoaderMetrics", "target": "JvmMetricsAutoConfiguration", "value": 1},
-        {"source": "ObservationRestTemplateCustomizer", "target": "RestTemplateObservationConfiguration", "value": 1},
-        {"source": "ObservationRestTemplateCustomizer", "target": "ObservationProperties", "value": 1},
-        {"source": "ObservationRestTemplateCustomizer", "target": "MetricsProperties", "value": 1},
-        {"source": "DefaultErrorAttributes", "target": "ErrorMvcAutoConfiguration", "value": 1},
-        {"source": "ProjectInfoAutoConfiguration", "target": "ProjectInfoProperties", "value": 1},
-        {"source": "CachesEndpointWebExtension", "target": "CachesEndpointAutoConfiguration", "value": 1},
-        {"source": "AutoConfiguredHealthContributorRegistry", "target": "HealthEndpointConfiguration", "value": 1},
-        {"source": "", "target": "MetricsAutoConfiguration", "value": 1},
-        {"source": "PropertiesMeterFilter", "target": "MetricsAutoConfiguration", "value": 1},
-        {"source": "PropertiesMeterFilter", "target": "MetricsProperties", "value": 1},
-        {"source": "SimpleHttpCodeStatusMapper", "target": "HealthEndpointConfiguration", "value": 1},
-        {"source": "SimpleHttpCodeStatusMapper", "target": "HealthEndpointProperties", "value": 1},
-        {"source": "UptimeMetrics", "target": "SystemMetricsAutoConfiguration", "value": 1},
-        {"source": "IncludeExcludeEndpointFilter", "target": "WebEndpointAutoConfiguration", "value": 1},
-        {"source": "PathMappedEndpoints", "target": "WebEndpointAutoConfiguration", "value": 1},
-        {"source": "JvmThreadMetrics", "target": "JvmMetricsAutoConfiguration", "value": 1},
-        {"source": "ScheduledTasksEndpoint", "target": "ScheduledTasksEndpointAutoConfiguration", "value": 1},
-        {"source": "DiskSpaceMetricsBinder", "target": "SystemMetricsAutoConfiguration", "value": 1},
-        {"source": "DiskSpaceMetricsBinder", "target": "MetricsProperties", "value": 1},
-        {"source": "HeapDumpWebEndpoint", "target": "HeapDumpWebEndpointAutoConfiguration", "value": 1},
-        {"source": "ServletManagementContextAutoConfiguration$$Lambda$703/0x00000008013ab7c0", "target": "ServletManagementContextAutoConfiguration", "value": 1},
-        {"source": "ServletManagementContextAutoConfiguration$$Lambda$703/0x00000008013ab7c0", "target": "WebEndpointProperties", "value": 1},
-        {"source": "FileDescriptorMetrics", "target": "SystemMetricsAutoConfiguration", "value": 1},
-        {"source": "ErrorMvcAutoConfiguration", "target": "ServerProperties", "value": 1},
-        {"source": "EnvironmentEndpointWebExtension", "target": "EnvironmentEndpointAutoConfiguration", "value": 1},
-        {"source": "EnvironmentEndpointWebExtension", "target": "EnvironmentEndpointProperties", "value": 1},
-        {"source": "", "target": "MetricsProperties", "value": 1},
-        {"source": "", "target": "ObservationProperties", "value": 1},
-        {"source": "ConditionsReportEndpoint", "target": "ConditionsReportEndpointAutoConfiguration", "value": 1},
-        {"source": "ApplicationAvailabilityBean", "target": "ApplicationAvailabilityAutoConfiguration", "value": 1},
-        {"source": "HealthEndpoint", "target": "HealthEndpointConfiguration", "value": 1},
-        {"source": "HealthEndpoint", "target": "HealthEndpointProperties", "value": 1},
-        {"source": "ServletEndpointRegistrar", "target": "WebEndpointProperties", "value": 1},
-        {"source": "ThreadDumpEndpoint", "target": "ThreadDumpEndpointAutoConfiguration", "value": 1},
-        {"source": "DispatcherServlet", "target": "WebMvcProperties", "value": 1},
-        {"source": "JvmInfoMetrics", "target": "JvmMetricsAutoConfiguration", "value": 1},
-        {"source": "WebMvcEndpointHandlerMapping", "target": "WebMvcEndpointManagementContextConfiguration", "value": 1},
-        {"source": "WebMvcEndpointHandlerMapping", "target": "CorsEndpointProperties", "value": 1},
-        {"source": "WebMvcEndpointHandlerMapping", "target": "WebEndpointProperties", "value": 1},
-        {"source": "ProcessorMetrics", "target": "SystemMetricsAutoConfiguration", "value": 1},
-        {"source": "WebMvcAutoConfigurationAdapter", "target": "WebProperties", "value": 1},
-        {"source": "WebMvcAutoConfigurationAdapter", "target": "WebMvcProperties", "value": 1},
-        {"source": "ErrorPageCustomizer", "target": "ErrorMvcAutoConfiguration", "value": 1},
-        {"source": "LoggersEndpoint", "target": "LoggersEndpointAutoConfiguration", "value": 1},
-        {"source": "DefaultErrorViewResolverConfiguration", "target": "WebProperties", "value": 1},
-        {"source": "ControllerEndpointDiscoverer", "target": "WebEndpointAutoConfiguration", "value": 1},
-        {"source": "DiskSpaceHealthIndicator", "target": "DiskSpaceHealthContributorAutoConfiguration", "value": 1},
-        {"source": "DiskSpaceHealthIndicator", "target": "DiskSpaceHealthIndicatorProperties", "value": 1},
-        {"source": "TomcatWebServerFactoryCustomizer", "target": "ServerProperties", "value": 1},
-        {"source": "JvmMemoryMetrics", "target": "JvmMetricsAutoConfiguration", "value": 1},
-        {"source": "BasicErrorController", "target": "ErrorMvcAutoConfiguration", "value": 1},
-        {"source": "CachesEndpoint", "target": "CachesEndpointAutoConfiguration", "value": 1},
-        {"source": "PingHealthIndicator", "target": "HealthContributorAutoConfiguration", "value": 1},
-        {"source": "DispatcherServletRegistrationBean", "target": "WebMvcProperties", "value": 1},
-        {"source": "MappingsEndpoint", "target": "MappingsEndpointAutoConfiguration", "value": 1},
-        {"source": "JvmGcMetrics", "target": "JvmMetricsAutoConfiguration", "value": 1},
-        {"source": "SimplePropertiesConfigAdapter", "target": "SimpleMetricsExportAutoConfiguration", "value": 1},
-        {"source": "SimplePropertiesConfigAdapter", "target": "SimpleProperties", "value": 1},
-        {"source": "IncludeExcludeEndpointFilter", "target": "ServletEndpointManagementContextConfiguration", "value": 1},
-        {"source": "IncludeExcludeEndpointFilter", "target": "WebEndpointProperties", "value": 1},
-        {"source": "SimpleObservationRegistry", "target": "ObservationAutoConfiguration", "value": 1},
-        {"source": "JacksonEndpointAutoConfiguration$$Lambda$627/0x000000080136a6c8", "target": "JacksonEndpointAutoConfiguration", "value": 1},
-        {"source": "FilterRegistrationBean", "target": "WebMvcObservationAutoConfiguration", "value": 1},
-        {"source": "TaskExecutorBuilder", "target": "TaskExecutionAutoConfiguration", "value": 1},
-        {"source": "TaskExecutorBuilder", "target": "TaskExecutionProperties", "value": 1},
-        {"source": "LAST_NODE", "target": "LAST_NODE", "value": 1}
-    ]
-}
+[
+   {
+      "source" : "CachingOperationInvokerAdvisor",
+      "target" : "EndpointAutoConfiguration"
+   },
+   {
+      "source" : "CachingOperationInvokerAdvisor",
+      "target" : "environment"
+   },
+   {
+      "source" : "HandlerMapping",
+      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+   },
+   {
+      "source" : "ThreadPoolTaskExecutor",
+      "target" : "TaskExecutionAutoConfiguration"
+   },
+   {
+      "source" : "ThreadPoolTaskExecutor",
+      "target" : "taskExecutorBuilder"
+   },
+   {
+      "source" : "OrderedCharacterEncodingFilter",
+      "target" : "HttpEncodingAutoConfiguration"
+   },
+   {
+      "source" : "WebEndpointDiscoverer",
+      "target" : "WebEndpointAutoConfiguration"
+   },
+   {
+      "source" : "WebEndpointDiscoverer",
+      "target" : "endpointOperationParameterMapper"
+   },
+   {
+      "source" : "WebEndpointDiscoverer",
+      "target" : "endpointMediaTypes"
+   },
+   {
+      "source" : "MultipartAutoConfiguration",
+      "target" : "MultipartProperties"
+   },
+   {
+      "source" : "LogbackMetrics",
+      "target" : "LogbackMetricsAutoConfiguration"
+   },
+   {
+      "source" : "WebEndpointAutoConfiguration",
+      "target" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
+   },
+   {
+      "source" : "WebEndpointAutoConfiguration",
+      "target" : "WebEndpointProperties"
+   },
+   {
+      "source" : "MappingWebEndpointPathMapper",
+      "target" : "WebEndpointAutoConfiguration"
+   },
+   {
+      "source" : "BeanNameViewResolver",
+      "target" : "ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration"
+   },
+   {
+      "source" : "ContentNegotiatingViewResolver",
+      "target" : "WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter"
+   },
+   {
+      "source" : "ContentNegotiatingViewResolver",
+      "target" : "DefaultListableBeanFactory@66bee88a"
+   },
+   {
+      "source" : "StringHttpMessageConverter",
+      "target" : "HttpMessageConvertersAutoConfiguration$StringHttpMessageConverterConfiguration"
+   },
+   {
+      "source" : "StringHttpMessageConverter",
+      "target" : "environment"
+   },
+   {
+      "source" : "TomcatServletWebServerFactoryCustomizer",
+      "target" : "ServletWebServerFactoryAutoConfiguration"
+   },
+   {
+      "source" : "TomcatServletWebServerFactoryCustomizer",
+      "target" : "ServerProperties"
+   },
+   {
+      "source" : "HttpMessageConverters",
+      "target" : "HttpMessageConvertersAutoConfiguration"
+   },
+   {
+      "source" : "JsonComponentModule",
+      "target" : "JacksonAutoConfiguration"
+   },
+   {
+      "source" : "TomcatWebSocketServletWebServerCustomizer",
+      "target" : "WebSocketServletAutoConfiguration$TomcatWebSocketConfiguration"
+   },
+   {
+      "source" : "MappingJackson2HttpMessageConverter",
+      "target" : "JacksonHttpMessageConvertersConfiguration$MappingJackson2HttpMessageConverterConfiguration"
+   },
+   {
+      "source" : "MappingJackson2HttpMessageConverter",
+      "target" : "jacksonObjectMapper"
+   },
+   {
+      "source" : "MeterRegistryPostProcessor",
+      "target" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
+   },
+   {
+      "source" : "EndpointMediaTypes",
+      "target" : "WebEndpointAutoConfiguration"
+   },
+   {
+      "source" : "JvmCompilationMetrics",
+      "target" : "JvmMetricsAutoConfiguration"
+   },
+   {
+      "source" : "ServletWebServerFactoryCustomizer",
+      "target" : "ServletWebServerFactoryAutoConfiguration"
+   },
+   {
+      "source" : "ServletWebServerFactoryCustomizer",
+      "target" : "ServerProperties"
+   },
+   {
+      "source" : "UrlPathHelper",
+      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+   },
+   {
+      "source" : "",
+      "target" : "HttpClientObservationsAutoConfiguration$MeterFilterConfiguration"
+   },
+   {
+      "source" : "",
+      "target" : "ObservationProperties"
+   },
+   {
+      "source" : "",
+      "target" : "MetricsProperties"
+   },
+   {
+      "source" : "ControllerEndpointHandlerMapping",
+      "target" : "WebMvcEndpointManagementContextConfiguration"
+   },
+   {
+      "source" : "ControllerEndpointHandlerMapping",
+      "target" : "controllerEndpointDiscoverer"
+   },
+   {
+      "source" : "ControllerEndpointHandlerMapping",
+      "target" : "CorsEndpointProperties"
+   },
+   {
+      "source" : "ControllerEndpointHandlerMapping",
+      "target" : "WebEndpointProperties"
+   },
+   {
+      "source" : "UserDependenciesService",
+      "target" : "UserBeansService"
+   },
+   {
+      "source" : "OptionalLiveReloadServer",
+      "target" : "LocalDevToolsAutoConfiguration$LiveReloadConfiguration"
+   },
+   {
+      "source" : "OptionalLiveReloadServer",
+      "target" : "liveReloadServer"
+   },
+   {
+      "source" : "StandardJackson2ObjectMapperBuilderCustomizer",
+      "target" : "JacksonAutoConfiguration$Jackson2ObjectMapperBuilderCustomizerConfiguration"
+   },
+   {
+      "source" : "StandardJackson2ObjectMapperBuilderCustomizer",
+      "target" : "JacksonProperties"
+   },
+   {
+      "source" : "TaskSchedulerBuilder",
+      "target" : "TaskSchedulingAutoConfiguration"
+   },
+   {
+      "source" : "TaskSchedulerBuilder",
+      "target" : "TaskSchedulingProperties"
+   },
+   {
+      "source" : "ObservationHandlerGrouping",
+      "target" : "ObservationAutoConfiguration$OnlyMetricsConfiguration"
+   },
+   {
+      "source" : "SimpleMeterRegistry",
+      "target" : "SimpleMetricsExportAutoConfiguration"
+   },
+   {
+      "source" : "SimpleMeterRegistry",
+      "target" : "simpleConfig"
+   },
+   {
+      "source" : "SimpleMeterRegistry",
+      "target" : "micrometerClock"
+   },
+   {
+      "source" : "RestartingClassPathChangeChangedEventListener",
+      "target" : "LocalDevToolsAutoConfiguration$RestartConfiguration"
+   },
+   {
+      "source" : "RestartingClassPathChangeChangedEventListener",
+      "target" : "fileSystemWatcherFactory"
+   },
+   {
+      "source" : "DefaultErrorViewResolver",
+      "target" : "ErrorMvcAutoConfiguration$DefaultErrorViewResolverConfiguration"
+   },
+   {
+      "source" : "StartupTimeMetricsListener",
+      "target" : "StartupTimeMetricsListenerAutoConfiguration"
+   },
+   {
+      "source" : "StartupTimeMetricsListener",
+      "target" : "simpleMeterRegistry"
+   },
+   {
+      "source" : "EnableWebMvcConfiguration",
+      "target" : "WebMvcProperties"
+   },
+   {
+      "source" : "EnableWebMvcConfiguration",
+      "target" : "WebProperties"
+   },
+   {
+      "source" : "EnableWebMvcConfiguration",
+      "target" : "DefaultListableBeanFactory@66bee88a"
+   },
+   {
+      "source" : "EnableWebMvcConfiguration",
+      "target" : "WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter"
+   },
+   {
+      "source" : "EnableWebMvcConfiguration",
+      "target" : "endpointObjectMapperWebMvcConfigurer"
+   },
+   {
+      "source" : "WebMvcObservationAutoConfiguration",
+      "target" : "ObservationProperties"
+   },
+   {
+      "source" : "WebMvcObservationAutoConfiguration",
+      "target" : "MetricsProperties"
+   },
+   {
+      "source" : "LocaleCharsetMappingsCustomizer",
+      "target" : "HttpEncodingAutoConfiguration"
+   },
+   {
+      "source" : "OrderedFormContentFilter",
+      "target" : "WebMvcAutoConfiguration"
+   },
+   {
+      "source" : "JsonMixinModuleEntries",
+      "target" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
+   },
+   {
+      "source" : "MultipartConfigElement",
+      "target" : "MultipartAutoConfiguration"
+   },
+   {
+      "source" : "InternalResourceViewResolver",
+      "target" : "WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter"
+   },
+   {
+      "source" : "RouterFunctionMapping",
+      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+   },
+   {
+      "source" : "RouterFunctionMapping",
+      "target" : "mvcConversionService"
+   },
+   {
+      "source" : "RouterFunctionMapping",
+      "target" : "mvcResourceUrlProvider"
+   },
+   {
+      "source" : "Jackson2ObjectMapperBuilder",
+      "target" : "JacksonAutoConfiguration$JacksonObjectMapperBuilderConfiguration"
+   },
+   {
+      "source" : "Jackson2ObjectMapperBuilder",
+      "target" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
+   },
+   {
+      "source" : "Jackson2ObjectMapperBuilder",
+      "target" : "standardJacksonObjectMapperBuilderCustomizer"
+   },
+   {
+      "source" : "BeansEndpoint",
+      "target" : "BeansEndpointAutoConfiguration"
+   },
+   {
+      "source" : "BeansEndpoint",
+      "target" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
+   },
+   {
+      "source" : "LiveReloadServer",
+      "target" : "LocalDevToolsAutoConfiguration$LiveReloadConfiguration"
+   },
+   {
+      "source" : "LiveReloadServer",
+      "target" : "DevToolsProperties"
+   },
+   {
+      "source" : "StandardServletMultipartResolver",
+      "target" : "MultipartAutoConfiguration"
+   },
+   {
+      "source" : "AcceptHeaderLocaleResolver",
+      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+   },
+   {
+      "source" : "HandlerFunctionAdapter",
+      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+   },
+   {
+      "source" : "RequestMappingHandlerMapping",
+      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+   },
+   {
+      "source" : "RequestMappingHandlerMapping",
+      "target" : "mvcContentNegotiationManager"
+   },
+   {
+      "source" : "RequestMappingHandlerMapping",
+      "target" : "mvcConversionService"
+   },
+   {
+      "source" : "RequestMappingHandlerMapping",
+      "target" : "mvcResourceUrlProvider"
+   },
+   {
+      "source" : "IncludeExcludeEndpointFilter",
+      "target" : "WebEndpointAutoConfiguration"
+   },
+   {
+      "source" : "DefaultLifecycleProcessor",
+      "target" : "LifecycleAutoConfiguration"
+   },
+   {
+      "source" : "DefaultLifecycleProcessor",
+      "target" : "LifecycleProperties"
+   },
+   {
+      "source" : "SameManagementContextConfiguration",
+      "target" : "environment"
+   },
+   {
+      "source" : "RequestMappingHandlerAdapter",
+      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+   },
+   {
+      "source" : "RequestMappingHandlerAdapter",
+      "target" : "mvcContentNegotiationManager"
+   },
+   {
+      "source" : "RequestMappingHandlerAdapter",
+      "target" : "mvcConversionService"
+   },
+   {
+      "source" : "RequestMappingHandlerAdapter",
+      "target" : "mvcValidator"
+   },
+   {
+      "source" : "TomcatMetricsBinder",
+      "target" : "TomcatMetricsAutoConfiguration"
+   },
+   {
+      "source" : "TomcatMetricsBinder",
+      "target" : "simpleMeterRegistry"
+   },
+   {
+      "source" : "JvmHeapPressureMetrics",
+      "target" : "JvmMetricsAutoConfiguration"
+   },
+   {
+      "source" : "ClassPathFileSystemWatcher",
+      "target" : "LocalDevToolsAutoConfiguration$RestartConfiguration"
+   },
+   {
+      "source" : "ClassPathFileSystemWatcher",
+      "target" : "fileSystemWatcherFactory"
+   },
+   {
+      "source" : "ClassPathFileSystemWatcher",
+      "target" : "classPathRestartStrategy"
+   },
+   {
+      "source" : "HttpEncodingAutoConfiguration",
+      "target" : "ServerProperties"
+   },
+   {
+      "source" : "WelcomePageNotAcceptableHandlerMapping",
+      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+   },
+   {
+      "source" : "WelcomePageNotAcceptableHandlerMapping",
+      "target" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
+   },
+   {
+      "source" : "WelcomePageNotAcceptableHandlerMapping",
+      "target" : "mvcConversionService"
+   },
+   {
+      "source" : "WelcomePageNotAcceptableHandlerMapping",
+      "target" : "mvcResourceUrlProvider"
+   },
+   {
+      "source" : "ConversionServiceParameterValueMapper",
+      "target" : "EndpointAutoConfiguration"
+   },
+   {
+      "source" : "DefaultSslBundleRegistry",
+      "target" : "SslAutoConfiguration"
+   },
+   {
+      "source" : "DefaultSslBundleRegistry",
+      "target" : "sslPropertiesSslBundleRegistrar"
+   },
+   {
+      "source" : "ClassLoaderMetrics",
+      "target" : "JvmMetricsAutoConfiguration"
+   },
+   {
+      "source" : "ObservationRestTemplateCustomizer",
+      "target" : "RestTemplateObservationConfiguration"
+   },
+   {
+      "source" : "ObservationRestTemplateCustomizer",
+      "target" : "observationRegistry"
+   },
+   {
+      "source" : "ObservationRestTemplateCustomizer",
+      "target" : "ObservationProperties"
+   },
+   {
+      "source" : "ObservationRestTemplateCustomizer",
+      "target" : "MetricsProperties"
+   },
+   {
+      "source" : "ContentNegotiationManager",
+      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+   },
+   {
+      "source" : "ConditionEvaluationDeltaLoggingListener",
+      "target" : "LocalDevToolsAutoConfiguration$RestartConfiguration"
+   },
+   {
+      "source" : "DefaultErrorAttributes",
+      "target" : "ErrorMvcAutoConfiguration"
+   },
+   {
+      "source" : "HttpRequestHandlerAdapter",
+      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+   },
+   {
+      "source" : "BeanNameUrlHandlerMapping",
+      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+   },
+   {
+      "source" : "BeanNameUrlHandlerMapping",
+      "target" : "mvcConversionService"
+   },
+   {
+      "source" : "BeanNameUrlHandlerMapping",
+      "target" : "mvcResourceUrlProvider"
+   },
+   {
+      "source" : "ProjectInfoAutoConfiguration",
+      "target" : "ProjectInfoProperties"
+   },
+   {
+      "source" : "SslPropertiesBundleRegistrar",
+      "target" : "SslAutoConfiguration"
+   },
+   {
+      "source" : "SslPropertiesBundleRegistrar",
+      "target" : "SslProperties"
+   },
+   {
+      "source" : "DefaultMeterObservationHandler",
+      "target" : "ObservationAutoConfiguration$MeterObservationHandlerConfiguration$OnlyMetricsMeterObservationHandlerConfiguration"
+   },
+   {
+      "source" : "DefaultMeterObservationHandler",
+      "target" : "simpleMeterRegistry"
+   },
+   {
+      "source" : "RestartConfiguration",
+      "target" : "DevToolsProperties"
+   },
+   {
+      "source" : "SimpleUrlHandlerMapping",
+      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+   },
+   {
+      "source" : "SimpleUrlHandlerMapping",
+      "target" : "mvcContentNegotiationManager"
+   },
+   {
+      "source" : "SimpleUrlHandlerMapping",
+      "target" : "mvcConversionService"
+   },
+   {
+      "source" : "SimpleUrlHandlerMapping",
+      "target" : "mvcResourceUrlProvider"
+   },
+   {
+      "source" : "SimpleControllerHandlerAdapter",
+      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+   },
+   {
+      "source" : "UserBeansEndpoint",
+      "target" : "UserBeansService"
+   },
+   {
+      "source" : "UserBeansEndpoint",
+      "target" : "UserDependenciesService"
+   },
+   {
+      "source" : "UserBeansEndpoint",
+      "target" : "GraphService"
+   },
+   {
+      "source" : "SessionFlashMapManager",
+      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+   },
+   {
+      "source" : "ParameterNamesModule",
+      "target" : "JacksonAutoConfiguration$ParameterNamesModuleConfiguration"
+   },
+   {
+      "source" : "",
+      "target" : "MetricsAutoConfiguration"
+   },
+   {
+      "source" : "LocalDevToolsAutoConfiguration$RestartConfiguration$$Lambda$795/0x0000000801402230",
+      "target" : "LocalDevToolsAutoConfiguration$RestartConfiguration"
+   },
+   {
+      "source" : "PropertiesMeterFilter",
+      "target" : "MetricsAutoConfiguration"
+   },
+   {
+      "source" : "PropertiesMeterFilter",
+      "target" : "MetricsProperties"
+   },
+   {
+      "source" : "UptimeMetrics",
+      "target" : "SystemMetricsAutoConfiguration"
+   },
+   {
+      "source" : "IncludeExcludeEndpointFilter",
+      "target" : "WebEndpointAutoConfiguration"
+   },
+   {
+      "source" : "PathMappedEndpoints",
+      "target" : "WebEndpointAutoConfiguration"
+   },
+   {
+      "source" : "PathMappedEndpoints",
+      "target" : "servletEndpointDiscoverer"
+   },
+   {
+      "source" : "PathMappedEndpoints",
+      "target" : "webEndpointDiscoverer"
+   },
+   {
+      "source" : "PathMappedEndpoints",
+      "target" : "controllerEndpointDiscoverer"
+   },
+   {
+      "source" : "JvmThreadMetrics",
+      "target" : "JvmMetricsAutoConfiguration"
+   },
+   {
+      "source" : "DiskSpaceMetricsBinder",
+      "target" : "SystemMetricsAutoConfiguration"
+   },
+   {
+      "source" : "DiskSpaceMetricsBinder",
+      "target" : "MetricsProperties"
+   },
+   {
+      "source" : "ServletManagementContextAutoConfiguration$$Lambda$750/0x00000008013ec800",
+      "target" : "ServletManagementContextAutoConfiguration"
+   },
+   {
+      "source" : "ServletManagementContextAutoConfiguration$$Lambda$750/0x00000008013ec800",
+      "target" : "WebEndpointProperties"
+   },
+   {
+      "source" : "FileDescriptorMetrics",
+      "target" : "SystemMetricsAutoConfiguration"
+   },
+   {
+      "source" : "ErrorMvcAutoConfiguration",
+      "target" : "ServerProperties"
+   },
+   {
+      "source" : "ServletEndpointDiscoverer",
+      "target" : "WebEndpointAutoConfiguration$WebEndpointServletConfiguration"
+   },
+   {
+      "source" : "ServletEndpointDiscoverer",
+      "target" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
+   },
+   {
+      "source" : "",
+      "target" : "WebMvcObservationAutoConfiguration$MeterFilterConfiguration"
+   },
+   {
+      "source" : "",
+      "target" : "MetricsProperties"
+   },
+   {
+      "source" : "",
+      "target" : "ObservationProperties"
+   },
+   {
+      "source" : "NoOpValidator",
+      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+   },
+   {
+      "source" : "ApplicationAvailabilityBean",
+      "target" : "ApplicationAvailabilityAutoConfiguration"
+   },
+   {
+      "source" : "ResourceUrlProvider",
+      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+   },
+   {
+      "source" : "HandlerMapping",
+      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+   },
+   {
+      "source" : "HandlerMapping",
+      "target" : "mvcConversionService"
+   },
+   {
+      "source" : "HandlerMapping",
+      "target" : "mvcResourceUrlProvider"
+   },
+   {
+      "source" : "UserBeansService",
+      "target" : "beansEndpoint"
+   },
+   {
+      "source" : "FixedThemeResolver",
+      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+   },
+   {
+      "source" : "PathPatternParser",
+      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+   },
+   {
+      "source" : "ServletEndpointRegistrar",
+      "target" : "ServletEndpointManagementContextConfiguration$WebMvcServletEndpointManagementContextConfiguration"
+   },
+   {
+      "source" : "ServletEndpointRegistrar",
+      "target" : "WebEndpointProperties"
+   },
+   {
+      "source" : "ServletEndpointRegistrar",
+      "target" : "servletEndpointDiscoverer"
+   },
+   {
+      "source" : "ServletEndpointRegistrar",
+      "target" : "dispatcherServletRegistration"
+   },
+   {
+      "source" : "DispatcherServlet",
+      "target" : "DispatcherServletAutoConfiguration$DispatcherServletConfiguration"
+   },
+   {
+      "source" : "DispatcherServlet",
+      "target" : "WebMvcProperties"
+   },
+   {
+      "source" : "TaskExecutorMetricsAutoConfiguration",
+      "target" : "applicationTaskExecutor"
+   },
+   {
+      "source" : "TaskExecutorMetricsAutoConfiguration",
+      "target" : "simpleMeterRegistry"
+   },
+   {
+      "source" : "PatternClassPathRestartStrategy",
+      "target" : "LocalDevToolsAutoConfiguration$RestartConfiguration"
+   },
+   {
+      "source" : "JvmInfoMetrics",
+      "target" : "JvmMetricsAutoConfiguration"
+   },
+   {
+      "source" : "WebMvcEndpointHandlerMapping",
+      "target" : "WebMvcEndpointManagementContextConfiguration"
+   },
+   {
+      "source" : "WebMvcEndpointHandlerMapping",
+      "target" : "webEndpointDiscoverer"
+   },
+   {
+      "source" : "WebMvcEndpointHandlerMapping",
+      "target" : "servletEndpointDiscoverer"
+   },
+   {
+      "source" : "WebMvcEndpointHandlerMapping",
+      "target" : "controllerEndpointDiscoverer"
+   },
+   {
+      "source" : "WebMvcEndpointHandlerMapping",
+      "target" : "endpointMediaTypes"
+   },
+   {
+      "source" : "WebMvcEndpointHandlerMapping",
+      "target" : "CorsEndpointProperties"
+   },
+   {
+      "source" : "WebMvcEndpointHandlerMapping",
+      "target" : "WebEndpointProperties"
+   },
+   {
+      "source" : "WebMvcEndpointHandlerMapping",
+      "target" : "environment"
+   },
+   {
+      "source" : "ProcessorMetrics",
+      "target" : "SystemMetricsAutoConfiguration"
+   },
+   {
+      "source" : "WebMvcAutoConfigurationAdapter",
+      "target" : "WebProperties"
+   },
+   {
+      "source" : "WebMvcAutoConfigurationAdapter",
+      "target" : "WebMvcProperties"
+   },
+   {
+      "source" : "WebMvcAutoConfigurationAdapter",
+      "target" : "DefaultListableBeanFactory@66bee88a"
+   },
+   {
+      "source" : "ErrorPageCustomizer",
+      "target" : "ErrorMvcAutoConfiguration"
+   },
+   {
+      "source" : "ErrorPageCustomizer",
+      "target" : "dispatcherServletRegistration"
+   },
+   {
+      "source" : "WebConversionService",
+      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+   },
+   {
+      "source" : "DefaultErrorViewResolverConfiguration",
+      "target" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
+   },
+   {
+      "source" : "DefaultErrorViewResolverConfiguration",
+      "target" : "WebProperties"
+   },
+   {
+      "source" : "ControllerEndpointDiscoverer",
+      "target" : "WebEndpointAutoConfiguration"
+   },
+   {
+      "source" : "DiskSpaceHealthIndicator",
+      "target" : "DiskSpaceHealthContributorAutoConfiguration"
+   },
+   {
+      "source" : "DiskSpaceHealthIndicator",
+      "target" : "DiskSpaceHealthIndicatorProperties"
+   },
+   {
+      "source" : "TomcatWebServerFactoryCustomizer",
+      "target" : "EmbeddedWebServerFactoryCustomizerAutoConfiguration$TomcatWebServerFactoryCustomizerConfiguration"
+   },
+   {
+      "source" : "TomcatWebServerFactoryCustomizer",
+      "target" : "environment"
+   },
+   {
+      "source" : "TomcatWebServerFactoryCustomizer",
+      "target" : "ServerProperties"
+   },
+   {
+      "source" : "JvmMemoryMetrics",
+      "target" : "JvmMetricsAutoConfiguration"
+   },
+   {
+      "source" : "DefaultRequestToViewNameTranslator",
+      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+   },
+   {
+      "source" : "AntPathMatcher",
+      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+   },
+   {
+      "source" : "HandlerExceptionResolverComposite",
+      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+   },
+   {
+      "source" : "HandlerExceptionResolverComposite",
+      "target" : "mvcContentNegotiationManager"
+   },
+   {
+      "source" : "BasicErrorController",
+      "target" : "ErrorMvcAutoConfiguration"
+   },
+   {
+      "source" : "BasicErrorController",
+      "target" : "errorAttributes"
+   },
+   {
+      "source" : "PingHealthIndicator",
+      "target" : "HealthContributorAutoConfiguration"
+   },
+   {
+      "source" : "DispatcherServletRegistrationBean",
+      "target" : "DispatcherServletAutoConfiguration$DispatcherServletRegistrationConfiguration"
+   },
+   {
+      "source" : "DispatcherServletRegistrationBean",
+      "target" : "dispatcherServlet"
+   },
+   {
+      "source" : "DispatcherServletRegistrationBean",
+      "target" : "WebMvcProperties"
+   },
+   {
+      "source" : "TomcatServletWebServerFactory",
+      "target" : "ServletWebServerFactoryConfiguration$EmbeddedTomcat"
+   },
+   {
+      "source" : "LiveReloadServerEventListener",
+      "target" : "LocalDevToolsAutoConfiguration$LiveReloadConfiguration"
+   },
+   {
+      "source" : "LiveReloadServerEventListener",
+      "target" : "optionalLiveReloadServer"
+   },
+   {
+      "source" : "StaticView",
+      "target" : "ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration"
+   },
+   {
+      "source" : "JsonMixinModule",
+      "target" : "JacksonAutoConfiguration$JacksonMixinConfiguration"
+   },
+   {
+      "source" : "JsonMixinModule",
+      "target" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
+   },
+   {
+      "source" : "JsonMixinModule",
+      "target" : "jsonMixinModuleEntries"
+   },
+   {
+      "source" : "JvmGcMetrics",
+      "target" : "JvmMetricsAutoConfiguration"
+   },
+   {
+      "source" : "ViewResolverComposite",
+      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+   },
+   {
+      "source" : "ViewResolverComposite",
+      "target" : "mvcContentNegotiationManager"
+   },
+   {
+      "source" : "SimplePropertiesConfigAdapter",
+      "target" : "SimpleMetricsExportAutoConfiguration"
+   },
+   {
+      "source" : "SimplePropertiesConfigAdapter",
+      "target" : "SimpleProperties"
+   },
+   {
+      "source" : "WelcomePageHandlerMapping",
+      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+   },
+   {
+      "source" : "WelcomePageHandlerMapping",
+      "target" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
+   },
+   {
+      "source" : "WelcomePageHandlerMapping",
+      "target" : "mvcConversionService"
+   },
+   {
+      "source" : "WelcomePageHandlerMapping",
+      "target" : "mvcResourceUrlProvider"
+   },
+   {
+      "source" : "IncludeExcludeEndpointFilter",
+      "target" : "ServletEndpointManagementContextConfiguration"
+   },
+   {
+      "source" : "IncludeExcludeEndpointFilter",
+      "target" : "WebEndpointProperties"
+   },
+   {
+      "source" : "SimpleObservationRegistry",
+      "target" : "ObservationAutoConfiguration"
+   },
+   {
+      "source" : "CompositeUriComponentsContributor",
+      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+   },
+   {
+      "source" : "CompositeUriComponentsContributor",
+      "target" : "mvcConversionService"
+   },
+   {
+      "source" : "CompositeUriComponentsContributor",
+      "target" : "requestMappingHandlerAdapter"
+   },
+   {
+      "source" : "JacksonEndpointAutoConfiguration$$Lambda$665/0x00000008013abcc0",
+      "target" : "JacksonEndpointAutoConfiguration"
+   },
+   {
+      "source" : "ObjectMapper",
+      "target" : "JacksonAutoConfiguration$JacksonObjectMapperConfiguration"
+   },
+   {
+      "source" : "ObjectMapper",
+      "target" : "jacksonObjectMapperBuilder"
+   },
+   {
+      "source" : "FilterRegistrationBean",
+      "target" : "WebMvcObservationAutoConfiguration"
+   },
+   {
+      "source" : "FilterRegistrationBean",
+      "target" : "observationRegistry"
+   },
+   {
+      "source" : "TaskExecutorBuilder",
+      "target" : "TaskExecutionAutoConfiguration"
+   },
+   {
+      "source" : "TaskExecutorBuilder",
+      "target" : "TaskExecutionProperties"
+   },
+   {
+      "source" : "GraphService",
+      "target" : "UserBeansService"
+   }
+]

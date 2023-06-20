@@ -26,7 +26,7 @@ public class GraphService {
         String html = "";
         try {
             html = Files.readString(Paths.get(getClass().getClassLoader()
-                    .getResource("static/graph5.html").toURI()));
+                    .getResource("static/graph.html").toURI()));
         } catch (IOException | URISyntaxException e) {
             logger.warn(e.getMessage(), e);
         }
