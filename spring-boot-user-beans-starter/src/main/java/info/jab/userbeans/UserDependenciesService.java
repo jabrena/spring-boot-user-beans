@@ -14,7 +14,6 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -22,8 +21,11 @@ public class UserDependenciesService {
 
     private static final Logger logger = LoggerFactory.getLogger(UserDependenciesService.class);
 
-    @Autowired
-    private UserBeansService userBeansService;
+    private final UserBeansService userBeansService;
+
+    public UserDependenciesService(UserBeansService userBeansService) {
+        this.userBeansService = userBeansService;
+    }
 
     public record Dependency(String dependency) {}
 

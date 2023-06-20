@@ -11,11 +11,10 @@ A visual way to increase the developer awareness to minimize the number of Beans
 ## Requirements
 
 - [x] Visualize Beans running in the container
-- [x] List of user dependencies (Jars)
-- [x] List of user dependencies (Jars) & packages
 - [x] List of user beans
+- [x] List of user dependencies (Jars)
 - [x] List of dependencies (Jars) & Beans
-- [ ] Review quality of results
+- [x] Review quality of results
 - [ ] Learn to disable beans not used
 
 ## Convention over configuration
@@ -37,7 +36,6 @@ curl -v http://localhost:8080/actuator/userbeans/graph | json_pp
 
 #API
 curl -v http://localhost:8080/actuator/userbeans/dependencies | json_pp
-curl -v http://localhost:8080/actuator/userbeans/dependencies/packages | json_pp
 curl -v http://localhost:8080/actuator/userbeans/dependencies/beans | json_pp
 curl -v http://localhost:8080/actuator/userbeans/beans | json_pp
 ```

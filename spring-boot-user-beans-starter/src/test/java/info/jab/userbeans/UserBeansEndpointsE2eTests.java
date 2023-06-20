@@ -5,7 +5,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import info.jab.support.TestApplication;
 import info.jab.userbeans.UserDependenciesService.Dependency;
 import info.jab.userbeans.UserDependenciesService.DependencyBeanDetail;
-import info.jab.userbeans.UserDependenciesService.DependencyDetail;
 import java.net.URI;
 import java.util.List;
 import org.jsoup.Jsoup;
@@ -26,7 +25,7 @@ import org.springframework.http.ResponseEntity;
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
     properties = { "management.endpoints.web.exposure.include=beans,userbeans" }
 )
-class UserBeansEndpointsTests {
+class UserBeansEndpointsE2eTests {
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -36,7 +35,7 @@ class UserBeansEndpointsTests {
 
     @Test
     @DisplayName("/actuator/userbeans/beans")
-    void shouldReturnBeans() throws Exception {
+    void shouldReturnTheUserBeans() throws Exception {
         //Given
         final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/beans";
 
@@ -65,26 +64,6 @@ class UserBeansEndpointsTests {
         //When
         // @formatter:off
         ResponseEntity<List<Dependency>> result = this.restTemplate.exchange(
-            baseUrl,
-            HttpMethod.GET,
-            null,
-            new ParameterizedTypeReference<>() {});
-        // @formatter:on
-
-        //Then
-        assertThat(result.getStatusCode()).isEqualTo(HttpStatusCode.valueOf(200));
-        assertThat(result.getBody()).hasSizeGreaterThan(0);
-    }
-
-    @Test
-    @DisplayName("/actuator/userbeans/dependencies/packages")
-    void shouldReturnThePackagesFromJars() throws Exception {
-        //Given
-        final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/dependencies/packages";
-
-        //When
-        // @formatter:off
-        ResponseEntity<List<DependencyDetail>> result = this.restTemplate.exchange(
             baseUrl,
             HttpMethod.GET,
             null,

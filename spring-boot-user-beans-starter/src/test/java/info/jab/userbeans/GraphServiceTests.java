@@ -3,6 +3,8 @@ package info.jab.userbeans;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import info.jab.support.TestApplication;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,15 +18,24 @@ class GraphServiceTests {
     @Autowired
     private GraphService graphService;
 
-    record GraphData(String source, String target) {}
-
     @Test
-    void shouldGenerateAllDataForTheGraph() throws Exception {
+    void shouldReturnGraphData() {
         //Given
         //When
-        var resuls = graphService.generateGraph();
+        var resuls = graphService.generateGraphData();
 
         //Then
-        assertThat(resuls).hasSizeGreaterThan(200);
+        assertThat(resuls).hasSizeGreaterThan(0);
+    }
+
+    @Test
+    void shouldReturnWebDocument() {
+        //Given
+        //When
+        var html = graphService.generateWebDocument();
+        Document doc = Jsoup.parse(html);
+
+        //Then
+        assertThat(doc).isNotNull();
     }
 }

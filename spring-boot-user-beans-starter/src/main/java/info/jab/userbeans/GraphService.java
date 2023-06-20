@@ -7,7 +7,6 @@ import java.nio.file.Paths;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,8 +14,11 @@ public class GraphService {
 
     Logger logger = LoggerFactory.getLogger(GraphService.class);
 
-    @Autowired
-    private UserBeansService userBeansService;
+    private final UserBeansService userBeansService;
+
+    public GraphService(UserBeansService userBeansService) {
+        this.userBeansService = userBeansService;
+    }
 
     // @formatter:off
     String generateWebDocument() {
@@ -36,14 +38,12 @@ public class GraphService {
     public record Edge(String source, String target) {}
 
     // @formatter:off
-    List<Edge> generateGraph() {
+    List<Edge> generateGraphData() {
         logger.info("Generating Graph data");
         return userBeansService.getBeansDocuments().stream()
             .flatMap(bd -> {
                 String beanName = bd.beanName();
-                return bd.dependencies().stream()
-                        .map(dep -> new Edge(beanName, dep))
-                        .toList().stream();
+                return bd.dependencies().stream().map(dep -> new Edge(beanName, dep));
             })
             .toList();
     }

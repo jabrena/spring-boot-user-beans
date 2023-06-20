@@ -7,7 +7,6 @@ import java.util.function.Function;
 import java.util.function.UnaryOperator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.beans.BeansEndpoint;
 import org.springframework.boot.actuate.beans.BeansEndpoint.ContextBeansDescriptor;
 import org.springframework.stereotype.Service;
@@ -17,8 +16,11 @@ public class UserBeansService {
 
     Logger logger = LoggerFactory.getLogger(UserBeansService.class);
 
-    @Autowired
-    private BeansEndpoint beansEndpoint;
+    private final BeansEndpoint beansEndpoint;
+
+    public UserBeansService(BeansEndpoint beansEndpoint) {
+        this.beansEndpoint = beansEndpoint;
+    }
 
     public record BeanDocument(String beanName, String beanPackage, List<String> dependencies) {}
 
