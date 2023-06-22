@@ -3,6 +3,8 @@ package info.jab.userbeans;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
 import org.slf4j.Logger;
@@ -51,6 +53,53 @@ public class UserBeansService {
                 .map(removePackage)
                 .toList();
         return new BeanDocument(beanName, packageName, dependencies);
+    };
+    // @formatter:on
+
+    public record UserBean(String beanName, String packageName, Boolean isClass) {}
+    public record BeanDocument2(UserBean parentBean, List<UserBean> dependencies) {}
+
+    List<BeanDocument2> getBeansDocuments2() {
+        logger.info("Generating Beans information");
+        Map<String, ContextBeansDescriptor> beansMap = beansEndpoint.beans().getContexts();
+        var contextBeansDescriptorList = beansMap.values().stream().toList();
+        var result = contextBeansDescriptorList
+                .stream()
+                .flatMap(cd -> cd.getBeans().entrySet().stream())
+                .map(toBeanDocument2)
+                .toList();
+        unknownClassCounter.set(0);
+        return result;
+    }
+
+    AtomicInteger unknownClassCounter = new AtomicInteger(0);
+
+    // @formatter:off
+    private Function<Map.Entry<String, BeansEndpoint.BeanDescriptor>, BeanDocument2>
+            toBeanDocument2 = bean -> {
+        String beanName = bean.getValue().getType().getSimpleName();
+        Class<?> beanClass = bean.getValue().getType();
+        String packageName = beanClass.getPackageName();
+        var dependencies =
+                Arrays.stream(bean.getValue().getDependencies())
+                        .map(dependency -> {
+                            try {
+                                Class<?> beanClassDependency = Class.forName(dependency);
+                                String packageNameDependency = beanClassDependency.getPackageName();
+                                return new UserBean(
+                                        beanClassDependency.getSimpleName(),
+                                        packageNameDependency, true);
+                            } catch (ClassNotFoundException e) {
+                                logger.warn("Dependency not found: {} {}",
+                                        unknownClassCounter.incrementAndGet(),
+                                        e.getMessage());
+                                return new UserBean(
+                                        e.getMessage(),
+                                        "", false);
+                            }
+                        })
+                        .toList();
+        return new BeanDocument2(new UserBean(beanName, packageName, true), dependencies);
     };
     // @formatter:on
 }

@@ -19,6 +19,16 @@ public class UserBeansServiceTests {
     @Test
     void shouldReturnsAllBeansInformation() {
         var beanList = userBeansService.getBeansDocuments();
+
+        beanList.stream().flatMap(b -> b.dependencies().stream()).forEach(System.out::println);
+        assertThat(beanList).hasSizeGreaterThan(200);
+    }
+
+    @Test
+    void shouldReturnsAllBeansInformation2() {
+        var beanList = userBeansService.getBeansDocuments2();
+
+        beanList.stream().flatMap(b -> b.dependencies().stream()).forEach(System.out::println);
         assertThat(beanList).hasSizeGreaterThan(200);
     }
 }
