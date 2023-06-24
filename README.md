@@ -8,16 +8,12 @@ A visual way to increase the developer awareness to minimize the number of Beans
 
 Using this project, you will be able to see your Beans developed in your project
 plus other Beans provided by the dependencies that you include
-in the **classpath**.
+in the **classpath**. The project use graph theory to show the beans as a [Directed Graph](https://en.m.wikipedia.org/wiki/Directed_graph).
 
 ![](./docs/user-beans6.png)
 
 Using a minimalistic User interface, you will be able to search
 your Beans by name or package and review the relations between them.
-
-The project use graph theory to show beans as a [Directed Graph](https://en.m.wikipedia.org/wiki/Directed_graph).
-
-![](docs/direct-graph.png)
 
 ## Requirements
 
