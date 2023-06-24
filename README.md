@@ -17,7 +17,7 @@ your Beans by name or package and review the relations between them.
 
 ## Use cases
 
-### Review the Bean composition in your projects
+### 1. Review the Bean composition in your projects
 
 Reviewing the Beans relations, you could see new opportunities
 to improve the Design of your solution.
