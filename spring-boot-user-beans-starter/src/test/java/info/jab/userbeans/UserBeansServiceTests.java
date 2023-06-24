@@ -59,12 +59,4 @@ public class UserBeansServiceTests {
         //Then
         assertThat(beanListFiltered).hasSize(2);
     }
-
-    @Test
-    void shouldReturnsAllBeansInformation2() {
-        var beanList = userBeansService.getBeansDocuments2();
-
-        beanList.stream().flatMap(b -> b.dependencies().stream()).forEach(System.out::println);
-        assertThat(beanList).hasSizeGreaterThan(200);
-    }
 }

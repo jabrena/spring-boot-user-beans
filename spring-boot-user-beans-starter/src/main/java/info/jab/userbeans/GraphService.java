@@ -49,8 +49,18 @@ public class GraphService {
                 String beanPackage = bd.beanPackage();
                 if (bd.dependencies().size() > 0) {
                     return bd.dependencies().stream()
-                            .map(dep -> new Edge(new BeandNode(beanName, beanPackage),
-                                    new BeandNode(dep, dep)));
+                            .map(dep -> {
+                                try {
+                                    Class<?> beanClassDep = Class.forName(dep);
+                                    String packageNameDependency = beanClassDep.getPackageName();
+                                    return new Edge(new BeandNode(beanName, beanPackage),
+                                            new BeandNode(dep, packageNameDependency));
+                                } catch (ClassNotFoundException e) {
+                                    logger.warn("Dependency not found: {} {}", dep, e.getMessage());
+                                    return new Edge(new BeandNode(beanName, beanPackage),
+                                            new BeandNode(dep, "UNKNOWN"));
+                                }
+                            });
                 } else {
                     return Stream.of(new Edge(new BeandNode(beanName, beanPackage), null));
                 }
