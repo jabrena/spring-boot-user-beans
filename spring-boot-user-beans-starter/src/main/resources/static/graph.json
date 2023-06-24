@@ -1,958 +1,3081 @@
 [
    {
-      "source" : "CachingOperationInvokerAdvisor",
-      "target" : "EndpointAutoConfiguration"
-   },
-   {
-      "source" : "CachingOperationInvokerAdvisor",
-      "target" : "environment"
-   },
-   {
-      "source" : "HandlerMapping",
-      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
-   },
-   {
-      "source" : "ThreadPoolTaskExecutor",
-      "target" : "TaskExecutionAutoConfiguration"
-   },
-   {
-      "source" : "ThreadPoolTaskExecutor",
-      "target" : "taskExecutorBuilder"
-   },
-   {
-      "source" : "OrderedCharacterEncodingFilter",
-      "target" : "HttpEncodingAutoConfiguration"
-   },
-   {
-      "source" : "WebEndpointDiscoverer",
-      "target" : "WebEndpointAutoConfiguration"
-   },
-   {
-      "source" : "WebEndpointDiscoverer",
-      "target" : "endpointOperationParameterMapper"
-   },
-   {
-      "source" : "WebEndpointDiscoverer",
-      "target" : "endpointMediaTypes"
-   },
-   {
-      "source" : "MultipartAutoConfiguration",
-      "target" : "MultipartProperties"
-   },
-   {
-      "source" : "LogbackMetrics",
-      "target" : "LogbackMetricsAutoConfiguration"
-   },
-   {
-      "source" : "WebEndpointAutoConfiguration",
-      "target" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
-   },
-   {
-      "source" : "WebEndpointAutoConfiguration",
-      "target" : "WebEndpointProperties"
-   },
-   {
-      "source" : "MappingWebEndpointPathMapper",
-      "target" : "WebEndpointAutoConfiguration"
-   },
-   {
-      "source" : "BeanNameViewResolver",
-      "target" : "ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration"
-   },
-   {
-      "source" : "ContentNegotiatingViewResolver",
-      "target" : "WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter"
-   },
-   {
-      "source" : "ContentNegotiatingViewResolver",
-      "target" : "DefaultListableBeanFactory@66bee88a"
-   },
-   {
-      "source" : "StringHttpMessageConverter",
-      "target" : "HttpMessageConvertersAutoConfiguration$StringHttpMessageConverterConfiguration"
-   },
-   {
-      "source" : "StringHttpMessageConverter",
-      "target" : "environment"
-   },
-   {
-      "source" : "TomcatServletWebServerFactoryCustomizer",
-      "target" : "ServletWebServerFactoryAutoConfiguration"
-   },
-   {
-      "source" : "TomcatServletWebServerFactoryCustomizer",
-      "target" : "ServerProperties"
-   },
-   {
-      "source" : "HttpMessageConverters",
-      "target" : "HttpMessageConvertersAutoConfiguration"
-   },
-   {
-      "source" : "JsonComponentModule",
-      "target" : "JacksonAutoConfiguration"
-   },
-   {
-      "source" : "TomcatWebSocketServletWebServerCustomizer",
-      "target" : "WebSocketServletAutoConfiguration$TomcatWebSocketConfiguration"
-   },
-   {
-      "source" : "MappingJackson2HttpMessageConverter",
-      "target" : "JacksonHttpMessageConvertersConfiguration$MappingJackson2HttpMessageConverterConfiguration"
-   },
-   {
-      "source" : "MappingJackson2HttpMessageConverter",
-      "target" : "jacksonObjectMapper"
-   },
-   {
-      "source" : "MeterRegistryPostProcessor",
-      "target" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
-   },
-   {
-      "source" : "EndpointMediaTypes",
-      "target" : "WebEndpointAutoConfiguration"
-   },
-   {
-      "source" : "JvmCompilationMetrics",
-      "target" : "JvmMetricsAutoConfiguration"
-   },
-   {
-      "source" : "ServletWebServerFactoryCustomizer",
-      "target" : "ServletWebServerFactoryAutoConfiguration"
-   },
-   {
-      "source" : "ServletWebServerFactoryCustomizer",
-      "target" : "ServerProperties"
-   },
-   {
-      "source" : "UrlPathHelper",
-      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
-   },
-   {
-      "source" : "",
-      "target" : "HttpClientObservationsAutoConfiguration$MeterFilterConfiguration"
-   },
-   {
-      "source" : "",
-      "target" : "ObservationProperties"
-   },
-   {
-      "source" : "",
-      "target" : "MetricsProperties"
-   },
-   {
-      "source" : "ControllerEndpointHandlerMapping",
-      "target" : "WebMvcEndpointManagementContextConfiguration"
-   },
-   {
-      "source" : "ControllerEndpointHandlerMapping",
-      "target" : "controllerEndpointDiscoverer"
-   },
-   {
-      "source" : "ControllerEndpointHandlerMapping",
-      "target" : "CorsEndpointProperties"
-   },
-   {
-      "source" : "ControllerEndpointHandlerMapping",
-      "target" : "WebEndpointProperties"
-   },
-   {
-      "source" : "UserDependenciesService",
-      "target" : "UserBeansService"
-   },
-   {
-      "source" : "OptionalLiveReloadServer",
-      "target" : "LocalDevToolsAutoConfiguration$LiveReloadConfiguration"
-   },
-   {
-      "source" : "OptionalLiveReloadServer",
-      "target" : "liveReloadServer"
-   },
-   {
-      "source" : "StandardJackson2ObjectMapperBuilderCustomizer",
-      "target" : "JacksonAutoConfiguration$Jackson2ObjectMapperBuilderCustomizerConfiguration"
-   },
-   {
-      "source" : "StandardJackson2ObjectMapperBuilderCustomizer",
-      "target" : "JacksonProperties"
-   },
-   {
-      "source" : "TaskSchedulerBuilder",
-      "target" : "TaskSchedulingAutoConfiguration"
-   },
-   {
-      "source" : "TaskSchedulerBuilder",
-      "target" : "TaskSchedulingProperties"
-   },
-   {
-      "source" : "ObservationHandlerGrouping",
-      "target" : "ObservationAutoConfiguration$OnlyMetricsConfiguration"
-   },
-   {
-      "source" : "SimpleMeterRegistry",
-      "target" : "SimpleMetricsExportAutoConfiguration"
-   },
-   {
-      "source" : "SimpleMeterRegistry",
-      "target" : "simpleConfig"
-   },
-   {
-      "source" : "SimpleMeterRegistry",
-      "target" : "micrometerClock"
-   },
-   {
-      "source" : "RestartingClassPathChangeChangedEventListener",
-      "target" : "LocalDevToolsAutoConfiguration$RestartConfiguration"
-   },
-   {
-      "source" : "RestartingClassPathChangeChangedEventListener",
-      "target" : "fileSystemWatcherFactory"
-   },
-   {
-      "source" : "DefaultErrorViewResolver",
-      "target" : "ErrorMvcAutoConfiguration$DefaultErrorViewResolverConfiguration"
-   },
-   {
-      "source" : "StartupTimeMetricsListener",
-      "target" : "StartupTimeMetricsListenerAutoConfiguration"
-   },
-   {
-      "source" : "StartupTimeMetricsListener",
-      "target" : "simpleMeterRegistry"
-   },
-   {
-      "source" : "EnableWebMvcConfiguration",
-      "target" : "WebMvcProperties"
-   },
-   {
-      "source" : "EnableWebMvcConfiguration",
-      "target" : "WebProperties"
-   },
-   {
-      "source" : "EnableWebMvcConfiguration",
-      "target" : "DefaultListableBeanFactory@66bee88a"
-   },
-   {
-      "source" : "EnableWebMvcConfiguration",
-      "target" : "WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter"
-   },
-   {
-      "source" : "EnableWebMvcConfiguration",
-      "target" : "endpointObjectMapperWebMvcConfigurer"
-   },
-   {
-      "source" : "WebMvcObservationAutoConfiguration",
-      "target" : "ObservationProperties"
-   },
-   {
-      "source" : "WebMvcObservationAutoConfiguration",
-      "target" : "MetricsProperties"
-   },
-   {
-      "source" : "LocaleCharsetMappingsCustomizer",
-      "target" : "HttpEncodingAutoConfiguration"
-   },
-   {
-      "source" : "OrderedFormContentFilter",
-      "target" : "WebMvcAutoConfiguration"
-   },
-   {
-      "source" : "JsonMixinModuleEntries",
-      "target" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
-   },
-   {
-      "source" : "MultipartConfigElement",
-      "target" : "MultipartAutoConfiguration"
-   },
-   {
-      "source" : "InternalResourceViewResolver",
-      "target" : "WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter"
-   },
-   {
-      "source" : "RouterFunctionMapping",
-      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
-   },
-   {
-      "source" : "RouterFunctionMapping",
-      "target" : "mvcConversionService"
-   },
-   {
-      "source" : "RouterFunctionMapping",
-      "target" : "mvcResourceUrlProvider"
-   },
-   {
-      "source" : "Jackson2ObjectMapperBuilder",
-      "target" : "JacksonAutoConfiguration$JacksonObjectMapperBuilderConfiguration"
-   },
-   {
-      "source" : "Jackson2ObjectMapperBuilder",
-      "target" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
-   },
-   {
-      "source" : "Jackson2ObjectMapperBuilder",
-      "target" : "standardJacksonObjectMapperBuilderCustomizer"
-   },
-   {
-      "source" : "BeansEndpoint",
-      "target" : "BeansEndpointAutoConfiguration"
-   },
-   {
-      "source" : "BeansEndpoint",
-      "target" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
-   },
-   {
-      "source" : "LiveReloadServer",
-      "target" : "LocalDevToolsAutoConfiguration$LiveReloadConfiguration"
-   },
-   {
-      "source" : "LiveReloadServer",
-      "target" : "DevToolsProperties"
-   },
-   {
-      "source" : "StandardServletMultipartResolver",
-      "target" : "MultipartAutoConfiguration"
-   },
-   {
-      "source" : "AcceptHeaderLocaleResolver",
-      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
-   },
-   {
-      "source" : "HandlerFunctionAdapter",
-      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
-   },
-   {
-      "source" : "RequestMappingHandlerMapping",
-      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
-   },
-   {
-      "source" : "RequestMappingHandlerMapping",
-      "target" : "mvcContentNegotiationManager"
-   },
-   {
-      "source" : "RequestMappingHandlerMapping",
-      "target" : "mvcConversionService"
-   },
-   {
-      "source" : "RequestMappingHandlerMapping",
-      "target" : "mvcResourceUrlProvider"
-   },
-   {
-      "source" : "IncludeExcludeEndpointFilter",
-      "target" : "WebEndpointAutoConfiguration"
-   },
-   {
-      "source" : "DefaultLifecycleProcessor",
-      "target" : "LifecycleAutoConfiguration"
-   },
-   {
-      "source" : "DefaultLifecycleProcessor",
-      "target" : "LifecycleProperties"
-   },
-   {
-      "source" : "SameManagementContextConfiguration",
-      "target" : "environment"
-   },
-   {
-      "source" : "RequestMappingHandlerAdapter",
-      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
-   },
-   {
-      "source" : "RequestMappingHandlerAdapter",
-      "target" : "mvcContentNegotiationManager"
-   },
-   {
-      "source" : "RequestMappingHandlerAdapter",
-      "target" : "mvcConversionService"
-   },
-   {
-      "source" : "RequestMappingHandlerAdapter",
-      "target" : "mvcValidator"
-   },
-   {
-      "source" : "TomcatMetricsBinder",
-      "target" : "TomcatMetricsAutoConfiguration"
-   },
-   {
-      "source" : "TomcatMetricsBinder",
-      "target" : "simpleMeterRegistry"
-   },
-   {
-      "source" : "JvmHeapPressureMetrics",
-      "target" : "JvmMetricsAutoConfiguration"
-   },
-   {
-      "source" : "ClassPathFileSystemWatcher",
-      "target" : "LocalDevToolsAutoConfiguration$RestartConfiguration"
-   },
-   {
-      "source" : "ClassPathFileSystemWatcher",
-      "target" : "fileSystemWatcherFactory"
-   },
-   {
-      "source" : "ClassPathFileSystemWatcher",
-      "target" : "classPathRestartStrategy"
-   },
-   {
-      "source" : "HttpEncodingAutoConfiguration",
-      "target" : "ServerProperties"
-   },
-   {
-      "source" : "WelcomePageNotAcceptableHandlerMapping",
-      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
-   },
-   {
-      "source" : "WelcomePageNotAcceptableHandlerMapping",
-      "target" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
-   },
-   {
-      "source" : "WelcomePageNotAcceptableHandlerMapping",
-      "target" : "mvcConversionService"
-   },
-   {
-      "source" : "WelcomePageNotAcceptableHandlerMapping",
-      "target" : "mvcResourceUrlProvider"
-   },
-   {
-      "source" : "ConversionServiceParameterValueMapper",
-      "target" : "EndpointAutoConfiguration"
-   },
-   {
-      "source" : "DefaultSslBundleRegistry",
-      "target" : "SslAutoConfiguration"
-   },
-   {
-      "source" : "DefaultSslBundleRegistry",
-      "target" : "sslPropertiesSslBundleRegistrar"
-   },
-   {
-      "source" : "ClassLoaderMetrics",
-      "target" : "JvmMetricsAutoConfiguration"
-   },
-   {
-      "source" : "ObservationRestTemplateCustomizer",
-      "target" : "RestTemplateObservationConfiguration"
-   },
-   {
-      "source" : "ObservationRestTemplateCustomizer",
-      "target" : "observationRegistry"
-   },
-   {
-      "source" : "ObservationRestTemplateCustomizer",
-      "target" : "ObservationProperties"
-   },
-   {
-      "source" : "ObservationRestTemplateCustomizer",
-      "target" : "MetricsProperties"
-   },
-   {
-      "source" : "ContentNegotiationManager",
-      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
-   },
-   {
-      "source" : "ConditionEvaluationDeltaLoggingListener",
-      "target" : "LocalDevToolsAutoConfiguration$RestartConfiguration"
-   },
-   {
-      "source" : "DefaultErrorAttributes",
-      "target" : "ErrorMvcAutoConfiguration"
-   },
-   {
-      "source" : "HttpRequestHandlerAdapter",
-      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
-   },
-   {
-      "source" : "BeanNameUrlHandlerMapping",
-      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
-   },
-   {
-      "source" : "BeanNameUrlHandlerMapping",
-      "target" : "mvcConversionService"
-   },
-   {
-      "source" : "BeanNameUrlHandlerMapping",
-      "target" : "mvcResourceUrlProvider"
-   },
-   {
-      "source" : "ProjectInfoAutoConfiguration",
-      "target" : "ProjectInfoProperties"
-   },
-   {
-      "source" : "SslPropertiesBundleRegistrar",
-      "target" : "SslAutoConfiguration"
-   },
-   {
-      "source" : "SslPropertiesBundleRegistrar",
-      "target" : "SslProperties"
-   },
-   {
-      "source" : "DefaultMeterObservationHandler",
-      "target" : "ObservationAutoConfiguration$MeterObservationHandlerConfiguration$OnlyMetricsMeterObservationHandlerConfiguration"
-   },
-   {
-      "source" : "DefaultMeterObservationHandler",
-      "target" : "simpleMeterRegistry"
-   },
-   {
-      "source" : "RestartConfiguration",
-      "target" : "DevToolsProperties"
-   },
-   {
-      "source" : "SimpleUrlHandlerMapping",
-      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
-   },
-   {
-      "source" : "SimpleUrlHandlerMapping",
-      "target" : "mvcContentNegotiationManager"
-   },
-   {
-      "source" : "SimpleUrlHandlerMapping",
-      "target" : "mvcConversionService"
-   },
-   {
-      "source" : "SimpleUrlHandlerMapping",
-      "target" : "mvcResourceUrlProvider"
-   },
-   {
-      "source" : "SimpleControllerHandlerAdapter",
-      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
-   },
-   {
-      "source" : "UserBeansEndpoint",
-      "target" : "UserBeansService"
-   },
-   {
-      "source" : "UserBeansEndpoint",
-      "target" : "UserDependenciesService"
-   },
-   {
-      "source" : "UserBeansEndpoint",
-      "target" : "GraphService"
-   },
-   {
-      "source" : "SessionFlashMapManager",
-      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
-   },
-   {
-      "source" : "ParameterNamesModule",
-      "target" : "JacksonAutoConfiguration$ParameterNamesModuleConfiguration"
-   },
-   {
-      "source" : "",
-      "target" : "MetricsAutoConfiguration"
-   },
-   {
-      "source" : "LocalDevToolsAutoConfiguration$RestartConfiguration$$Lambda$795/0x0000000801402230",
-      "target" : "LocalDevToolsAutoConfiguration$RestartConfiguration"
-   },
-   {
-      "source" : "PropertiesMeterFilter",
-      "target" : "MetricsAutoConfiguration"
-   },
-   {
-      "source" : "PropertiesMeterFilter",
-      "target" : "MetricsProperties"
-   },
-   {
-      "source" : "UptimeMetrics",
-      "target" : "SystemMetricsAutoConfiguration"
-   },
-   {
-      "source" : "IncludeExcludeEndpointFilter",
-      "target" : "WebEndpointAutoConfiguration"
-   },
-   {
-      "source" : "PathMappedEndpoints",
-      "target" : "WebEndpointAutoConfiguration"
-   },
-   {
-      "source" : "PathMappedEndpoints",
-      "target" : "servletEndpointDiscoverer"
-   },
-   {
-      "source" : "PathMappedEndpoints",
-      "target" : "webEndpointDiscoverer"
-   },
-   {
-      "source" : "PathMappedEndpoints",
-      "target" : "controllerEndpointDiscoverer"
-   },
-   {
-      "source" : "JvmThreadMetrics",
-      "target" : "JvmMetricsAutoConfiguration"
-   },
-   {
-      "source" : "DiskSpaceMetricsBinder",
-      "target" : "SystemMetricsAutoConfiguration"
-   },
-   {
-      "source" : "DiskSpaceMetricsBinder",
-      "target" : "MetricsProperties"
-   },
-   {
-      "source" : "ServletManagementContextAutoConfiguration$$Lambda$750/0x00000008013ec800",
-      "target" : "ServletManagementContextAutoConfiguration"
-   },
-   {
-      "source" : "ServletManagementContextAutoConfiguration$$Lambda$750/0x00000008013ec800",
-      "target" : "WebEndpointProperties"
-   },
-   {
-      "source" : "FileDescriptorMetrics",
-      "target" : "SystemMetricsAutoConfiguration"
-   },
-   {
-      "source" : "ErrorMvcAutoConfiguration",
-      "target" : "ServerProperties"
-   },
-   {
-      "source" : "ServletEndpointDiscoverer",
-      "target" : "WebEndpointAutoConfiguration$WebEndpointServletConfiguration"
-   },
-   {
-      "source" : "ServletEndpointDiscoverer",
-      "target" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
-   },
-   {
-      "source" : "",
-      "target" : "WebMvcObservationAutoConfiguration$MeterFilterConfiguration"
-   },
-   {
-      "source" : "",
-      "target" : "MetricsProperties"
-   },
-   {
-      "source" : "",
-      "target" : "ObservationProperties"
-   },
-   {
-      "source" : "NoOpValidator",
-      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
-   },
-   {
-      "source" : "ApplicationAvailabilityBean",
-      "target" : "ApplicationAvailabilityAutoConfiguration"
-   },
-   {
-      "source" : "ResourceUrlProvider",
-      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
-   },
-   {
-      "source" : "HandlerMapping",
-      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
-   },
-   {
-      "source" : "HandlerMapping",
-      "target" : "mvcConversionService"
-   },
-   {
-      "source" : "HandlerMapping",
-      "target" : "mvcResourceUrlProvider"
-   },
-   {
-      "source" : "UserBeansService",
-      "target" : "beansEndpoint"
-   },
-   {
-      "source" : "FixedThemeResolver",
-      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
-   },
-   {
-      "source" : "PathPatternParser",
-      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
-   },
-   {
-      "source" : "ServletEndpointRegistrar",
-      "target" : "ServletEndpointManagementContextConfiguration$WebMvcServletEndpointManagementContextConfiguration"
-   },
-   {
-      "source" : "ServletEndpointRegistrar",
-      "target" : "WebEndpointProperties"
-   },
-   {
-      "source" : "ServletEndpointRegistrar",
-      "target" : "servletEndpointDiscoverer"
-   },
-   {
-      "source" : "ServletEndpointRegistrar",
-      "target" : "dispatcherServletRegistration"
-   },
-   {
-      "source" : "DispatcherServlet",
-      "target" : "DispatcherServletAutoConfiguration$DispatcherServletConfiguration"
-   },
-   {
-      "source" : "DispatcherServlet",
-      "target" : "WebMvcProperties"
-   },
-   {
-      "source" : "TaskExecutorMetricsAutoConfiguration",
-      "target" : "applicationTaskExecutor"
-   },
-   {
-      "source" : "TaskExecutorMetricsAutoConfiguration",
-      "target" : "simpleMeterRegistry"
-   },
-   {
-      "source" : "PatternClassPathRestartStrategy",
-      "target" : "LocalDevToolsAutoConfiguration$RestartConfiguration"
-   },
-   {
-      "source" : "JvmInfoMetrics",
-      "target" : "JvmMetricsAutoConfiguration"
-   },
-   {
-      "source" : "WebMvcEndpointHandlerMapping",
-      "target" : "WebMvcEndpointManagementContextConfiguration"
-   },
-   {
-      "source" : "WebMvcEndpointHandlerMapping",
-      "target" : "webEndpointDiscoverer"
-   },
-   {
-      "source" : "WebMvcEndpointHandlerMapping",
-      "target" : "servletEndpointDiscoverer"
-   },
-   {
-      "source" : "WebMvcEndpointHandlerMapping",
-      "target" : "controllerEndpointDiscoverer"
-   },
-   {
-      "source" : "WebMvcEndpointHandlerMapping",
-      "target" : "endpointMediaTypes"
-   },
-   {
-      "source" : "WebMvcEndpointHandlerMapping",
-      "target" : "CorsEndpointProperties"
-   },
-   {
-      "source" : "WebMvcEndpointHandlerMapping",
-      "target" : "WebEndpointProperties"
-   },
-   {
-      "source" : "WebMvcEndpointHandlerMapping",
-      "target" : "environment"
-   },
-   {
-      "source" : "ProcessorMetrics",
-      "target" : "SystemMetricsAutoConfiguration"
-   },
-   {
-      "source" : "WebMvcAutoConfigurationAdapter",
-      "target" : "WebProperties"
-   },
-   {
-      "source" : "WebMvcAutoConfigurationAdapter",
-      "target" : "WebMvcProperties"
-   },
-   {
-      "source" : "WebMvcAutoConfigurationAdapter",
-      "target" : "DefaultListableBeanFactory@66bee88a"
-   },
-   {
-      "source" : "ErrorPageCustomizer",
-      "target" : "ErrorMvcAutoConfiguration"
-   },
-   {
-      "source" : "ErrorPageCustomizer",
-      "target" : "dispatcherServletRegistration"
-   },
-   {
-      "source" : "WebConversionService",
-      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
-   },
-   {
-      "source" : "DefaultErrorViewResolverConfiguration",
-      "target" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
-   },
-   {
-      "source" : "DefaultErrorViewResolverConfiguration",
-      "target" : "WebProperties"
-   },
-   {
-      "source" : "ControllerEndpointDiscoverer",
-      "target" : "WebEndpointAutoConfiguration"
-   },
-   {
-      "source" : "DiskSpaceHealthIndicator",
-      "target" : "DiskSpaceHealthContributorAutoConfiguration"
-   },
-   {
-      "source" : "DiskSpaceHealthIndicator",
-      "target" : "DiskSpaceHealthIndicatorProperties"
-   },
-   {
-      "source" : "TomcatWebServerFactoryCustomizer",
-      "target" : "EmbeddedWebServerFactoryCustomizerAutoConfiguration$TomcatWebServerFactoryCustomizerConfiguration"
-   },
-   {
-      "source" : "TomcatWebServerFactoryCustomizer",
-      "target" : "environment"
-   },
-   {
-      "source" : "TomcatWebServerFactoryCustomizer",
-      "target" : "ServerProperties"
-   },
-   {
-      "source" : "JvmMemoryMetrics",
-      "target" : "JvmMetricsAutoConfiguration"
-   },
-   {
-      "source" : "DefaultRequestToViewNameTranslator",
-      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
-   },
-   {
-      "source" : "AntPathMatcher",
-      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
-   },
-   {
-      "source" : "HandlerExceptionResolverComposite",
-      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
-   },
-   {
-      "source" : "HandlerExceptionResolverComposite",
-      "target" : "mvcContentNegotiationManager"
-   },
-   {
-      "source" : "BasicErrorController",
-      "target" : "ErrorMvcAutoConfiguration"
-   },
-   {
-      "source" : "BasicErrorController",
-      "target" : "errorAttributes"
-   },
-   {
-      "source" : "PingHealthIndicator",
-      "target" : "HealthContributorAutoConfiguration"
-   },
-   {
-      "source" : "DispatcherServletRegistrationBean",
-      "target" : "DispatcherServletAutoConfiguration$DispatcherServletRegistrationConfiguration"
-   },
-   {
-      "source" : "DispatcherServletRegistrationBean",
-      "target" : "dispatcherServlet"
-   },
-   {
-      "source" : "DispatcherServletRegistrationBean",
-      "target" : "WebMvcProperties"
-   },
-   {
-      "source" : "TomcatServletWebServerFactory",
-      "target" : "ServletWebServerFactoryConfiguration$EmbeddedTomcat"
-   },
-   {
-      "source" : "LiveReloadServerEventListener",
-      "target" : "LocalDevToolsAutoConfiguration$LiveReloadConfiguration"
-   },
-   {
-      "source" : "LiveReloadServerEventListener",
-      "target" : "optionalLiveReloadServer"
-   },
-   {
-      "source" : "StaticView",
-      "target" : "ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration"
-   },
-   {
-      "source" : "JsonMixinModule",
-      "target" : "JacksonAutoConfiguration$JacksonMixinConfiguration"
-   },
-   {
-      "source" : "JsonMixinModule",
-      "target" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
-   },
-   {
-      "source" : "JsonMixinModule",
-      "target" : "jsonMixinModuleEntries"
-   },
-   {
-      "source" : "JvmGcMetrics",
-      "target" : "JvmMetricsAutoConfiguration"
-   },
-   {
-      "source" : "ViewResolverComposite",
-      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
-   },
-   {
-      "source" : "ViewResolverComposite",
-      "target" : "mvcContentNegotiationManager"
-   },
-   {
-      "source" : "SimplePropertiesConfigAdapter",
-      "target" : "SimpleMetricsExportAutoConfiguration"
-   },
-   {
-      "source" : "SimplePropertiesConfigAdapter",
-      "target" : "SimpleProperties"
-   },
-   {
-      "source" : "WelcomePageHandlerMapping",
-      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
-   },
-   {
-      "source" : "WelcomePageHandlerMapping",
-      "target" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
-   },
-   {
-      "source" : "WelcomePageHandlerMapping",
-      "target" : "mvcConversionService"
-   },
-   {
-      "source" : "WelcomePageHandlerMapping",
-      "target" : "mvcResourceUrlProvider"
-   },
-   {
-      "source" : "IncludeExcludeEndpointFilter",
-      "target" : "ServletEndpointManagementContextConfiguration"
-   },
-   {
-      "source" : "IncludeExcludeEndpointFilter",
-      "target" : "WebEndpointProperties"
-   },
-   {
-      "source" : "SimpleObservationRegistry",
-      "target" : "ObservationAutoConfiguration"
-   },
-   {
-      "source" : "CompositeUriComponentsContributor",
-      "target" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
-   },
-   {
-      "source" : "CompositeUriComponentsContributor",
-      "target" : "mvcConversionService"
-   },
-   {
-      "source" : "CompositeUriComponentsContributor",
-      "target" : "requestMappingHandlerAdapter"
-   },
-   {
-      "source" : "JacksonEndpointAutoConfiguration$$Lambda$665/0x00000008013abcc0",
-      "target" : "JacksonEndpointAutoConfiguration"
-   },
-   {
-      "source" : "ObjectMapper",
-      "target" : "JacksonAutoConfiguration$JacksonObjectMapperConfiguration"
-   },
-   {
-      "source" : "ObjectMapper",
-      "target" : "jacksonObjectMapperBuilder"
-   },
-   {
-      "source" : "FilterRegistrationBean",
-      "target" : "WebMvcObservationAutoConfiguration"
-   },
-   {
-      "source" : "FilterRegistrationBean",
-      "target" : "observationRegistry"
-   },
-   {
-      "source" : "TaskExecutorBuilder",
-      "target" : "TaskExecutionAutoConfiguration"
-   },
-   {
-      "source" : "TaskExecutorBuilder",
-      "target" : "TaskExecutionProperties"
-   },
-   {
-      "source" : "GraphService",
-      "target" : "UserBeansService"
+      "source" : {
+         "beanName" : "",
+         "beanPackage" : "io.micrometer.core.instrument.config"
+      },
+      "target" : {
+         "beanName" : "HttpClientObservationsAutoConfiguration$MeterFilterConfiguration",
+         "beanPackage" : "HttpClientObservationsAutoConfiguration$MeterFilterConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "",
+         "beanPackage" : "io.micrometer.core.instrument.config"
+      },
+      "target" : {
+         "beanName" : "ObservationProperties",
+         "beanPackage" : "ObservationProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "",
+         "beanPackage" : "io.micrometer.core.instrument.config"
+      },
+      "target" : {
+         "beanName" : "MetricsProperties",
+         "beanPackage" : "MetricsProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "",
+         "beanPackage" : "io.micrometer.core.instrument"
+      },
+      "target" : {
+         "beanName" : "MetricsAutoConfiguration",
+         "beanPackage" : "MetricsAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "",
+         "beanPackage" : "io.micrometer.core.instrument.config"
+      },
+      "target" : {
+         "beanName" : "WebMvcObservationAutoConfiguration$MeterFilterConfiguration",
+         "beanPackage" : "WebMvcObservationAutoConfiguration$MeterFilterConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "",
+         "beanPackage" : "io.micrometer.core.instrument.config"
+      },
+      "target" : {
+         "beanName" : "MetricsProperties",
+         "beanPackage" : "MetricsProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "",
+         "beanPackage" : "io.micrometer.core.instrument.config"
+      },
+      "target" : {
+         "beanName" : "ObservationProperties",
+         "beanPackage" : "ObservationProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "AcceptHeaderLocaleResolver",
+         "beanPackage" : "org.springframework.web.servlet.i18n"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "AntPathMatcher",
+         "beanPackage" : "org.springframework.util"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "AopAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.aop"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "AopAutoConfiguration$ClassProxyingConfiguration$$Lambda$400/0x00000008012a3278",
+         "beanPackage" : "org.springframework.boot.autoconfigure.aop"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "ApplicationAvailabilityAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.availability"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "ApplicationAvailabilityBean",
+         "beanPackage" : "org.springframework.boot.availability"
+      },
+      "target" : {
+         "beanName" : "ApplicationAvailabilityAutoConfiguration",
+         "beanPackage" : "ApplicationAvailabilityAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "AvailabilityHealthContributorAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.availability"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "BasicErrorController",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error"
+      },
+      "target" : {
+         "beanName" : "ErrorMvcAutoConfiguration",
+         "beanPackage" : "ErrorMvcAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "BasicErrorController",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error"
+      },
+      "target" : {
+         "beanName" : "errorAttributes",
+         "beanPackage" : "errorAttributes"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "BeanNameUrlHandlerMapping",
+         "beanPackage" : "org.springframework.web.servlet.handler"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "BeanNameUrlHandlerMapping",
+         "beanPackage" : "org.springframework.web.servlet.handler"
+      },
+      "target" : {
+         "beanName" : "mvcConversionService",
+         "beanPackage" : "mvcConversionService"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "BeanNameUrlHandlerMapping",
+         "beanPackage" : "org.springframework.web.servlet.handler"
+      },
+      "target" : {
+         "beanName" : "mvcResourceUrlProvider",
+         "beanPackage" : "mvcResourceUrlProvider"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "BeanNameViewResolver",
+         "beanPackage" : "org.springframework.web.servlet.view"
+      },
+      "target" : {
+         "beanName" : "ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration",
+         "beanPackage" : "ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "BeansEndpoint",
+         "beanPackage" : "org.springframework.boot.actuate.beans"
+      },
+      "target" : {
+         "beanName" : "BeansEndpointAutoConfiguration",
+         "beanPackage" : "BeansEndpointAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "BeansEndpoint",
+         "beanPackage" : "org.springframework.boot.actuate.beans"
+      },
+      "target" : {
+         "beanName" : "AnnotationConfigServletWebServerApplicationContext@250eef0a",
+         "beanPackage" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "BeansEndpointAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.beans"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "CachingMetadataReaderFactory",
+         "beanPackage" : "org.springframework.core.type.classreading"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "CachingOperationInvokerAdvisor",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.invoker.cache"
+      },
+      "target" : {
+         "beanName" : "EndpointAutoConfiguration",
+         "beanPackage" : "EndpointAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "CachingOperationInvokerAdvisor",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.invoker.cache"
+      },
+      "target" : {
+         "beanName" : "environment",
+         "beanPackage" : "environment"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ClassLoaderMetrics",
+         "beanPackage" : "io.micrometer.core.instrument.binder.jvm"
+      },
+      "target" : {
+         "beanName" : "JvmMetricsAutoConfiguration",
+         "beanPackage" : "JvmMetricsAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ClassPathFileSystemWatcher",
+         "beanPackage" : "org.springframework.boot.devtools.classpath"
+      },
+      "target" : {
+         "beanName" : "LocalDevToolsAutoConfiguration$RestartConfiguration",
+         "beanPackage" : "LocalDevToolsAutoConfiguration$RestartConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ClassPathFileSystemWatcher",
+         "beanPackage" : "org.springframework.boot.devtools.classpath"
+      },
+      "target" : {
+         "beanName" : "fileSystemWatcherFactory",
+         "beanPackage" : "fileSystemWatcherFactory"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ClassPathFileSystemWatcher",
+         "beanPackage" : "org.springframework.boot.devtools.classpath"
+      },
+      "target" : {
+         "beanName" : "classPathRestartStrategy",
+         "beanPackage" : "classPathRestartStrategy"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ClassProxyingConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.aop"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "CompositeMeterRegistryAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "CompositeUriComponentsContributor",
+         "beanPackage" : "org.springframework.web.method.support"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "CompositeUriComponentsContributor",
+         "beanPackage" : "org.springframework.web.method.support"
+      },
+      "target" : {
+         "beanName" : "mvcConversionService",
+         "beanPackage" : "mvcConversionService"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "CompositeUriComponentsContributor",
+         "beanPackage" : "org.springframework.web.method.support"
+      },
+      "target" : {
+         "beanName" : "requestMappingHandlerAdapter",
+         "beanPackage" : "requestMappingHandlerAdapter"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ConditionEvaluationDeltaLoggingListener",
+         "beanPackage" : "org.springframework.boot.devtools.autoconfigure"
+      },
+      "target" : {
+         "beanName" : "LocalDevToolsAutoConfiguration$RestartConfiguration",
+         "beanPackage" : "LocalDevToolsAutoConfiguration$RestartConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ConfigurationPropertiesAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.context"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "ContentNegotiatingViewResolver",
+         "beanPackage" : "org.springframework.web.servlet.view"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter",
+         "beanPackage" : "WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ContentNegotiatingViewResolver",
+         "beanPackage" : "org.springframework.web.servlet.view"
+      },
+      "target" : {
+         "beanName" : "DefaultListableBeanFactory@66bee88a",
+         "beanPackage" : "DefaultListableBeanFactory@66bee88a"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ContentNegotiationManager",
+         "beanPackage" : "org.springframework.web.accept"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ControllerEndpointDiscoverer",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web.annotation"
+      },
+      "target" : {
+         "beanName" : "WebEndpointAutoConfiguration",
+         "beanPackage" : "WebEndpointAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ControllerEndpointHandlerMapping",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web.servlet"
+      },
+      "target" : {
+         "beanName" : "WebMvcEndpointManagementContextConfiguration",
+         "beanPackage" : "WebMvcEndpointManagementContextConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ControllerEndpointHandlerMapping",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web.servlet"
+      },
+      "target" : {
+         "beanName" : "controllerEndpointDiscoverer",
+         "beanPackage" : "controllerEndpointDiscoverer"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ControllerEndpointHandlerMapping",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web.servlet"
+      },
+      "target" : {
+         "beanName" : "CorsEndpointProperties",
+         "beanPackage" : "CorsEndpointProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ControllerEndpointHandlerMapping",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web.servlet"
+      },
+      "target" : {
+         "beanName" : "WebEndpointProperties",
+         "beanPackage" : "WebEndpointProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ConversionServiceParameterValueMapper",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.invoke.convert"
+      },
+      "target" : {
+         "beanName" : "EndpointAutoConfiguration",
+         "beanPackage" : "EndpointAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "CorsEndpointProperties",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.web"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "DefaultErrorAttributes",
+         "beanPackage" : "org.springframework.boot.web.servlet.error"
+      },
+      "target" : {
+         "beanName" : "ErrorMvcAutoConfiguration",
+         "beanPackage" : "ErrorMvcAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "DefaultErrorViewResolver",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error"
+      },
+      "target" : {
+         "beanName" : "ErrorMvcAutoConfiguration$DefaultErrorViewResolverConfiguration",
+         "beanPackage" : "ErrorMvcAutoConfiguration$DefaultErrorViewResolverConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "DefaultErrorViewResolverConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error"
+      },
+      "target" : {
+         "beanName" : "AnnotationConfigServletWebServerApplicationContext@250eef0a",
+         "beanPackage" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "DefaultErrorViewResolverConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error"
+      },
+      "target" : {
+         "beanName" : "WebProperties",
+         "beanPackage" : "WebProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "DefaultLifecycleProcessor",
+         "beanPackage" : "org.springframework.context.support"
+      },
+      "target" : {
+         "beanName" : "LifecycleAutoConfiguration",
+         "beanPackage" : "LifecycleAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "DefaultLifecycleProcessor",
+         "beanPackage" : "org.springframework.context.support"
+      },
+      "target" : {
+         "beanName" : "LifecycleProperties",
+         "beanPackage" : "LifecycleProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "DefaultMeterObservationHandler",
+         "beanPackage" : "io.micrometer.core.instrument.observation"
+      },
+      "target" : {
+         "beanName" : "ObservationAutoConfiguration$MeterObservationHandlerConfiguration$OnlyMetricsMeterObservationHandlerConfiguration",
+         "beanPackage" : "ObservationAutoConfiguration$MeterObservationHandlerConfiguration$OnlyMetricsMeterObservationHandlerConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "DefaultMeterObservationHandler",
+         "beanPackage" : "io.micrometer.core.instrument.observation"
+      },
+      "target" : {
+         "beanName" : "simpleMeterRegistry",
+         "beanPackage" : "simpleMeterRegistry"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "DefaultRequestToViewNameTranslator",
+         "beanPackage" : "org.springframework.web.servlet.view"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "DefaultSslBundleRegistry",
+         "beanPackage" : "org.springframework.boot.ssl"
+      },
+      "target" : {
+         "beanName" : "SslAutoConfiguration",
+         "beanPackage" : "SslAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "DefaultSslBundleRegistry",
+         "beanPackage" : "org.springframework.boot.ssl"
+      },
+      "target" : {
+         "beanName" : "sslPropertiesSslBundleRegistrar",
+         "beanPackage" : "sslPropertiesSslBundleRegistrar"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "DependsOnDatabaseInitializationPostProcessor",
+         "beanPackage" : "org.springframework.boot.sql.init.dependency"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "DevToolsProperties",
+         "beanPackage" : "org.springframework.boot.devtools.autoconfigure"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "DiskSpaceHealthContributorAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.system"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "DiskSpaceHealthIndicator",
+         "beanPackage" : "org.springframework.boot.actuate.system"
+      },
+      "target" : {
+         "beanName" : "DiskSpaceHealthContributorAutoConfiguration",
+         "beanPackage" : "DiskSpaceHealthContributorAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "DiskSpaceHealthIndicator",
+         "beanPackage" : "org.springframework.boot.actuate.system"
+      },
+      "target" : {
+         "beanName" : "DiskSpaceHealthIndicatorProperties",
+         "beanPackage" : "DiskSpaceHealthIndicatorProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "DiskSpaceHealthIndicatorProperties",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.system"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "DiskSpaceMetricsBinder",
+         "beanPackage" : "org.springframework.boot.actuate.metrics.system"
+      },
+      "target" : {
+         "beanName" : "SystemMetricsAutoConfiguration",
+         "beanPackage" : "SystemMetricsAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "DiskSpaceMetricsBinder",
+         "beanPackage" : "org.springframework.boot.actuate.metrics.system"
+      },
+      "target" : {
+         "beanName" : "MetricsProperties",
+         "beanPackage" : "MetricsProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "DispatcherServlet",
+         "beanPackage" : "org.springframework.web.servlet"
+      },
+      "target" : {
+         "beanName" : "DispatcherServletAutoConfiguration$DispatcherServletConfiguration",
+         "beanPackage" : "DispatcherServletAutoConfiguration$DispatcherServletConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "DispatcherServlet",
+         "beanPackage" : "org.springframework.web.servlet"
+      },
+      "target" : {
+         "beanName" : "WebMvcProperties",
+         "beanPackage" : "WebMvcProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "DispatcherServletAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "DispatcherServletConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "DispatcherServletRegistrationBean",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "DispatcherServletAutoConfiguration$DispatcherServletRegistrationConfiguration",
+         "beanPackage" : "DispatcherServletAutoConfiguration$DispatcherServletRegistrationConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "DispatcherServletRegistrationBean",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "dispatcherServlet",
+         "beanPackage" : "dispatcherServlet"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "DispatcherServletRegistrationBean",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "WebMvcProperties",
+         "beanPackage" : "WebMvcProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "DispatcherServletRegistrationConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "EmbeddedTomcat",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "EmbeddedWebServerFactoryCustomizerAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.embedded"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "EnableSameManagementContextConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web.server"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "EnableWebMvcConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "WebMvcProperties",
+         "beanPackage" : "WebMvcProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "EnableWebMvcConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "WebProperties",
+         "beanPackage" : "WebProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "EnableWebMvcConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "DefaultListableBeanFactory@66bee88a",
+         "beanPackage" : "DefaultListableBeanFactory@66bee88a"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "EnableWebMvcConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter",
+         "beanPackage" : "WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "EnableWebMvcConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "endpointObjectMapperWebMvcConfigurer",
+         "beanPackage" : "endpointObjectMapperWebMvcConfigurer"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "EndpointAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "EndpointMediaTypes",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web"
+      },
+      "target" : {
+         "beanName" : "WebEndpointAutoConfiguration",
+         "beanPackage" : "WebEndpointAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ErrorMvcAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error"
+      },
+      "target" : {
+         "beanName" : "ServerProperties",
+         "beanPackage" : "ServerProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ErrorPageCustomizer",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error"
+      },
+      "target" : {
+         "beanName" : "ErrorMvcAutoConfiguration",
+         "beanPackage" : "ErrorMvcAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ErrorPageCustomizer",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error"
+      },
+      "target" : {
+         "beanName" : "dispatcherServletRegistration",
+         "beanPackage" : "dispatcherServletRegistration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ErrorPageRegistrarBeanPostProcessor",
+         "beanPackage" : "org.springframework.boot.web.server"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "FileDescriptorMetrics",
+         "beanPackage" : "io.micrometer.core.instrument.binder.system"
+      },
+      "target" : {
+         "beanName" : "SystemMetricsAutoConfiguration",
+         "beanPackage" : "SystemMetricsAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "FilterRegistrationBean",
+         "beanPackage" : "org.springframework.boot.web.servlet"
+      },
+      "target" : {
+         "beanName" : "WebMvcObservationAutoConfiguration",
+         "beanPackage" : "WebMvcObservationAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "FilterRegistrationBean",
+         "beanPackage" : "org.springframework.boot.web.servlet"
+      },
+      "target" : {
+         "beanName" : "observationRegistry",
+         "beanPackage" : "observationRegistry"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "FixedThemeResolver",
+         "beanPackage" : "org.springframework.web.servlet.theme"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "GraphService",
+         "beanPackage" : "info.jab.userbeans"
+      },
+      "target" : {
+         "beanName" : "UserBeansService",
+         "beanPackage" : "UserBeansService"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "HandlerExceptionResolverComposite",
+         "beanPackage" : "org.springframework.web.servlet.handler"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "HandlerExceptionResolverComposite",
+         "beanPackage" : "org.springframework.web.servlet.handler"
+      },
+      "target" : {
+         "beanName" : "mvcContentNegotiationManager",
+         "beanPackage" : "mvcContentNegotiationManager"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "HandlerFunctionAdapter",
+         "beanPackage" : "org.springframework.web.servlet.function.support"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "HandlerMapping",
+         "beanPackage" : "org.springframework.web.servlet"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "HandlerMapping",
+         "beanPackage" : "org.springframework.web.servlet"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "HandlerMapping",
+         "beanPackage" : "org.springframework.web.servlet"
+      },
+      "target" : {
+         "beanName" : "mvcConversionService",
+         "beanPackage" : "mvcConversionService"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "HandlerMapping",
+         "beanPackage" : "org.springframework.web.servlet"
+      },
+      "target" : {
+         "beanName" : "mvcResourceUrlProvider",
+         "beanPackage" : "mvcResourceUrlProvider"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "HealthContributorAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.health"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "HttpClientObservationsAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation.web.client"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "HttpEncodingAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "ServerProperties",
+         "beanPackage" : "ServerProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "HttpMessageConverters",
+         "beanPackage" : "org.springframework.boot.autoconfigure.http"
+      },
+      "target" : {
+         "beanName" : "HttpMessageConvertersAutoConfiguration",
+         "beanPackage" : "HttpMessageConvertersAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "HttpMessageConvertersAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.http"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "HttpRequestHandlerAdapter",
+         "beanPackage" : "org.springframework.web.servlet.mvc"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "IncludeExcludeEndpointFilter",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.expose"
+      },
+      "target" : {
+         "beanName" : "WebEndpointAutoConfiguration",
+         "beanPackage" : "WebEndpointAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "IncludeExcludeEndpointFilter",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.expose"
+      },
+      "target" : {
+         "beanName" : "WebEndpointAutoConfiguration",
+         "beanPackage" : "WebEndpointAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "IncludeExcludeEndpointFilter",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.expose"
+      },
+      "target" : {
+         "beanName" : "ServletEndpointManagementContextConfiguration",
+         "beanPackage" : "ServletEndpointManagementContextConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "IncludeExcludeEndpointFilter",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.expose"
+      },
+      "target" : {
+         "beanName" : "WebEndpointProperties",
+         "beanPackage" : "WebEndpointProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "InfoContributorAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.info"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "InfoContributorProperties",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.info"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "IntegrationMetricsAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics.integration"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "InternalResourceViewResolver",
+         "beanPackage" : "org.springframework.web.servlet.view"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter",
+         "beanPackage" : "WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "Jackson2ObjectMapperBuilder",
+         "beanPackage" : "org.springframework.http.converter.json"
+      },
+      "target" : {
+         "beanName" : "JacksonAutoConfiguration$JacksonObjectMapperBuilderConfiguration",
+         "beanPackage" : "JacksonAutoConfiguration$JacksonObjectMapperBuilderConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "Jackson2ObjectMapperBuilder",
+         "beanPackage" : "org.springframework.http.converter.json"
+      },
+      "target" : {
+         "beanName" : "AnnotationConfigServletWebServerApplicationContext@250eef0a",
+         "beanPackage" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "Jackson2ObjectMapperBuilder",
+         "beanPackage" : "org.springframework.http.converter.json"
+      },
+      "target" : {
+         "beanName" : "standardJacksonObjectMapperBuilderCustomizer",
+         "beanPackage" : "standardJacksonObjectMapperBuilderCustomizer"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "Jackson2ObjectMapperBuilderCustomizerConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.jackson"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "JacksonAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.jackson"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "JacksonEndpointAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.jackson"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "JacksonEndpointAutoConfiguration$$Lambda$669/0x00000008013b0b98",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.jackson"
+      },
+      "target" : {
+         "beanName" : "JacksonEndpointAutoConfiguration",
+         "beanPackage" : "JacksonEndpointAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "JacksonHttpMessageConvertersConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.http"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "JacksonMixinConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.jackson"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "JacksonObjectMapperBuilderConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.jackson"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "JacksonObjectMapperConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.jackson"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "JacksonProperties",
+         "beanPackage" : "org.springframework.boot.autoconfigure.jackson"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "JsonComponentModule",
+         "beanPackage" : "org.springframework.boot.jackson"
+      },
+      "target" : {
+         "beanName" : "JacksonAutoConfiguration",
+         "beanPackage" : "JacksonAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "JsonMixinModule",
+         "beanPackage" : "org.springframework.boot.jackson"
+      },
+      "target" : {
+         "beanName" : "JacksonAutoConfiguration$JacksonMixinConfiguration",
+         "beanPackage" : "JacksonAutoConfiguration$JacksonMixinConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "JsonMixinModule",
+         "beanPackage" : "org.springframework.boot.jackson"
+      },
+      "target" : {
+         "beanName" : "AnnotationConfigServletWebServerApplicationContext@250eef0a",
+         "beanPackage" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "JsonMixinModule",
+         "beanPackage" : "org.springframework.boot.jackson"
+      },
+      "target" : {
+         "beanName" : "jsonMixinModuleEntries",
+         "beanPackage" : "jsonMixinModuleEntries"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "JsonMixinModuleEntries",
+         "beanPackage" : "org.springframework.boot.jackson"
+      },
+      "target" : {
+         "beanName" : "AnnotationConfigServletWebServerApplicationContext@250eef0a",
+         "beanPackage" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "JvmCompilationMetrics",
+         "beanPackage" : "io.micrometer.core.instrument.binder.jvm"
+      },
+      "target" : {
+         "beanName" : "JvmMetricsAutoConfiguration",
+         "beanPackage" : "JvmMetricsAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "JvmGcMetrics",
+         "beanPackage" : "io.micrometer.core.instrument.binder.jvm"
+      },
+      "target" : {
+         "beanName" : "JvmMetricsAutoConfiguration",
+         "beanPackage" : "JvmMetricsAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "JvmHeapPressureMetrics",
+         "beanPackage" : "io.micrometer.core.instrument.binder.jvm"
+      },
+      "target" : {
+         "beanName" : "JvmMetricsAutoConfiguration",
+         "beanPackage" : "JvmMetricsAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "JvmInfoMetrics",
+         "beanPackage" : "io.micrometer.core.instrument.binder.jvm"
+      },
+      "target" : {
+         "beanName" : "JvmMetricsAutoConfiguration",
+         "beanPackage" : "JvmMetricsAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "JvmMemoryMetrics",
+         "beanPackage" : "io.micrometer.core.instrument.binder.jvm"
+      },
+      "target" : {
+         "beanName" : "JvmMetricsAutoConfiguration",
+         "beanPackage" : "JvmMetricsAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "JvmMetricsAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "JvmThreadMetrics",
+         "beanPackage" : "io.micrometer.core.instrument.binder.jvm"
+      },
+      "target" : {
+         "beanName" : "JvmMetricsAutoConfiguration",
+         "beanPackage" : "JvmMetricsAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "LifecycleAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.context"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "LifecycleProperties",
+         "beanPackage" : "org.springframework.boot.autoconfigure.context"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "LiveReloadConfiguration",
+         "beanPackage" : "org.springframework.boot.devtools.autoconfigure"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "LiveReloadServer",
+         "beanPackage" : "org.springframework.boot.devtools.livereload"
+      },
+      "target" : {
+         "beanName" : "LocalDevToolsAutoConfiguration$LiveReloadConfiguration",
+         "beanPackage" : "LocalDevToolsAutoConfiguration$LiveReloadConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "LiveReloadServer",
+         "beanPackage" : "org.springframework.boot.devtools.livereload"
+      },
+      "target" : {
+         "beanName" : "DevToolsProperties",
+         "beanPackage" : "DevToolsProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "LiveReloadServerEventListener",
+         "beanPackage" : "org.springframework.boot.devtools.autoconfigure"
+      },
+      "target" : {
+         "beanName" : "LocalDevToolsAutoConfiguration$LiveReloadConfiguration",
+         "beanPackage" : "LocalDevToolsAutoConfiguration$LiveReloadConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "LiveReloadServerEventListener",
+         "beanPackage" : "org.springframework.boot.devtools.autoconfigure"
+      },
+      "target" : {
+         "beanName" : "optionalLiveReloadServer",
+         "beanPackage" : "optionalLiveReloadServer"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "LocalDevToolsAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.devtools.autoconfigure"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "LocalDevToolsAutoConfiguration$RestartConfiguration$$Lambda$796/0x0000000801402a40",
+         "beanPackage" : "org.springframework.boot.devtools.autoconfigure"
+      },
+      "target" : {
+         "beanName" : "LocalDevToolsAutoConfiguration$RestartConfiguration",
+         "beanPackage" : "LocalDevToolsAutoConfiguration$RestartConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "LocaleCharsetMappingsCustomizer",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "HttpEncodingAutoConfiguration",
+         "beanPackage" : "HttpEncodingAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "LogbackMetrics",
+         "beanPackage" : "io.micrometer.core.instrument.binder.logging"
+      },
+      "target" : {
+         "beanName" : "LogbackMetricsAutoConfiguration",
+         "beanPackage" : "LogbackMetricsAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "LogbackMetricsAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "MainApplication$$SpringCGLIB$$0",
+         "beanPackage" : "info.jab.ms"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "ManagementContextAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web.server"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "ManagementContextFactory",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "ManagementServerProperties",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web.server"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "MappingJackson2HttpMessageConverter",
+         "beanPackage" : "org.springframework.http.converter.json"
+      },
+      "target" : {
+         "beanName" : "JacksonHttpMessageConvertersConfiguration$MappingJackson2HttpMessageConverterConfiguration",
+         "beanPackage" : "JacksonHttpMessageConvertersConfiguration$MappingJackson2HttpMessageConverterConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "MappingJackson2HttpMessageConverter",
+         "beanPackage" : "org.springframework.http.converter.json"
+      },
+      "target" : {
+         "beanName" : "jacksonObjectMapper",
+         "beanPackage" : "jacksonObjectMapper"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "MappingJackson2HttpMessageConverterConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.http"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "MappingWebEndpointPathMapper",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.web"
+      },
+      "target" : {
+         "beanName" : "WebEndpointAutoConfiguration",
+         "beanPackage" : "WebEndpointAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "MeterFilterConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation.web.client"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "MeterFilterConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation.web.servlet"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "MeterObservationHandlerConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "MeterRegistryPostProcessor",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics"
+      },
+      "target" : {
+         "beanName" : "AnnotationConfigServletWebServerApplicationContext@250eef0a",
+         "beanPackage" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "MetricsAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "MetricsProperties",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "MultipartAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "MultipartProperties",
+         "beanPackage" : "MultipartProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "MultipartConfigElement",
+         "beanPackage" : "jakarta.servlet"
+      },
+      "target" : {
+         "beanName" : "MultipartAutoConfiguration",
+         "beanPackage" : "MultipartAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "MultipartProperties",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "MyController",
+         "beanPackage" : "info.jab.ms"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "MyService",
+         "beanPackage" : "info.jab.ms"
+      },
+      "target" : {
+         "beanName" : "UserBeansService",
+         "beanPackage" : "UserBeansService"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "NoOpValidator",
+         "beanPackage" : "org.springframework.web.servlet.config.annotation"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ObjectMapper",
+         "beanPackage" : "com.fasterxml.jackson.databind"
+      },
+      "target" : {
+         "beanName" : "JacksonAutoConfiguration$JacksonObjectMapperConfiguration",
+         "beanPackage" : "JacksonAutoConfiguration$JacksonObjectMapperConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ObjectMapper",
+         "beanPackage" : "com.fasterxml.jackson.databind"
+      },
+      "target" : {
+         "beanName" : "jacksonObjectMapperBuilder",
+         "beanPackage" : "jacksonObjectMapperBuilder"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ObservationAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "ObservationHandlerGrouping",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation"
+      },
+      "target" : {
+         "beanName" : "ObservationAutoConfiguration$OnlyMetricsConfiguration",
+         "beanPackage" : "ObservationAutoConfiguration$OnlyMetricsConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ObservationProperties",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "ObservationRegistryPostProcessor",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "ObservationRestTemplateCustomizer",
+         "beanPackage" : "org.springframework.boot.actuate.metrics.web.client"
+      },
+      "target" : {
+         "beanName" : "RestTemplateObservationConfiguration",
+         "beanPackage" : "RestTemplateObservationConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ObservationRestTemplateCustomizer",
+         "beanPackage" : "org.springframework.boot.actuate.metrics.web.client"
+      },
+      "target" : {
+         "beanName" : "observationRegistry",
+         "beanPackage" : "observationRegistry"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ObservationRestTemplateCustomizer",
+         "beanPackage" : "org.springframework.boot.actuate.metrics.web.client"
+      },
+      "target" : {
+         "beanName" : "ObservationProperties",
+         "beanPackage" : "ObservationProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ObservationRestTemplateCustomizer",
+         "beanPackage" : "org.springframework.boot.actuate.metrics.web.client"
+      },
+      "target" : {
+         "beanName" : "MetricsProperties",
+         "beanPackage" : "MetricsProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "OnlyMetricsConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "OnlyMetricsMeterObservationHandlerConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "OptionalLiveReloadServer",
+         "beanPackage" : "org.springframework.boot.devtools.autoconfigure"
+      },
+      "target" : {
+         "beanName" : "LocalDevToolsAutoConfiguration$LiveReloadConfiguration",
+         "beanPackage" : "LocalDevToolsAutoConfiguration$LiveReloadConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "OptionalLiveReloadServer",
+         "beanPackage" : "org.springframework.boot.devtools.autoconfigure"
+      },
+      "target" : {
+         "beanName" : "liveReloadServer",
+         "beanPackage" : "liveReloadServer"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "OrderedCharacterEncodingFilter",
+         "beanPackage" : "org.springframework.boot.web.servlet.filter"
+      },
+      "target" : {
+         "beanName" : "HttpEncodingAutoConfiguration",
+         "beanPackage" : "HttpEncodingAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "OrderedFormContentFilter",
+         "beanPackage" : "org.springframework.boot.web.servlet.filter"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "OrderedRequestContextFilter",
+         "beanPackage" : "org.springframework.boot.web.servlet.filter"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "ParameterNamesModule",
+         "beanPackage" : "com.fasterxml.jackson.module.paramnames"
+      },
+      "target" : {
+         "beanName" : "JacksonAutoConfiguration$ParameterNamesModuleConfiguration",
+         "beanPackage" : "JacksonAutoConfiguration$ParameterNamesModuleConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ParameterNamesModuleConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.jackson"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "PathMappedEndpoints",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web"
+      },
+      "target" : {
+         "beanName" : "WebEndpointAutoConfiguration",
+         "beanPackage" : "WebEndpointAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "PathMappedEndpoints",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web"
+      },
+      "target" : {
+         "beanName" : "servletEndpointDiscoverer",
+         "beanPackage" : "servletEndpointDiscoverer"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "PathMappedEndpoints",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web"
+      },
+      "target" : {
+         "beanName" : "webEndpointDiscoverer",
+         "beanPackage" : "webEndpointDiscoverer"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "PathMappedEndpoints",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web"
+      },
+      "target" : {
+         "beanName" : "controllerEndpointDiscoverer",
+         "beanPackage" : "controllerEndpointDiscoverer"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "PathPatternParser",
+         "beanPackage" : "org.springframework.web.util.pattern"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "PatternClassPathRestartStrategy",
+         "beanPackage" : "org.springframework.boot.devtools.classpath"
+      },
+      "target" : {
+         "beanName" : "LocalDevToolsAutoConfiguration$RestartConfiguration",
+         "beanPackage" : "LocalDevToolsAutoConfiguration$RestartConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "PingHealthIndicator",
+         "beanPackage" : "org.springframework.boot.actuate.health"
+      },
+      "target" : {
+         "beanName" : "HealthContributorAutoConfiguration",
+         "beanPackage" : "HealthContributorAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "PreserveErrorControllerTargetClassPostProcessor",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "ProcessorMetrics",
+         "beanPackage" : "io.micrometer.core.instrument.binder.system"
+      },
+      "target" : {
+         "beanName" : "SystemMetricsAutoConfiguration",
+         "beanPackage" : "SystemMetricsAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ProjectInfoAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.info"
+      },
+      "target" : {
+         "beanName" : "ProjectInfoProperties",
+         "beanPackage" : "ProjectInfoProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ProjectInfoProperties",
+         "beanPackage" : "org.springframework.boot.autoconfigure.info"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "PropertiesMeterFilter",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics"
+      },
+      "target" : {
+         "beanName" : "MetricsAutoConfiguration",
+         "beanPackage" : "MetricsAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "PropertiesMeterFilter",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics"
+      },
+      "target" : {
+         "beanName" : "MetricsProperties",
+         "beanPackage" : "MetricsProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "PropertyPlaceholderAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.context"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "PropertySourcesPlaceholderConfigurer",
+         "beanPackage" : "org.springframework.context.support"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "RequestMappingHandlerAdapter",
+         "beanPackage" : "org.springframework.web.servlet.mvc.method.annotation"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "RequestMappingHandlerAdapter",
+         "beanPackage" : "org.springframework.web.servlet.mvc.method.annotation"
+      },
+      "target" : {
+         "beanName" : "mvcContentNegotiationManager",
+         "beanPackage" : "mvcContentNegotiationManager"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "RequestMappingHandlerAdapter",
+         "beanPackage" : "org.springframework.web.servlet.mvc.method.annotation"
+      },
+      "target" : {
+         "beanName" : "mvcConversionService",
+         "beanPackage" : "mvcConversionService"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "RequestMappingHandlerAdapter",
+         "beanPackage" : "org.springframework.web.servlet.mvc.method.annotation"
+      },
+      "target" : {
+         "beanName" : "mvcValidator",
+         "beanPackage" : "mvcValidator"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "RequestMappingHandlerMapping",
+         "beanPackage" : "org.springframework.web.servlet.mvc.method.annotation"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "RequestMappingHandlerMapping",
+         "beanPackage" : "org.springframework.web.servlet.mvc.method.annotation"
+      },
+      "target" : {
+         "beanName" : "mvcContentNegotiationManager",
+         "beanPackage" : "mvcContentNegotiationManager"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "RequestMappingHandlerMapping",
+         "beanPackage" : "org.springframework.web.servlet.mvc.method.annotation"
+      },
+      "target" : {
+         "beanName" : "mvcConversionService",
+         "beanPackage" : "mvcConversionService"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "RequestMappingHandlerMapping",
+         "beanPackage" : "org.springframework.web.servlet.mvc.method.annotation"
+      },
+      "target" : {
+         "beanName" : "mvcResourceUrlProvider",
+         "beanPackage" : "mvcResourceUrlProvider"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ResourceUrlProvider",
+         "beanPackage" : "org.springframework.web.servlet.resource"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "RestTemplateAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.client"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "RestTemplateObservationConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation.web.client"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "RestartConfiguration",
+         "beanPackage" : "org.springframework.boot.devtools.autoconfigure"
+      },
+      "target" : {
+         "beanName" : "DevToolsProperties",
+         "beanPackage" : "DevToolsProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "RestartingClassPathChangeChangedEventListener",
+         "beanPackage" : "org.springframework.boot.devtools.autoconfigure"
+      },
+      "target" : {
+         "beanName" : "LocalDevToolsAutoConfiguration$RestartConfiguration",
+         "beanPackage" : "LocalDevToolsAutoConfiguration$RestartConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "RestartingClassPathChangeChangedEventListener",
+         "beanPackage" : "org.springframework.boot.devtools.autoconfigure"
+      },
+      "target" : {
+         "beanName" : "fileSystemWatcherFactory",
+         "beanPackage" : "fileSystemWatcherFactory"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "RouterFunctionMapping",
+         "beanPackage" : "org.springframework.web.servlet.function.support"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "RouterFunctionMapping",
+         "beanPackage" : "org.springframework.web.servlet.function.support"
+      },
+      "target" : {
+         "beanName" : "mvcConversionService",
+         "beanPackage" : "mvcConversionService"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "RouterFunctionMapping",
+         "beanPackage" : "org.springframework.web.servlet.function.support"
+      },
+      "target" : {
+         "beanName" : "mvcResourceUrlProvider",
+         "beanPackage" : "mvcResourceUrlProvider"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "SameManagementContextConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web.server"
+      },
+      "target" : {
+         "beanName" : "environment",
+         "beanPackage" : "environment"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ServerProperties",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "ServletEndpointDiscoverer",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web.annotation"
+      },
+      "target" : {
+         "beanName" : "WebEndpointAutoConfiguration$WebEndpointServletConfiguration",
+         "beanPackage" : "WebEndpointAutoConfiguration$WebEndpointServletConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ServletEndpointDiscoverer",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web.annotation"
+      },
+      "target" : {
+         "beanName" : "AnnotationConfigServletWebServerApplicationContext@250eef0a",
+         "beanPackage" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ServletEndpointManagementContextConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.web"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "ServletEndpointRegistrar",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web"
+      },
+      "target" : {
+         "beanName" : "ServletEndpointManagementContextConfiguration$WebMvcServletEndpointManagementContextConfiguration",
+         "beanPackage" : "ServletEndpointManagementContextConfiguration$WebMvcServletEndpointManagementContextConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ServletEndpointRegistrar",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web"
+      },
+      "target" : {
+         "beanName" : "WebEndpointProperties",
+         "beanPackage" : "WebEndpointProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ServletEndpointRegistrar",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web"
+      },
+      "target" : {
+         "beanName" : "servletEndpointDiscoverer",
+         "beanPackage" : "servletEndpointDiscoverer"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ServletEndpointRegistrar",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web"
+      },
+      "target" : {
+         "beanName" : "dispatcherServletRegistration",
+         "beanPackage" : "dispatcherServletRegistration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ServletManagementContextAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web.servlet"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "ServletManagementContextAutoConfiguration$$Lambda$751/0x00000008013efb80",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "ServletManagementContextAutoConfiguration",
+         "beanPackage" : "ServletManagementContextAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ServletManagementContextAutoConfiguration$$Lambda$751/0x00000008013efb80",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "WebEndpointProperties",
+         "beanPackage" : "WebEndpointProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ServletWebServerFactoryAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "ServletWebServerFactoryCustomizer",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "ServletWebServerFactoryAutoConfiguration",
+         "beanPackage" : "ServletWebServerFactoryAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ServletWebServerFactoryCustomizer",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "ServerProperties",
+         "beanPackage" : "ServerProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "SessionFlashMapManager",
+         "beanPackage" : "org.springframework.web.servlet.support"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "SimpleControllerHandlerAdapter",
+         "beanPackage" : "org.springframework.web.servlet.mvc"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "SimpleMeterRegistry",
+         "beanPackage" : "io.micrometer.core.instrument.simple"
+      },
+      "target" : {
+         "beanName" : "SimpleMetricsExportAutoConfiguration",
+         "beanPackage" : "SimpleMetricsExportAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "SimpleMeterRegistry",
+         "beanPackage" : "io.micrometer.core.instrument.simple"
+      },
+      "target" : {
+         "beanName" : "simpleConfig",
+         "beanPackage" : "simpleConfig"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "SimpleMeterRegistry",
+         "beanPackage" : "io.micrometer.core.instrument.simple"
+      },
+      "target" : {
+         "beanName" : "micrometerClock",
+         "beanPackage" : "micrometerClock"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "SimpleMetricsExportAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics.export.simple"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "SimpleObservationRegistry",
+         "beanPackage" : "io.micrometer.observation"
+      },
+      "target" : {
+         "beanName" : "ObservationAutoConfiguration",
+         "beanPackage" : "ObservationAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "SimpleProperties",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics.export.simple"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "SimplePropertiesConfigAdapter",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics.export.simple"
+      },
+      "target" : {
+         "beanName" : "SimpleMetricsExportAutoConfiguration",
+         "beanPackage" : "SimpleMetricsExportAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "SimplePropertiesConfigAdapter",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics.export.simple"
+      },
+      "target" : {
+         "beanName" : "SimpleProperties",
+         "beanPackage" : "SimpleProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "SimpleUrlHandlerMapping",
+         "beanPackage" : "org.springframework.web.servlet.handler"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "SimpleUrlHandlerMapping",
+         "beanPackage" : "org.springframework.web.servlet.handler"
+      },
+      "target" : {
+         "beanName" : "mvcContentNegotiationManager",
+         "beanPackage" : "mvcContentNegotiationManager"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "SimpleUrlHandlerMapping",
+         "beanPackage" : "org.springframework.web.servlet.handler"
+      },
+      "target" : {
+         "beanName" : "mvcConversionService",
+         "beanPackage" : "mvcConversionService"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "SimpleUrlHandlerMapping",
+         "beanPackage" : "org.springframework.web.servlet.handler"
+      },
+      "target" : {
+         "beanName" : "mvcResourceUrlProvider",
+         "beanPackage" : "mvcResourceUrlProvider"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "SqlInitializationAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.sql.init"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "SqlInitializationProperties",
+         "beanPackage" : "org.springframework.boot.autoconfigure.sql.init"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "SslAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.ssl"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "SslProperties",
+         "beanPackage" : "org.springframework.boot.autoconfigure.ssl"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "SslPropertiesBundleRegistrar",
+         "beanPackage" : "org.springframework.boot.autoconfigure.ssl"
+      },
+      "target" : {
+         "beanName" : "SslAutoConfiguration",
+         "beanPackage" : "SslAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "SslPropertiesBundleRegistrar",
+         "beanPackage" : "org.springframework.boot.autoconfigure.ssl"
+      },
+      "target" : {
+         "beanName" : "SslProperties",
+         "beanPackage" : "SslProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "StandardJackson2ObjectMapperBuilderCustomizer",
+         "beanPackage" : "org.springframework.boot.autoconfigure.jackson"
+      },
+      "target" : {
+         "beanName" : "JacksonAutoConfiguration$Jackson2ObjectMapperBuilderCustomizerConfiguration",
+         "beanPackage" : "JacksonAutoConfiguration$Jackson2ObjectMapperBuilderCustomizerConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "StandardJackson2ObjectMapperBuilderCustomizer",
+         "beanPackage" : "org.springframework.boot.autoconfigure.jackson"
+      },
+      "target" : {
+         "beanName" : "JacksonProperties",
+         "beanPackage" : "JacksonProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "StandardServletMultipartResolver",
+         "beanPackage" : "org.springframework.web.multipart.support"
+      },
+      "target" : {
+         "beanName" : "MultipartAutoConfiguration",
+         "beanPackage" : "MultipartAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "StartupTimeMetricsListener",
+         "beanPackage" : "org.springframework.boot.actuate.metrics.startup"
+      },
+      "target" : {
+         "beanName" : "StartupTimeMetricsListenerAutoConfiguration",
+         "beanPackage" : "StartupTimeMetricsListenerAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "StartupTimeMetricsListener",
+         "beanPackage" : "org.springframework.boot.actuate.metrics.startup"
+      },
+      "target" : {
+         "beanName" : "simpleMeterRegistry",
+         "beanPackage" : "simpleMeterRegistry"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "StartupTimeMetricsListenerAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics.startup"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "StaticView",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error"
+      },
+      "target" : {
+         "beanName" : "ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration",
+         "beanPackage" : "ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "StringHttpMessageConverter",
+         "beanPackage" : "org.springframework.http.converter"
+      },
+      "target" : {
+         "beanName" : "HttpMessageConvertersAutoConfiguration$StringHttpMessageConverterConfiguration",
+         "beanPackage" : "HttpMessageConvertersAutoConfiguration$StringHttpMessageConverterConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "StringHttpMessageConverter",
+         "beanPackage" : "org.springframework.http.converter"
+      },
+      "target" : {
+         "beanName" : "environment",
+         "beanPackage" : "environment"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "StringHttpMessageConverterConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.http"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "SystemMetricsAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "TaskExecutionAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.task"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "TaskExecutionProperties",
+         "beanPackage" : "org.springframework.boot.autoconfigure.task"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "TaskExecutorBuilder",
+         "beanPackage" : "org.springframework.boot.task"
+      },
+      "target" : {
+         "beanName" : "TaskExecutionAutoConfiguration",
+         "beanPackage" : "TaskExecutionAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "TaskExecutorBuilder",
+         "beanPackage" : "org.springframework.boot.task"
+      },
+      "target" : {
+         "beanName" : "TaskExecutionProperties",
+         "beanPackage" : "TaskExecutionProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "TaskExecutorMetricsAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics.task"
+      },
+      "target" : {
+         "beanName" : "applicationTaskExecutor",
+         "beanPackage" : "applicationTaskExecutor"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "TaskExecutorMetricsAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics.task"
+      },
+      "target" : {
+         "beanName" : "simpleMeterRegistry",
+         "beanPackage" : "simpleMeterRegistry"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "TaskSchedulerBuilder",
+         "beanPackage" : "org.springframework.boot.task"
+      },
+      "target" : {
+         "beanName" : "TaskSchedulingAutoConfiguration",
+         "beanPackage" : "TaskSchedulingAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "TaskSchedulerBuilder",
+         "beanPackage" : "org.springframework.boot.task"
+      },
+      "target" : {
+         "beanName" : "TaskSchedulingProperties",
+         "beanPackage" : "TaskSchedulingProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "TaskSchedulingAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.task"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "TaskSchedulingProperties",
+         "beanPackage" : "org.springframework.boot.autoconfigure.task"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "ThreadPoolTaskExecutor",
+         "beanPackage" : "org.springframework.scheduling.concurrent"
+      },
+      "target" : {
+         "beanName" : "TaskExecutionAutoConfiguration",
+         "beanPackage" : "TaskExecutionAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ThreadPoolTaskExecutor",
+         "beanPackage" : "org.springframework.scheduling.concurrent"
+      },
+      "target" : {
+         "beanName" : "taskExecutorBuilder",
+         "beanPackage" : "taskExecutorBuilder"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "TomcatMetricsAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics.web.tomcat"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "TomcatMetricsBinder",
+         "beanPackage" : "org.springframework.boot.actuate.metrics.web.tomcat"
+      },
+      "target" : {
+         "beanName" : "TomcatMetricsAutoConfiguration",
+         "beanPackage" : "TomcatMetricsAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "TomcatMetricsBinder",
+         "beanPackage" : "org.springframework.boot.actuate.metrics.web.tomcat"
+      },
+      "target" : {
+         "beanName" : "simpleMeterRegistry",
+         "beanPackage" : "simpleMeterRegistry"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "TomcatServletWebServerFactory",
+         "beanPackage" : "org.springframework.boot.web.embedded.tomcat"
+      },
+      "target" : {
+         "beanName" : "ServletWebServerFactoryConfiguration$EmbeddedTomcat",
+         "beanPackage" : "ServletWebServerFactoryConfiguration$EmbeddedTomcat"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "TomcatServletWebServerFactoryCustomizer",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "ServletWebServerFactoryAutoConfiguration",
+         "beanPackage" : "ServletWebServerFactoryAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "TomcatServletWebServerFactoryCustomizer",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "ServerProperties",
+         "beanPackage" : "ServerProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "TomcatWebServerFactoryCustomizer",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.embedded"
+      },
+      "target" : {
+         "beanName" : "EmbeddedWebServerFactoryCustomizerAutoConfiguration$TomcatWebServerFactoryCustomizerConfiguration",
+         "beanPackage" : "EmbeddedWebServerFactoryCustomizerAutoConfiguration$TomcatWebServerFactoryCustomizerConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "TomcatWebServerFactoryCustomizer",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.embedded"
+      },
+      "target" : {
+         "beanName" : "environment",
+         "beanPackage" : "environment"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "TomcatWebServerFactoryCustomizer",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.embedded"
+      },
+      "target" : {
+         "beanName" : "ServerProperties",
+         "beanPackage" : "ServerProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "TomcatWebServerFactoryCustomizerConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.embedded"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "TomcatWebSocketConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.websocket.servlet"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "TomcatWebSocketServletWebServerCustomizer",
+         "beanPackage" : "org.springframework.boot.autoconfigure.websocket.servlet"
+      },
+      "target" : {
+         "beanName" : "WebSocketServletAutoConfiguration$TomcatWebSocketConfiguration",
+         "beanPackage" : "WebSocketServletAutoConfiguration$TomcatWebSocketConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "UptimeMetrics",
+         "beanPackage" : "io.micrometer.core.instrument.binder.system"
+      },
+      "target" : {
+         "beanName" : "SystemMetricsAutoConfiguration",
+         "beanPackage" : "SystemMetricsAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "UrlPathHelper",
+         "beanPackage" : "org.springframework.web.util"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "UserBeansEndpoint",
+         "beanPackage" : "info.jab.userbeans"
+      },
+      "target" : {
+         "beanName" : "UserBeansService",
+         "beanPackage" : "UserBeansService"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "UserBeansEndpoint",
+         "beanPackage" : "info.jab.userbeans"
+      },
+      "target" : {
+         "beanName" : "UserDependenciesService",
+         "beanPackage" : "UserDependenciesService"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "UserBeansEndpoint",
+         "beanPackage" : "info.jab.userbeans"
+      },
+      "target" : {
+         "beanName" : "GraphService",
+         "beanPackage" : "GraphService"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "UserBeansService",
+         "beanPackage" : "info.jab.userbeans"
+      },
+      "target" : {
+         "beanName" : "beansEndpoint",
+         "beanPackage" : "beansEndpoint"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "UserDependenciesService",
+         "beanPackage" : "info.jab.userbeans"
+      },
+      "target" : {
+         "beanName" : "UserBeansService",
+         "beanPackage" : "UserBeansService"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ViewResolverComposite",
+         "beanPackage" : "org.springframework.web.servlet.view"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "ViewResolverComposite",
+         "beanPackage" : "org.springframework.web.servlet.view"
+      },
+      "target" : {
+         "beanName" : "mvcContentNegotiationManager",
+         "beanPackage" : "mvcContentNegotiationManager"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WebConversionService",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.format"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WebEndpointAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.web"
+      },
+      "target" : {
+         "beanName" : "AnnotationConfigServletWebServerApplicationContext@250eef0a",
+         "beanPackage" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WebEndpointAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.web"
+      },
+      "target" : {
+         "beanName" : "WebEndpointProperties",
+         "beanPackage" : "WebEndpointProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WebEndpointDiscoverer",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web.annotation"
+      },
+      "target" : {
+         "beanName" : "WebEndpointAutoConfiguration",
+         "beanPackage" : "WebEndpointAutoConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WebEndpointDiscoverer",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web.annotation"
+      },
+      "target" : {
+         "beanName" : "endpointOperationParameterMapper",
+         "beanPackage" : "endpointOperationParameterMapper"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WebEndpointDiscoverer",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web.annotation"
+      },
+      "target" : {
+         "beanName" : "endpointMediaTypes",
+         "beanPackage" : "endpointMediaTypes"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WebEndpointProperties",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.web"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "WebEndpointServletConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.web"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "WebMvcAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "WebMvcAutoConfigurationAdapter",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "WebProperties",
+         "beanPackage" : "WebProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WebMvcAutoConfigurationAdapter",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "WebMvcProperties",
+         "beanPackage" : "WebMvcProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WebMvcAutoConfigurationAdapter",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "DefaultListableBeanFactory@66bee88a",
+         "beanPackage" : "DefaultListableBeanFactory@66bee88a"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WebMvcEndpointHandlerMapping",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web.servlet"
+      },
+      "target" : {
+         "beanName" : "WebMvcEndpointManagementContextConfiguration",
+         "beanPackage" : "WebMvcEndpointManagementContextConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WebMvcEndpointHandlerMapping",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web.servlet"
+      },
+      "target" : {
+         "beanName" : "webEndpointDiscoverer",
+         "beanPackage" : "webEndpointDiscoverer"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WebMvcEndpointHandlerMapping",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web.servlet"
+      },
+      "target" : {
+         "beanName" : "servletEndpointDiscoverer",
+         "beanPackage" : "servletEndpointDiscoverer"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WebMvcEndpointHandlerMapping",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web.servlet"
+      },
+      "target" : {
+         "beanName" : "controllerEndpointDiscoverer",
+         "beanPackage" : "controllerEndpointDiscoverer"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WebMvcEndpointHandlerMapping",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web.servlet"
+      },
+      "target" : {
+         "beanName" : "endpointMediaTypes",
+         "beanPackage" : "endpointMediaTypes"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WebMvcEndpointHandlerMapping",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web.servlet"
+      },
+      "target" : {
+         "beanName" : "CorsEndpointProperties",
+         "beanPackage" : "CorsEndpointProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WebMvcEndpointHandlerMapping",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web.servlet"
+      },
+      "target" : {
+         "beanName" : "WebEndpointProperties",
+         "beanPackage" : "WebEndpointProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WebMvcEndpointHandlerMapping",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web.servlet"
+      },
+      "target" : {
+         "beanName" : "environment",
+         "beanPackage" : "environment"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WebMvcEndpointManagementContextConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.web.servlet"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "WebMvcObservationAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation.web.servlet"
+      },
+      "target" : {
+         "beanName" : "ObservationProperties",
+         "beanPackage" : "ObservationProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WebMvcObservationAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation.web.servlet"
+      },
+      "target" : {
+         "beanName" : "MetricsProperties",
+         "beanPackage" : "MetricsProperties"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WebMvcProperties",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "WebMvcServletEndpointManagementContextConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.web"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "WebProperties",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "WebServerFactoryCustomizerBeanPostProcessor",
+         "beanPackage" : "org.springframework.boot.web.server"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "WebSocketServletAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.websocket.servlet"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "WelcomePageHandlerMapping",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WelcomePageHandlerMapping",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "AnnotationConfigServletWebServerApplicationContext@250eef0a",
+         "beanPackage" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WelcomePageHandlerMapping",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "mvcConversionService",
+         "beanPackage" : "mvcConversionService"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WelcomePageHandlerMapping",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "mvcResourceUrlProvider",
+         "beanPackage" : "mvcResourceUrlProvider"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WelcomePageNotAcceptableHandlerMapping",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WelcomePageNotAcceptableHandlerMapping",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "AnnotationConfigServletWebServerApplicationContext@250eef0a",
+         "beanPackage" : "AnnotationConfigServletWebServerApplicationContext@250eef0a"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WelcomePageNotAcceptableHandlerMapping",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "mvcConversionService",
+         "beanPackage" : "mvcConversionService"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WelcomePageNotAcceptableHandlerMapping",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet"
+      },
+      "target" : {
+         "beanName" : "mvcResourceUrlProvider",
+         "beanPackage" : "mvcResourceUrlProvider"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "WhitelabelErrorViewConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error"
+      },
+      "target" : null
    }
 ]
