@@ -57,6 +57,7 @@
 <div id="logo">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Spring_Framework_Logo_2018.svg/490px-Spring_Framework_Logo_2018.svg.png?20181210015349" alt="Spring Framework Logo">
     <select id="jars"></select>
+    <button id="filterButton">Filter</button>
     <input type="text" id="searchInput" placeholder="Bean name or package" />
     <button id="searchButton">Search</button>
     <button id="resetButton">Reset</button>
@@ -69,6 +70,13 @@
 
     var address = "/actuator/userbeans/graph";
     //var address = "graph.json";
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const dependencyParam = urlParams.get('dependency');
+
+    if(dependencyParam != undefined) {
+        address += "?dependency=" + dependencyParam;
+    }
 
     fetch(combo)
         .then(response => response.json())
@@ -92,6 +100,10 @@
             });
         })
         .catch(error => console.log(error));
+
+    if (dependencyParam != undefined) {
+        console.log(dependencyParam);
+    }
 
     const svg = d3.create("svg")
         .attr("viewBox", `0 0 ${window.innerWidth} ${window.innerHeight}`)
@@ -259,13 +271,21 @@
                 .attr("y", (d) => d.y - 8);
         });
 
+        const filterButton = document.getElementById("filterButton");
         const searchButton = document.getElementById("searchButton");
         const resetButton = document.getElementById("resetButton");
         const searchInput = document.getElementById("searchInput");
         const searchResultMessage = document.getElementById("searchResultMessage");
 
+        filterButton.addEventListener("click", handleFilter);
         searchButton.addEventListener("click", handleSearch);
         resetButton.addEventListener("click", resetSearch);
+
+        function handleFilter() {
+            const value = jars.value;
+            console.log(value);
+            document.location.href="/actuator/userbeans?dependency=" + value;
+        }
 
         function handleSearch() {
             const searchText = searchInput.value.toLowerCase();

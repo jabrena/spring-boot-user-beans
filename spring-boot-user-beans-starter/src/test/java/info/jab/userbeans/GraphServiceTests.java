@@ -34,7 +34,7 @@ class GraphServiceTests {
     void shouldReturnGraphData() {
         //Given
         //When
-        var resuls = graphService.generateGraphData();
+        var resuls = graphService.generateGraphData("ALL");
 
         //Then
         assertThat(resuls).hasSizeGreaterThan(0);
@@ -45,7 +45,7 @@ class GraphServiceTests {
         //Given
         //When
         var resuls = graphService
-            .generateGraphData()
+            .generateGraphData("ALL")
             .stream()
             .filter(edge -> edge.source().beanPackage().contains("info.jab.support"))
             .peek(System.out::println)
@@ -60,7 +60,7 @@ class GraphServiceTests {
         //Given
         //When
         var resuls = graphService
-            .generateGraphData()
+            .generateGraphData("ALL")
             .stream()
             .filter(edge -> edge.source().beanPackage().contains("info.jab.userbeans"))
             .peek(System.out::println)

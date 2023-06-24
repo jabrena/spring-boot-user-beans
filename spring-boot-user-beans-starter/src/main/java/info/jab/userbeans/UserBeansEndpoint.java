@@ -8,6 +8,7 @@ import org.springframework.boot.actuate.endpoint.web.annotation.RestControllerEn
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RestControllerEndpoint(id = "userbeans")
 public class UserBeansEndpoint {
@@ -49,11 +50,15 @@ public class UserBeansEndpoint {
         return ResponseEntity.ok().body(graphService.generateWebDocument());
     }
 
+    // @formatter:off
     @GetMapping(path = "/graph", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<List<GraphService.Edge>> getGraph() {
+    ResponseEntity<List<GraphService.Edge>> getGraph(
+            @RequestParam(name = "dependency", required = false) String dependency) {
         logger.info("GET /actuator/userbeans/graph");
-        return ResponseEntity.ok().body(graphService.generateGraphData());
+        return ResponseEntity.ok().body(graphService.generateGraphData(dependency));
     }
+
+    // @formatter:on
 
     @GetMapping(path = "/graph-combo", produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<List<UserDependenciesService.Dependency>> getGraphCombo() {

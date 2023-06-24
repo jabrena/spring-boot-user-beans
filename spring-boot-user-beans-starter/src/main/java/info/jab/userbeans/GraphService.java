@@ -7,6 +7,7 @@ import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Stream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,8 +51,15 @@ public class GraphService {
     public record Edge(BeandNode source, BeandNode target) {}
 
     // @formatter:off
-    List<Edge> generateGraphData() {
+    List<Edge> generateGraphData(String dependency) {
         logger.info("Generating Graph data");
+        logger.info(dependency);
+
+        if (Objects.nonNull(dependency)) {
+            if (dependency.equals("ALL")) {
+                dependency = null;
+            }
+        }
 
         var dependenciesAndPackages = userDependenciesService.getDependenciesAndPackages();
 
@@ -65,7 +73,7 @@ public class GraphService {
                 })
                 .toList();
 
-        return userBeansService.getBeansDocuments().stream()
+        var result2 = userBeansService.getBeansDocuments().stream()
             .flatMap(bd -> {
                 String beanName = bd.beanName();
                 String beanPackage = bd.beanPackage();
@@ -112,6 +120,15 @@ public class GraphService {
                 }
             })
             .toList();
+
+        if (Objects.isNull(dependency)) {
+            return result2;
+        } else {
+            String finalDependency = dependency;
+            return result2.stream()
+                    .filter(edge -> edge.source().dependency.contains(finalDependency))
+                    .toList();
+        }
     }
     // @formatter:on
 
