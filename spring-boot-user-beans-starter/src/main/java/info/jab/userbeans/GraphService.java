@@ -5,6 +5,7 @@ import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.stream.Stream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -35,7 +36,9 @@ public class GraphService {
 
     // @formatter:on
 
-    public record Edge(String source, String target) {}
+    public record BeandNode(String beanName, String beanPackage) {}
+
+    public record Edge(BeandNode source, BeandNode target) {}
 
     // @formatter:off
     List<Edge> generateGraphData() {
@@ -43,7 +46,14 @@ public class GraphService {
         return userBeansService.getBeansDocuments().stream()
             .flatMap(bd -> {
                 String beanName = bd.beanName();
-                return bd.dependencies().stream().map(dep -> new Edge(beanName, dep));
+                String beanPackage = bd.beanPackage();
+                if (bd.dependencies().size() > 0) {
+                    return bd.dependencies().stream()
+                            .map(dep -> new Edge(new BeandNode(beanName, beanPackage),
+                                    new BeandNode(dep, dep)));
+                } else {
+                    return Stream.of(new Edge(new BeandNode(beanName, beanPackage), null));
+                }
             })
             .toList();
     }

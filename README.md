@@ -4,9 +4,20 @@
 
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=jabrena_spring-boot-user-beans)
 
-A visual way to increase the developer awareness to minimize the number of Beans that they maintain in memory.
+A visual way to increase the developer awareness to minimize the number of Beans in memory.
 
-![](./docs/user-beans3.png)
+Using this project, you will be able to see your Beans developed in your project
+plus other Beans provided by the dependencies that you include
+in the **classpath**.
+
+![](./docs/user-beans6.png)
+
+Using a minimalistic User interface, you will be able to search
+your Beans by name or package and review the relations between them.
+
+The project use graph theory to show beans as a [Directed Graph](https://en.m.wikipedia.org/wiki/Directed_graph).
+
+![](docs/direct-graph.png)
 
 ## Requirements
 
@@ -27,12 +38,14 @@ https://en.wikipedia.org/wiki/Convention_over_configuration
 
 ```bash
 mvn clean verify
-mvn spring-boot:run -pl examples/hello-world-servlet/ -am -Puserbeans
+mvn spring-boot:run -pl examples/hello-world-servlet/ -am
 mvn spring-boot:run -pl examples/hello-world-reactive/ -am -Puserbeans
 open http://localhost:8080/
 
 #UX
 curl -v http://localhost:8080/actuator/userbeans/graph | json_pp
+curl -v http://localhost:8080/actuator/userbeans/graph | json_pp > ./spring-boot-user-beans-starter/src/main/resourc
+es/static/graph.json
 
 #API
 curl -v http://localhost:8080/actuator/userbeans/dependencies | json_pp
@@ -79,6 +92,7 @@ sdk env
 
 ## References
 
+- https://en.m.wikipedia.org/wiki/Directed_graph
 - https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/package-summary.html
 - https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/package-summary.html
 - https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/

@@ -1,9 +1,9 @@
 package info.jab.userbeans;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
@@ -26,7 +26,7 @@ public class UserBeansService {
 
     public record BeanDocument(String beanName, String beanPackage, List<String> dependencies) {}
 
-    List<BeanDocument> getBeansDocuments() {
+    public List<BeanDocument> getBeansDocuments() {
         logger.info("Generating Beans information");
         Map<String, ContextBeansDescriptor> beansMap = beansEndpoint.beans().getContexts();
         var contextBeansDescriptorList = beansMap.values().stream().toList();
@@ -34,6 +34,7 @@ public class UserBeansService {
             .stream()
             .flatMap(cd -> cd.getBeans().entrySet().stream())
             .map(toBeanDocument)
+            .sorted(Comparator.comparing(BeanDocument::beanName))
             .toList();
     }
 
@@ -54,9 +55,11 @@ public class UserBeansService {
                 .toList();
         return new BeanDocument(beanName, packageName, dependencies);
     };
+
     // @formatter:on
 
     public record UserBean(String beanName, String packageName, Boolean isClass) {}
+
     public record BeanDocument2(UserBean parentBean, List<UserBean> dependencies) {}
 
     List<BeanDocument2> getBeansDocuments2() {
@@ -64,10 +67,10 @@ public class UserBeansService {
         Map<String, ContextBeansDescriptor> beansMap = beansEndpoint.beans().getContexts();
         var contextBeansDescriptorList = beansMap.values().stream().toList();
         var result = contextBeansDescriptorList
-                .stream()
-                .flatMap(cd -> cd.getBeans().entrySet().stream())
-                .map(toBeanDocument2)
-                .toList();
+            .stream()
+            .flatMap(cd -> cd.getBeans().entrySet().stream())
+            .map(toBeanDocument2)
+            .toList();
         unknownClassCounter.set(0);
         return result;
     }
@@ -86,8 +89,10 @@ public class UserBeansService {
                             try {
                                 Class<?> beanClassDependency = Class.forName(dependency);
                                 String packageNameDependency = beanClassDependency.getPackageName();
+                                Class<?> beanClassDependency2 =
+                                        Class.forName(beanClassDependency.getSimpleName());
                                 return new UserBean(
-                                        beanClassDependency.getSimpleName(),
+                                        beanClassDependency2.getSimpleName(),
                                         packageNameDependency, true);
                             } catch (ClassNotFoundException e) {
                                 logger.warn("Dependency not found: {} {}",

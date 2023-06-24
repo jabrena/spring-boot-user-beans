@@ -16,22 +16,42 @@
             stroke: #f00;
             stroke-width: 2px;
         }
+
+        .tooltip {
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 8px;
+            font-size: 12px;
+            pointer-events: none;
+        }
         #logo {
             display: flex;
             align-items: center;
             margin-bottom: 10px;
+            padding-top: 10px;
         }
         #logo img {
             width: 100px;
             height: 30px;
             margin-right: 10px;
         }
+
+        #logo input {
+            width: 200px;
+            margin-right: 5px;
+        }
+
+        #logo button {
+            margin-right: 5px;
+        }
     </style>
 </head>
 <body>
+<!-- Web form -->
 <div id="logo">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Spring_Framework_Logo_2018.svg/490px-Spring_Framework_Logo_2018.svg.png?20181210015349" alt="Spring Framework Logo">
-    <input type="text" id="searchInput" placeholder="Search">
+    <input type="text" id="searchInput" placeholder="Bean name or package" />
     <button id="searchButton">Search</button>
     <button id="resetButton">Reset</button>
 </div>
@@ -97,13 +117,36 @@
     //var address = "graph.json";
 
     d3.json(address).then((data) => {
-        links = data.map((d) => ({
-            source: d.source,
-            target: d.target
+        //TODO Improve algorithm
+        links = data
+            .map((d) => ({
+                source: d.source.beanName,
+                target: d.target ? d.target.beanName : null
+            }))
+            .filter((link) => link.target !== null);
+
+        console.log("Printing links")
+        console.log(links)
+
+        linksRaw = data
+            .map((d) => ({
+                source: d.source.beanName,
+                target: d.target ? d.target.beanName : null
+            }))
+
+        const nodesSet = new Set([
+            ...linksRaw.map((d) => d.source),
+            ...linksRaw.map((d) => d.target)
+        ]);
+
+        nodes = Array.from(nodesSet).map((d) => ({
+            id: d,
+            name: d,
+            package: data.find((item) => item.source.beanName === d)?.source.beanPackage || ""
         }));
 
-        const nodesSet = new Set(data.flatMap((d) => [d.source, d.target]));
-        nodes = Array.from(nodesSet).map((d) => ({ id: d }));
+        console.log("Printing nodes")
+        console.log(nodes)
 
         simulation.nodes(nodes);
         simulation.force("link").links(links);
@@ -125,8 +168,31 @@
             .attr("fill", "#ccc")
             .call(drag(simulation));
 
-        node.append("title")
-            .text((d) => d.id);
+        // Append a tooltip div to the body
+        const tooltip = d3.select("body")
+            .append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
+
+        node.on("mouseover", showTooltip)
+            .on("mousemove", moveTooltip)
+            .on("mouseout", hideTooltip);
+
+        function showTooltip(event, d) {
+            tooltip.transition().duration(200).style("opacity", 0.9);
+            tooltip.html(`<strong>Name:</strong> ${d.name}<br><strong>Package:</strong> ${d.package}`)
+                .style("left", `${event.pageX}px`)
+                .style("top", `${event.pageY}px`);
+        }
+
+        function moveTooltip(event) {
+            tooltip.style("left", `${event.pageX}px`)
+                .style("top", `${event.pageY}px`);
+        }
+
+        function hideTooltip() {
+            tooltip.transition().duration(200).style("opacity", 0);
+        }
 
         label = container.append("g")
             .attr("class", "node-labels")
@@ -134,7 +200,15 @@
             .data(nodes)
             .enter().append("text")
             .attr("class", "node-text")
-            .text((d) => d.id);
+            .text((d) => `${d.id}`); // Update text content to include
+
+        const message = svg.append("text")
+            .attr("class", "message")
+            .attr("x", 10)
+            .attr("y", height - 80)
+            .attr("text-anchor", "start")
+            .attr("dominant-baseline", "baseline")
+            .text(`Visualizing ${nodes.length} Beans`);
 
         simulation.on("tick", () => {
             link
@@ -171,8 +245,21 @@
                 return;
             }
 
-            const matchedNodes = node.filter((d) => d.id.toLowerCase().includes(searchText));
-            const matchedLinks = link.filter((d) => d.source.id.toLowerCase().includes(searchText) || d.target.id.toLowerCase().includes(searchText));
+            const matchedNodes = node.filter((d) => {
+                const name = typeof d.name === 'string' ? d.name.toLowerCase() : "";
+                const package = typeof d.package === 'string' ? d.package.toLowerCase() : "";
+                return name.includes(searchText) ||
+                    package.includes(searchText);
+            });
+
+            const matchedLinks = link.filter((d) => {
+                const source = typeof d.source.id === 'string' ? d.source.id.toLowerCase() : "";
+                const target = typeof d.target.id === 'string' ? d.target.id.toLowerCase() : "";
+                return (
+                    source.includes(searchText) ||
+                    target.includes(searchText)
+                );
+            });
 
             matchedNodes.classed("highlight", true);
             matchedLinks.classed("highlight", true);
@@ -184,7 +271,7 @@
                 svg.transition().duration(750).call(zoom.transform, d3.zoomIdentity.translate(-dx, -dy).scale(1));
             }
 
-            const message = `Found ${matchedNodes.size()} matching beans(s)`;
+            const message = `Found ${matchedNodes.size()} matching bean(s)`;
             searchResultMessage.textContent = message;
         }
 
@@ -193,6 +280,8 @@
             node.classed("highlight", false);
             link.classed("highlight", false);
             searchResultMessage.textContent = "";
+
+            document.location.reload();
         }
 
         function getBounds(elements) {
@@ -206,6 +295,19 @@
             }
             return bounds;
         }
+
+        //Initial position
+        /*
+        const nodeToCenter = nodes.find((node) => node.name === "RouterFunctionMapping");
+        console.log(nodeToCenter)
+        if (nodeToCenter) {
+            const radius = 5; // Radius of the node
+            const dx = (width * 0) - (nodeToCenter.x + radius);
+            const dy = (height * 0.1) - (nodeToCenter.y + radius);
+            svg.transition().duration(750).call(zoom.transform, d3.zoomIdentity.translate(dx, dy).scale(1));
+        }
+
+         */
     });
 
     function drag(simulation) {

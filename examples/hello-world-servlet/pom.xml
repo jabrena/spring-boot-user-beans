@@ -43,6 +43,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>info.jab</groupId>
+			<artifactId>spring-boot-user-beans-starter</artifactId>
+			<version>0.1.0-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -64,18 +70,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-	<profiles>
-		<profile>
-			<id>userbeans</id>
-
-			<dependencies>
-				<dependency>
-					<groupId>info.jab</groupId>
-					<artifactId>spring-boot-user-beans-starter</artifactId>
-					<version>0.1.0-SNAPSHOT</version>
-				</dependency>
-			</dependencies>
-		</profile>
-	</profiles>
 </project>
