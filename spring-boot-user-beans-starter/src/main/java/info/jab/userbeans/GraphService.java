@@ -1,5 +1,7 @@
 package info.jab.userbeans;
 
+import static info.jab.userbeans.UserDependenciesService.UNKNOWN_DEPENDENCY;
+
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
@@ -53,14 +55,24 @@ public class GraphService {
 
         var dependenciesAndPackages = userDependenciesService.getDependenciesAndPackages();
 
+        record FlatDependencyPackage(String dependencyName, String packageName) {}
+
+        var result = dependenciesAndPackages.stream()
+                .flatMap(dd -> {
+                    var dependencyName = dd.dependencyName();
+                    return dd.packages().stream()
+                            .map(str -> new FlatDependencyPackage(dependencyName, str));
+                })
+                .toList();
+
         return userBeansService.getBeansDocuments().stream()
             .flatMap(bd -> {
                 String beanName = bd.beanName();
                 String beanPackage = bd.beanPackage();
-                //TODO This branch is not working well
                 if (!bd.dependencies().isEmpty()) {
                     return bd.dependencies().stream()
                             .map(dep -> {
+                                //TODO This branch is not working well
                                 try {
                                     Class<?> beanClassDep = Class.forName(dep);
                                     String packageNameDependency = beanClassDep.getPackageName();
@@ -68,21 +80,6 @@ public class GraphService {
                                     return new Edge(new BeandNode(beanName, beanPackage, "PENDING"),
                                             new BeandNode(dep, packageNameDependency, "PENDING"));
                                 } catch (ClassNotFoundException e) {
-                                    //logger.warn("Dependency not found: {} {}",
-                                    // dep, e.getMessage());
-
-                                    record FlatDependencyPackage(
-                                            String dependencyName, String packageName) {}
-
-                                    var result = dependenciesAndPackages.stream()
-                                            .flatMap(dd -> {
-                                                var dependencyName = dd.dependencyName();
-                                                return dd.packages().stream()
-                                                        .map(str -> new FlatDependencyPackage(
-                                                                dependencyName, str));
-                                            })
-                                            .toList();
-
                                     var jar = result.stream()
                                             .filter(fdp -> fdp.packageName.contains(beanPackage))
                                             .findFirst();
@@ -90,28 +87,16 @@ public class GraphService {
                                     if (jar.isPresent()) {
                                         return new Edge(new BeandNode(
                                                 beanName, beanPackage, jar.get().dependencyName),
-                                                new BeandNode(dep, "UNKNOWN", "UNKNOWN"));
+                                                new BeandNode(dep, "UNKNOWN", UNKNOWN_DEPENDENCY));
                                     } else {
                                         return new Edge(new BeandNode(
-                                                beanName, beanPackage, "UNKNOWN"),
-                                                new BeandNode(dep, "UNKNOWN", "UNKNOWN"));
+                                                beanName, beanPackage, UNKNOWN_DEPENDENCY),
+                                                new BeandNode(dep, "UNKNOWN", UNKNOWN_DEPENDENCY));
                                     }
 
                                 }
                             });
                 } else {
-                    record FlatDependencyPackage(
-                            String dependencyName, String packageName) {}
-
-                    var result = dependenciesAndPackages.stream()
-                            .flatMap(dd -> {
-                                var dependencyName = dd.dependencyName();
-                                return dd.packages().stream()
-                                        .map(str -> new FlatDependencyPackage(
-                                                dependencyName, str));
-                            })
-                            .toList();
-
                     var jar = result.stream()
                             .filter(fdp -> fdp.packageName.contains(beanPackage))
                             .findFirst();
@@ -122,7 +107,7 @@ public class GraphService {
                                         jar.get().dependencyName), null));
                     } else {
                         return Stream.of(new Edge(
-                                new BeandNode(beanName, beanPackage, "UNKNOWN"), null));
+                                new BeandNode(beanName, beanPackage, UNKNOWN_DEPENDENCY), null));
                     }
                 }
             })
