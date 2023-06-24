@@ -13,7 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
     classes = { TestApplication.class, SupportController.class },
     properties = { "management.endpoints.web.exposure.include=beans,userbeans" }
 )
-public class UserBeansServiceTests {
+class UserBeansServiceTests {
 
     @Autowired
     private UserBeansService userBeansService;
@@ -26,9 +26,9 @@ public class UserBeansServiceTests {
         var beanList = userBeansService.getBeansDocuments();
 
         //Then
-        assertThat(beanList).isSortedAccordingTo(
-                Comparator.comparing(UserBeansService.BeanDocument::beanName));
-        assertThat(beanList).hasSizeGreaterThan(0);
+        assertThat(beanList)
+                .isSortedAccordingTo(Comparator.comparing(UserBeansService.BeanDocument::beanName))
+                .hasSizeGreaterThan(0);
     }
 
     // @formatter:on
@@ -36,12 +36,16 @@ public class UserBeansServiceTests {
     //TODO A possible small issue to raise in Micrometer
     @Test
     void shouldOnlyExistThreeBeansWithoutName() {
+        //Given
+        //When
         var beanList = userBeansService.getBeansDocuments();
         var unnamedBeans = beanList
             .stream()
             .filter(beanDocument -> beanDocument.beanName().equals(""))
             .peek(System.out::println)
             .toList();
+
+        //Then
         assertThat(unnamedBeans).hasSize(3);
     }
 

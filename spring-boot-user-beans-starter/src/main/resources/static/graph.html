@@ -165,7 +165,7 @@
             .data(nodes)
             .enter().append("circle")
             .attr("r", 5)
-            .attr("fill", "#ccc")
+            .attr("fill", (d) => d.package ? "green" : "#ccc")
             .call(drag(simulation));
 
         // Append a tooltip div to the body
@@ -295,19 +295,6 @@
             }
             return bounds;
         }
-
-        //Initial position
-        /*
-        const nodeToCenter = nodes.find((node) => node.name === "RouterFunctionMapping");
-        console.log(nodeToCenter)
-        if (nodeToCenter) {
-            const radius = 5; // Radius of the node
-            const dx = (width * 0) - (nodeToCenter.x + radius);
-            const dy = (height * 0.1) - (nodeToCenter.y + radius);
-            svg.transition().duration(750).call(zoom.transform, d3.zoomIdentity.translate(dx, dy).scale(1));
-        }
-
-         */
     });
 
     function drag(simulation) {

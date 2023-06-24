@@ -9,7 +9,7 @@ import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.function.Function;
+import java.util.function.UnaryOperator;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import org.slf4j.Logger;
@@ -46,7 +46,7 @@ public class UserDependenciesService {
             .toList();
     }
 
-    private Function<String, String> removePath = fullPath -> {
+    private UnaryOperator<String> removePath = fullPath -> {
         var pathParts = fullPath.split("\\/");
         return (pathParts.length > 0) ? pathParts[pathParts.length - 1] : fullPath;
     };
