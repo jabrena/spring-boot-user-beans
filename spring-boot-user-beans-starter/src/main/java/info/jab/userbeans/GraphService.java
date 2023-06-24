@@ -4,11 +4,17 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Service
 public class GraphService {
@@ -16,10 +22,17 @@ public class GraphService {
     Logger logger = LoggerFactory.getLogger(GraphService.class);
 
     private final UserBeansService userBeansService;
+    private final UserDependenciesService userDependenciesService;
 
-    public GraphService(UserBeansService userBeansService) {
+    // @formatter:off
+    public GraphService(
+            UserBeansService userBeansService,
+            UserDependenciesService userDependenciesService) {
         this.userBeansService = userBeansService;
+        this.userDependenciesService = userDependenciesService;
     }
+
+    // @formatter:on
 
     // @formatter:off
     String generateWebDocument() {
@@ -67,5 +80,12 @@ public class GraphService {
             })
             .toList();
     }
+
     // @formatter:on
+
+    @GetMapping(path = "/graph-combo", produces = MediaType.APPLICATION_JSON_VALUE)
+    ResponseEntity<List<UserDependenciesService.Dependency>> graph_combo() {
+        var jars = userDependenciesService.getDependencies();
+        return ResponseEntity.ok().body(jars);
+    }
 }

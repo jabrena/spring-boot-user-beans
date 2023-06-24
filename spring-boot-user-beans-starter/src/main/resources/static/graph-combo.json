@@ -1,0 +1,41 @@
+[
+   {
+      "dependency" : "jackson-databind-2.15.0.jar"
+   },
+   {
+      "dependency" : "jackson-module-parameter-names-2.15.0.jar"
+   },
+   {
+      "dependency" : "micrometer-core-1.11.0.jar"
+   },
+   {
+      "dependency" : "micrometer-observation-1.11.0.jar"
+   },
+   {
+      "dependency" : "spring-boot-3.1.0.jar"
+   },
+   {
+      "dependency" : "spring-boot-actuator-3.1.0.jar"
+   },
+   {
+      "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+   },
+   {
+      "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+   },
+   {
+      "dependency" : "spring-boot-devtools-3.1.0.jar"
+   },
+   {
+      "dependency" : "spring-context-6.0.9.jar"
+   },
+   {
+      "dependency" : "spring-core-6.0.9.jar"
+   },
+   {
+      "dependency" : "spring-web-6.0.9.jar"
+   },
+   {
+      "dependency" : "spring-webmvc-6.0.9.jar"
+   }
+]

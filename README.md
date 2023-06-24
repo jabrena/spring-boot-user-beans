@@ -42,16 +42,18 @@ https://en.wikipedia.org/wiki/Convention_over_configuration
 ## How to run in local
 
 ```bash
-mvn clean verify
-mvn spring-boot:run -pl examples/hello-world-servlet/ -am
-mvn spring-boot:run -pl examples/hello-world-reactive/ -am -Puserbeans
+./mvnw clean verify
+./mvnw spring-boot:run -pl examples/hello-world-servlet/ -am
+./mvnw spring-boot:run -pl examples/hello-world-reactive/ -am -Puserbeans
 open http://localhost:8080/
 
 #UX
 curl -v http://localhost:8080/actuator/userbeans/graph | json_pp
 curl -v http://localhost:8080/actuator/userbeans/graph | json_pp > ./spring-boot-user-beans-starter/src/main/resourc
 es/static/graph.json
-
+curl -v http://localhost:8080/actuator/userbeans/graph-combo | json_pp
+curl -v http://localhost:8080/actuator/userbeans/graph-combo | json_pp > ./spring-boot-user-beans-starter/src/main/resourc
+es/static/graph-combo.json
 #API
 curl -v http://localhost:8080/actuator/userbeans/dependencies | json_pp
 curl -v http://localhost:8080/actuator/userbeans/dependencies/beans | json_pp
@@ -77,7 +79,7 @@ spring init -d=web,devtools --build=maven --force ./
 
 ```bash
 # Step 1: Launch the webserver with the JACOCO Report
-mvn clean verify
+./mvnw clean verify
 sdk install java 20-tem
 sdk use java 20-tem
 jwebserver -p 9000 -d "$(pwd)/coverage-module/target/site/jacoco-aggregate/"

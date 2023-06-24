@@ -54,4 +54,10 @@ public class UserBeansEndpoint {
         logger.info("GET /actuator/userbeans/graph");
         return ResponseEntity.ok().body(graphService.generateGraphData());
     }
+
+    @GetMapping(path = "/graph-combo", produces = MediaType.APPLICATION_JSON_VALUE)
+    ResponseEntity<List<UserDependenciesService.Dependency>> graph_combo2() {
+        logger.info("GET /actuator/userbeans/graph-combo");
+        return ResponseEntity.ok().body(userDependenciesService.getDependencies());
+    }
 }
