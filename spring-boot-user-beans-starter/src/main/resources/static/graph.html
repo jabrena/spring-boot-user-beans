@@ -42,6 +42,11 @@
             margin-right: 5px;
         }
 
+        #logo select {
+            width: 200px;
+            margin-right: 5px;
+        }
+
         #logo button {
             margin-right: 5px;
         }
@@ -51,6 +56,7 @@
 <!-- Web form -->
 <div id="logo">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Spring_Framework_Logo_2018.svg/490px-Spring_Framework_Logo_2018.svg.png?20181210015349" alt="Spring Framework Logo">
+    <select id="jars"></select>
     <input type="text" id="searchInput" placeholder="Bean name or package" />
     <button id="searchButton">Search</button>
     <button id="resetButton">Reset</button>
@@ -58,6 +64,35 @@
 <div id="searchResultMessage"></div>
 
 <script>
+    var combo = "/actuator/userbeans/graph-combo";
+    //var combo = "graph-combo.json";
+
+    var address = "/actuator/userbeans/graph";
+    //var address = "graph.json";
+
+    fetch(combo)
+        .then(response => response.json())
+        .then(data => {
+            var selectElement = document.getElementById('jars');
+            //Add All
+            var option = document.createElement('option');
+            option.value = "ALL";
+            option.textContent = "ALL";
+            selectElement.appendChild(option);
+            //Add UNKNOWN
+            var option2 = document.createElement('option');
+            option2.value = "UNKNOWN";
+            option2.textContent = "UNKNOWN";
+            selectElement.appendChild(option2);
+            data.forEach(obj => {
+                var option = document.createElement('option');
+                option.value = obj.dependency;
+                option.textContent = obj.dependency;
+                selectElement.appendChild(option);
+            });
+        })
+        .catch(error => console.log(error));
+
     const svg = d3.create("svg")
         .attr("viewBox", `0 0 ${window.innerWidth} ${window.innerHeight}`)
         .attr("width", "100%")
@@ -113,9 +148,6 @@
 
     let nodes, links, node, link, label;
 
-    var address = "/actuator/userbeans/graph";
-    //var address = "graph.json";
-
     d3.json(address).then((data) => {
         //TODO Improve algorithm
         links = data
@@ -125,8 +157,8 @@
             }))
             .filter((link) => link.target !== null);
 
-        console.log("Printing links")
-        console.log(links)
+        //console.log("Printing links")
+        //console.log(links)
 
         linksRaw = data
             .map((d) => ({
@@ -142,7 +174,8 @@
         nodes = Array.from(nodesSet).map((d) => ({
             id: d,
             name: d,
-            package: data.find((item) => item.source.beanName === d)?.source.beanPackage || ""
+            package: data.find((item) => item.source.beanName === d)?.source.beanPackage || "",
+            dependency: data.find((item) => item.source.beanName === d)?.source.dependency || ""
         }));
 
         console.log("Printing nodes")
@@ -180,7 +213,7 @@
 
         function showTooltip(event, d) {
             tooltip.transition().duration(200).style("opacity", 0.9);
-            tooltip.html(`<strong>Name:</strong> ${d.name}<br><strong>Package:</strong> ${d.package}`)
+            tooltip.html(`<strong>Name:</strong> ${d.name}<br><strong>Package:</strong> ${d.package}<br><strong>Dependency:</strong> ${d.dependency}<br><a href="#">Further information</a>`)
                 .style("left", `${event.pageX}px`)
                 .style("top", `${event.pageY}px`);
         }

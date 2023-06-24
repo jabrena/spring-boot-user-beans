@@ -50,8 +50,14 @@ public class UserBeansEndpoint {
     }
 
     @GetMapping(path = "/graph", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<List<GraphService.Edge>> graph() {
+    ResponseEntity<List<GraphService.Edge>> getGraph() {
         logger.info("GET /actuator/userbeans/graph");
         return ResponseEntity.ok().body(graphService.generateGraphData());
+    }
+
+    @GetMapping(path = "/graph-combo", produces = MediaType.APPLICATION_JSON_VALUE)
+    ResponseEntity<List<UserDependenciesService.Dependency>> getGraphCombo() {
+        logger.info("GET /actuator/userbeans/graph-combo");
+        return ResponseEntity.ok().body(userDependenciesService.getDependencies());
     }
 }

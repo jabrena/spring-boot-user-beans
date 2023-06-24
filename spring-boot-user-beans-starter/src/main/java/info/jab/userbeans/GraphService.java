@@ -1,5 +1,7 @@
 package info.jab.userbeans;
 
+import static info.jab.userbeans.UserDependenciesService.UNKNOWN_DEPENDENCY;
+
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
@@ -16,10 +18,17 @@ public class GraphService {
     Logger logger = LoggerFactory.getLogger(GraphService.class);
 
     private final UserBeansService userBeansService;
+    private final UserDependenciesService userDependenciesService;
 
-    public GraphService(UserBeansService userBeansService) {
+    // @formatter:off
+    public GraphService(
+            UserBeansService userBeansService,
+            UserDependenciesService userDependenciesService) {
         this.userBeansService = userBeansService;
+        this.userDependenciesService = userDependenciesService;
     }
+
+    // @formatter:on
 
     // @formatter:off
     String generateWebDocument() {
@@ -36,13 +45,26 @@ public class GraphService {
 
     // @formatter:on
 
-    public record BeandNode(String beanName, String beanPackage) {}
+    public record BeandNode(String beanName, String beanPackage, String dependency) {}
 
     public record Edge(BeandNode source, BeandNode target) {}
 
     // @formatter:off
     List<Edge> generateGraphData() {
         logger.info("Generating Graph data");
+
+        var dependenciesAndPackages = userDependenciesService.getDependenciesAndPackages();
+
+        record FlatDependencyPackage(String dependencyName, String packageName) {}
+
+        var result = dependenciesAndPackages.stream()
+                .flatMap(dd -> {
+                    var dependencyName = dd.dependencyName();
+                    return dd.packages().stream()
+                            .map(str -> new FlatDependencyPackage(dependencyName, str));
+                })
+                .toList();
+
         return userBeansService.getBeansDocuments().stream()
             .flatMap(bd -> {
                 String beanName = bd.beanName();
@@ -50,22 +72,47 @@ public class GraphService {
                 if (!bd.dependencies().isEmpty()) {
                     return bd.dependencies().stream()
                             .map(dep -> {
+                                //TODO This branch is not working well
                                 try {
                                     Class<?> beanClassDep = Class.forName(dep);
                                     String packageNameDependency = beanClassDep.getPackageName();
-                                    return new Edge(new BeandNode(beanName, beanPackage),
-                                            new BeandNode(dep, packageNameDependency));
+
+                                    return new Edge(new BeandNode(beanName, beanPackage, "PENDING"),
+                                            new BeandNode(dep, packageNameDependency, "PENDING"));
                                 } catch (ClassNotFoundException e) {
-                                    logger.warn("Dependency not found: {} {}", dep, e.getMessage());
-                                    return new Edge(new BeandNode(beanName, beanPackage),
-                                            new BeandNode(dep, "UNKNOWN"));
+                                    var jar = result.stream()
+                                            .filter(fdp -> fdp.packageName.contains(beanPackage))
+                                            .findFirst();
+
+                                    if (jar.isPresent()) {
+                                        return new Edge(new BeandNode(
+                                                beanName, beanPackage, jar.get().dependencyName),
+                                                new BeandNode(dep, "UNKNOWN", UNKNOWN_DEPENDENCY));
+                                    } else {
+                                        return new Edge(new BeandNode(
+                                                beanName, beanPackage, UNKNOWN_DEPENDENCY),
+                                                new BeandNode(dep, "UNKNOWN", UNKNOWN_DEPENDENCY));
+                                    }
+
                                 }
                             });
                 } else {
-                    return Stream.of(new Edge(new BeandNode(beanName, beanPackage), null));
+                    var jar = result.stream()
+                            .filter(fdp -> fdp.packageName.contains(beanPackage))
+                            .findFirst();
+
+                    if (jar.isPresent()) {
+                        return Stream.of(new Edge(
+                                new BeandNode(beanName, beanPackage,
+                                        jar.get().dependencyName), null));
+                    } else {
+                        return Stream.of(new Edge(
+                                new BeandNode(beanName, beanPackage, UNKNOWN_DEPENDENCY), null));
+                    }
                 }
             })
             .toList();
     }
     // @formatter:on
+
 }
