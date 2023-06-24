@@ -47,7 +47,7 @@ public class GraphService {
             .flatMap(bd -> {
                 String beanName = bd.beanName();
                 String beanPackage = bd.beanPackage();
-                if (bd.dependencies().size() > 0) {
+                if (bd.dependencies().isEmpty()) {
                     return bd.dependencies().stream()
                             .map(dep -> {
                                 try {
