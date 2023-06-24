@@ -4,17 +4,11 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 @Service
 public class GraphService {
@@ -49,43 +43,91 @@ public class GraphService {
 
     // @formatter:on
 
-    public record BeandNode(String beanName, String beanPackage) {}
+    public record BeandNode(String beanName, String beanPackage, String dependency) {}
 
     public record Edge(BeandNode source, BeandNode target) {}
 
     // @formatter:off
     List<Edge> generateGraphData() {
         logger.info("Generating Graph data");
+
+        var dependenciesAndPackages = userDependenciesService.getDependenciesAndPackages();
+
         return userBeansService.getBeansDocuments().stream()
             .flatMap(bd -> {
                 String beanName = bd.beanName();
                 String beanPackage = bd.beanPackage();
+                //TODO This branch is not working well
                 if (!bd.dependencies().isEmpty()) {
                     return bd.dependencies().stream()
                             .map(dep -> {
                                 try {
                                     Class<?> beanClassDep = Class.forName(dep);
                                     String packageNameDependency = beanClassDep.getPackageName();
-                                    return new Edge(new BeandNode(beanName, beanPackage),
-                                            new BeandNode(dep, packageNameDependency));
+
+                                    return new Edge(new BeandNode(beanName, beanPackage, "PENDING"),
+                                            new BeandNode(dep, packageNameDependency, "PENDING"));
                                 } catch (ClassNotFoundException e) {
-                                    logger.warn("Dependency not found: {} {}", dep, e.getMessage());
-                                    return new Edge(new BeandNode(beanName, beanPackage),
-                                            new BeandNode(dep, "UNKNOWN"));
+                                    //logger.warn("Dependency not found: {} {}",
+                                    // dep, e.getMessage());
+
+                                    record FlatDependencyPackage(
+                                            String dependencyName, String packageName) {}
+
+                                    var result = dependenciesAndPackages.stream()
+                                            .flatMap(dd -> {
+                                                var dependencyName = dd.dependencyName();
+                                                return dd.packages().stream()
+                                                        .map(str -> new FlatDependencyPackage(
+                                                                dependencyName, str));
+                                            })
+                                            .toList();
+
+                                    var jar = result.stream()
+                                            .filter(fdp -> fdp.packageName.contains(beanPackage))
+                                            .findFirst();
+
+                                    if (jar.isPresent()) {
+                                        return new Edge(new BeandNode(
+                                                beanName, beanPackage, jar.get().dependencyName),
+                                                new BeandNode(dep, "UNKNOWN", "UNKNOWN"));
+                                    } else {
+                                        return new Edge(new BeandNode(
+                                                beanName, beanPackage, "UNKNOWN"),
+                                                new BeandNode(dep, "UNKNOWN", "UNKNOWN"));
+                                    }
+
                                 }
                             });
                 } else {
-                    return Stream.of(new Edge(new BeandNode(beanName, beanPackage), null));
+                    record FlatDependencyPackage(
+                            String dependencyName, String packageName) {}
+
+                    var result = dependenciesAndPackages.stream()
+                            .flatMap(dd -> {
+                                var dependencyName = dd.dependencyName();
+                                return dd.packages().stream()
+                                        .map(str -> new FlatDependencyPackage(
+                                                dependencyName, str));
+                            })
+                            .toList();
+
+                    var jar = result.stream()
+                            .filter(fdp -> fdp.packageName.contains(beanPackage))
+                            .findFirst();
+
+                    if (jar.isPresent()) {
+                        return Stream.of(new Edge(
+                                new BeandNode(beanName, beanPackage,
+                                        jar.get().dependencyName), null));
+                    } else {
+                        return Stream.of(new Edge(
+                                new BeandNode(beanName, beanPackage, "UNKNOWN"), null));
+                    }
                 }
             })
             .toList();
     }
-
     // @formatter:on
 
-    @GetMapping(path = "/graph-combo", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<List<UserDependenciesService.Dependency>> graph_combo() {
-        var jars = userDependenciesService.getDependencies();
-        return ResponseEntity.ok().body(jars);
-    }
 }

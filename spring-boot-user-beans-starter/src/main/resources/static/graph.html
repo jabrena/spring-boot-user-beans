@@ -67,6 +67,9 @@
     var combo = "/actuator/userbeans/graph-combo";
     //var combo = "graph-combo.json";
 
+    var address = "/actuator/userbeans/graph";
+    //var address = "graph.json";
+
     fetch(combo)
         .then(response => response.json())
         .then(data => {
@@ -89,9 +92,7 @@
             });
         })
         .catch(error => console.log(error));
-</script>
 
-<script>
     const svg = d3.create("svg")
         .attr("viewBox", `0 0 ${window.innerWidth} ${window.innerHeight}`)
         .attr("width", "100%")
@@ -147,9 +148,6 @@
 
     let nodes, links, node, link, label;
 
-    var address = "/actuator/userbeans/graph";
-    //var address = "graph.json";
-
     d3.json(address).then((data) => {
         //TODO Improve algorithm
         links = data
@@ -176,11 +174,12 @@
         nodes = Array.from(nodesSet).map((d) => ({
             id: d,
             name: d,
-            package: data.find((item) => item.source.beanName === d)?.source.beanPackage || ""
+            package: data.find((item) => item.source.beanName === d)?.source.beanPackage || "",
+            dependency: data.find((item) => item.source.beanName === d)?.source.dependency || ""
         }));
 
-        //console.log("Printing nodes")
-        //console.log(nodes)
+        console.log("Printing nodes")
+        console.log(nodes)
 
         simulation.nodes(nodes);
         simulation.force("link").links(links);
@@ -214,7 +213,7 @@
 
         function showTooltip(event, d) {
             tooltip.transition().duration(200).style("opacity", 0.9);
-            tooltip.html(`<strong>Name:</strong> ${d.name}<br><strong>Package:</strong> ${d.package}`)
+            tooltip.html(`<strong>Name:</strong> ${d.name}<br><strong>Package:</strong> ${d.package}<br><strong>Dependency:</strong> ${d.dependency}<br><a href="#">Further information</a>`)
                 .style("left", `${event.pageX}px`)
                 .style("top", `${event.pageY}px`);
         }

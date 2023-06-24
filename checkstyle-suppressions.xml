@@ -7,4 +7,6 @@
     <suppress checks="Javadoc" files="." />
     <suppress checks="FinalParameters" files="." />
     <suppress checks="Indentation" files="." />
+
+    <suppress checks="VariableDeclarationUsageDistance" files="." />
 </suppressions>
