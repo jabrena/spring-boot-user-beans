@@ -15,6 +15,15 @@ in the **classpath**. The project uses Graph theory to show the beans as a [Dire
 Using a minimalistic User interface, you will be able to search
 your Beans by name or package and review the relations between them.
 
+## Use cases
+
+### Review the Bean composition in your projects
+
+Reviewing the Beans relations, you could see new opportunities
+to improve the Design of your solution.
+
+![](./docs/use-case1.png)
+
 ## Requirements
 
 - [x] Visualize Beans running in the container
