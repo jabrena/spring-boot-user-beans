@@ -47,7 +47,7 @@ public class ChatGTPProvider {
     String getAnswer(String question) {
         logger.info("Sending a question to ChatGTP");
 
-        String key = System.getenv().get("OPEN_API_KEY");
+        String key = System.getenv().get("OPENAI_API_KEY");
 
         if (Objects.isNull(key)) {
             return """
