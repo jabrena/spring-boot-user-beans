@@ -143,19 +143,22 @@ sdk env
 ./mvnw versions:display-plugin-updates
 ```
 
+## Original idea
+
+- https://github.com/making/beansviz-spring-boot-actuator
+
 ## References
 
 - https://en.m.wikipedia.org/wiki/Directed_graph
 - https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/package-summary.html
 - https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/package-summary.html
-- https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/
-- https://www.jetbrains.com/help/idea/spring-diagrams.html#spring-beans-diagram
-- https://github.com/making/beansviz-spring-boot-actuator
+- https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/beans/BeansEndpoint.html
 - https://docs.spring.io/spring-boot/docs/current/reference/html/cli.html#cli.using-the-cli
-- https://github.com/j3soon/directed-graph-visualization
 - https://d3js.org/
 - https://www.webjars.org/all
 - https://www.eclemma.org/jacoco/trunk/doc/maven.html
 - https://platform.openai.com/account/usage
 - https://platform.openai.com/account/api-keys
 - https://openai.com/pricing
+
+Made with ❤️ from Madrid
