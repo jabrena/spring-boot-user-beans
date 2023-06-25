@@ -2,3 +2,6 @@ info.jab.userbeans.UserBeansEndpoint
 info.jab.userbeans.UserBeansService
 info.jab.userbeans.UserDependenciesService
 info.jab.userbeans.GraphService
+info.jab.userbeans.BeanExplanationService
+info.jab.userbeans.ChatGTPConfig
+info.jab.userbeans.ChatGTPProvider

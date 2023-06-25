@@ -39,6 +39,9 @@
         <module>spring-boot-user-beans-starter</module>
         <module>examples</module>
         <module>coverage-module</module>
+        <!--
+        <module>external-tests</module>
+        -->
     </modules>
 
     <build>
@@ -167,7 +170,7 @@
                 <version>0.17</version>
                 <configuration>
                     <prettierJavaVersion>1.6.1</prettierJavaVersion>
-                    <printWidth>120</printWidth>
+                    <printWidth>150</printWidth>
                     <tabWidth>4</tabWidth>
                     <useTabs>false</useTabs>
                     <ignoreConfigFile>true</ignoreConfigFile>
@@ -194,20 +197,30 @@
                 <artifactId>versions-maven-plugin</artifactId>
                 <version>2.7</version>
             </plugin>
-
-            <plugin>
-                <groupId>org.owasp</groupId>
-                <artifactId>dependency-check-maven</artifactId>
-                <version>8.3.1</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>pipelines</id>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.owasp</groupId>
+                        <artifactId>dependency-check-maven</artifactId>
+                        <version>8.3.1</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>

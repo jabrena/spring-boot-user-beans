@@ -21,6 +21,8 @@ public class UserDependenciesService {
 
     private static final Logger logger = LoggerFactory.getLogger(UserDependenciesService.class);
 
+    public static final String UNKNOWN_DEPENDENCY = "UNKNOWN";
+
     private final UserBeansService userBeansService;
 
     public UserDependenciesService(UserBeansService userBeansService) {
@@ -29,7 +31,11 @@ public class UserDependenciesService {
 
     public record Dependency(String dependency) {}
 
-    public static final String UNKNOWN_DEPENDENCY = "UNKNOWN";
+    public record DependencyDetail(String dependencyName, List<String> packages) {}
+
+    public record DependencyBeanDetail(String dependencyName, String beanName) {}
+
+    public record DependencyDocument(String beanName, String beanPackage, List<String> beanDependencies, String dependency) {}
 
     List<Dependency> getDependencies() {
         List<DependencyDocument> dependencyDocument = getDependencyDocuments();
@@ -50,8 +56,6 @@ public class UserDependenciesService {
         var pathParts = fullPath.split("\\/");
         return (pathParts.length > 0) ? pathParts[pathParts.length - 1] : fullPath;
     };
-
-    public record DependencyDetail(String dependencyName, List<String> packages) {}
 
     // @formatter:off
     List<DependencyDetail> getDependenciesAndPackages() {
@@ -95,11 +99,8 @@ public class UserDependenciesService {
         } catch (IOException e) {
             logger.warn(e.getMessage());
         }
-
         return packages;
     }
-
-    public record DependencyBeanDetail(String dependencyName, String beanName) {}
 
     // @formatter:off
     List<DependencyBeanDetail> getDependenciesAndBeans() {
@@ -110,13 +111,6 @@ public class UserDependenciesService {
     }
 
     // @formatter:on
-
-    public record DependencyDocument(
-        String beanName,
-        String beanPackage,
-        List<String> beanDependencies,
-        String dependency
-    ) {}
 
     // @formatter:off
     public List<DependencyDocument> getDependencyDocuments() {
@@ -144,6 +138,10 @@ public class UserDependenciesService {
             })
             .toList();
     }
+
     // @formatter:on
 
+    List<BeanDocument> getBeansDocuments() {
+        return userBeansService.getBeansDocuments();
+    }
 }

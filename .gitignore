@@ -1,4 +1,6 @@
 target
 *.iml
 .idea
-
+.env
+.DS_Store
+external-tests/spring-petclinc/**

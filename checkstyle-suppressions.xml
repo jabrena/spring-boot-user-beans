@@ -9,4 +9,7 @@
     <suppress checks="Indentation" files="." />
 
     <suppress checks="VariableDeclarationUsageDistance" files="." />
+    <suppress checks="AbbreviationAsWordInName" files="." />
+    <suppress checks="RecordComponentName" files="." />
+    <suppress checks="LineLength" files="." />
 </suppressions>

@@ -8,56 +8,55 @@ import org.springframework.boot.actuate.endpoint.web.annotation.RestControllerEn
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RestControllerEndpoint(id = "userbeans")
 public class UserBeansEndpoint {
 
-    Logger logger = LoggerFactory.getLogger(UserBeansEndpoint.class);
-
-    @Autowired
-    private UserBeansService userBeansService;
-
-    @Autowired
-    private UserDependenciesService userDependenciesService;
-
-    @GetMapping(path = "beans", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<List<UserBeansService.BeanDocument>> getBeans() {
-        logger.info("GET /actuator/userbeans/beans");
-        return ResponseEntity.ok(userBeansService.getBeansDocuments());
-    }
-
-    @GetMapping(path = "dependencies", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<List<UserDependenciesService.Dependency>> getDependencies() {
-        logger.info("GET /actuator/userbeans/dependencies");
-        return ResponseEntity.ok(userDependenciesService.getDependencies());
-    }
-
-    @GetMapping(path = "dependencies/beans", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<List<UserDependenciesService.DependencyBeanDetail>> getDependenciesBeans() {
-        logger.info("GET /actuator/userbeans/dependencies/beans");
-        return ResponseEntity.ok(userDependenciesService.getDependenciesAndBeans());
-    }
-
-    //UX
+    private static final Logger logger = LoggerFactory.getLogger(UserBeansEndpoint.class);
 
     @Autowired
     private GraphService graphService;
 
+    @Autowired
+    private BeanExplanationService beanExplanationService;
+
     @GetMapping(path = "/", produces = MediaType.TEXT_HTML_VALUE)
-    ResponseEntity<String> loadWebDocument() {
+    ResponseEntity<String> loadGraphWebDocument() {
         logger.info("GET /actuator/userbeans");
-        return ResponseEntity.ok().body(graphService.generateWebDocument());
+        return ResponseEntity.ok().body(graphService.generateGraphWebDocument());
     }
 
+    // @formatter:off
     @GetMapping(path = "/graph", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<List<GraphService.Edge>> getGraph() {
+    ResponseEntity<List<GraphService.Edge>> getGraph(
+            @RequestParam(name = "dependency", required = false) String dependency) {
         logger.info("GET /actuator/userbeans/graph");
-        return ResponseEntity.ok().body(graphService.generateGraphData());
+        return ResponseEntity.ok().body(graphService.generateGraphData(dependency));
     }
+
+    // @formatter:on
 
     @GetMapping(path = "/graph-combo", produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<List<UserDependenciesService.Dependency>> getGraphCombo() {
         logger.info("GET /actuator/userbeans/graph-combo");
-        return ResponseEntity.ok().body(userDependenciesService.getDependencies());
+        return ResponseEntity.ok().body(graphService.generateGraphCombo());
     }
+
+    @GetMapping(path = "/details", produces = MediaType.TEXT_HTML_VALUE)
+    ResponseEntity<String> loadDetailsWebDocument() {
+        logger.info("GET /actuator/userbeans/details");
+        return ResponseEntity.ok().body(beanExplanationService.generateDetailsWebDocument());
+    }
+
+    // @formatter:off
+    @GetMapping(path = "/details-explanation", produces = MediaType.APPLICATION_JSON_VALUE)
+    ResponseEntity<BeanExplanationService.DetailsExplanation> loadDetailsContentWebDocument(
+        @RequestParam(name = "class") String bean,
+        @RequestParam(name = "package") String packageName,
+        @RequestParam(name = "dependency") String dependency) {
+        logger.info("GET /actuator/userbeans/details-explanation");
+        return ResponseEntity.ok().body(beanExplanationService.generateDetailsContent(bean, packageName, dependency));
+    }
+    // @formatter:on
 }

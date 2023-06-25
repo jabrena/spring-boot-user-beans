@@ -6,14 +6,27 @@
 
 A visual way to increase the developer awareness to minimize the number of Beans in memory.
 
+## Motivation
+
 Using this project, you will be able to see your Beans developed in your project
 plus other Beans provided by the dependencies that you include
 in the **classpath**. The project uses Graph theory to show the beans as a [Directed Graph](https://en.m.wikipedia.org/wiki/Directed_graph).
 
-![](./docs/user-beans7.png)
-
 Using a minimalistic User interface, you will be able to search
 your Beans by name or package and review the relations between them.
+Also, you can filter by the main dependencies used in your Spring Boot project.
+
+![](./docs/user-beans10.png)
+
+If you click in a any Green node (A Spring Bean which returns a Java class),
+you could navigate to a Detail page, in order receive an explanation from ChatGTP.
+
+**Note:** in order to enable that feature, you need to set in your
+environment a valid OPEN_API_KEY.
+
+```bash
+export OPEN_API_KEY=YOUR_API_KEY_VALUE
+```
 
 ## Use cases
 
@@ -24,6 +37,22 @@ to improve the Design of your solution.
 
 ![](./docs/use-case1.png)
 
+Using the Graph, you could see all Beans running in your Spring Boot application
+or filter by a dependency. If you see the Graph Shape, you could discover
+interesting insights.
+
+### 2. Learn more about the Beans that you are using under the hood.
+
+If you observe the Graph, you could see that exist plenty of Beans that you
+don´t know but it is part of the Infrastructure to run your Spring Boot
+application. If you click in the Green nodes, you could ask Chat GTP to
+explain that Spring Bean.
+
+### 3. Improve the way to calculate the Cognitive Load.
+
+Using this educational tool, you could improve the way that you measure
+your [**Cognitive Load**](https://en.wikipedia.org/wiki/Cognitive_load).
+
 ## Requirements
 
 - [x] Visualize Beans running in the container
@@ -31,6 +60,7 @@ to improve the Design of your solution.
 - [x] List of user dependencies (Jars)
 - [x] List of dependencies (Jars) & Beans
 - [x] Review quality of results
+- [x] Filter by Java class, Package or dependency
 - [ ] Learn to disable beans not used
 
 ## Convention over configuration
@@ -43,6 +73,7 @@ https://en.wikipedia.org/wiki/Convention_over_configuration
 
 ```bash
 ./mvnw clean verify
+./mvnw clean verify -Ppipelines
 ./mvnw spring-boot:run -pl examples/hello-world-servlet/ -am
 ./mvnw spring-boot:run -pl examples/hello-world-reactive/ -am -Puserbeans
 open http://localhost:8080/
@@ -54,11 +85,25 @@ es/static/graph.json
 curl -v http://localhost:8080/actuator/userbeans/graph-combo | json_pp
 curl -v http://localhost:8080/actuator/userbeans/graph-combo | json_pp > ./spring-boot-user-beans-starter/src/main/resourc
 es/static/graph-combo.json
+curl -v "http://localhost:8080/actuator/userbeans/graph?dependency=UNKNOWN" | json_pp
+
 #API
 curl -v http://localhost:8080/actuator/userbeans/dependencies | json_pp
 curl -v http://localhost:8080/actuator/userbeans/dependencies/beans | json_pp
 curl -v http://localhost:8080/actuator/userbeans/beans | json_pp
 ```
+
+# External tests
+
+The project was tested with the classic project **Spring PetClinic**.
+
+```
+./mvnw spring-boot:run -pl external-tests/spring-petclinic -am
+```
+
+![](./docs/spring-petclinic.png)
+
+Go for [external-tests](./external-tests/README.md) for details.
 
 ## Configuration
 
@@ -110,3 +155,6 @@ sdk env
 - https://d3js.org/
 - https://www.webjars.org/all
 - https://www.eclemma.org/jacoco/trunk/doc/maven.html
+- https://platform.openai.com/account/usage
+- https://platform.openai.com/account/api-keys
+- https://openai.com/pricing

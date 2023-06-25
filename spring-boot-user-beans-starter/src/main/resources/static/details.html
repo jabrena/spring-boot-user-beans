@@ -1,0 +1,69 @@
+<!--
+D3.js Graph developed between a long conversation between:
+
+- Juan Antonio Breña Moral
+- Chat GTP
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Beans Details</title>
+</head>
+<body>
+    <h1>Details for <span id="beanClass"></span></h1>
+    <h2 id="package"></h2>
+    <h3 id="dependency"></h3>
+    <p id="explanation">Waiting for a ChatGPT Answer</p>
+    <a href="javascript:history.go(-1)">Go back</a>
+    <script>
+
+        //Web document configuration
+        var details = "/actuator/userbeans/details-explanation";
+        //var details = "details-explanation.json";
+
+        document.addEventListener("DOMContentLoaded", function(event) {
+
+            //Retrieving Request Parameters
+            console.log("1. Retrieving Request parameters")
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const classParam = urlParams.get('class');
+            const packageParam = urlParams.get('package');
+            const dependencyParam = urlParams.get('dependency');
+
+            const classHTHML = document.getElementById("beanClass");
+            classHTHML.innerHTML = classParam;
+
+            const packageHTHML = document.getElementById("package");
+            packageHTHML.innerHTML = packageParam;
+
+            const dependencyHTHML = document.getElementById("dependency");
+            dependencyHTHML.innerHTML = dependencyParam;
+
+            console.log("2. Loading Jars in the web document");
+
+            if (classParam !== undefined) {
+                details += "?class=" + classParam + "&package=" + packageParam + "&dependency=" + dependencyParam;
+                console.log(details);
+            } else {
+                console.log("No parameter detected");
+            }
+
+            if(dependencyParam === "UNKNOWN") {
+                const explanationHTHML = document.getElementById("explanation");
+                explanationHTHML.innerHTML = "Sorry, we don`t provide details about this Java class.";
+            } else {
+                fetch(details)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data.response);
+                        const explanationHTHML = document.getElementById("explanation");
+                        explanationHTHML.innerHTML = data.response;
+                    })
+                    .catch(error => console.log(error));
+            }
+        });
+    </script>
+</body>
+</html>

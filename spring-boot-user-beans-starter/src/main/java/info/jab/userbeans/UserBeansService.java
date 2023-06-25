@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserBeansService {
 
-    Logger logger = LoggerFactory.getLogger(UserBeansService.class);
+    private static final Logger logger = LoggerFactory.getLogger(UserBeansService.class);
 
     private final BeansEndpoint beansEndpoint;
 
@@ -43,8 +43,7 @@ public class UserBeansService {
     };
 
     // @formatter:off
-    private Function<Map.Entry<String, BeansEndpoint.BeanDescriptor>, BeanDocument>
-            toBeanDocument = bean -> {
+    private Function<Map.Entry<String, BeansEndpoint.BeanDescriptor>, BeanDocument> toBeanDocument = bean -> {
         String beanName = bean.getValue().getType().getSimpleName();
         Class<?> beanClass = bean.getValue().getType();
         String packageName = beanClass.getPackageName();
