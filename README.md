@@ -16,7 +16,7 @@ Using a minimalistic User interface, you will be able to search
 your Beans by name or package and review the relations between them.
 Also, you can filter by the main dependencies used in your Spring Boot project.
 
-![](./docs/user-beans10.png)
+![](docs/design/user-beans10.png)
 
 If you click in a any Green node (A Spring Bean which returns a Java class),
 you could navigate to a Detail page, in order receive an explanation from ChatGTP.
@@ -36,7 +36,7 @@ echo $OPENAI_API_KEY
 Reviewing the Beans relations, you could see new opportunities
 to improve the Design of your solution.
 
-![](./docs/use-case1.png)
+![](docs/design/use-case1.png)
 
 Using the Graph, you could see all Beans running in your Spring Boot application
 or filter by a dependency. If you see the Graph Shape, you could discover
@@ -102,7 +102,7 @@ The project was tested with the classic project **Spring PetClinic**.
 ./mvnw spring-boot:run -pl external-tests/spring-petclinic -am
 ```
 
-![](./docs/spring-petclinic.png)
+![](docs/design/spring-petclinic.png)
 
 Go for [external-tests](./external-tests/README.md) for details.
 

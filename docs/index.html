@@ -78,11 +78,11 @@ A D3.js Graph developed after a long conversation between:
 <script>
 
     //Web document configuration
-    var combo = "/actuator/userbeans/graph-combo";
-    //var combo = "graph-combo.json";
+    //var combo = "/actuator/userbeans/graph-combo";
+    var combo = "graph-combo.json";
 
-    var address = "/actuator/userbeans/graph";
-    //var address = "graph.json";
+    //var address = "/actuator/userbeans/graph";
+    var address = "graph.json";
 
     document.addEventListener("DOMContentLoaded", function(event) {
 
@@ -302,7 +302,8 @@ A D3.js Graph developed after a long conversation between:
                 // Create the URL with the parameters
                 const url = `/actuator/userbeans/details?class=${name}&package=${package}&dependency=${dependency}`;
 
-                document.location.href = url;
+                //Demo
+                //document.location.href = url;
             });
 
             simulation.on("tick", () => {
@@ -334,7 +335,7 @@ A D3.js Graph developed after a long conversation between:
             function handleFilter() {
                 const value = jars.value;
                 console.log(value);
-                document.location.href="/actuator/userbeans?dependency=" + value;
+                //document.location.href="/actuator/userbeans?dependency=" + value;
             }
 
             function handleSearch() {
