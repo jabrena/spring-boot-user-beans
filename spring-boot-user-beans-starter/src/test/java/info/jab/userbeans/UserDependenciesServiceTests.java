@@ -2,13 +2,14 @@ package info.jab.userbeans;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import info.jab.support.SupportController;
 import info.jab.support.TestApplication;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest(
-    classes = TestApplication.class,
+    classes = { TestApplication.class, SupportController.class },
     properties = { "management.endpoints.web.exposure.include=beans,userbeans" }
 )
 class UserDependenciesServiceTests {

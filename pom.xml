@@ -167,7 +167,7 @@
                 <version>0.17</version>
                 <configuration>
                     <prettierJavaVersion>1.6.1</prettierJavaVersion>
-                    <printWidth>120</printWidth>
+                    <printWidth>150</printWidth>
                     <tabWidth>4</tabWidth>
                     <useTabs>false</useTabs>
                     <ignoreConfigFile>true</ignoreConfigFile>

@@ -33,21 +33,24 @@ class UserBeansServiceTests {
 
     // @formatter:on
 
+    // @formatter:off
+
     //TODO A possible small issue to raise in Micrometer
     @Test
     void shouldOnlyExistThreeBeansWithoutName() {
         //Given
         //When
         var beanList = userBeansService.getBeansDocuments();
-        var unnamedBeans = beanList
-            .stream()
-            .filter(beanDocument -> beanDocument.beanName().equals(""))
-            .peek(System.out::println)
-            .toList();
+        var unnamedBeans = beanList.stream()
+                .filter(beanDocument -> beanDocument.beanName().equals(""))
+                .peek(System.out::println)
+                .toList();
 
         //Then
         assertThat(unnamedBeans).hasSize(3);
     }
+
+    // @formatter:on
 
     @Test
     void shouldIncludeSpecificSupportTest() {

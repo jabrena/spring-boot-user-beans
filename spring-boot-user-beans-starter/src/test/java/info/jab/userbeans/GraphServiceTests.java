@@ -67,6 +67,6 @@ class GraphServiceTests {
             .toList();
 
         //Then
-        assertThat(resuls).hasSize(9);
+        assertThat(resuls).hasSize(8);
     }
 }

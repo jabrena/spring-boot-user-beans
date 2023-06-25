@@ -35,12 +35,7 @@ public class UserDependenciesService {
 
     public record DependencyBeanDetail(String dependencyName, String beanName) {}
 
-    public record DependencyDocument(
-        String beanName,
-        String beanPackage,
-        List<String> beanDependencies,
-        String dependency
-    ) {}
+    public record DependencyDocument(String beanName, String beanPackage, List<String> beanDependencies, String dependency) {}
 
     List<Dependency> getDependencies() {
         List<DependencyDocument> dependencyDocument = getDependencyDocuments();

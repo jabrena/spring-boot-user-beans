@@ -79,8 +79,7 @@ public class ChatGTPProvider {
         return result;
     }
 
-    private HttpRequest prepareRequestToChatGTP(String url, String question, String key)
-        throws JsonProcessingException {
+    private HttpRequest prepareRequestToChatGTP(String url, String question, String key) throws JsonProcessingException {
         return HttpRequest
             .newBuilder()
             .uri(URI.create(url))
