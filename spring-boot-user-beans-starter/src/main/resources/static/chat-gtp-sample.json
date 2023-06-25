@@ -1,0 +1,19 @@
+{
+  "id": "cmpl-7VKCjui16vTfI9roVyTRfZrfukHd2",
+  "object": "text_completion",
+  "created": 1687700189,
+  "model": "text-davinci-003",
+  "choices": [
+    {
+      "text": "\n\nThe SimpleObservationRegistry class in the io.micrometer.observation package of the micrometer-observation-1.11.0.jar dependency is used to register and manage observations of metrics. It provides a simple API to register and unregister observations, as well as to query the registered observations. It also allows for the registration of custom metrics.",
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 54,
+    "completion_tokens": 80,
+    "total_tokens": 134
+  }
+}

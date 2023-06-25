@@ -20,10 +20,10 @@ class GraphServiceTests {
     private GraphService graphService;
 
     @Test
-    void shouldReturnWebDocument() {
+    void shouldReturnValidGraphWebDocument() {
         //Given
         //When
-        var html = graphService.generateWebDocument();
+        var html = graphService.generateGraphWebDocument();
         Document doc = Jsoup.parse(html);
 
         //Then
@@ -67,6 +67,6 @@ class GraphServiceTests {
             .toList();
 
         //Then
-        assertThat(resuls).hasSize(7);
+        assertThat(resuls).hasSize(9);
     }
 }

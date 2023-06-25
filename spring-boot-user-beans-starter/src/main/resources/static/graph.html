@@ -1,3 +1,9 @@
+<!--
+D3.js Graph developed between a long conversation between:
+
+- Juan Antonio Breña Moral
+- Chat GTP
+-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,6 +71,7 @@
         <button id="searchButton">Search</button>
         <button id="resetButton">Reset</button>
     </form>
+    <strong style="color:green">Alpha</strong>
 </div>
 <div id="searchResultMessage"></div>
 
@@ -282,6 +289,21 @@
                 .attr("text-anchor", "start")
                 .attr("dominant-baseline", "baseline")
                 .text(`Visualizing ${nodes.length} Beans`);
+
+            const greenNodes = node.filter(function(d) {
+                return d3.select(this).attr("fill") === "green";
+            });
+            greenNodes.on("click", (event, d) => {
+                // Get the values from the clicked node
+                const name = d.name;
+                const package = d.package;
+                const dependency = d.dependency;
+
+                // Create the URL with the parameters
+                const url = `/actuator/userbeans/details?class=${name}&package=${package}&dependency=${dependency}`;
+
+                document.location.href = url;
+            });
 
             simulation.on("tick", () => {
                 link

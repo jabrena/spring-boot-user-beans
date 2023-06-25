@@ -10,7 +10,7 @@ Using this project, you will be able to see your Beans developed in your project
 plus other Beans provided by the dependencies that you include
 in the **classpath**. The project uses Graph theory to show the beans as a [Directed Graph](https://en.m.wikipedia.org/wiki/Directed_graph).
 
-![](./docs/user-beans7.png)
+![](./docs/user-beans10.png)
 
 Using a minimalistic User interface, you will be able to search
 your Beans by name or package and review the relations between them.
