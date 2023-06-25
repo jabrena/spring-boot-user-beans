@@ -43,6 +43,7 @@ https://en.wikipedia.org/wiki/Convention_over_configuration
 
 ```bash
 ./mvnw clean verify
+./mvnw clean verify -Ppipelines
 ./mvnw spring-boot:run -pl examples/hello-world-servlet/ -am
 ./mvnw spring-boot:run -pl examples/hello-world-reactive/ -am -Puserbeans
 open http://localhost:8080/
@@ -54,6 +55,8 @@ es/static/graph.json
 curl -v http://localhost:8080/actuator/userbeans/graph-combo | json_pp
 curl -v http://localhost:8080/actuator/userbeans/graph-combo | json_pp > ./spring-boot-user-beans-starter/src/main/resourc
 es/static/graph-combo.json
+curl -v "http://localhost:8080/actuator/userbeans/graph?dependency=UNKNOWN" | json_pp
+
 #API
 curl -v http://localhost:8080/actuator/userbeans/dependencies | json_pp
 curl -v http://localhost:8080/actuator/userbeans/dependencies/beans | json_pp

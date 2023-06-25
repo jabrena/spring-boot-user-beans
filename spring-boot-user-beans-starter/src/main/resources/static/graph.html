@@ -56,323 +56,357 @@
 <!-- Web form -->
 <div id="logo">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Spring_Framework_Logo_2018.svg/490px-Spring_Framework_Logo_2018.svg.png?20181210015349" alt="Spring Framework Logo">
-    <select id="jars"></select>
-    <button id="filterButton">Filter</button>
-    <input type="text" id="searchInput" placeholder="Bean name or package" />
-    <button id="searchButton">Search</button>
-    <button id="resetButton">Reset</button>
+    <form id="filterJarForm" onsubmit="return false;">
+        <select id="jars"></select>
+        <button id="filterButton">Filter</button>
+    </form>
+    <form id="filterBeanForm" onsubmit="return false;">
+        <input type="text" id="searchInput" placeholder="Bean name or package" />
+        <button id="searchButton">Search</button>
+        <button id="resetButton">Reset</button>
+    </form>
 </div>
 <div id="searchResultMessage"></div>
 
 <script>
+
+    //Web document configuration
     var combo = "/actuator/userbeans/graph-combo";
     //var combo = "graph-combo.json";
 
     var address = "/actuator/userbeans/graph";
     //var address = "graph.json";
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const dependencyParam = urlParams.get('dependency');
+    document.addEventListener("DOMContentLoaded", function(event) {
 
-    if(dependencyParam != undefined) {
-        address += "?dependency=" + dependencyParam;
-    }
+        //Retrieving Request Parameters
 
-    fetch(combo)
-        .then(response => response.json())
-        .then(data => {
-            var selectElement = document.getElementById('jars');
-            //Add All
-            var option = document.createElement('option');
-            option.value = "ALL";
-            option.textContent = "ALL";
-            selectElement.appendChild(option);
-            //Add UNKNOWN
-            var option2 = document.createElement('option');
-            option2.value = "UNKNOWN";
-            option2.textContent = "UNKNOWN";
-            selectElement.appendChild(option2);
-            data.forEach(obj => {
+        console.log("1. Retrieving Request parameters")
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const dependencyParam = urlParams.get('dependency');
+
+        if (dependencyParam != undefined) {
+            console.log("Parameter detected: " + dependencyParam);
+            address += "?dependency=" + dependencyParam;
+        } else {
+            console.log("No parameter detected");
+        }
+
+        //Loading Jar combo
+
+        console.log("2. Loading Jars in the web document");
+
+        fetch(combo)
+            .then(response => response.json())
+            .then(data => {
+                var selectElement = document.getElementById('jars');
+                //Add All
                 var option = document.createElement('option');
-                option.value = obj.dependency;
-                option.textContent = obj.dependency;
+                option.value = "ALL";
+                option.textContent = "ALL";
                 selectElement.appendChild(option);
+                //Add UNKNOWN
+                var option2 = document.createElement('option');
+                option2.value = "UNKNOWN";
+                option2.textContent = "UNKNOWN";
+                selectElement.appendChild(option2);
+                data.forEach(obj => {
+                    var option = document.createElement('option');
+                    option.value = obj.dependency;
+                    option.textContent = obj.dependency;
+                    selectElement.appendChild(option);
+                });
+
+                if (dependencyParam != undefined) {
+                    const selectElement = document.querySelector("select");
+                    const optionIndex = Array.from(selectElement.options)
+                        .findIndex((option) => option.value === dependencyParam);
+                    selectElement.selectedIndex = optionIndex;
+                }
+            })
+            .catch(error => console.log(error));
+
+        //Graph
+
+        console.log("3. Creating the graph with D3.js");
+
+        const svg = d3.create("svg")
+            .attr("viewBox", `0 0 ${window.innerWidth} ${window.innerHeight}`)
+            .attr("width", "100%")
+            .attr("height", "100%");
+
+        const container = svg.append("g");
+
+        document.body.appendChild(svg.node());
+
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        const simulation = d3.forceSimulation()
+            .force("link", d3.forceLink().id((d) => d.id).distance(150))
+            .force("charge", d3.forceManyBody().strength(-300))
+            .force("center", d3.forceCenter(width / 2, height / 2));
+
+        const zoom = d3.zoom()
+            .scaleExtent([0.1, 4])
+            .on("zoom", zoomed);
+
+        svg.call(zoom)
+            .on("mousedown", mousedown)
+            .on("mousemove", mousemove)
+            .on("mouseup", mouseup);
+
+        let isDragging = false;
+        let startX, startY;
+
+        function zoomed(event) {
+            if (isDragging) return;
+            container.attr("transform", event.transform);
+        }
+
+        function mousedown(event) {
+            startX = event.clientX;
+            startY = event.clientY;
+            isDragging = true;
+        }
+
+        function mousemove(event) {
+            if (!isDragging) return;
+            const dx = event.clientX - startX;
+            const dy = event.clientY - startY;
+            startX = event.clientX;
+            startY = event.clientY;
+            svg.call(zoom.translateBy, dx, dy);
+        }
+
+        function mouseup() {
+            isDragging = false;
+        }
+
+        let nodes, links, node, link, label;
+
+        d3.json(address).then((data) => {
+            //TODO Improve algorithm
+            links = data
+                .map((d) => ({
+                    source: d.source.beanName,
+                    target: d.target ? d.target.beanName : null
+                }))
+                .filter((link) => link.target !== null);
+
+            //console.log("Printing links")
+            //console.log(links)
+
+            linksRaw = data
+                .map((d) => ({
+                    source: d.source.beanName,
+                    target: d.target ? d.target.beanName : null
+                }))
+
+            const nodesSet = new Set([
+                ...linksRaw.map((d) => d.source),
+                ...linksRaw.map((d) => d.target)
+            ]);
+
+            nodes = Array.from(nodesSet)
+                .filter((d) => d !== null) //TODO Clue that it is possible to improve the Graph generation
+                .map((d) => ({
+                    id: d,
+                    name: d,
+                    package: data.find((item) => item.source.beanName === d)?.source.beanPackage || "",
+                    dependency: data.find((item) => item.source.beanName === d)?.source.dependency || ""
+            }));
+
+            console.log("Printing nodes")
+            console.log(nodes)
+
+            simulation.nodes(nodes);
+            simulation.force("link").links(links);
+
+            link = container.append("g")
+                .attr("class", "links")
+                .selectAll("line")
+                .data(links)
+                .enter().append("line")
+                .attr("class", "link")
+                .attr("marker-end", "url(#arrowhead)");
+
+            node = container.append("g")
+                .attr("class", "nodes")
+                .selectAll("circle")
+                .data(nodes)
+                .enter().append("circle")
+                .attr("r", 5)
+                .attr("fill", (d) => d.package ? "green" : "#ccc")
+                .call(drag(simulation));
+
+            // Append a tooltip div to the body
+            const tooltip = d3.select("body")
+                .append("div")
+                .attr("class", "tooltip")
+                .style("opacity", 0);
+
+            node.on("mouseover", showTooltip)
+                .on("mousemove", moveTooltip)
+                .on("mouseout", hideTooltip);
+
+            function showTooltip(event, d) {
+                tooltip.transition().duration(200).style("opacity", 0.9);
+                tooltip.html(`<strong>Name:</strong> ${d.name}<br><strong>Package:</strong> ${d.package}<br><strong>Dependency:</strong> ${d.dependency}`)
+                    .style("left", `${event.pageX}px`)
+                    .style("top", `${event.pageY}px`);
+            }
+
+            function moveTooltip(event) {
+                tooltip.style("left", `${event.pageX}px`)
+                    .style("top", `${event.pageY}px`);
+            }
+
+            function hideTooltip() {
+                tooltip.transition().duration(200).style("opacity", 0);
+            }
+
+            label = container.append("g")
+                .attr("class", "node-labels")
+                .selectAll("text")
+                .data(nodes)
+                .enter().append("text")
+                .attr("class", "node-text")
+                .text((d) => `${d.id}`); // Update text content to include
+
+            const message = svg.append("text")
+                .attr("class", "message")
+                .attr("x", 10)
+                .attr("y", height - 80)
+                .attr("text-anchor", "start")
+                .attr("dominant-baseline", "baseline")
+                .text(`Visualizing ${nodes.length} Beans`);
+
+            simulation.on("tick", () => {
+                link
+                    .attr("x1", (d) => d.source.x)
+                    .attr("y1", (d) => d.source.y)
+                    .attr("x2", (d) => d.target.x)
+                    .attr("y2", (d) => d.target.y);
+
+                node
+                    .attr("cx", (d) => d.x)
+                    .attr("cy", (d) => d.y);
+
+                label
+                    .attr("x", (d) => d.x + 8)
+                    .attr("y", (d) => d.y - 8);
             });
-        })
-        .catch(error => console.log(error));
 
-    if (dependencyParam != undefined) {
-        console.log(dependencyParam);
-    }
+            const filterButton = document.getElementById("filterButton");
+            const searchButton = document.getElementById("searchButton");
+            const resetButton = document.getElementById("resetButton");
+            const searchInput = document.getElementById("searchInput");
+            const searchResultMessage = document.getElementById("searchResultMessage");
 
-    const svg = d3.create("svg")
-        .attr("viewBox", `0 0 ${window.innerWidth} ${window.innerHeight}`)
-        .attr("width", "100%")
-        .attr("height", "100%");
+            filterButton.addEventListener("click", handleFilter);
+            searchButton.addEventListener("click", handleSearch);
+            resetButton.addEventListener("click", resetSearch);
 
-    const container = svg.append("g");
+            function handleFilter() {
+                const value = jars.value;
+                console.log(value);
+                document.location.href="/actuator/userbeans?dependency=" + value;
+            }
 
-    document.body.appendChild(svg.node());
+            function handleSearch() {
+                const searchText = searchInput.value.toLowerCase();
 
-    const width = window.innerWidth;
-    const height = window.innerHeight;
+                node.classed("highlight", false);
+                link.classed("highlight", false);
 
-    const simulation = d3.forceSimulation()
-        .force("link", d3.forceLink().id((d) => d.id).distance(150))
-        .force("charge", d3.forceManyBody().strength(-300))
-        .force("center", d3.forceCenter(width / 2, height / 2));
+                if (searchText.trim() === "") {
+                    searchResultMessage.textContent = "";
+                    return;
+                }
 
-    const zoom = d3.zoom()
-        .scaleExtent([0.1, 4])
-        .on("zoom", zoomed);
+                const matchedNodes = node.filter((d) => {
+                    const name = typeof d.name === 'string' ? d.name.toLowerCase() : "";
+                    const package = typeof d.package === 'string' ? d.package.toLowerCase() : "";
+                    return name.includes(searchText) ||
+                        package.includes(searchText);
+                });
 
-    svg.call(zoom)
-        .on("mousedown", mousedown)
-        .on("mousemove", mousemove)
-        .on("mouseup", mouseup);
+                const matchedLinks = link.filter((d) => {
+                    const source = typeof d.source.id === 'string' ? d.source.id.toLowerCase() : "";
+                    const target = typeof d.target.id === 'string' ? d.target.id.toLowerCase() : "";
+                    return (
+                        source.includes(searchText) ||
+                        target.includes(searchText)
+                    );
+                });
 
-    let isDragging = false;
-    let startX, startY;
+                matchedNodes.classed("highlight", true);
+                matchedLinks.classed("highlight", true);
 
-    function zoomed(event) {
-        if (isDragging) return;
-        container.attr("transform", event.transform);
-    }
+                if (matchedNodes.size() > 0) {
+                    const bounds = getBounds(matchedNodes.nodes());
+                    const dx = bounds.x + bounds.width / 2 - width / 2;
+                    const dy = bounds.y + bounds.height / 2 - height / 2;
+                    svg.transition().duration(750).call(zoom.transform, d3.zoomIdentity.translate(-dx, -dy).scale(1));
+                }
 
-    function mousedown(event) {
-        startX = event.clientX;
-        startY = event.clientY;
-        isDragging = true;
-    }
+                const message = `Found ${matchedNodes.size()} matching bean(s)`;
+                searchResultMessage.textContent = message;
+            }
 
-    function mousemove(event) {
-        if (!isDragging) return;
-        const dx = event.clientX - startX;
-        const dy = event.clientY - startY;
-        startX = event.clientX;
-        startY = event.clientY;
-        svg.call(zoom.translateBy, dx, dy);
-    }
+            function resetSearch() {
+                searchInput.value = "";
+                node.classed("highlight", false);
+                link.classed("highlight", false);
+                searchResultMessage.textContent = "";
 
-    function mouseup() {
-        isDragging = false;
-    }
+                const urlWithoutParams = window.location.pathname;
+                history.replaceState({}, document.title, urlWithoutParams);
 
-    let nodes, links, node, link, label;
+                document.location.reload();
+            }
 
-    d3.json(address).then((data) => {
-        //TODO Improve algorithm
-        links = data
-            .map((d) => ({
-                source: d.source.beanName,
-                target: d.target ? d.target.beanName : null
-            }))
-            .filter((link) => link.target !== null);
-
-        //console.log("Printing links")
-        //console.log(links)
-
-        linksRaw = data
-            .map((d) => ({
-                source: d.source.beanName,
-                target: d.target ? d.target.beanName : null
-            }))
-
-        const nodesSet = new Set([
-            ...linksRaw.map((d) => d.source),
-            ...linksRaw.map((d) => d.target)
-        ]);
-
-        nodes = Array.from(nodesSet).map((d) => ({
-            id: d,
-            name: d,
-            package: data.find((item) => item.source.beanName === d)?.source.beanPackage || "",
-            dependency: data.find((item) => item.source.beanName === d)?.source.dependency || ""
-        }));
-
-        console.log("Printing nodes")
-        console.log(nodes)
-
-        simulation.nodes(nodes);
-        simulation.force("link").links(links);
-
-        link = container.append("g")
-            .attr("class", "links")
-            .selectAll("line")
-            .data(links)
-            .enter().append("line")
-            .attr("class", "link")
-            .attr("marker-end", "url(#arrowhead)");
-
-        node = container.append("g")
-            .attr("class", "nodes")
-            .selectAll("circle")
-            .data(nodes)
-            .enter().append("circle")
-            .attr("r", 5)
-            .attr("fill", (d) => d.package ? "green" : "#ccc")
-            .call(drag(simulation));
-
-        // Append a tooltip div to the body
-        const tooltip = d3.select("body")
-            .append("div")
-            .attr("class", "tooltip")
-            .style("opacity", 0);
-
-        node.on("mouseover", showTooltip)
-            .on("mousemove", moveTooltip)
-            .on("mouseout", hideTooltip);
-
-        function showTooltip(event, d) {
-            tooltip.transition().duration(200).style("opacity", 0.9);
-            tooltip.html(`<strong>Name:</strong> ${d.name}<br><strong>Package:</strong> ${d.package}<br><strong>Dependency:</strong> ${d.dependency}<br><a href="#">Further information</a>`)
-                .style("left", `${event.pageX}px`)
-                .style("top", `${event.pageY}px`);
-        }
-
-        function moveTooltip(event) {
-            tooltip.style("left", `${event.pageX}px`)
-                .style("top", `${event.pageY}px`);
-        }
-
-        function hideTooltip() {
-            tooltip.transition().duration(200).style("opacity", 0);
-        }
-
-        label = container.append("g")
-            .attr("class", "node-labels")
-            .selectAll("text")
-            .data(nodes)
-            .enter().append("text")
-            .attr("class", "node-text")
-            .text((d) => `${d.id}`); // Update text content to include
-
-        const message = svg.append("text")
-            .attr("class", "message")
-            .attr("x", 10)
-            .attr("y", height - 80)
-            .attr("text-anchor", "start")
-            .attr("dominant-baseline", "baseline")
-            .text(`Visualizing ${nodes.length} Beans`);
-
-        simulation.on("tick", () => {
-            link
-                .attr("x1", (d) => d.source.x)
-                .attr("y1", (d) => d.source.y)
-                .attr("x2", (d) => d.target.x)
-                .attr("y2", (d) => d.target.y);
-
-            node
-                .attr("cx", (d) => d.x)
-                .attr("cy", (d) => d.y);
-
-            label
-                .attr("x", (d) => d.x + 8)
-                .attr("y", (d) => d.y - 8);
+            function getBounds(elements) {
+                const bounds = elements[0].getBBox();
+                for (let i = 1; i < elements.length; i++) {
+                    const bbox = elements[i].getBBox();
+                    bounds.x = Math.min(bounds.x, bbox.x);
+                    bounds.y = Math.min(bounds.y, bbox.y);
+                    bounds.width = Math.max(bounds.width, bbox.x + bbox.width - bounds.x);
+                    bounds.height = Math.max(bounds.height, bbox.y + bbox.height - bounds.y);
+                }
+                return bounds;
+            }
         });
 
-        const filterButton = document.getElementById("filterButton");
-        const searchButton = document.getElementById("searchButton");
-        const resetButton = document.getElementById("resetButton");
-        const searchInput = document.getElementById("searchInput");
-        const searchResultMessage = document.getElementById("searchResultMessage");
-
-        filterButton.addEventListener("click", handleFilter);
-        searchButton.addEventListener("click", handleSearch);
-        resetButton.addEventListener("click", resetSearch);
-
-        function handleFilter() {
-            const value = jars.value;
-            console.log(value);
-            document.location.href="/actuator/userbeans?dependency=" + value;
-        }
-
-        function handleSearch() {
-            const searchText = searchInput.value.toLowerCase();
-
-            node.classed("highlight", false);
-            link.classed("highlight", false);
-
-            if (searchText.trim() === "") {
-                searchResultMessage.textContent = "";
-                return;
+        function drag(simulation) {
+            function dragstarted(event, d) {
+                if (!event.active) simulation.alphaTarget(0.3).restart();
+                d.fx = d.x;
+                d.fy = d.y;
             }
 
-            const matchedNodes = node.filter((d) => {
-                const name = typeof d.name === 'string' ? d.name.toLowerCase() : "";
-                const package = typeof d.package === 'string' ? d.package.toLowerCase() : "";
-                return name.includes(searchText) ||
-                    package.includes(searchText);
-            });
-
-            const matchedLinks = link.filter((d) => {
-                const source = typeof d.source.id === 'string' ? d.source.id.toLowerCase() : "";
-                const target = typeof d.target.id === 'string' ? d.target.id.toLowerCase() : "";
-                return (
-                    source.includes(searchText) ||
-                    target.includes(searchText)
-                );
-            });
-
-            matchedNodes.classed("highlight", true);
-            matchedLinks.classed("highlight", true);
-
-            if (matchedNodes.size() > 0) {
-                const bounds = getBounds(matchedNodes.nodes());
-                const dx = bounds.x + bounds.width / 2 - width / 2;
-                const dy = bounds.y + bounds.height / 2 - height / 2;
-                svg.transition().duration(750).call(zoom.transform, d3.zoomIdentity.translate(-dx, -dy).scale(1));
+            function dragged(event, d) {
+                d.fx = event.x;
+                d.fy = event.y;
             }
 
-            const message = `Found ${matchedNodes.size()} matching bean(s)`;
-            searchResultMessage.textContent = message;
-        }
-
-        function resetSearch() {
-            searchInput.value = "";
-            node.classed("highlight", false);
-            link.classed("highlight", false);
-            searchResultMessage.textContent = "";
-
-            document.location.reload();
-        }
-
-        function getBounds(elements) {
-            const bounds = elements[0].getBBox();
-            for (let i = 1; i < elements.length; i++) {
-                const bbox = elements[i].getBBox();
-                bounds.x = Math.min(bounds.x, bbox.x);
-                bounds.y = Math.min(bounds.y, bbox.y);
-                bounds.width = Math.max(bounds.width, bbox.x + bbox.width - bounds.x);
-                bounds.height = Math.max(bounds.height, bbox.y + bbox.height - bounds.y);
+            function dragended(event, d) {
+                if (!event.active) simulation.alphaTarget(0);
+                d.fx = null;
+                d.fy = null;
             }
-            return bounds;
+
+            return d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended);
         }
+
     });
 
-    function drag(simulation) {
-        function dragstarted(event, d) {
-            if (!event.active) simulation.alphaTarget(0.3).restart();
-            d.fx = d.x;
-            d.fy = d.y;
-        }
-
-        function dragged(event, d) {
-            d.fx = event.x;
-            d.fy = event.y;
-        }
-
-        function dragended(event, d) {
-            if (!event.active) simulation.alphaTarget(0);
-            d.fx = null;
-            d.fy = null;
-        }
-
-        return d3.drag()
-            .on("start", dragstarted)
-            .on("drag", dragged)
-            .on("end", dragended);
-    }
 </script>
 </body>
 </html>
