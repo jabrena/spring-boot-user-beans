@@ -39,6 +39,9 @@
         <module>spring-boot-user-beans-starter</module>
         <module>examples</module>
         <module>coverage-module</module>
+        <!--
+        <module>external-tests</module>
+        -->
     </modules>
 
     <build>

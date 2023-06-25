@@ -3,3 +3,4 @@ target
 .idea
 .env
 .DS_Store
+external-tests/spring-petclinc/**

@@ -48,6 +48,11 @@ don´t know but it is part of the Infrastructure to run your Spring Boot
 application. If you click in the Green nodes, you could ask Chat GTP to
 explain that Spring Bean.
 
+### 3. Improve the way to calculate the Cognitive Load.
+
+Using this educational tool, you could improve the way that you measure
+your [**Cognitive Load**](https://en.wikipedia.org/wiki/Cognitive_load).
+
 ## Requirements
 
 - [x] Visualize Beans running in the container
@@ -87,6 +92,18 @@ curl -v http://localhost:8080/actuator/userbeans/dependencies | json_pp
 curl -v http://localhost:8080/actuator/userbeans/dependencies/beans | json_pp
 curl -v http://localhost:8080/actuator/userbeans/beans | json_pp
 ```
+
+# External tests
+
+The project was tested with the classic project **Spring PetClinic**.
+
+```
+./mvnw spring-boot:run -pl external-tests/spring-petclinic -am
+```
+
+![](./docs/spring-petclinic.png)
+
+Go for [external-tests](./external-tests/README.md) for details.
 
 ## Configuration
 
