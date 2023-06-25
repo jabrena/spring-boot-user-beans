@@ -22,10 +22,11 @@ If you click in a any Green node (A Spring Bean which returns a Java class),
 you could navigate to a Detail page, in order receive an explanation from ChatGTP.
 
 **Note:** in order to enable that feature, you need to set in your
-environment a valid OPEN_API_KEY.
+environment a valid OPENAI_API_KEY.
 
 ```bash
-export OPEN_API_KEY=YOUR_API_KEY_VALUE
+export OPENAI_API_KEY=YOUR_API_KEY_VALUE
+echo $OPENAI_API_KEY
 ```
 
 ## Use cases
