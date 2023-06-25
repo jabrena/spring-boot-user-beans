@@ -50,7 +50,6 @@ public class GraphService {
     // @formatter:off
     List<Edge> generateGraphData(String dependency) {
         logger.info("Generating Graph data");
-        logger.info(dependency);
 
         if (Objects.nonNull(dependency)) {
             if (dependency.equals("ALL")) {

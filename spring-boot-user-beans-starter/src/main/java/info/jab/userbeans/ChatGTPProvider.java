@@ -73,7 +73,10 @@ public class ChatGTPProvider {
             } else {
                 result = "Something went wrong";
             }
-        } catch (IOException | InterruptedException e) {
+        } catch (InterruptedException e) {
+            logger.warn(e.getMessage(), e);
+            Thread.currentThread().interrupt();
+        } catch (IOException e) {
             logger.warn(e.getMessage(), e);
         }
         return result;

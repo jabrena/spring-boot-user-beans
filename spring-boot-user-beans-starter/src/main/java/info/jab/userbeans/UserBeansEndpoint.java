@@ -56,9 +56,6 @@ public class UserBeansEndpoint {
         @RequestParam(name = "package") String packageName,
         @RequestParam(name = "dependency") String dependency) {
         logger.info("GET /actuator/userbeans/details-explanation");
-        logger.info("Bean: {}", bean);
-        logger.info("Package: {}", packageName);
-        logger.info("Dependency: {}", dependency);
         return ResponseEntity.ok().body(beanExplanationService.generateDetailsContent(bean, packageName, dependency));
     }
     // @formatter:on
