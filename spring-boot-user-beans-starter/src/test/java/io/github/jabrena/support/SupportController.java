@@ -1,4 +1,4 @@
-package info.jab.support;
+package io.github.jabrena.support;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

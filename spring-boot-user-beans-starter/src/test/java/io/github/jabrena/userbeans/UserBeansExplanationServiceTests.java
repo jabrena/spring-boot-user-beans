@@ -1,9 +1,9 @@
-package info.jab.userbeans;
+package io.github.jabrena.userbeans;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import info.jab.support.SupportController;
-import info.jab.support.TestApplication;
+import io.github.jabrena.support.SupportController;
+import io.github.jabrena.support.TestApplication;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.junit.jupiter.api.Test;
@@ -14,10 +14,10 @@ import org.springframework.boot.test.context.SpringBootTest;
     classes = { TestApplication.class, SupportController.class },
     properties = { "management.endpoints.web.exposure.include=beans,userbeans" }
 )
-class BeanExplanationServiceTests {
+class UserBeansExplanationServiceTests {
 
     @Autowired
-    private BeanExplanationService beanExplanationService;
+    private UserBeansExplanationService beanExplanationService;
 
     @Test
     void shouldReturnValidDetailsWebDocument() {

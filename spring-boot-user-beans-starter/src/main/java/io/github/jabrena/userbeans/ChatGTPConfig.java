@@ -1,4 +1,4 @@
-package info.jab.userbeans;
+package io.github.jabrena.userbeans;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.annotation.Bean;

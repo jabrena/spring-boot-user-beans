@@ -3,17 +3,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>info.jab</groupId>
+    <groupId>io.github.jabrena</groupId>
     <artifactId>spring-boot-user-beans</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <name>spring-boot-user-beans</name>
-    <description>Demo project for Spring Boot</description>
     <packaging>pom</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
-        <spring-boot.version>3.1.0</spring-boot.version>
 
         <sonar.coverage.jacoco.xmlReportPaths>
             ${project.basedir}/coverage-module/target/site/jacoco-aggregate/jacoco.xml
@@ -22,6 +20,8 @@
         <sonar.organization>jabrena</sonar.organization>
         <sonar.projectKey>jabrena_${project.artifactId}</sonar.projectKey>
         <sonar.login>18ec9b84411fa97bd8ed0ee09c4c4c09a3291981</sonar.login>
+
+        <spring-boot.version>3.1.0</spring-boot.version>
     </properties>
 
     <dependencyManagement>
@@ -88,11 +88,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.sonarsource.scanner.maven</groupId>
-                <artifactId>sonar-maven-plugin</artifactId>
-                <version>3.9.1.2184</version>
             </plugin>
 
             <!-- Checkstyle -->
@@ -207,6 +202,11 @@
 
             <build>
                 <plugins>
+                    <plugin>
+                        <groupId>org.sonarsource.scanner.maven</groupId>
+                        <artifactId>sonar-maven-plugin</artifactId>
+                        <version>3.9.1.2184</version>
+                    </plugin>
                     <plugin>
                         <groupId>org.owasp</groupId>
                         <artifactId>dependency-check-maven</artifactId>

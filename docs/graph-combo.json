@@ -24,9 +24,6 @@
       "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
    },
    {
-      "dependency" : "spring-boot-devtools-3.1.0.jar"
-   },
-   {
       "dependency" : "spring-context-6.0.9.jar"
    },
    {

@@ -1,9 +1,9 @@
-package info.jab.userbeans;
+package io.github.jabrena.userbeans;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import info.jab.support.SupportController;
-import info.jab.support.TestApplication;
+import io.github.jabrena.support.SupportController;
+import io.github.jabrena.support.TestApplication;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.junit.jupiter.api.Test;
@@ -47,7 +47,7 @@ class GraphServiceTests {
         var resuls = graphService
             .generateGraphData("ALL")
             .stream()
-            .filter(edge -> edge.source().beanPackage().contains("info.jab.support"))
+            .filter(edge -> edge.source().beanPackage().contains("io.github.jabrena.support"))
             .peek(System.out::println)
             .toList();
 
@@ -62,7 +62,7 @@ class GraphServiceTests {
         var resuls = graphService
             .generateGraphData("ALL")
             .stream()
-            .filter(edge -> edge.source().beanPackage().contains("info.jab.userbeans"))
+            .filter(edge -> edge.source().beanPackage().contains("io.github.jabrena.userbeans"))
             .peek(System.out::println)
             .toList();
 
