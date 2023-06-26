@@ -17,4 +17,16 @@ class MainApplicationTests {
     void contextLoads() {
         assertThat(beansEndpoint).isNotNull();
     }
+
+    @Test
+    public void mainMethodShouldStartApplication() {
+        //Given
+        String[] args = {};
+
+        //When
+        MainApplication.main(args);
+
+        //Then
+        assertThat(beansEndpoint).isNotNull();
+    }
 }
