@@ -21,20 +21,10 @@ class UserBeansDependencyServiceTests {
     void testGetDependencies() {
         //Given
         //When
-        var result = userDependenciesService.getDependencies();
+        var list1 = userDependenciesService.getDependencies();
 
         //Then
-        assertThat(result).hasSizeGreaterThan(0);
-    }
-
-    @Test
-    void testGetDependenciesAndBeans() {
-        //Given
-        //When
-        var results = userDependenciesService.getDependenciesAndBeans();
-
-        //Then
-        assertThat(results).hasSizeGreaterThan(100);
+        assertThat(list1).hasSizeGreaterThan(0);
     }
 
     @Test

@@ -2,7 +2,7 @@ package io.github.jabrena.userbeans;
 
 import static com.github.stefanbirkner.systemlambda.SystemLambda.withEnvironmentVariable;
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
-import static com.github.tomakehurst.wiremock.client.WireMock.get;
+import static com.github.tomakehurst.wiremock.client.WireMock.post;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -51,7 +51,7 @@ class ChatGTPProviderTests {
                 // @formatter:off
 
                 //Given
-                wireMockServer.stubFor(get(urlEqualTo("/openapi"))
+                wireMockServer.stubFor(post(urlEqualTo("/openapi"))
                         .willReturn(aResponse()
                         .withHeader("Content-Type", "application/json")
                         .withStatus(200)
@@ -73,7 +73,7 @@ class ChatGTPProviderTests {
         // @formatter:off
 
         //Given
-        wireMockServer.stubFor(get(urlEqualTo("/openapi"))
+        wireMockServer.stubFor(post(urlEqualTo("/openapi"))
                 .willReturn(aResponse()
                 .withHeader("Content-Type", "application/json")
                 .withStatus(200)

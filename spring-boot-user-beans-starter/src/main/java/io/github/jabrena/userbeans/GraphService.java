@@ -55,6 +55,7 @@ public class GraphService {
             dependency = null;
         }
 
+        //TODO replace data with getDependencyDocuments()
         var dependenciesAndPackages = userDependenciesService.getDependenciesAndPackages();
 
         record FlatDependencyPackage(String dependencyName, String packageName) {}
@@ -66,6 +67,7 @@ public class GraphService {
                 })
                 .toList();
 
+        //TODO replace data with getDependencyDocuments()
         var result2 = userDependenciesService.getBeansDocuments().stream()
             .flatMap(bd -> {
                 String beanName = bd.beanName();
