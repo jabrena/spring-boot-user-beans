@@ -6,8 +6,11 @@ import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.tomakehurst.wiremock.WireMockServer;
 import io.github.jabrena.support.TestApplication;
+import java.io.IOException;
+import java.io.InputStream;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
@@ -84,5 +87,18 @@ class ChatGTPProviderTests {
 
         //Then
         assertThat(response).isNotNull();
+    }
+
+    @Test
+    void shouldModelWorkProperly() throws IOException {
+        //Given
+        InputStream inputStream = ChatGTPProviderTests.class.getClassLoader().getResourceAsStream("__files/chat-gtp-sample.json");
+
+        //When
+        ObjectMapper objectMapper = new ObjectMapper();
+        ChatGTPProvider.ChaptGTPAnswer chaptGTPAnswer = objectMapper.readValue(inputStream, ChatGTPProvider.ChaptGTPAnswer.class);
+
+        //Then
+        assertThat(chaptGTPAnswer).isNotNull();
     }
 }
