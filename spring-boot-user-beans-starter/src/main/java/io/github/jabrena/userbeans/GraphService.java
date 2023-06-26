@@ -51,10 +51,8 @@ public class GraphService {
     List<Edge> generateGraphData(String dependency) {
         logger.info("Generating Graph data");
 
-        if (Objects.nonNull(dependency)) {
-            if (dependency.equals("ALL")) {
-                dependency = null;
-            }
+        if (Objects.nonNull(dependency) && dependency.equals("ALL")) {
+            dependency = null;
         }
 
         var dependenciesAndPackages = userDependenciesService.getDependenciesAndPackages();

@@ -52,7 +52,7 @@ public class ChatGTPProvider {
         if (Objects.isNull(key)) {
             return """
             Sorry, something went wrong.
-            Check if OPEN_API_KEY variable was defined in your environment
+            Check if OPENAI_API_KEY variable was defined in your environment
             to enable this feature.
             """;
         }
