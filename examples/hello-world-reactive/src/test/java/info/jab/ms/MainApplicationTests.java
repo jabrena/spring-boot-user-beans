@@ -19,7 +19,7 @@ class MainApplicationTests {
     }
 
     @Test
-    public void mainMethodShouldStartApplication() {
+    void mainMethodShouldStartApplication() {
         //Given
         String[] args = {};
 
