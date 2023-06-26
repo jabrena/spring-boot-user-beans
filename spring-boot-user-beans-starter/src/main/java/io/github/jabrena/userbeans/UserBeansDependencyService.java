@@ -88,11 +88,9 @@ public class UserBeansDependencyService {
                 JarEntry entry = entries.nextElement();
                 if (entry.isDirectory()) {
                     String packagePath = entry.getName().replace('/', '.');
-                    if (!packagePath.isEmpty()) {
-                        if (!packagePath.contains("META-INF")) {
-                            packagePath = packagePath.substring(0, packagePath.length() - 1);
-                            packages.add(packagePath);
-                        }
+                    if (!packagePath.isEmpty() && !packagePath.contains("META-INF")) {
+                        packagePath = packagePath.substring(0, packagePath.length() - 1);
+                        packages.add(packagePath);
                     }
                 }
             }

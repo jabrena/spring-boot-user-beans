@@ -54,12 +54,11 @@ explain that Spring Bean.
 Using this educational tool, you could improve the way that you measure
 your [**Cognitive Load**](https://en.wikipedia.org/wiki/Cognitive_load).
 
-## Requirements
+## Goals
 
 - [x] Visualize Beans running in the container
 - [x] List of user beans
 - [x] List of user dependencies (Jars)
-- [x] List of dependencies (Jars) & Beans
 - [x] Review quality of results
 - [x] Filter by Java class, Package or dependency
 - [ ] Learn to disable beans not used
