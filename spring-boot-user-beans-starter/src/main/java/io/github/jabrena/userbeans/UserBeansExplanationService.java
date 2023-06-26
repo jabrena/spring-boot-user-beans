@@ -1,4 +1,4 @@
-package info.jab.userbeans;
+package io.github.jabrena.userbeans;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -10,9 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BeanExplanationService {
+public class UserBeansExplanationService {
 
-    private static final Logger logger = LoggerFactory.getLogger(BeanExplanationService.class);
+    private static final Logger logger = LoggerFactory.getLogger(UserBeansExplanationService.class);
 
     @Autowired
     private ChatGTPProvider chatGTPProvider;
@@ -35,16 +35,16 @@ public class BeanExplanationService {
     public record DetailsExplanation(String response) {}
 
     // @formatter:off
-    public DetailsExplanation generateDetailsContent(
-            String bean, String packageName, String dependency) {
+    public DetailsExplanation generateDetailsContent(String beanClass, String packageName, String dependency) {
 
-        //TODO Improve syntax with new possibilities with Java 17
-        String question =
-            "Can you explain in 3 lines the purpose of the Java class: "
-            + bean + "with this package: "
-            + packageName + "included in this Dependeny: "
-            + dependency + " ?";
+        String question = """
+            Can you explain in 3 lines the purpose
+            of the Java class: %s
+            with this package: %s
+            included in this Dependency: %s ?
+            """;
 
+        question = String.format(question, beanClass, packageName, dependency);
         return new DetailsExplanation(chatGTPProvider.getAnswer(question));
     }
     // @formatter:on

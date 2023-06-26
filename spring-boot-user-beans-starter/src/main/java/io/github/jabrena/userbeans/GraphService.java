@@ -1,6 +1,6 @@
-package info.jab.userbeans;
+package io.github.jabrena.userbeans;
 
-import static info.jab.userbeans.UserDependenciesService.UNKNOWN_DEPENDENCY;
+import static io.github.jabrena.userbeans.UserBeansDependencyService.UNKNOWN_DEPENDENCY;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -18,10 +18,10 @@ public class GraphService {
 
     private static final Logger logger = LoggerFactory.getLogger(GraphService.class);
 
-    private final UserDependenciesService userDependenciesService;
+    private final UserBeansDependencyService userDependenciesService;
 
     // @formatter:off
-    public GraphService(UserDependenciesService userDependenciesService) {
+    public GraphService(UserBeansDependencyService userDependenciesService) {
         this.userDependenciesService = userDependenciesService;
     }
 
@@ -126,7 +126,7 @@ public class GraphService {
 
     // @formatter:on
 
-    List<UserDependenciesService.Dependency> generateGraphCombo() {
+    List<UserBeansDependencyService.Dependency> generateGraphCombo() {
         return userDependenciesService.getDependencies();
     }
 }

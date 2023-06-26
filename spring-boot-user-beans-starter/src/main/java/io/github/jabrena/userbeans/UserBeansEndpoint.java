@@ -1,4 +1,4 @@
-package info.jab.userbeans;
+package io.github.jabrena.userbeans;
 
 import java.util.List;
 import org.slf4j.Logger;
@@ -19,7 +19,7 @@ public class UserBeansEndpoint {
     private GraphService graphService;
 
     @Autowired
-    private BeanExplanationService beanExplanationService;
+    private UserBeansExplanationService beanExplanationService;
 
     @GetMapping(path = "/", produces = MediaType.TEXT_HTML_VALUE)
     ResponseEntity<String> loadGraphWebDocument() {
@@ -38,7 +38,7 @@ public class UserBeansEndpoint {
     // @formatter:on
 
     @GetMapping(path = "/graph-combo", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<List<UserDependenciesService.Dependency>> getGraphCombo() {
+    ResponseEntity<List<UserBeansDependencyService.Dependency>> getGraphCombo() {
         logger.info("GET /actuator/userbeans/graph-combo");
         return ResponseEntity.ok().body(graphService.generateGraphCombo());
     }
@@ -51,7 +51,7 @@ public class UserBeansEndpoint {
 
     // @formatter:off
     @GetMapping(path = "/details-explanation", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<BeanExplanationService.DetailsExplanation> loadDetailsContentWebDocument(
+    ResponseEntity<UserBeansExplanationService.DetailsExplanation> loadDetailsContentWebDocument(
         @RequestParam(name = "class") String bean,
         @RequestParam(name = "package") String packageName,
         @RequestParam(name = "dependency") String dependency) {

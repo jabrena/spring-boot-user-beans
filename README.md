@@ -16,7 +16,7 @@ Using a minimalistic User interface, you will be able to search
 your Beans by name or package and review the relations between them.
 Also, you can filter by the main dependencies used in your Spring Boot project.
 
-![](docs/design/user-beans10.png)
+![](docs/design/user-beans12.png)
 
 If you click in a any Green node (A Spring Bean which returns a Java class),
 you could navigate to a Detail page, in order receive an explanation from ChatGTP.
@@ -81,17 +81,10 @@ open http://localhost:8080/
 
 #UX
 curl -v http://localhost:8080/actuator/userbeans/graph | json_pp
-curl -v http://localhost:8080/actuator/userbeans/graph | json_pp > ./spring-boot-user-beans-starter/src/main/resourc
-es/static/graph.json
+curl -v http://localhost:8080/actuator/userbeans/graph | json_pp > ./docs/graph.json
 curl -v http://localhost:8080/actuator/userbeans/graph-combo | json_pp
-curl -v http://localhost:8080/actuator/userbeans/graph-combo | json_pp > ./spring-boot-user-beans-starter/src/main/resourc
-es/static/graph-combo.json
+curl -v http://localhost:8080/actuator/userbeans/graph-combo | json_pp > ./docs/graph-combo.json
 curl -v "http://localhost:8080/actuator/userbeans/graph?dependency=UNKNOWN" | json_pp
-
-#API
-curl -v http://localhost:8080/actuator/userbeans/dependencies | json_pp
-curl -v http://localhost:8080/actuator/userbeans/dependencies/beans | json_pp
-curl -v http://localhost:8080/actuator/userbeans/beans | json_pp
 ```
 
 # External tests
@@ -112,13 +105,6 @@ Enabling this spring boot property to enable this feature:
 
 ```
 management.endpoints.web.exposure.include=beans,userbeans
-```
-
-## Spring Boot CLI
-
-```
-sdk install springboot
-spring init -d=web,devtools --build=maven --force ./
 ```
 
 ## How to show the coverage on Codespaces?
@@ -143,9 +129,10 @@ sdk env
 ./mvnw versions:display-plugin-updates
 ```
 
-## Original idea
+## Source of inspiration
 
 - https://github.com/making/beansviz-spring-boot-actuator
+- https://github.com/spring-projects/spring-framework/issues/29973
 
 ## References
 

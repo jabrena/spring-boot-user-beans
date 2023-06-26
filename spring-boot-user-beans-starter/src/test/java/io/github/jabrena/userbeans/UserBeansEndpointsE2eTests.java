@@ -1,8 +1,8 @@
-package info.jab.userbeans;
+package io.github.jabrena.userbeans;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import info.jab.support.TestApplication;
+import io.github.jabrena.support.TestApplication;
 import java.net.URI;
 import java.util.List;
 import org.jsoup.Jsoup;

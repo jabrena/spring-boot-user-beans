@@ -1,4 +1,4 @@
-package info.jab.userbeans;
+package io.github.jabrena.userbeans;
 
 import java.util.Arrays;
 import java.util.Comparator;

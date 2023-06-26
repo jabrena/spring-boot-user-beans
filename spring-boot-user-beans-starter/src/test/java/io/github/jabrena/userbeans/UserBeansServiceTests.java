@@ -1,9 +1,9 @@
-package info.jab.userbeans;
+package io.github.jabrena.userbeans;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import info.jab.support.SupportController;
-import info.jab.support.TestApplication;
+import io.github.jabrena.support.SupportController;
+import io.github.jabrena.support.TestApplication;
 import java.util.Comparator;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,7 +59,7 @@ class UserBeansServiceTests {
         var beanListFiltered = userBeansService
             .getBeansDocuments()
             .stream()
-            .filter(beanDocument -> beanDocument.beanPackage().contains("info.jab.support"))
+            .filter(beanDocument -> beanDocument.beanPackage().contains("io.github.jabrena.support"))
             .peek(System.out::println)
             .toList();
 

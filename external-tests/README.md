@@ -1,5 +1,7 @@
 # External tests
 
+This project has been tested with the classic project Spring Petclinic.
+
 ```
 git clone https://github.com/spring-projects/spring-petclinic.git
 ```
@@ -8,7 +10,7 @@ In the spring-petclinic, add the dependency:
 
 ```xml
 <dependency>
-    <groupId>info.jab</groupId>
+    <groupId>io.github.jabrena</groupId>
     <artifactId>spring-boot-user-beans-starter</artifactId>
     <version>0.1.0-SNAPSHOT</version>
 </dependency>

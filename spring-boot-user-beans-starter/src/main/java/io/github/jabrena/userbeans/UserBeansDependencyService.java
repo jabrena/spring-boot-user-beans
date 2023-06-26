@@ -1,6 +1,6 @@
-package info.jab.userbeans;
+package io.github.jabrena.userbeans;
 
-import info.jab.userbeans.UserBeansService.BeanDocument;
+import io.github.jabrena.userbeans.UserBeansService.BeanDocument;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,15 +17,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserDependenciesService {
+public class UserBeansDependencyService {
 
-    private static final Logger logger = LoggerFactory.getLogger(UserDependenciesService.class);
+    private static final Logger logger = LoggerFactory.getLogger(UserBeansDependencyService.class);
 
     public static final String UNKNOWN_DEPENDENCY = "UNKNOWN";
 
     private final UserBeansService userBeansService;
 
-    public UserDependenciesService(UserBeansService userBeansService) {
+    public UserBeansDependencyService(UserBeansService userBeansService) {
         this.userBeansService = userBeansService;
     }
 

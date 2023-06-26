@@ -117,7 +117,7 @@
    },
    {
       "source" : {
-         "beanName" : "AopAutoConfiguration$ClassProxyingConfiguration$$Lambda$400/0x00000008012a2468",
+         "beanName" : "AopAutoConfiguration$ClassProxyingConfiguration$$Lambda$368/0x0000000801271da8",
          "beanPackage" : "org.springframework.boot.autoconfigure.aop",
          "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
       },
@@ -242,7 +242,7 @@
          "dependency" : "spring-boot-actuator-3.1.0.jar"
       },
       "target" : {
-         "beanName" : "AnnotationConfigServletWebServerApplicationContext@250eef0a",
+         "beanName" : "AnnotationConfigServletWebServerApplicationContext@33065d67",
          "beanPackage" : "UNKNOWN",
          "dependency" : "UNKNOWN"
       }
@@ -289,48 +289,32 @@
    },
    {
       "source" : {
+         "beanName" : "ChatGTPConfig",
+         "beanPackage" : "info.jab.userbeans",
+         "dependency" : "UNKNOWN"
+      },
+      "target" : null
+   },
+   {
+      "source" : {
+         "beanName" : "ChatGTPProvider",
+         "beanPackage" : "info.jab.userbeans",
+         "dependency" : "UNKNOWN"
+      },
+      "target" : {
+         "beanName" : "ChatGTPMapper",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      }
+   },
+   {
+      "source" : {
          "beanName" : "ClassLoaderMetrics",
          "beanPackage" : "io.micrometer.core.instrument.binder.jvm",
          "dependency" : "micrometer-core-1.11.0.jar"
       },
       "target" : {
          "beanName" : "JvmMetricsAutoConfiguration",
-         "beanPackage" : "UNKNOWN",
-         "dependency" : "UNKNOWN"
-      }
-   },
-   {
-      "source" : {
-         "beanName" : "ClassPathFileSystemWatcher",
-         "beanPackage" : "org.springframework.boot.devtools.classpath",
-         "dependency" : "spring-boot-devtools-3.1.0.jar"
-      },
-      "target" : {
-         "beanName" : "LocalDevToolsAutoConfiguration$RestartConfiguration",
-         "beanPackage" : "UNKNOWN",
-         "dependency" : "UNKNOWN"
-      }
-   },
-   {
-      "source" : {
-         "beanName" : "ClassPathFileSystemWatcher",
-         "beanPackage" : "org.springframework.boot.devtools.classpath",
-         "dependency" : "spring-boot-devtools-3.1.0.jar"
-      },
-      "target" : {
-         "beanName" : "fileSystemWatcherFactory",
-         "beanPackage" : "UNKNOWN",
-         "dependency" : "UNKNOWN"
-      }
-   },
-   {
-      "source" : {
-         "beanName" : "ClassPathFileSystemWatcher",
-         "beanPackage" : "org.springframework.boot.devtools.classpath",
-         "dependency" : "spring-boot-devtools-3.1.0.jar"
-      },
-      "target" : {
-         "beanName" : "classPathRestartStrategy",
          "beanPackage" : "UNKNOWN",
          "dependency" : "UNKNOWN"
       }
@@ -389,18 +373,6 @@
    },
    {
       "source" : {
-         "beanName" : "ConditionEvaluationDeltaLoggingListener",
-         "beanPackage" : "org.springframework.boot.devtools.autoconfigure",
-         "dependency" : "spring-boot-devtools-3.1.0.jar"
-      },
-      "target" : {
-         "beanName" : "LocalDevToolsAutoConfiguration$RestartConfiguration",
-         "beanPackage" : "UNKNOWN",
-         "dependency" : "UNKNOWN"
-      }
-   },
-   {
-      "source" : {
          "beanName" : "ConfigurationPropertiesAutoConfiguration",
          "beanPackage" : "org.springframework.boot.autoconfigure.context",
          "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
@@ -426,7 +398,7 @@
          "dependency" : "spring-webmvc-6.0.9.jar"
       },
       "target" : {
-         "beanName" : "DefaultListableBeanFactory@66bee88a",
+         "beanName" : "DefaultListableBeanFactory@4397ad89",
          "beanPackage" : "UNKNOWN",
          "dependency" : "UNKNOWN"
       }
@@ -554,7 +526,7 @@
          "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
       },
       "target" : {
-         "beanName" : "AnnotationConfigServletWebServerApplicationContext@250eef0a",
+         "beanName" : "AnnotationConfigServletWebServerApplicationContext@33065d67",
          "beanPackage" : "UNKNOWN",
          "dependency" : "UNKNOWN"
       }
@@ -660,14 +632,6 @@
          "beanName" : "DependsOnDatabaseInitializationPostProcessor",
          "beanPackage" : "org.springframework.boot.sql.init.dependency",
          "dependency" : "spring-boot-3.1.0.jar"
-      },
-      "target" : null
-   },
-   {
-      "source" : {
-         "beanName" : "DevToolsProperties",
-         "beanPackage" : "org.springframework.boot.devtools.autoconfigure",
-         "dependency" : "spring-boot-devtools-3.1.0.jar"
       },
       "target" : null
    },
@@ -874,7 +838,7 @@
          "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
       },
       "target" : {
-         "beanName" : "DefaultListableBeanFactory@66bee88a",
+         "beanName" : "DefaultListableBeanFactory@4397ad89",
          "beanPackage" : "UNKNOWN",
          "dependency" : "UNKNOWN"
       }
@@ -1011,18 +975,6 @@
       },
       "target" : {
          "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
-         "beanPackage" : "UNKNOWN",
-         "dependency" : "UNKNOWN"
-      }
-   },
-   {
-      "source" : {
-         "beanName" : "GraphService",
-         "beanPackage" : "info.jab.userbeans",
-         "dependency" : "UNKNOWN"
-      },
-      "target" : {
-         "beanName" : "UserBeansService",
          "beanPackage" : "UNKNOWN",
          "dependency" : "UNKNOWN"
       }
@@ -1273,35 +1225,7 @@
          "beanPackage" : "org.springframework.http.converter.json",
          "dependency" : "spring-web-6.0.9.jar"
       },
-      "target" : {
-         "beanName" : "JacksonAutoConfiguration$JacksonObjectMapperBuilderConfiguration",
-         "beanPackage" : "UNKNOWN",
-         "dependency" : "UNKNOWN"
-      }
-   },
-   {
-      "source" : {
-         "beanName" : "Jackson2ObjectMapperBuilder",
-         "beanPackage" : "org.springframework.http.converter.json",
-         "dependency" : "spring-web-6.0.9.jar"
-      },
-      "target" : {
-         "beanName" : "AnnotationConfigServletWebServerApplicationContext@250eef0a",
-         "beanPackage" : "UNKNOWN",
-         "dependency" : "UNKNOWN"
-      }
-   },
-   {
-      "source" : {
-         "beanName" : "Jackson2ObjectMapperBuilder",
-         "beanPackage" : "org.springframework.http.converter.json",
-         "dependency" : "spring-web-6.0.9.jar"
-      },
-      "target" : {
-         "beanName" : "standardJacksonObjectMapperBuilderCustomizer",
-         "beanPackage" : "UNKNOWN",
-         "dependency" : "UNKNOWN"
-      }
+      "target" : null
    },
    {
       "source" : {
@@ -1329,7 +1253,7 @@
    },
    {
       "source" : {
-         "beanName" : "JacksonEndpointAutoConfiguration$$Lambda$666/0x00000008013ac830",
+         "beanName" : "JacksonEndpointAutoConfiguration$$Lambda$632/0x0000000801380000",
          "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.jackson",
          "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
       },
@@ -1410,7 +1334,7 @@
          "dependency" : "spring-boot-3.1.0.jar"
       },
       "target" : {
-         "beanName" : "AnnotationConfigServletWebServerApplicationContext@250eef0a",
+         "beanName" : "AnnotationConfigServletWebServerApplicationContext@33065d67",
          "beanPackage" : "UNKNOWN",
          "dependency" : "UNKNOWN"
       }
@@ -1434,7 +1358,7 @@
          "dependency" : "spring-boot-3.1.0.jar"
       },
       "target" : {
-         "beanName" : "AnnotationConfigServletWebServerApplicationContext@250eef0a",
+         "beanName" : "AnnotationConfigServletWebServerApplicationContext@33065d67",
          "beanPackage" : "UNKNOWN",
          "dependency" : "UNKNOWN"
       }
@@ -1537,82 +1461,6 @@
    },
    {
       "source" : {
-         "beanName" : "LiveReloadConfiguration",
-         "beanPackage" : "org.springframework.boot.devtools.autoconfigure",
-         "dependency" : "spring-boot-devtools-3.1.0.jar"
-      },
-      "target" : null
-   },
-   {
-      "source" : {
-         "beanName" : "LiveReloadServer",
-         "beanPackage" : "org.springframework.boot.devtools.livereload",
-         "dependency" : "spring-boot-devtools-3.1.0.jar"
-      },
-      "target" : {
-         "beanName" : "LocalDevToolsAutoConfiguration$LiveReloadConfiguration",
-         "beanPackage" : "UNKNOWN",
-         "dependency" : "UNKNOWN"
-      }
-   },
-   {
-      "source" : {
-         "beanName" : "LiveReloadServer",
-         "beanPackage" : "org.springframework.boot.devtools.livereload",
-         "dependency" : "spring-boot-devtools-3.1.0.jar"
-      },
-      "target" : {
-         "beanName" : "DevToolsProperties",
-         "beanPackage" : "UNKNOWN",
-         "dependency" : "UNKNOWN"
-      }
-   },
-   {
-      "source" : {
-         "beanName" : "LiveReloadServerEventListener",
-         "beanPackage" : "org.springframework.boot.devtools.autoconfigure",
-         "dependency" : "spring-boot-devtools-3.1.0.jar"
-      },
-      "target" : {
-         "beanName" : "LocalDevToolsAutoConfiguration$LiveReloadConfiguration",
-         "beanPackage" : "UNKNOWN",
-         "dependency" : "UNKNOWN"
-      }
-   },
-   {
-      "source" : {
-         "beanName" : "LiveReloadServerEventListener",
-         "beanPackage" : "org.springframework.boot.devtools.autoconfigure",
-         "dependency" : "spring-boot-devtools-3.1.0.jar"
-      },
-      "target" : {
-         "beanName" : "optionalLiveReloadServer",
-         "beanPackage" : "UNKNOWN",
-         "dependency" : "UNKNOWN"
-      }
-   },
-   {
-      "source" : {
-         "beanName" : "LocalDevToolsAutoConfiguration",
-         "beanPackage" : "org.springframework.boot.devtools.autoconfigure",
-         "dependency" : "spring-boot-devtools-3.1.0.jar"
-      },
-      "target" : null
-   },
-   {
-      "source" : {
-         "beanName" : "LocalDevToolsAutoConfiguration$RestartConfiguration$$Lambda$795/0x0000000801406000",
-         "beanPackage" : "org.springframework.boot.devtools.autoconfigure",
-         "dependency" : "spring-boot-devtools-3.1.0.jar"
-      },
-      "target" : {
-         "beanName" : "LocalDevToolsAutoConfiguration$RestartConfiguration",
-         "beanPackage" : "UNKNOWN",
-         "dependency" : "UNKNOWN"
-      }
-   },
-   {
-      "source" : {
          "beanName" : "LocaleCharsetMappingsCustomizer",
          "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
          "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
@@ -1645,7 +1493,7 @@
    },
    {
       "source" : {
-         "beanName" : "MainApplication$$SpringCGLIB$$0",
+         "beanName" : "MainApplication",
          "beanPackage" : "info.jab.ms",
          "dependency" : "UNKNOWN"
       },
@@ -1694,7 +1542,7 @@
          "dependency" : "spring-web-6.0.9.jar"
       },
       "target" : {
-         "beanName" : "jacksonObjectMapper",
+         "beanName" : "ChatGTPMapper",
          "beanPackage" : "UNKNOWN",
          "dependency" : "UNKNOWN"
       }
@@ -1750,7 +1598,7 @@
          "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
       },
       "target" : {
-         "beanName" : "AnnotationConfigServletWebServerApplicationContext@250eef0a",
+         "beanName" : "AnnotationConfigServletWebServerApplicationContext@33065d67",
          "beanPackage" : "UNKNOWN",
          "dependency" : "UNKNOWN"
       }
@@ -1842,19 +1690,7 @@
          "dependency" : "jackson-databind-2.15.0.jar"
       },
       "target" : {
-         "beanName" : "JacksonAutoConfiguration$JacksonObjectMapperConfiguration",
-         "beanPackage" : "UNKNOWN",
-         "dependency" : "UNKNOWN"
-      }
-   },
-   {
-      "source" : {
-         "beanName" : "ObjectMapper",
-         "beanPackage" : "com.fasterxml.jackson.databind",
-         "dependency" : "jackson-databind-2.15.0.jar"
-      },
-      "target" : {
-         "beanName" : "jacksonObjectMapperBuilder",
+         "beanName" : "ChatGTPConfig",
          "beanPackage" : "UNKNOWN",
          "dependency" : "UNKNOWN"
       }
@@ -1958,30 +1794,6 @@
          "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
       },
       "target" : null
-   },
-   {
-      "source" : {
-         "beanName" : "OptionalLiveReloadServer",
-         "beanPackage" : "org.springframework.boot.devtools.autoconfigure",
-         "dependency" : "spring-boot-devtools-3.1.0.jar"
-      },
-      "target" : {
-         "beanName" : "LocalDevToolsAutoConfiguration$LiveReloadConfiguration",
-         "beanPackage" : "UNKNOWN",
-         "dependency" : "UNKNOWN"
-      }
-   },
-   {
-      "source" : {
-         "beanName" : "OptionalLiveReloadServer",
-         "beanPackage" : "org.springframework.boot.devtools.autoconfigure",
-         "dependency" : "spring-boot-devtools-3.1.0.jar"
-      },
-      "target" : {
-         "beanName" : "liveReloadServer",
-         "beanPackage" : "UNKNOWN",
-         "dependency" : "UNKNOWN"
-      }
    },
    {
       "source" : {
@@ -2091,18 +1903,6 @@
       },
       "target" : {
          "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
-         "beanPackage" : "UNKNOWN",
-         "dependency" : "UNKNOWN"
-      }
-   },
-   {
-      "source" : {
-         "beanName" : "PatternClassPathRestartStrategy",
-         "beanPackage" : "org.springframework.boot.devtools.classpath",
-         "dependency" : "spring-boot-devtools-3.1.0.jar"
-      },
-      "target" : {
-         "beanName" : "LocalDevToolsAutoConfiguration$RestartConfiguration",
          "beanPackage" : "UNKNOWN",
          "dependency" : "UNKNOWN"
       }
@@ -2325,42 +2125,6 @@
    },
    {
       "source" : {
-         "beanName" : "RestartConfiguration",
-         "beanPackage" : "org.springframework.boot.devtools.autoconfigure",
-         "dependency" : "spring-boot-devtools-3.1.0.jar"
-      },
-      "target" : {
-         "beanName" : "DevToolsProperties",
-         "beanPackage" : "UNKNOWN",
-         "dependency" : "UNKNOWN"
-      }
-   },
-   {
-      "source" : {
-         "beanName" : "RestartingClassPathChangeChangedEventListener",
-         "beanPackage" : "org.springframework.boot.devtools.autoconfigure",
-         "dependency" : "spring-boot-devtools-3.1.0.jar"
-      },
-      "target" : {
-         "beanName" : "LocalDevToolsAutoConfiguration$RestartConfiguration",
-         "beanPackage" : "UNKNOWN",
-         "dependency" : "UNKNOWN"
-      }
-   },
-   {
-      "source" : {
-         "beanName" : "RestartingClassPathChangeChangedEventListener",
-         "beanPackage" : "org.springframework.boot.devtools.autoconfigure",
-         "dependency" : "spring-boot-devtools-3.1.0.jar"
-      },
-      "target" : {
-         "beanName" : "fileSystemWatcherFactory",
-         "beanPackage" : "UNKNOWN",
-         "dependency" : "UNKNOWN"
-      }
-   },
-   {
-      "source" : {
          "beanName" : "RouterFunctionMapping",
          "beanPackage" : "org.springframework.web.servlet.function.support",
          "dependency" : "spring-webmvc-6.0.9.jar"
@@ -2434,7 +2198,7 @@
          "dependency" : "spring-boot-actuator-3.1.0.jar"
       },
       "target" : {
-         "beanName" : "AnnotationConfigServletWebServerApplicationContext@250eef0a",
+         "beanName" : "AnnotationConfigServletWebServerApplicationContext@33065d67",
          "beanPackage" : "UNKNOWN",
          "dependency" : "UNKNOWN"
       }
@@ -2505,7 +2269,7 @@
    },
    {
       "source" : {
-         "beanName" : "ServletManagementContextAutoConfiguration$$Lambda$750/0x00000008013ed6d8",
+         "beanName" : "ServletManagementContextAutoConfiguration$$Lambda$713/0x00000008013c11f0",
          "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web.servlet",
          "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
       },
@@ -2517,7 +2281,7 @@
    },
    {
       "source" : {
-         "beanName" : "ServletManagementContextAutoConfiguration$$Lambda$750/0x00000008013ed6d8",
+         "beanName" : "ServletManagementContextAutoConfiguration$$Lambda$713/0x00000008013c11f0",
          "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web.servlet",
          "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
       },
@@ -3186,31 +2950,31 @@
          "dependency" : "UNKNOWN"
       },
       "target" : {
-         "beanName" : "UserBeansService",
-         "beanPackage" : "UNKNOWN",
-         "dependency" : "UNKNOWN"
-      }
-   },
-   {
-      "source" : {
-         "beanName" : "UserBeansEndpoint",
-         "beanPackage" : "info.jab.userbeans",
-         "dependency" : "UNKNOWN"
-      },
-      "target" : {
-         "beanName" : "UserDependenciesService",
-         "beanPackage" : "UNKNOWN",
-         "dependency" : "UNKNOWN"
-      }
-   },
-   {
-      "source" : {
-         "beanName" : "UserBeansEndpoint",
-         "beanPackage" : "info.jab.userbeans",
-         "dependency" : "UNKNOWN"
-      },
-      "target" : {
          "beanName" : "GraphService",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "UserBeansEndpoint",
+         "beanPackage" : "info.jab.userbeans",
+         "dependency" : "UNKNOWN"
+      },
+      "target" : {
+         "beanName" : "UserBeansExplanationService",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "UserBeansExplanationService",
+         "beanPackage" : "info.jab.userbeans",
+         "dependency" : "UNKNOWN"
+      },
+      "target" : {
+         "beanName" : "ChatGTPProvider",
          "beanPackage" : "UNKNOWN",
          "dependency" : "UNKNOWN"
       }
@@ -3282,7 +3046,7 @@
          "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
       },
       "target" : {
-         "beanName" : "AnnotationConfigServletWebServerApplicationContext@250eef0a",
+         "beanName" : "AnnotationConfigServletWebServerApplicationContext@33065d67",
          "beanPackage" : "UNKNOWN",
          "dependency" : "UNKNOWN"
       }
@@ -3390,7 +3154,7 @@
          "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
       },
       "target" : {
-         "beanName" : "DefaultListableBeanFactory@66bee88a",
+         "beanName" : "DefaultListableBeanFactory@4397ad89",
          "beanPackage" : "UNKNOWN",
          "dependency" : "UNKNOWN"
       }
@@ -3582,7 +3346,7 @@
          "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
       },
       "target" : {
-         "beanName" : "AnnotationConfigServletWebServerApplicationContext@250eef0a",
+         "beanName" : "AnnotationConfigServletWebServerApplicationContext@33065d67",
          "beanPackage" : "UNKNOWN",
          "dependency" : "UNKNOWN"
       }
@@ -3630,7 +3394,7 @@
          "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
       },
       "target" : {
-         "beanName" : "AnnotationConfigServletWebServerApplicationContext@250eef0a",
+         "beanName" : "AnnotationConfigServletWebServerApplicationContext@33065d67",
          "beanPackage" : "UNKNOWN",
          "dependency" : "UNKNOWN"
       }

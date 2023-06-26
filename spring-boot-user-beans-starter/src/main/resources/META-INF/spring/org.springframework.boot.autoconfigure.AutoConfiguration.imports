@@ -1,7 +1,7 @@
-info.jab.userbeans.UserBeansEndpoint
-info.jab.userbeans.UserBeansService
-info.jab.userbeans.UserDependenciesService
-info.jab.userbeans.GraphService
-info.jab.userbeans.BeanExplanationService
-info.jab.userbeans.ChatGTPConfig
-info.jab.userbeans.ChatGTPProvider
+io.github.jabrena.userbeans.UserBeansEndpoint
+io.github.jabrena.userbeans.UserBeansService
+io.github.jabrena.userbeans.UserBeansDependencyService
+io.github.jabrena.userbeans.UserBeansExplanationService
+io.github.jabrena.userbeans.GraphService
+io.github.jabrena.userbeans.ChatGTPConfig
+io.github.jabrena.userbeans.ChatGTPProvider
