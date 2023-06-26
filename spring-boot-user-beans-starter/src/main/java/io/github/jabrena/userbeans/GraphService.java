@@ -46,6 +46,20 @@ public class GraphService {
 
     public record Edge(BeandNode source, BeandNode target) {}
 
+    record FlatDependencyPackage(String dependencyName, String packageName) {}
+
+    private List<FlatDependencyPackage> getFlatDependenciPackages() {
+        //TODO replace data with getDependencyDocuments()
+        return userDependenciesService
+            .getDependenciesAndPackages()
+            .stream()
+            .flatMap(dd -> {
+                var dependencyName = dd.dependencyName();
+                return dd.packages().stream().map(str -> new FlatDependencyPackage(dependencyName, str));
+            })
+            .toList();
+    }
+
     //TODO Review to refactor the method using small parts
     // @formatter:off
     List<Edge> generateGraphData(String dependency) {
@@ -55,25 +69,14 @@ public class GraphService {
             dependency = null;
         }
 
-        //TODO replace data with getDependencyDocuments()
-        var dependenciesAndPackages = userDependenciesService.getDependenciesAndPackages();
+        List<FlatDependencyPackage> flatDependenciPackages = getFlatDependenciPackages();
 
-        record FlatDependencyPackage(String dependencyName, String packageName) {}
-
-        var result = dependenciesAndPackages.stream()
-                .flatMap(dd -> {
-                    var dependencyName = dd.dependencyName();
-                    return dd.packages().stream().map(str -> new FlatDependencyPackage(dependencyName, str));
-                })
-                .toList();
-
-        //TODO replace data with getDependencyDocuments()
-        var result2 = userDependenciesService.getBeansDocuments().stream()
+        var result2 = userDependenciesService.getDependencyDocuments().stream()
             .flatMap(bd -> {
                 String beanName = bd.beanName();
                 String beanPackage = bd.beanPackage();
-                if (!bd.dependencies().isEmpty()) {
-                    return bd.dependencies().stream()
+                if (!bd.beanDependencies().isEmpty()) {
+                    return bd.beanDependencies().stream()
                             .map(dep -> {
                                 //TODO This branch is not working well
                                 try {
@@ -84,7 +87,7 @@ public class GraphService {
                                             new BeandNode(beanName, beanPackage, "PENDING"),
                                             new BeandNode(dep, packageNameDependency, "PENDING"));
                                 } catch (ClassNotFoundException e) {
-                                    var jar = result.stream()
+                                    var jar = flatDependenciPackages.stream()
                                             .filter(fdp -> fdp.packageName.contains(beanPackage))
                                             .findFirst();
 
@@ -101,7 +104,7 @@ public class GraphService {
                                 }
                             });
                 } else {
-                    var jar = result.stream()
+                    var jar = flatDependenciPackages.stream()
                             .filter(fdp -> fdp.packageName.contains(beanPackage))
                             .findFirst();
 

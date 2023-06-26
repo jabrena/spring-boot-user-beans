@@ -85,8 +85,6 @@ public class UserBeansDependencyService {
         return packages;
     }
 
-    //TODO change visibility
-
     // @formatter:off
     public List<DependencyDocument> getDependencyDocuments() {
         List<BeanDocument> beanDocuments = userBeansService.getBeansDocuments();
@@ -116,11 +114,6 @@ public class UserBeansDependencyService {
     }
 
     // @formatter:on
-
-    //TODO remove this method
-    List<BeanDocument> getBeansDocuments() {
-        return userBeansService.getBeansDocuments();
-    }
 
     List<Dependency> getDependencies() {
         return getDependencyDocuments()
