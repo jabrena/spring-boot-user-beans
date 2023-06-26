@@ -10,9 +10,9 @@ A visual way to increase the developer awareness to minimize the number of Beans
 
 Using this project, you will be able to see your Beans developed in your project
 plus other Beans provided by the dependencies that you include
-in the **classpath**. The project uses Graph theory to show the beans as a [Directed Graph](https://en.m.wikipedia.org/wiki/Directed_graph).
+in the **classpath** in a Graph representation. The project uses Graph theory to show the beans as a [Directed Graph](https://en.m.wikipedia.org/wiki/Directed_graph).
 
-Using a minimalistic User interface, you will be able to search
+The user interfaces will allow you searching
 your Beans by name or package and review the relations between them.
 Also, you can filter by the main dependencies used in your Spring Boot project.
 
@@ -24,35 +24,113 @@ you could navigate to a Detail page, in order receive an explanation from ChatGT
 **Note:** in order to enable that feature, you need to set in your
 environment a valid OPENAI_API_KEY.
 
+## Getting Started
+
+Add the following dependency in your build system:
+
+**Maven:**
+
+```xml
+<dependency>
+    <groupId>io.github.jabrena</groupId>
+    <artifactId>spring-boot-user-beans-starter</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+</dependency>
+```
+
+**Gradle:**
+
+```kotlin
+implementation 'io.github.jabrena:spring-boot-user-beans-starter:0.1.0-SNAPSHOT'
+```
+
+**Configuration:**
+
+This library require a bit of configuration in the section about
+`spring boot actuator`:
+
+```properties
+management.endpoints.web.exposure.include=beans,userbeans
+```
+
+The library has a feature to explain your Beans using the ChatGTP capabilities.
+In order to use this feature, you need set `OPENAI_API_KEY` as an environment
+variable.
+
 ```bash
 export OPENAI_API_KEY=YOUR_API_KEY_VALUE
 echo $OPENAI_API_KEY
 ```
 
-## Use cases
+**Requirements:**
 
-### 1. Review the Bean composition in your projects
+In order to use this Dependency, you need to have in the classpath:
+
+- spring-boot-starter-web || spring-boot-starter-webflux
+- spring-boot-starter-actuator
+
+**Testing level:**
+
+The project was tested with `Spring Boot 3.1.0`
+
+## Benefits
+
+### 1. Improve your Spring Beans composition
 
 Reviewing the Beans relations, you could see new opportunities
 to improve the Design of your solution.
 
 ![](docs/design/use-case1.png)
 
-Using the Graph, you could see all Beans running in your Spring Boot application
-or filter by a dependency. If you see the Graph Shape, you could discover
-interesting insights.
+By leveraging the Graph representation,
+you gain the ability to visualize all the Beans actively running
+within your Spring Boot application. Additionally, you have
+the flexibility to filter Beans based on their dependencies.
+Analyzing the Graph Shape can reveal valuable insights about
+the structure and relationships within your Spring solution,
+enabling you to make informed decisions and discover intriguing patterns.
 
-### 2. Learn more about the Beans that you are using under the hood.
+### 2. Be Stateful or not
 
-If you observe the Graph, you could see that exist plenty of Beans that you
-don´t know but it is part of the Infrastructure to run your Spring Boot
-application. If you click in the Green nodes, you could ask Chat GTP to
-explain that Spring Bean.
+By reviewing your Beans in a broader perspective,
+you have the opportunity to evaluate whether your Objects
+need to maintain state or can be stateless.
+This examination allows you to make informed decisions about
+the design and architecture of your application,
+ensuring that the statefulness of your Beans aligns
+with the requirements and objectives of your system.
 
-### 3. Improve the way to calculate the Cognitive Load.
+### 3. Learn about how the different Spring Boot Starters were designed.
 
-Using this educational tool, you could improve the way that you measure
-your [**Cognitive Load**](https://en.wikipedia.org/wiki/Cognitive_load).
+When you visit https://start.spring.io/, you gain access to a wide range
+of Spring Boot Starters that can be incorporated into your project.
+By exploring and utilizing this library, you have the opportunity
+to delve into the design principles behind each Starter and
+understand how they were specifically crafted to address various challenges.
+This exploration enables you to gain valuable insights into
+the decision-making process involved in designing these Starters,
+fostering a deeper understanding of Spring Boot and
+its versatile solutions.
+
+### 4. Learn about the Beans that you are using under the hood.
+
+When examining the Graph, you may notice the presence of numerous Beans
+that are unfamiliar to you. These Beans form a critical part of
+the underlying Infrastructure required to run your
+Spring Boot application smoothly. By clicking on the Green nodes
+within the Graph, you can access concise descriptions that
+shed light on the purpose and functionality of each individual Bean.
+
+### 5. Improve the way to measure the Cognitive Load in your team.
+
+By leveraging this educational tool, you can enhance
+your ability to measure and manage your
+[Cognitive Load](https://en.wikipedia.org/wiki/Cognitive_load).
+Cognitive Load refers to the mental effort required
+for information processing. This tool provides valuable
+insights and techniques that help you optimize your
+cognitive resources, leading to improved efficiency and
+effectiveness in various tasks and activities.
 
 ## Goals
 
@@ -69,7 +147,7 @@ Convention over configuration (also known as coding by convention) is a software
 
 https://en.wikipedia.org/wiki/Convention_over_configuration
 
-## How to run in local
+## How to build and test in local
 
 ```bash
 ./mvnw clean verify
@@ -96,15 +174,7 @@ The project was tested with the classic project **Spring PetClinic**.
 
 ![](docs/design/spring-petclinic.png)
 
-Go for [external-tests](./external-tests/README.md) for details.
-
-## Configuration
-
-Enabling this spring boot property to enable this feature:
-
-```
-management.endpoints.web.exposure.include=beans,userbeans
-```
+Go for [external-tests](./external-tests/README.md) for further details.
 
 ## How to show the coverage on Codespaces?
 
@@ -139,6 +209,8 @@ sdk env
 - https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/package-summary.html
 - https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/package-summary.html
 - https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/beans/BeansEndpoint.html
+- https://jakarta.ee/specifications/cdi/3.0/
+- https://jakarta.ee/specifications/cdi/3.0/jakarta-cdi-spec-3.0.pdf
 - https://docs.spring.io/spring-boot/docs/current/reference/html/cli.html#cli.using-the-cli
 - https://d3js.org/
 - https://www.webjars.org/all
