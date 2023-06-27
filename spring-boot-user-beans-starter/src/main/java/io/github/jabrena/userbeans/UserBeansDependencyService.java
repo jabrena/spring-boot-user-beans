@@ -22,6 +22,7 @@ public class UserBeansDependencyService {
     private static final Logger logger = LoggerFactory.getLogger(UserBeansDependencyService.class);
 
     public static final String UNKNOWN_DEPENDENCY = "UNKNOWN";
+    public static final String UNKNOWN_PACKAGE = "UNKNOWN";
 
     private final UserBeansService userBeansService;
 
@@ -40,7 +41,17 @@ public class UserBeansDependencyService {
         return (pathParts.length > 0) ? pathParts[pathParts.length - 1] : fullPath;
     };
 
-    //TODO change visibility
+    public record FlatDependencyPackage(String dependencyName, String packageName) {}
+
+    List<FlatDependencyPackage> getFlatDependenciPackages() {
+        return getDependenciesAndPackages()
+            .stream()
+            .flatMap(dd -> {
+                var dependencyName = dd.dependencyName();
+                return dd.packages().stream().map(str -> new FlatDependencyPackage(dependencyName, str));
+            })
+            .toList();
+    }
 
     // @formatter:off
     List<DependencyDetail> getDependenciesAndPackages() {

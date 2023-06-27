@@ -6,6 +6,9 @@
 
 A visual way to increase the developer awareness to minimize the number of Beans in memory.
 
+The library exposes operational information about your Spring Beans running in the memory as another
+metric included with `Spring Boot Actuator`.
+
 ## Motivation
 
 Using this project, you will be able to see your Beans developed in your project
@@ -127,10 +130,7 @@ By leveraging this educational tool, you can enhance
 your ability to measure and manage your
 [Cognitive Load](https://en.wikipedia.org/wiki/Cognitive_load).
 Cognitive Load refers to the mental effort required
-for information processing. This tool provides valuable
-insights and techniques that help you optimize your
-cognitive resources, leading to improved efficiency and
-effectiveness in various tasks and activities.
+for information processing.
 
 ## Goals
 

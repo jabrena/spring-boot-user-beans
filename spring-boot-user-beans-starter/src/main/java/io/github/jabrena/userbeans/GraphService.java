@@ -1,6 +1,7 @@
 package io.github.jabrena.userbeans;
 
 import static io.github.jabrena.userbeans.UserBeansDependencyService.UNKNOWN_DEPENDENCY;
+import static io.github.jabrena.userbeans.UserBeansDependencyService.UNKNOWN_PACKAGE;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -42,92 +43,81 @@ public class GraphService {
 
     // @formatter:on
 
-    public record BeandNode(String beanName, String beanPackage, String dependency) {}
+    public record BeanNode(String beanName, String beanPackage, String dependency) {}
 
-    public record Edge(BeandNode source, BeandNode target) {}
+    public record Edge(BeanNode source, BeanNode target) {}
 
-    record FlatDependencyPackage(String dependencyName, String packageName) {}
-
-    private List<FlatDependencyPackage> getFlatDependenciPackages() {
-        //TODO replace data with getDependencyDocuments()
-        return userDependenciesService
-            .getDependenciesAndPackages()
-            .stream()
-            .flatMap(dd -> {
-                var dependencyName = dd.dependencyName();
-                return dd.packages().stream().map(str -> new FlatDependencyPackage(dependencyName, str));
-            })
-            .toList();
-    }
-
-    //TODO Review to refactor the method using small parts
     // @formatter:off
     List<Edge> generateGraphData(String dependency) {
         logger.info("Generating Graph data");
 
-        if (Objects.nonNull(dependency) && dependency.equals("ALL")) {
-            dependency = null;
-        }
+        List<UserBeansDependencyService.FlatDependencyPackage> flatDependencyPackages = userDependenciesService.getFlatDependenciPackages();
 
-        List<FlatDependencyPackage> flatDependenciPackages = getFlatDependenciPackages();
-
-        var result2 = userDependenciesService.getDependencyDocuments().stream()
-            .flatMap(bd -> {
-                String beanName = bd.beanName();
-                String beanPackage = bd.beanPackage();
-                if (!bd.beanDependencies().isEmpty()) {
-                    return bd.beanDependencies().stream()
-                            .map(dep -> {
-                                //TODO This branch is not working well
-                                try {
-                                    Class<?> beanClassDep = Class.forName(dep);
-                                    String packageNameDependency = beanClassDep.getPackageName();
-
-                                    return new Edge(
-                                            new BeandNode(beanName, beanPackage, "PENDING"),
-                                            new BeandNode(dep, packageNameDependency, "PENDING"));
-                                } catch (ClassNotFoundException e) {
-                                    var jar = flatDependenciPackages.stream()
-                                            .filter(fdp -> fdp.packageName.contains(beanPackage))
-                                            .findFirst();
-
-                                    if (jar.isPresent()) {
-                                        return new Edge(
-                                                new BeandNode(beanName, beanPackage, jar.get().dependencyName),
-                                                new BeandNode(dep, "UNKNOWN", UNKNOWN_DEPENDENCY));
-                                    } else {
-                                        return new Edge(
-                                                new BeandNode(beanName, beanPackage, UNKNOWN_DEPENDENCY),
-                                                new BeandNode(dep, "UNKNOWN", UNKNOWN_DEPENDENCY));
-                                    }
-
-                                }
-                            });
-                } else {
-                    var jar = flatDependenciPackages.stream()
-                            .filter(fdp -> fdp.packageName.contains(beanPackage))
-                            .findFirst();
-
-                    if (jar.isPresent()) {
-                        return Stream.of(new Edge(new BeandNode(beanName, beanPackage, jar.get().dependencyName), null));
-                    } else {
-                        return Stream.of(new Edge(new BeandNode(beanName, beanPackage, UNKNOWN_DEPENDENCY), null));
-                    }
-                }
+        var edges = userDependenciesService.getDependencyDocuments().stream()
+            .flatMap(dd -> {
+                String beanName = dd.beanName();
+                String beanPackage = dd.beanPackage();
+                return processDependencies(dd, beanName, beanPackage, flatDependencyPackages);
             })
             .toList();
 
-        if (Objects.isNull(dependency)) {
-            return result2;
+        //TODO Remove in the future the filter. Everything will be filtered in D3.js side.
+        if (Objects.isNull(dependency) || dependency.equals("ALL")) {
+            return edges;
         } else {
-            String finalDependency = dependency;
-            return result2.stream()
-                    .filter(edge -> edge.source().dependency.contains(finalDependency))
+            return edges.stream()
+                    .filter(edge -> edge.source().dependency.contains(dependency))
                     .toList();
         }
     }
 
     // @formatter:on
+
+    private Stream<Edge> processDependencies(
+        UserBeansDependencyService.DependencyDocument dd,
+        String beanName,
+        String beanPackage,
+        List<UserBeansDependencyService.FlatDependencyPackage> flatDependencyPackages
+    ) {
+        if (!dd.beanDependencies().isEmpty()) {
+            return toEdgeWithDependencies(dd, beanName, beanPackage, flatDependencyPackages);
+        } else {
+            return toEdgeWithoutDependencies(beanName, beanPackage, flatDependencyPackages);
+        }
+    }
+
+    private Stream<Edge> toEdgeWithDependencies(
+        UserBeansDependencyService.DependencyDocument bd,
+        String beanName,
+        String beanPackage,
+        List<UserBeansDependencyService.FlatDependencyPackage> flatDependencyPackages
+    ) {
+        return bd
+            .beanDependencies()
+            .stream()
+            .map(dep -> {
+                BeanNode sourceNode = flatDependencyPackages
+                    .stream()
+                    .filter(fdp -> fdp.packageName().contains(beanPackage))
+                    .findFirst()
+                    .map(fdp -> new BeanNode(beanName, beanPackage, fdp.dependencyName()))
+                    .orElse(new BeanNode(beanName, beanPackage, UNKNOWN_DEPENDENCY));
+                return new Edge(sourceNode, new BeanNode(dep, UNKNOWN_PACKAGE, UNKNOWN_DEPENDENCY));
+            });
+    }
+
+    private Stream<Edge> toEdgeWithoutDependencies(
+        String beanName,
+        String beanPackage,
+        List<UserBeansDependencyService.FlatDependencyPackage> flatDependenciPackages
+    ) {
+        return flatDependenciPackages
+            .stream()
+            .filter(fdp -> fdp.packageName().contains(beanPackage))
+            .findFirst()
+            .map(fdp -> Stream.of(new Edge(new BeanNode(beanName, beanPackage, fdp.dependencyName()), null)))
+            .orElse(Stream.of(new Edge(new BeanNode(beanName, beanPackage, UNKNOWN_DEPENDENCY), null)));
+    }
 
     List<UserBeansDependencyService.Dependency> generateGraphCombo() {
         return userDependenciesService.getDependencies();
