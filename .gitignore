@@ -4,3 +4,4 @@ target
 .env
 .DS_Store
 external-tests/spring-petclinc/**
+local-m2

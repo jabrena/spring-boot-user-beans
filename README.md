@@ -152,7 +152,7 @@ https://en.wikipedia.org/wiki/Convention_over_configuration
 ```bash
 ./mvnw clean verify
 ./mvnw clean verify -Ppipelines
-./mvnw spring-boot:run -pl examples/hello-world-servlet/ -am
+./mvnw clean spring-boot:run -pl examples/hello-world-servlet/ -am
 ./mvnw spring-boot:run -pl examples/hello-world-reactive/ -am -Puserbeans
 open http://localhost:8080/
 

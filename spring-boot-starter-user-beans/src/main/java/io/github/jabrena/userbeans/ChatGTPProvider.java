@@ -33,7 +33,7 @@ public class ChatGTPProvider {
     @Value("${userbeans.openapi.model}")
     private String model;
 
-    @Value("${OPENAI_API_KEY}")
+    @Value("${OPENAI_API_KEY:null}")
     private String apiKey;
 
     // @formatter:off
