@@ -12,10 +12,10 @@
     </parent>
 
     <groupId>io.github.jabrena</groupId>
-    <artifactId>spring-boot-user-beans-starter</artifactId>
+    <artifactId>spring-boot-starter-user-beans</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>spring-boot-user-beans-starter</name>
+    <name>spring-boot-starter-user-beans</name>
 
     <properties>
         <java.version>17</java.version>

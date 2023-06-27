@@ -37,7 +37,7 @@
     </dependencyManagement>
 
     <modules>
-        <module>spring-boot-user-beans-starter</module>
+        <module>spring-boot-starter-user-beans</module>
         <module>examples</module>
         <module>coverage-module</module>
         <!--

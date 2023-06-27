@@ -36,7 +36,7 @@ Add the following dependency in your build system:
 ```xml
 <dependency>
     <groupId>io.github.jabrena</groupId>
-    <artifactId>spring-boot-user-beans-starter</artifactId>
+    <artifactId>spring-boot-starter-user-beans</artifactId>
     <version>0.1.0-SNAPSHOT</version>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add the following dependency in your build system:
 **Gradle:**
 
 ```kotlin
-implementation 'io.github.jabrena:spring-boot-user-beans-starter:0.1.0-SNAPSHOT'
+implementation 'io.github.jabrena:spring-boot-starter-user-beans:0.1.0-SNAPSHOT'
 ```
 
 **Configuration:**
