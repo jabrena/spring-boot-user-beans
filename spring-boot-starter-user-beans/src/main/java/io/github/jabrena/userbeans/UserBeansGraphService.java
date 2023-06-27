@@ -15,14 +15,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
-public class GraphService {
+public class UserBeansGraphService {
 
-    private static final Logger logger = LoggerFactory.getLogger(GraphService.class);
+    private static final Logger logger = LoggerFactory.getLogger(UserBeansGraphService.class);
 
     private final UserBeansDependencyService userDependenciesService;
 
     // @formatter:off
-    public GraphService(UserBeansDependencyService userDependenciesService) {
+    public UserBeansGraphService(UserBeansDependencyService userDependenciesService) {
         this.userDependenciesService = userDependenciesService;
     }
 

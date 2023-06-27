@@ -16,7 +16,7 @@ public class UserBeansEndpoint {
     private static final Logger logger = LoggerFactory.getLogger(UserBeansEndpoint.class);
 
     @Autowired
-    private GraphService graphService;
+    private UserBeansGraphService userBeansGraphService;
 
     @Autowired
     private UserBeansExplanationService beanExplanationService;
@@ -24,15 +24,15 @@ public class UserBeansEndpoint {
     @GetMapping(path = "/", produces = MediaType.TEXT_HTML_VALUE)
     ResponseEntity<String> loadGraphWebDocument() {
         logger.info("GET /actuator/userbeans");
-        return ResponseEntity.ok().body(graphService.generateGraphWebDocument());
+        return ResponseEntity.ok().body(userBeansGraphService.generateGraphWebDocument());
     }
 
     // @formatter:off
     @GetMapping(path = "/graph", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<List<GraphService.Edge>> getGraph(
+    ResponseEntity<List<UserBeansGraphService.Edge>> getGraph(
             @RequestParam(name = "dependency", required = false) String dependency) {
         logger.info("GET /actuator/userbeans/graph");
-        return ResponseEntity.ok().body(graphService.generateGraphData(dependency));
+        return ResponseEntity.ok().body(userBeansGraphService.generateGraphData(dependency));
     }
 
     // @formatter:on
@@ -40,7 +40,7 @@ public class UserBeansEndpoint {
     @GetMapping(path = "/graph-combo", produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<List<UserBeansDependencyService.Dependency>> getGraphCombo() {
         logger.info("GET /actuator/userbeans/graph-combo");
-        return ResponseEntity.ok().body(graphService.generateGraphCombo());
+        return ResponseEntity.ok().body(userBeansGraphService.generateGraphCombo());
     }
 
     @GetMapping(path = "/details", produces = MediaType.TEXT_HTML_VALUE)

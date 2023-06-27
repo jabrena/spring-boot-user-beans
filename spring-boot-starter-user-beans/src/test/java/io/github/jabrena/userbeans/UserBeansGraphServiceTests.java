@@ -16,16 +16,16 @@ import org.springframework.boot.test.context.SpringBootTest;
     classes = { TestApplication.class, SupportController.class },
     properties = { "management.endpoints.web.exposure.include=beans,userbeans" }
 )
-class GraphServiceTests {
+class UserBeansGraphServiceTests {
 
     @Autowired
-    private GraphService graphService;
+    private UserBeansGraphService userBeansGraphService;
 
     @Test
     void shouldReturnValidGraphWebDocument() {
         //Given
         //When
-        var html = graphService.generateGraphWebDocument();
+        var html = userBeansGraphService.generateGraphWebDocument();
         Document doc = Jsoup.parse(html);
 
         //Then
@@ -36,7 +36,7 @@ class GraphServiceTests {
     void shouldReturnGraphData() {
         //Given
         //When
-        var resuls = graphService.generateGraphData("ALL");
+        var resuls = userBeansGraphService.generateGraphData("ALL");
 
         //Then
         assertThat(resuls).hasSizeGreaterThan(0);
@@ -49,7 +49,7 @@ class GraphServiceTests {
         var noFilter = "ALL";
 
         //When
-        var list = graphService.generateGraphData(noFilter).stream().filter(edge -> Objects.isNull(edge.target())).toList();
+        var list = userBeansGraphService.generateGraphData(noFilter).stream().filter(edge -> Objects.isNull(edge.target())).toList();
 
         //Then
         assertThat(list).hasSizeGreaterThan(0);
@@ -59,7 +59,7 @@ class GraphServiceTests {
     void shouldBePresentSpecificSupportBeans() {
         //Given
         //When
-        var resuls = graphService
+        var resuls = userBeansGraphService
             .generateGraphData("ALL")
             .stream()
             .filter(edge -> edge.source().beanPackage().contains("io.github.jabrena.support"))
@@ -74,7 +74,7 @@ class GraphServiceTests {
     void shouldBePresentSpecificBeans() {
         //Given
         //When
-        var resuls = graphService
+        var resuls = userBeansGraphService
             .generateGraphData("ALL")
             .stream()
             .filter(edge -> edge.source().beanPackage().contains("io.github.jabrena.userbeans"))
