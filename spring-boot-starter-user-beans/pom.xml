@@ -12,10 +12,10 @@
     </parent>
 
     <groupId>io.github.jabrena</groupId>
-    <artifactId>spring-boot-user-beans-starter</artifactId>
+    <artifactId>spring-boot-starter-user-beans</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>spring-boot-user-beans-starter</name>
+    <name>spring-boot-starter-user-beans</name>
 
     <properties>
         <java.version>17</java.version>
@@ -67,12 +67,6 @@
             <groupId>com.github.tomakehurst</groupId>
             <artifactId>wiremock-standalone</artifactId>
             <version>2.27.2</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.github.stefanbirkner</groupId>
-            <artifactId>system-lambda</artifactId>
-            <version>1.2.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

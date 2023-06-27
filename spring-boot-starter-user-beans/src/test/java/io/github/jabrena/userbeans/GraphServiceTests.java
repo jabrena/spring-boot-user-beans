@@ -4,8 +4,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import io.github.jabrena.support.SupportController;
 import io.github.jabrena.support.TestApplication;
+import java.util.Objects;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -38,6 +40,19 @@ class GraphServiceTests {
 
         //Then
         assertThat(resuls).hasSizeGreaterThan(0);
+    }
+
+    @Test
+    @DisplayName("Presence of false Edges")
+    void shouldExistEdgesWithNoTarget() {
+        //Given
+        var noFilter = "ALL";
+
+        //When
+        var list = graphService.generateGraphData(noFilter).stream().filter(edge -> Objects.isNull(edge.target())).toList();
+
+        //Then
+        assertThat(list).hasSizeGreaterThan(0);
     }
 
     @Test

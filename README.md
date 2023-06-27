@@ -6,6 +6,9 @@
 
 A visual way to increase the developer awareness to minimize the number of Beans in memory.
 
+The library exposes operational information about your Spring Beans running in the memory as another
+metric included with `Spring Boot Actuator`.
+
 ## Motivation
 
 Using this project, you will be able to see your Beans developed in your project
@@ -33,7 +36,7 @@ Add the following dependency in your build system:
 ```xml
 <dependency>
     <groupId>io.github.jabrena</groupId>
-    <artifactId>spring-boot-user-beans-starter</artifactId>
+    <artifactId>spring-boot-starter-user-beans</artifactId>
     <version>0.1.0-SNAPSHOT</version>
 </dependency>
 ```
@@ -41,7 +44,7 @@ Add the following dependency in your build system:
 **Gradle:**
 
 ```kotlin
-implementation 'io.github.jabrena:spring-boot-user-beans-starter:0.1.0-SNAPSHOT'
+implementation 'io.github.jabrena:spring-boot-starter-user-beans:0.1.0-SNAPSHOT'
 ```
 
 **Configuration:**
@@ -127,10 +130,7 @@ By leveraging this educational tool, you can enhance
 your ability to measure and manage your
 [Cognitive Load](https://en.wikipedia.org/wiki/Cognitive_load).
 Cognitive Load refers to the mental effort required
-for information processing. This tool provides valuable
-insights and techniques that help you optimize your
-cognitive resources, leading to improved efficiency and
-effectiveness in various tasks and activities.
+for information processing.
 
 ## Goals
 
@@ -152,7 +152,7 @@ https://en.wikipedia.org/wiki/Convention_over_configuration
 ```bash
 ./mvnw clean verify
 ./mvnw clean verify -Ppipelines
-./mvnw spring-boot:run -pl examples/hello-world-servlet/ -am
+./mvnw clean spring-boot:run -pl examples/hello-world-servlet/ -am
 ./mvnw spring-boot:run -pl examples/hello-world-reactive/ -am -Puserbeans
 open http://localhost:8080/
 

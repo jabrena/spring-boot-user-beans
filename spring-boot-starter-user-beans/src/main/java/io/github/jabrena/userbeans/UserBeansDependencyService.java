@@ -22,6 +22,7 @@ public class UserBeansDependencyService {
     private static final Logger logger = LoggerFactory.getLogger(UserBeansDependencyService.class);
 
     public static final String UNKNOWN_DEPENDENCY = "UNKNOWN";
+    public static final String UNKNOWN_PACKAGE = "UNKNOWN";
 
     private final UserBeansService userBeansService;
 
@@ -33,29 +34,24 @@ public class UserBeansDependencyService {
 
     public record DependencyDetail(String dependencyName, List<String> packages) {}
 
-    public record DependencyBeanDetail(String dependencyName, String beanName) {}
-
     public record DependencyDocument(String beanName, String beanPackage, List<String> beanDependencies, String dependency) {}
-
-    List<Dependency> getDependencies() {
-        List<DependencyDocument> dependencyDocument = getDependencyDocuments();
-
-        Set<Dependency> differentDependencies = new HashSet<>();
-        for (DependencyDocument dd : dependencyDocument) {
-            differentDependencies.add(new Dependency(dd.dependency()));
-        }
-
-        return differentDependencies
-            .stream()
-            .filter(dep -> !dep.dependency.equals(UNKNOWN_DEPENDENCY))
-            .sorted(Comparator.comparing(Dependency::dependency))
-            .toList();
-    }
 
     private UnaryOperator<String> removePath = fullPath -> {
         var pathParts = fullPath.split("\\/");
         return (pathParts.length > 0) ? pathParts[pathParts.length - 1] : fullPath;
     };
+
+    public record FlatDependencyPackage(String dependencyName, String packageName) {}
+
+    List<FlatDependencyPackage> getFlatDependenciPackages() {
+        return getDependenciesAndPackages()
+            .stream()
+            .flatMap(dd -> {
+                var dependencyName = dd.dependencyName();
+                return dd.packages().stream().map(str -> new FlatDependencyPackage(dependencyName, str));
+            })
+            .toList();
+    }
 
     // @formatter:off
     List<DependencyDetail> getDependenciesAndPackages() {
@@ -101,16 +97,6 @@ public class UserBeansDependencyService {
     }
 
     // @formatter:off
-    List<DependencyBeanDetail> getDependenciesAndBeans() {
-        List<DependencyDocument> dependencyDocument = getDependencyDocuments();
-        return dependencyDocument.stream()
-                .map(dd -> new DependencyBeanDetail(dd.dependency, dd.beanName))
-                .toList();
-    }
-
-    // @formatter:on
-
-    // @formatter:off
     public List<DependencyDocument> getDependencyDocuments() {
         List<BeanDocument> beanDocuments = userBeansService.getBeansDocuments();
         List<DependencyDetail> jars = getDependenciesAndPackages();
@@ -134,12 +120,20 @@ public class UserBeansDependencyService {
                         bd.dependencies(),
                         UNKNOWN_DEPENDENCY);
             })
+            .sorted(Comparator.comparing(DependencyDocument::beanName))
             .toList();
     }
 
     // @formatter:on
 
-    List<BeanDocument> getBeansDocuments() {
-        return userBeansService.getBeansDocuments();
+    List<Dependency> getDependencies() {
+        return getDependencyDocuments()
+            .stream()
+            .map(UserBeansDependencyService.DependencyDocument::dependency)
+            .filter(dependency -> !dependency.equals(UNKNOWN_DEPENDENCY))
+            .map(UserBeansDependencyService.Dependency::new)
+            .distinct()
+            .sorted(Comparator.comparing(UserBeansDependencyService.Dependency::dependency))
+            .toList();
     }
 }

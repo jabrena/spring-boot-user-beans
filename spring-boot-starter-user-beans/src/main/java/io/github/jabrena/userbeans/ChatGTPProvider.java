@@ -33,6 +33,9 @@ public class ChatGTPProvider {
     @Value("${userbeans.openapi.model}")
     private String model;
 
+    @Value("${OPENAI_API_KEY:null}")
+    private String apiKey;
+
     // @formatter:off
     public record ChaptGTPAnswer(String id, String object, Integer created, String model, List<Choice> choices, Usage usage) {}
 
@@ -47,9 +50,7 @@ public class ChatGTPProvider {
     String getAnswer(String question) {
         logger.info("Sending a question to ChatGTP");
 
-        String key = System.getenv().get("OPENAI_API_KEY");
-
-        if (Objects.isNull(key)) {
+        if (Objects.isNull(apiKey)) {
             return """
             Sorry, something went wrong.
             Check if OPENAI_API_KEY variable was defined in your environment
@@ -60,7 +61,7 @@ public class ChatGTPProvider {
         String result = "";
 
         try {
-            HttpRequest request = prepareRequestToChatGTP(url, question, key);
+            HttpRequest request = prepareRequestToChatGTP(url, question, apiKey);
             HttpClient client = HttpClient.newHttpClient();
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
@@ -71,12 +72,15 @@ public class ChatGTPProvider {
                 ChaptGTPAnswer answer = objectMapper.readValue(responseBody, ChaptGTPAnswer.class);
                 result = answer.choices().get(0).text();
             } else {
+                logger.warn("Status code: {}, Message: {}", response.statusCode(), response.body());
                 result = "Something went wrong";
             }
         } catch (InterruptedException e) {
+            result = "Something went wrong";
             logger.warn(e.getMessage(), e);
             Thread.currentThread().interrupt();
         } catch (IOException e) {
+            result = "Something went wrong";
             logger.warn(e.getMessage(), e);
         }
         return result;
