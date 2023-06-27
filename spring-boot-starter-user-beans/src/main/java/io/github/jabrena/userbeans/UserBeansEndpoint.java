@@ -16,7 +16,6 @@ public class UserBeansEndpoint {
     private static final Logger logger = LoggerFactory.getLogger(UserBeansEndpoint.class);
 
     @Autowired
-
     private UserBeansGraphService userBeansGraphService;
 
     @Autowired
