@@ -2,13 +2,13 @@ package io.github.jabrena.userbeans;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.annotation.PostConstruct;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.List;
-import java.util.Objects;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +33,19 @@ public class ChatGTPProvider {
     @Value("${userbeans.openapi.model}")
     private String model;
 
-    @Value("${OPENAI_API_KEY:null}")
+    private final String nokey = "nokey";
+
+    @Value("${userbeans.openapi.apikey:nokey}")
     private String apiKey;
+
+    @PostConstruct
+    void after() {
+        if (apiKey.equals(nokey)) {
+            logger.warn("Key userbeans.openapi.apikey was not defined");
+        } else {
+            logger.info("Key userbeans.openapi.apikey was defined");
+        }
+    }
 
     // @formatter:off
     public record ChaptGTPAnswer(String id, String object, Integer created, String model, List<Choice> choices, Usage usage) {}
@@ -50,10 +61,10 @@ public class ChatGTPProvider {
     String getAnswer(String question) {
         logger.info("Sending a question to ChatGTP");
 
-        if (Objects.isNull(apiKey)) {
+        if (apiKey.equals(nokey)) {
             return """
             Sorry, something went wrong.
-            Check if OPENAI_API_KEY variable was defined in your environment
+            Check if 'userbeans.openapi.apikey' property was defined
             to enable this feature.
             """;
         }
