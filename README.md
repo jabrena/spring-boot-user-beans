@@ -63,7 +63,7 @@ variable.
 ```bash
 export OPENAI_API_KEY=YOUR_API_KEY_VALUE
 echo $OPENAI_API_KEY
-./mvnw spring-boot:run -Duserbeans.openapi.apikey=$OPENAI_API_KEY
+./mvnw spring-boot:run -Dspring-boot.run.arguments="--userbeans.openapi.apikey=$OPENAI_API_KEY"
 ```
 
 **Requirements:**
@@ -153,8 +153,8 @@ https://en.wikipedia.org/wiki/Convention_over_configuration
 ```bash
 ./mvnw clean verify
 ./mvnw clean verify -Ppipelines
-./mvnw clean spring-boot:run -pl examples/hello-world-servlet/ -am -Duserbeans.openapi.apikey=$OPENAI_API_KEY
-./mvnw spring-boot:run -pl examples/hello-world-reactive/ -am -Puserbeans -Duserbeans.openapi.apikey=$OPENAI_API_KEY
+./mvnw clean spring-boot:run -pl examples/hello-world-servlet/ -am -Dspring-boot.run.arguments="--userbeans.openapi.apikey=$OPENAI_API_KEY"
+./mvnw spring-boot:run -pl examples/hello-world-reactive/ -am -Puserbeans -Dspring-boot.run.arguments="--userbeans.openapi.apikey=$OPENAI_API_KEY"
 open http://localhost:8080/
 
 #UX

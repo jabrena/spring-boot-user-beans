@@ -61,14 +61,6 @@ public class ChatGTPProvider {
     String getAnswer(String question) {
         logger.info("Sending a question to ChatGTP");
 
-        if (apiKey.equals(nokey)) {
-            return """
-            Sorry, something went wrong.
-            Check if 'userbeans.openapi.apikey' property was defined
-            to enable this feature.
-            """;
-        }
-
         String result = "";
 
         try {

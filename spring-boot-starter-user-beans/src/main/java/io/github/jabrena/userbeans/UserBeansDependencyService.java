@@ -44,7 +44,23 @@ public class UserBeansDependencyService {
     public record FlatDependencyPackage(String dependencyName, String packageName) {}
 
     List<FlatDependencyPackage> getFlatDependenciPackages() {
-        return getDependenciesAndPackages()
+        List<DependencyDetail> list = new ArrayList<>();
+
+        String classpath = System.getProperty("java.class.path");
+        String[] classpathEntries = classpath.split(File.pathSeparator);
+
+        for (String classpathEntry : classpathEntries) {
+            if (classpathEntry.contains(".jar")) {
+                var jar = removePath.apply(classpathEntry);
+                List<String> pkgs = listPackagesInJar(classpathEntry).stream().toList();
+                list.add(new DependencyDetail(jar, pkgs));
+            }
+        }
+
+        return list
+            .stream()
+            .sorted(Comparator.comparing(DependencyDetail::dependencyName))
+            .toList()
             .stream()
             .flatMap(dd -> {
                 var dependencyName = dd.dependencyName();
