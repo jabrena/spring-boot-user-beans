@@ -117,7 +117,7 @@
    },
    {
       "source" : {
-         "beanName" : "AopAutoConfiguration$ClassProxyingConfiguration$$Lambda$368/0x0000000801271da8",
+         "beanName" : "AopAutoConfiguration$ClassProxyingConfiguration$$Lambda$368/0x0000000801270c68",
          "beanPackage" : "org.springframework.boot.autoconfigure.aop",
          "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
       },
@@ -290,7 +290,7 @@
    {
       "source" : {
          "beanName" : "ChatGTPConfig",
-         "beanPackage" : "info.jab.userbeans",
+         "beanPackage" : "io.github.jabrena.userbeans",
          "dependency" : "UNKNOWN"
       },
       "target" : null
@@ -298,7 +298,7 @@
    {
       "source" : {
          "beanName" : "ChatGTPProvider",
-         "beanPackage" : "info.jab.userbeans",
+         "beanPackage" : "io.github.jabrena.userbeans",
          "dependency" : "UNKNOWN"
       },
       "target" : {
@@ -981,18 +981,6 @@
    },
    {
       "source" : {
-         "beanName" : "GraphService",
-         "beanPackage" : "info.jab.userbeans",
-         "dependency" : "UNKNOWN"
-      },
-      "target" : {
-         "beanName" : "UserDependenciesService",
-         "beanPackage" : "UNKNOWN",
-         "dependency" : "UNKNOWN"
-      }
-   },
-   {
-      "source" : {
          "beanName" : "HandlerExceptionResolverComposite",
          "beanPackage" : "org.springframework.web.servlet.handler",
          "dependency" : "spring-webmvc-6.0.9.jar"
@@ -1253,7 +1241,7 @@
    },
    {
       "source" : {
-         "beanName" : "JacksonEndpointAutoConfiguration$$Lambda$632/0x0000000801380000",
+         "beanName" : "JacksonEndpointAutoConfiguration$$Lambda$632/0x000000080133f590",
          "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.jackson",
          "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
       },
@@ -2269,7 +2257,7 @@
    },
    {
       "source" : {
-         "beanName" : "ServletManagementContextAutoConfiguration$$Lambda$713/0x00000008013c11f0",
+         "beanName" : "ServletManagementContextAutoConfiguration$$Lambda$713/0x00000008013c0698",
          "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web.servlet",
          "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
       },
@@ -2281,7 +2269,7 @@
    },
    {
       "source" : {
-         "beanName" : "ServletManagementContextAutoConfiguration$$Lambda$713/0x00000008013c11f0",
+         "beanName" : "ServletManagementContextAutoConfiguration$$Lambda$713/0x00000008013c0698",
          "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web.servlet",
          "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
       },
@@ -2945,12 +2933,12 @@
    },
    {
       "source" : {
-         "beanName" : "UserBeansEndpoint",
-         "beanPackage" : "info.jab.userbeans",
+         "beanName" : "UserBeansDependencyService",
+         "beanPackage" : "io.github.jabrena.userbeans",
          "dependency" : "UNKNOWN"
       },
       "target" : {
-         "beanName" : "GraphService",
+         "beanName" : "UserBeansService",
          "beanPackage" : "UNKNOWN",
          "dependency" : "UNKNOWN"
       }
@@ -2958,7 +2946,19 @@
    {
       "source" : {
          "beanName" : "UserBeansEndpoint",
-         "beanPackage" : "info.jab.userbeans",
+         "beanPackage" : "io.github.jabrena.userbeans",
+         "dependency" : "UNKNOWN"
+      },
+      "target" : {
+         "beanName" : "UserBeansGraphService",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      }
+   },
+   {
+      "source" : {
+         "beanName" : "UserBeansEndpoint",
+         "beanPackage" : "io.github.jabrena.userbeans",
          "dependency" : "UNKNOWN"
       },
       "target" : {
@@ -2970,7 +2970,7 @@
    {
       "source" : {
          "beanName" : "UserBeansExplanationService",
-         "beanPackage" : "info.jab.userbeans",
+         "beanPackage" : "io.github.jabrena.userbeans",
          "dependency" : "UNKNOWN"
       },
       "target" : {
@@ -2981,24 +2981,24 @@
    },
    {
       "source" : {
-         "beanName" : "UserBeansService",
-         "beanPackage" : "info.jab.userbeans",
+         "beanName" : "UserBeansGraphService",
+         "beanPackage" : "io.github.jabrena.userbeans",
          "dependency" : "UNKNOWN"
       },
       "target" : {
-         "beanName" : "beansEndpoint",
+         "beanName" : "UserBeansDependencyService",
          "beanPackage" : "UNKNOWN",
          "dependency" : "UNKNOWN"
       }
    },
    {
       "source" : {
-         "beanName" : "UserDependenciesService",
-         "beanPackage" : "info.jab.userbeans",
+         "beanName" : "UserBeansService",
+         "beanPackage" : "io.github.jabrena.userbeans",
          "dependency" : "UNKNOWN"
       },
       "target" : {
-         "beanName" : "UserBeansService",
+         "beanName" : "beansEndpoint",
          "beanPackage" : "UNKNOWN",
          "dependency" : "UNKNOWN"
       }
