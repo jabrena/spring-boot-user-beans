@@ -51,13 +51,13 @@ public class UserBeansGraphService {
     List<Edge> generateGraphData(String dependency) {
         logger.info("Generating Graph data");
 
-        List<UserBeansDependencyService.FlatDependencyPackage> flatDependencyPackages = userDependenciesService.getFlatDependenciPackages();
+        List<UserBeansDependencyService.DependencyPackage> dependencyPackages = userDependenciesService.getDependencyPackages();
 
         var edges = userDependenciesService.getDependencyDocuments().stream()
             .flatMap(dd -> {
                 String beanName = dd.beanName();
                 String beanPackage = dd.beanPackage();
-                return processDependencies(dd, beanName, beanPackage, flatDependencyPackages);
+                return processDependencies(dd, beanName, beanPackage, dependencyPackages);
             })
             .toList();
 
@@ -77,12 +77,12 @@ public class UserBeansGraphService {
         UserBeansDependencyService.DependencyDocument dd,
         String beanName,
         String beanPackage,
-        List<UserBeansDependencyService.FlatDependencyPackage> flatDependencyPackages
+        List<UserBeansDependencyService.DependencyPackage> dependencyPackages
     ) {
         if (!dd.beanDependencies().isEmpty()) {
-            return toEdgeWithDependencies(dd, beanName, beanPackage, flatDependencyPackages);
+            return toEdgeWithDependencies(dd, beanName, beanPackage, dependencyPackages);
         } else {
-            return toEdgeWithoutDependencies(beanName, beanPackage, flatDependencyPackages);
+            return toEdgeWithoutDependencies(beanName, beanPackage, dependencyPackages);
         }
     }
 
@@ -90,13 +90,13 @@ public class UserBeansGraphService {
         UserBeansDependencyService.DependencyDocument bd,
         String beanName,
         String beanPackage,
-        List<UserBeansDependencyService.FlatDependencyPackage> flatDependencyPackages
+        List<UserBeansDependencyService.DependencyPackage> dependencyPackages
     ) {
         return bd
             .beanDependencies()
             .stream()
             .map(dep -> {
-                BeanNode sourceNode = flatDependencyPackages
+                BeanNode sourceNode = dependencyPackages
                     .stream()
                     .filter(fdp -> fdp.packageName().contains(beanPackage))
                     .findFirst()
@@ -109,7 +109,7 @@ public class UserBeansGraphService {
     private Stream<Edge> toEdgeWithoutDependencies(
         String beanName,
         String beanPackage,
-        List<UserBeansDependencyService.FlatDependencyPackage> flatDependenciPackages
+        List<UserBeansDependencyService.DependencyPackage> flatDependenciPackages
     ) {
         return flatDependenciPackages
             .stream()

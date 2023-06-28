@@ -31,7 +31,7 @@ class UserBeansDependencyServiceTests {
     void testGetDependenciesAndPackages() {
         //Given
         //When
-        var result = userDependenciesService.getDependenciesAndPackages();
+        var result = userDependenciesService.getDependencyPackages();
 
         //Then
         assertThat(result).hasSizeGreaterThan(0);
