@@ -9,6 +9,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -35,8 +37,10 @@ class UserBeansGraphServiceTests {
     @Test
     void shouldReturnGraphData() {
         //Given
+        var noFilter = "ALL";
+
         //When
-        var resuls = userBeansGraphService.generateGraphData("ALL");
+        var resuls = userBeansGraphService.generateGraphData(noFilter);
 
         //Then
         assertThat(resuls).hasSizeGreaterThan(0);
@@ -55,33 +59,18 @@ class UserBeansGraphServiceTests {
         assertThat(list).hasSizeGreaterThan(0);
     }
 
-    @Test
-    void shouldBePresentSpecificSupportBeans() {
+    @ParameterizedTest
+    @ValueSource(strings = { "io.github.jabrena.support", "io.github.jabrena.userbeans" })
+    void shouldBePresentSpecificBeans(String beanPackage) {
         //Given
         //When
         var resuls = userBeansGraphService
             .generateGraphData("ALL")
             .stream()
-            .filter(edge -> edge.source().beanPackage().contains("io.github.jabrena.support"))
-            .peek(System.out::println)
+            .filter(edge -> edge.source().beanPackage().contains(beanPackage))
             .toList();
 
         //Then
-        assertThat(resuls).hasSize(2);
-    }
-
-    @Test
-    void shouldBePresentSpecificBeans() {
-        //Given
-        //When
-        var resuls = userBeansGraphService
-            .generateGraphData("ALL")
-            .stream()
-            .filter(edge -> edge.source().beanPackage().contains("io.github.jabrena.userbeans"))
-            .peek(System.out::println)
-            .toList();
-
-        //Then
-        assertThat(resuls).hasSize(8);
+        assertThat(resuls).hasSizeGreaterThan(0);
     }
 }

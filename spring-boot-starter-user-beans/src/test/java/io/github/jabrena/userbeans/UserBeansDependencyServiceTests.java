@@ -24,7 +24,7 @@ class UserBeansDependencyServiceTests {
         var list1 = userDependenciesService.getDependencies();
 
         //Then
-        assertThat(list1).hasSizeGreaterThan(0);
+        assertThat(list1).isNotEmpty().as("List of dependencies should not be empty");
     }
 
     @Test
@@ -34,7 +34,7 @@ class UserBeansDependencyServiceTests {
         var result = userDependenciesService.getDependencyPackages();
 
         //Then
-        assertThat(result).hasSizeGreaterThan(0);
+        assertThat(result).isNotEmpty().as("Result of dependency packages should not be empty");
     }
 
     @Test
@@ -44,6 +44,6 @@ class UserBeansDependencyServiceTests {
         var result = userDependenciesService.getDependencyDocuments();
 
         //Then
-        assertThat(result).hasSizeGreaterThan(0);
+        assertThat(result).isNotEmpty().as("Result of dependency documents should not be empty");
     }
 }
