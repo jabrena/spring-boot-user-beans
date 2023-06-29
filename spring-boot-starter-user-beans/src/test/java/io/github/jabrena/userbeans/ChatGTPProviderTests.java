@@ -54,7 +54,7 @@ class ChatGTPProviderTests {
         var response = chatGTPProvider.getAnswer("");
 
         //Then
-        assertThat(response).isNotNull().as("Response should not be null");
+        assertThat(response).as("Response should not be null").isNotNull();
     }
 
     @Test
@@ -75,7 +75,7 @@ class ChatGTPProviderTests {
         var response = chatGTPProvider.getAnswer("");
 
         //Then
-        assertThat(response).isEqualTo("Something went wrong").as("Response should be 'Something went wrong'");
+        assertThat(response).as("Response should be 'Something went wrong'").isEqualTo("Something went wrong");
     }
 
     @Test
@@ -96,6 +96,6 @@ class ChatGTPProviderTests {
         var response = chatGTPProvider.getAnswer("");
 
         //Then
-        assertThat(response).isNotEmpty().as("Response should not be empty");
+        assertThat(response).as("Response should not be empty").isNotEmpty();
     }
 }
