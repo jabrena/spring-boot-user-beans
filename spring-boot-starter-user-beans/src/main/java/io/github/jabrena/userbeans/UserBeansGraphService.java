@@ -61,19 +61,28 @@ public class UserBeansGraphService {
                 String beanPackage = dd.beanPackage();
                 return processDependencies(dd, beanName, beanPackage, dependencyPackages);
             })
+            .filter(dd -> Objects.nonNull(dd.target))
             .toList();
 
         //TODO Remove in the future the filter. Everything will be filtered in D3.js side.
         if (Objects.isNull(dependency) || dependency.equals("ALL")) {
-            return new GraphData(getNodes(), edges);
+            return new GraphData(getAllNodes(), edges);
         } else {
-            return new GraphData(getNodes(), edges.stream()
+            return new GraphData(getNodes(dependency), edges.stream()
                     .filter(edge -> edge.source().dependency.contains(dependency))
                     .toList());
         }
     }
 
-    private List<BeanNode> getNodes() {
+    private List<BeanNode> getNodes(String dependency) {
+        return userDependenciesService.getDependencyDocuments().stream()
+                .map(dd -> new BeanNode(dd.beanName(), dd.beanPackage(), dd.dependency()))
+                .filter(b -> b.dependency.equals(dependency))
+                .distinct()
+                .toList();
+    }
+
+    private List<BeanNode> getAllNodes() {
         return userDependenciesService.getDependencyDocuments().stream()
                 .map(dd -> new BeanNode(dd.beanName(), dd.beanPackage(), dd.dependency()))
                 .distinct()
