@@ -43,12 +43,14 @@ public class UserBeansGraphService {
 
     // @formatter:on
 
+    public record GraphData(List<BeanNode> nodes, List<Edge> edges) {}
+
     public record BeanNode(String beanName, String beanPackage, String dependency) {}
 
     public record Edge(BeanNode source, BeanNode target) {}
 
     // @formatter:off
-    List<Edge> generateGraphData(String dependency) {
+    GraphData generateGraphData(String dependency) {
         logger.info("Generating Graph data");
 
         List<UserBeansDependencyService.DependencyPackage> dependencyPackages = userDependenciesService.getDependencyPackages();
@@ -63,12 +65,19 @@ public class UserBeansGraphService {
 
         //TODO Remove in the future the filter. Everything will be filtered in D3.js side.
         if (Objects.isNull(dependency) || dependency.equals("ALL")) {
-            return edges;
+            return new GraphData(getNodes(), edges);
         } else {
-            return edges.stream()
+            return new GraphData(getNodes(), edges.stream()
                     .filter(edge -> edge.source().dependency.contains(dependency))
-                    .toList();
+                    .toList());
         }
+    }
+
+    private List<BeanNode> getNodes() {
+        return userDependenciesService.getDependencyDocuments().stream()
+                .map(dd -> new BeanNode(dd.beanName(), dd.beanPackage(), dd.dependency()))
+                .distinct()
+                .toList();
     }
 
     // @formatter:on
