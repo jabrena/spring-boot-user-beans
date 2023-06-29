@@ -8,6 +8,8 @@ import io.github.jabrena.support.TestApplication;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -32,14 +34,20 @@ class UserBeansExplanationServiceTests {
         assertThat(doc).isNotNull();
     }
 
-    @Test
-    void shouldProcessAnswerFromChatGTP() {
+    @ParameterizedTest
+    @CsvSource(
+        {
+            "X, Y, Z, Mocked Result 1", "A, B, C, Mocked Result 2",
+            // Add more test cases as needed
+        }
+    )
+    void shouldProcessAnswerFromChatGTP(String input1, String input2, String input3, String expectedResult) {
         //Given
-        var expectedResult = "Mocked Result";
+        //var expectedResult = "Mocked Result";
         when(chatGTPProvider.getAnswer(anyString())).thenReturn(expectedResult);
 
         //When
-        var result = beanExplanationService.generateDetailsContent("X", "Y", "Z");
+        var result = beanExplanationService.generateDetailsContent(input1, input2, input3);
 
         //Then
         assertThat(result.response()).isEqualTo(expectedResult);

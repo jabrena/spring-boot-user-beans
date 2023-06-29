@@ -43,7 +43,6 @@ class UserBeansServiceTests {
         var beanList = userBeansService.getBeansDocuments();
         var unnamedBeans = beanList.stream()
                 .filter(beanDocument -> beanDocument.beanName().equals(""))
-                .peek(System.out::println)
                 .toList();
 
         //Then
@@ -60,7 +59,6 @@ class UserBeansServiceTests {
             .getBeansDocuments()
             .stream()
             .filter(beanDocument -> beanDocument.beanPackage().contains("io.github.jabrena.support"))
-            .peek(System.out::println)
             .toList();
 
         //Then
