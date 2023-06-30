@@ -29,10 +29,17 @@ public class UserBeansEndpoint {
 
     // @formatter:off
     @GetMapping(path = "/graph", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<UserBeansGraphService.GraphData> getGraph(
+    ResponseEntity<List<UserBeansGraphService.Edge>> getGraph(
             @RequestParam(name = "dependency", required = false) String dependency) {
         logger.info("GET /actuator/userbeans/graph");
         return ResponseEntity.ok().body(userBeansGraphService.generateGraphData(dependency));
+    }
+
+    @GetMapping(path = "/graph2", produces = MediaType.APPLICATION_JSON_VALUE)
+    ResponseEntity<UserBeansGraphService.GraphData> getGraph2(
+            @RequestParam(name = "dependency", required = false) String dependency) {
+        logger.info("GET /actuator/userbeans/graph2");
+        return ResponseEntity.ok().body(userBeansGraphService.generateGraphData2(dependency));
     }
 
     // @formatter:on

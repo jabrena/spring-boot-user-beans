@@ -1,0 +1,133 @@
+{
+   "edges" : [
+      {
+         "source" : {
+            "beanName" : "ChatGTPProvider"
+         },
+         "target" : {
+            "beanName" : "ChatGTPMapper"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "MultipartConfigElement"
+         },
+         "target" : {
+            "beanName" : "MultipartAutoConfiguration"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "MyController"
+         },
+         "target" : {
+            "beanName" : "myService"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "UserBeansDependencyService"
+         },
+         "target" : {
+            "beanName" : "UserBeansService"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "UserBeansEndpoint"
+         },
+         "target" : {
+            "beanName" : "UserBeansGraphService"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "UserBeansEndpoint"
+         },
+         "target" : {
+            "beanName" : "UserBeansExplanationService"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "UserBeansExplanationService"
+         },
+         "target" : {
+            "beanName" : "ChatGTPProvider"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "UserBeansGraphService"
+         },
+         "target" : {
+            "beanName" : "UserBeansDependencyService"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "UserBeansService"
+         },
+         "target" : {
+            "beanName" : "beansEndpoint"
+         }
+      }
+   ],
+   "nodes" : [
+      {
+         "beanName" : "ChatGTPConfig",
+         "beanPackage" : "io.github.jabrena.userbeans",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "ChatGTPProvider",
+         "beanPackage" : "io.github.jabrena.userbeans",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "MainApplication",
+         "beanPackage" : "info.jab.ms",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "MultipartConfigElement",
+         "beanPackage" : "jakarta.servlet",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "MyController",
+         "beanPackage" : "info.jab.ms",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "MyService",
+         "beanPackage" : "info.jab.ms",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "UserBeansDependencyService",
+         "beanPackage" : "io.github.jabrena.userbeans",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "UserBeansEndpoint",
+         "beanPackage" : "io.github.jabrena.userbeans",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "UserBeansExplanationService",
+         "beanPackage" : "io.github.jabrena.userbeans",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "UserBeansGraphService",
+         "beanPackage" : "io.github.jabrena.userbeans",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "UserBeansService",
+         "beanPackage" : "io.github.jabrena.userbeans",
+         "dependency" : "UNKNOWN"
+      }
+   ]
+}

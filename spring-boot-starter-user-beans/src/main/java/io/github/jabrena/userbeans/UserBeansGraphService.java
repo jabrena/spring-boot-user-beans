@@ -43,14 +43,18 @@ public class UserBeansGraphService {
 
     // @formatter:on
 
-    public record GraphData(List<BeanNode> nodes, List<Edge> edges) {}
+    public record GraphData(List<BeanNode> nodes, List<Edge2> edges) {}
 
     public record BeanNode(String beanName, String beanPackage, String dependency) {}
 
+    public record BeanEdge(String beanName) {}
+
     public record Edge(BeanNode source, BeanNode target) {}
 
+    public record Edge2(BeanEdge source, BeanEdge target) {}
+
     // @formatter:off
-    GraphData generateGraphData(String dependency) {
+    List<Edge> generateGraphData(String dependency) {
         logger.info("Generating Graph data");
 
         List<UserBeansDependencyService.DependencyPackage> dependencyPackages = userDependenciesService.getDependencyPackages();
@@ -61,15 +65,33 @@ public class UserBeansGraphService {
                 String beanPackage = dd.beanPackage();
                 return processDependencies(dd, beanName, beanPackage, dependencyPackages);
             })
-            .filter(dd -> Objects.nonNull(dd.target))
             .toList();
 
         //TODO Remove in the future the filter. Everything will be filtered in D3.js side.
         if (Objects.isNull(dependency) || dependency.equals("ALL")) {
-            return new GraphData(getAllNodes(), edges);
+            return edges;
         } else {
-            return new GraphData(getNodes(dependency), edges.stream()
+            return edges.stream()
                     .filter(edge -> edge.source().dependency.contains(dependency))
+                    .toList();
+        }
+    }
+
+    public GraphData generateGraphData2(String dependency) {
+
+        var nodes = getNodes(dependency);
+        var edges = generateGraphData(dependency).stream()
+                .filter(dd -> Objects.nonNull(dd.target))
+                .toList();
+
+        if (Objects.isNull(dependency) || dependency.equals("ALL")) {
+            return new GraphData(getAllNodes(), edges.stream()
+                    .map(dd -> new Edge2(new BeanEdge(dd.source.beanName), new BeanEdge(dd.target.beanName)))
+                    .toList());
+        } else {
+            return new GraphData(nodes, edges.stream()
+                    .filter(edge -> edge.source().dependency.contains(dependency))
+                    .map(dd -> new Edge2(new BeanEdge(dd.source.beanName), new BeanEdge(dd.target.beanName)))
                     .toList());
         }
     }

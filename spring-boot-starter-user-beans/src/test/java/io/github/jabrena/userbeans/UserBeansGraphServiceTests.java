@@ -7,7 +7,6 @@ import io.github.jabrena.support.TestApplication;
 import java.util.Objects;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -54,7 +53,7 @@ class UserBeansGraphServiceTests {
         var noFilter = "ALL";
 
         //When
-        var list = userBeansGraphService.generateGraphData(noFilter).edges().stream().filter(edge -> Objects.isNull(edge.target())).toList();
+        var list = userBeansGraphService.generateGraphData(noFilter).stream().filter(edge -> Objects.isNull(edge.target())).toList();
 
         //Then
         assertThat(list).hasSizeGreaterThan(0);
@@ -67,7 +66,6 @@ class UserBeansGraphServiceTests {
         //When
         var resuls = userBeansGraphService
             .generateGraphData("ALL")
-            .edges()
             .stream()
             .filter(edge -> edge.source().beanPackage().contains(beanPackage))
             .toList();

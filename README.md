@@ -63,7 +63,9 @@ variable.
 ```bash
 export OPENAI_API_KEY=YOUR_API_KEY_VALUE
 echo $OPENAI_API_KEY
-./mvnw spring-boot:run -Dspring-boot.run.arguments="--userbeans.openapi.apikey=$OPENAI_API_KEY"
+
+./mvnw spring-boot:run \
+-Dspring-boot.run.arguments="--userbeans.openapi.apikey=$OPENAI_API_KEY"
 ```
 
 **Requirements:**
@@ -84,8 +86,6 @@ The project was tested with `Spring Boot 3.1.0`
 Reviewing the Beans relations, you could see new opportunities
 to improve the Design of your solution.
 
-![](docs/design/use-case1.png)
-
 By leveraging the Graph representation,
 you gain the ability to visualize all the Beans actively running
 within your Spring Boot application. Additionally, you have
@@ -93,6 +93,8 @@ the flexibility to filter Beans based on their dependencies.
 Analyzing the Graph Shape can reveal valuable insights about
 the structure and relationships within your Spring solution,
 enabling you to make informed decisions and discover intriguing patterns.
+
+![](docs/design/use-case1.png)
 
 ### 2. Be Stateful or not
 
@@ -162,7 +164,7 @@ curl -v http://localhost:8080/actuator/userbeans/graph | json_pp
 curl -v http://localhost:8080/actuator/userbeans/graph | json_pp > ./docs/graph.json
 curl -v http://localhost:8080/actuator/userbeans/graph-combo | json_pp
 curl -v http://localhost:8080/actuator/userbeans/graph-combo | json_pp > ./docs/graph-combo.json
-curl -v "http://localhost:8080/actuator/userbeans/graph?dependency=UNKNOWN" | json_pp
+curl -v "http://localhost:8080/actuator/userbeans/graph?dependency=UNKNOWN" | json_pp > /docs/graph2.json
 ```
 
 # External tests

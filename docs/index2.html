@@ -82,7 +82,7 @@ A D3.js Graph developed after a long conversation between:
     var combo = "graph-combo.json";
 
     //var address = "/actuator/userbeans/graph";
-    var address = "graph.json";
+    var address = "graph2.json";
 
     document.addEventListener("DOMContentLoaded", function(event) {
 
@@ -194,48 +194,58 @@ A D3.js Graph developed after a long conversation between:
         let nodes, links, node, link, label;
 
         d3.json(address).then((data) => {
-            //TODO Improve algorithm
-            links = data
-                .map((d) => ({
-                    source: d.source.beanName,
-                    target: d.target ? d.target.beanName : null
-                }))
-                .filter((link) => link.target !== null);
+            links = data.edges.map((edge) => ({
+                source: { id: edge.source.beanName, x: 0, y: 0, vx: 0, vy: 0 },
+                target: { id: edge.target.beanName, x: 0, y: 0, vx: 0, vy: 0 }
+            }));
 
             console.log("Printing links")
             console.log(links)
 
-            linksRaw = data
-                .map((d) => ({
-                    source: d.source.beanName,
-                    target: d.target ? d.target.beanName : null
-                }))
-
-            const nodesSet = new Set([
-                ...linksRaw.map((d) => d.source),
-                ...linksRaw.map((d) => d.target)
-            ]);
-
-            nodes = Array.from(nodesSet)
-                .filter((d) => d !== null) //TODO Clue that it is possible to improve the Graph generation
-                .map((d) => ({
-                    id: d,
-                    name: d,
-                    package: data.find((item) => item.source.beanName === d)?.source.beanPackage || "",
-                    dependency: data.find((item) => item.source.beanName === d)?.source.dependency || ""
+            nodes = data.nodes.map((node) => ({
+                id: node.beanName,
+                name: node.beanName,
+                package: node.beanPackage,
+                dependency: node.dependency
             }));
 
-            console.log("Printing nodes")
-            console.log(nodes)
+            console.log("Printing nodes");
+            console.log(nodes);
 
             simulation.nodes(nodes);
             simulation.force("link").links(links);
+
+            /*
+            The method is to update the positions of the elements in the graph visualization based on
+            the simulation's internal calculations.
+            In a force-directed graph layout like the one being used in this code,
+            the simulation calculates the forces between nodes and links, and iteratively adjusts
+            their positions to achieve a visually pleasing layout.
+            The tick event is triggered during each iteration of the simulation, allowing you
+            to update the visual elements accordingly.
+             */
+            simulation.on("tick", () => {
+                link
+                    .attr("x1", (d) => d.source.x)
+                    .attr("y1", (d) => d.source.y)
+                    .attr("x2", (d) => d.target.x)
+                    .attr("y2", (d) => d.target.y);
+
+                node
+                    .attr("cx", (d) => d.x)
+                    .attr("cy", (d) => d.y);
+
+                label
+                    .attr("x", (d) => d.x + 8)
+                    .attr("y", (d) => d.y - 8);
+            });
 
             link = container.append("g")
                 .attr("class", "links")
                 .selectAll("line")
                 .data(links)
-                .enter().append("line")
+                .enter()
+                .append("line")
                 .attr("class", "link")
                 .attr("marker-end", "url(#arrowhead)");
 
@@ -243,7 +253,8 @@ A D3.js Graph developed after a long conversation between:
                 .attr("class", "nodes")
                 .selectAll("circle")
                 .data(nodes)
-                .enter().append("circle")
+                .enter()
+                .append("circle")
                 .attr("r", 5)
                 .attr("fill", (d) => d.package ? "green" : "#ccc")
                 .call(drag(simulation));
@@ -304,22 +315,6 @@ A D3.js Graph developed after a long conversation between:
 
                 //Demo
                 //document.location.href = url;
-            });
-
-            simulation.on("tick", () => {
-                link
-                    .attr("x1", (d) => d.source.x)
-                    .attr("y1", (d) => d.source.y)
-                    .attr("x2", (d) => d.target.x)
-                    .attr("y2", (d) => d.target.y);
-
-                node
-                    .attr("cx", (d) => d.x)
-                    .attr("cy", (d) => d.y);
-
-                label
-                    .attr("x", (d) => d.x + 8)
-                    .attr("y", (d) => d.y - 8);
             });
 
             const filterButton = document.getElementById("filterButton");
