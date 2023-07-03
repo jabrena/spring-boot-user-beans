@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@RestControllerEndpoint(id = "userbeans")
+@RestControllerEndpoint(id = "user-beans")
 public class UserBeansEndpoint {
 
     private static final Logger logger = LoggerFactory.getLogger(UserBeansEndpoint.class);

@@ -41,7 +41,7 @@ And run from root pom.xml
 Open the webbrowser with the following url:
 
 ```
-open http://localhost:8080/actuator/userbeans
+open http://localhost:8080/actuator/user-beans
 ```
 
 

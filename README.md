@@ -53,7 +53,7 @@ This library require a bit of configuration in the section about
 `spring boot actuator`:
 
 ```properties
-management.endpoints.web.exposure.include=beans,userbeans
+management.endpoints.web.exposure.include=beans,user-beans
 ```
 
 The library has a feature to explain your Beans using the ChatGTP capabilities.
@@ -160,12 +160,12 @@ https://en.wikipedia.org/wiki/Convention_over_configuration
 open http://localhost:8080/
 
 #UX
-curl -v http://localhost:8080/actuator/userbeans/graph | json_pp
-curl -v http://localhost:8080/actuator/userbeans/graph | json_pp > ./docs/graph.json
-curl -v http://localhost:8080/actuator/userbeans/graph-combo | json_pp
-curl -v http://localhost:8080/actuator/userbeans/graph-combo | json_pp > ./docs/graph-combo.json
-curl -v "http://localhost:8080/actuator/userbeans/graph2?dependency=UNKNOWN" | json_pp
-curl -v "http://localhost:8080/actuator/userbeans/graph2?dependency=UNKNOWN" | json_pp > /docs/graph2.json
+curl -v http://localhost:8080/actuator/user-beans/graph | json_pp
+curl -v http://localhost:8080/actuator/user-beans/graph | json_pp > ./docs/graph.json
+curl -v http://localhost:8080/actuator/user-beans/graph-combo | json_pp
+curl -v http://localhost:8080/actuator/user-beans/graph-combo | json_pp > ./docs/graph-combo.json
+curl -v "http://localhost:8080/actuator/user-beans/graph2?dependency=UNKNOWN" | json_pp
+curl -v "http://localhost:8080/actuator/user-beans/graph2?dependency=UNKNOWN" | json_pp > /docs/graph2.json
 ```
 
 # External tests

@@ -20,7 +20,7 @@ import org.springframework.http.ResponseEntity;
 @SpringBootTest(
     classes = TestApplication.class,
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
-    properties = { "management.endpoints.web.exposure.include=beans,userbeans" }
+    properties = { "management.endpoints.web.exposure.include=beans,user-beans" }
 )
 class UserBeansEndpointsE2eTests {
 
@@ -33,7 +33,7 @@ class UserBeansEndpointsE2eTests {
     @Test
     void shouldReturnGraphWebDocument() throws Exception {
         //Given
-        final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans";
+        final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/user-beans";
         URI uri = new URI(baseUrl);
 
         //When
@@ -48,7 +48,7 @@ class UserBeansEndpointsE2eTests {
     @Test
     void shouldGenerateTheRightData() throws Exception {
         //Given
-        final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/graph";
+        final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/user-beans/graph";
 
         record BeandNode(String beanName, String beanPackage, String dependency) {}
 
@@ -71,7 +71,7 @@ class UserBeansEndpointsE2eTests {
     @Test
     void shouldGenerateTheRightComboData() throws Exception {
         //Given
-        final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/graph-combo";
+        final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/user-beans/graph-combo";
 
         record ExpectedDependency(String dependency) {}
 
@@ -92,7 +92,7 @@ class UserBeansEndpointsE2eTests {
     @Test
     void shouldReturnDetailsWebDocument() throws Exception {
         //Given
-        final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/details";
+        final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/user-beans/details";
         URI uri = new URI(baseUrl);
 
         //When
@@ -107,7 +107,7 @@ class UserBeansEndpointsE2eTests {
     @Test
     void shouldGenerateTheRightDetailsExplanationData() throws Exception {
         //Given
-        String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/details-explanation";
+        String baseUrl = "http://localhost:" + randomServerPort + "/actuator/user-beans/details-explanation";
         baseUrl += "?class=x&package=y&dependency=z";
         URI uri = new URI(baseUrl);
 
