@@ -46,4 +46,19 @@ class UserBeansDependencyServiceTests {
         //Then
         assertThat(result).as("Result of dependency documents should not be empty").isNotEmpty();
     }
+
+    @Test
+    void getDependencyDocumentsWithFilterUnknown() {
+        //Given
+        //When
+        var result = userDependenciesService
+            .getDependencyDocuments()
+            .stream()
+            .filter(dd -> dd.dependency().equals("UNKNOWN"))
+            .peek(System.out::println)
+            .toList();
+
+        //Then
+        assertThat(result).as("Result of dependency documents should not be empty").isNotEmpty();
+    }
 }

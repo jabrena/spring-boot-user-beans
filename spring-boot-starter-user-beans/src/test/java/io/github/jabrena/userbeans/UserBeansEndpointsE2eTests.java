@@ -50,15 +50,17 @@ class UserBeansEndpointsE2eTests {
         //Given
         final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/graph";
 
-        record ExpectedGraphData(List<UserBeansGraphService.BeanNode> nodes, List<UserBeansGraphService.Edge> edges) {}
+        record BeandNode(String beanName, String beanPackage, String dependency) {}
+
+        record ExpectedEdge(BeandNode source, BeandNode target) {}
 
         //When
         // @formatter:off
-        ResponseEntity<ExpectedGraphData> result = this.restTemplate.exchange(
+        ResponseEntity<List<ExpectedEdge>> result = this.restTemplate.exchange(
             baseUrl,
             HttpMethod.GET,
             null,
-            ExpectedGraphData.class);
+            new ParameterizedTypeReference<>() {});
         // @formatter:on
 
         //Then

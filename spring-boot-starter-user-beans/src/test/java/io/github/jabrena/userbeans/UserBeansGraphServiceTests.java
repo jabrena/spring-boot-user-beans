@@ -73,4 +73,43 @@ class UserBeansGraphServiceTests {
         //Then
         assertThat(resuls).hasSizeGreaterThan(0);
     }
+
+    @Test
+    void shouldReturnGraphData2() {
+        //Given
+        var noFilter = "ALL";
+
+        //When
+        var results = userBeansGraphService.generateGraphData2(noFilter);
+        results.nodes().stream().forEach(System.out::println);
+
+        //Then
+        assertThat(results).isNotNull();
+    }
+
+    @Test
+    void shouldReturnGraphData2WithFilter() {
+        //Given
+        var filter = "UNKNOWN";
+
+        //When
+        var results = userBeansGraphService.generateGraphData2(filter);
+        results.nodes().forEach(System.out::println);
+
+        //Then
+        assertThat(results).isNotNull();
+    }
+
+    @Test
+    void shouldReturnAlldata() {
+        //Given
+        var noFilter = "UNKNOWN";
+
+        //When
+        var results = userBeansGraphService.generateGraphData(noFilter);
+        results.forEach(System.out::println);
+
+        //Then
+        assertThat(results).isNotNull();
+    }
 }

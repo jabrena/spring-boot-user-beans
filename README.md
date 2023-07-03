@@ -164,7 +164,8 @@ curl -v http://localhost:8080/actuator/userbeans/graph | json_pp
 curl -v http://localhost:8080/actuator/userbeans/graph | json_pp > ./docs/graph.json
 curl -v http://localhost:8080/actuator/userbeans/graph-combo | json_pp
 curl -v http://localhost:8080/actuator/userbeans/graph-combo | json_pp > ./docs/graph-combo.json
-curl -v "http://localhost:8080/actuator/userbeans/graph?dependency=UNKNOWN" | json_pp > /docs/graph2.json
+curl -v "http://localhost:8080/actuator/userbeans/graph2?dependency=UNKNOWN" | json_pp
+curl -v "http://localhost:8080/actuator/userbeans/graph2?dependency=UNKNOWN" | json_pp > /docs/graph2.json
 ```
 
 # External tests
