@@ -37,6 +37,8 @@ public class UserBeansExplanationService {
     // @formatter:off
     public DetailsExplanation generateDetailsContent(String beanClass, String packageName, String dependency) {
 
+        logger.info("Asking ChatGTP to explain a specific Spring Class");
+
         String question = """
             Can you explain in 3 lines the purpose
             of the Java class: %s
