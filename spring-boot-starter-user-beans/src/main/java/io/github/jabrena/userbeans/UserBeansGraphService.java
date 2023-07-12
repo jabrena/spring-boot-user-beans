@@ -3,8 +3,10 @@ package io.github.jabrena.userbeans;
 import static io.github.jabrena.userbeans.UserBeansDependencyService.UNKNOWN_DEPENDENCY;
 import static io.github.jabrena.userbeans.UserBeansDependencyService.UNKNOWN_PACKAGE;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -43,11 +45,23 @@ public class UserBeansGraphService {
                 throw new IllegalArgumentException(fileName + " is not found");
             } else {
                 logger.info("Found");
+
+                StringBuilder stringBuilder = new StringBuilder();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(ioStream));
+
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    stringBuilder.append(line);
+                    stringBuilder.append(System.lineSeparator()); // Add line separator if needed
+                }
+
+                bufferedReader.close();
+                html = stringBuilder.toString();
             }
 
-            html = Files.readString(Paths.get(getClass().getClassLoader()
-                    .getResource("static/graph.html").toURI()));
-        } catch (IOException | URISyntaxException e) {
+            //html = Files.readString(Paths.get(getClass().getClassLoader()
+            //        .getResource("static/graph.html").toURI()));
+        } catch (IOException e) {
             logger.warn(e.getMessage(), e);
         }
         return html;
