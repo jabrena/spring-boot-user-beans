@@ -59,7 +59,7 @@ public class ChatGTPProvider {
     // @formatter:on
 
     String getAnswer(String question) {
-        logger.info("Sending a question to ChatGTP");
+        logger.info("Sending a HTTP request to ChatGTP");
 
         String result = "";
 
