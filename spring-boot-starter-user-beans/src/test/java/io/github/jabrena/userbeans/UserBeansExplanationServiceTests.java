@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-@SpringBootTest(classes = { TestApplication.class }, properties = { "management.endpoints.web.exposure.include=beans,user-beans" })
+@SpringBootTest(classes = { TestApplication.class }, properties = { "management.endpoints.web.exposure.include=beans,userbeans" })
 class UserBeansExplanationServiceTests {
 
     @MockBean

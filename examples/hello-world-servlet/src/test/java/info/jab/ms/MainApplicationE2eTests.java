@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 
 @SpringBootTest(
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
-    properties = { "management.endpoints.web.exposure.include=beans,user-beans" }
+    properties = { "management.endpoints.web.exposure.include=beans,userbeans" }
 )
 class MainApplicationE2eTests {
 

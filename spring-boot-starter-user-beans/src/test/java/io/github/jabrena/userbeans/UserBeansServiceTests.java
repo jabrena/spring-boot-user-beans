@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest(
     classes = { TestApplication.class, SupportController.class },
-    properties = { "management.endpoints.web.exposure.include=beans,user-beans" }
+    properties = { "management.endpoints.web.exposure.include=beans,userbeans" }
 )
 class UserBeansServiceTests {
 

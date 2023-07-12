@@ -72,7 +72,7 @@ This library require a bit of configuration in the section about
 `spring boot actuator`:
 
 ```properties
-management.endpoints.web.exposure.include=beans,user-beans
+management.endpoints.web.exposure.include=beans,userbeans
 ```
 
 The library has a feature to explain your Beans using the ChatGTP capabilities.
