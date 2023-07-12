@@ -51,7 +51,6 @@ public class UserBeansDependencyService {
             .filter(classpathEntry -> classpathEntry.contains(".jar"))
             .flatMap(classpathEntry -> {
                 String jar = removePath.apply(classpathEntry);
-                logger.info(jar);
                 List<String> pkgs = listPackagesInJar(classpathEntry);
                 return pkgs.stream().map(pkg -> new DependencyPackage(jar, pkg));
             })

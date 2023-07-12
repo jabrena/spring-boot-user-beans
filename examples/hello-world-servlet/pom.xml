@@ -41,7 +41,7 @@
 		<dependency>
 			<groupId>com.github.jabrena.spring-boot-user-beans</groupId>
 			<artifactId>spring-boot-starter-user-beans</artifactId>
-			<version>v0.1.0-SNAPSHOT</version>
+			<version>4d8a6a8301</version>
 		</dependency>
 	</dependencies>
 

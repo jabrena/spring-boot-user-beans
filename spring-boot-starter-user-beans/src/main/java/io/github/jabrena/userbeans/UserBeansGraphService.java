@@ -4,6 +4,7 @@ import static io.github.jabrena.userbeans.UserBeansDependencyService.UNKNOWN_DEP
 import static io.github.jabrena.userbeans.UserBeansDependencyService.UNKNOWN_PACKAGE;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -33,6 +34,17 @@ public class UserBeansGraphService {
         logger.info("Generating Web Document");
         String html = "";
         try {
+            String fileName = "static/graph.html";
+            InputStream ioStream = this.getClass()
+                    .getClassLoader()
+                    .getResourceAsStream(fileName);
+
+            if (ioStream == null) {
+                throw new IllegalArgumentException(fileName + " is not found");
+            } else {
+                logger.info("Found");
+            }
+
             html = Files.readString(Paths.get(getClass().getClassLoader()
                     .getResource("static/graph.html").toURI()));
         } catch (IOException | URISyntaxException e) {
