@@ -36,18 +36,35 @@ Add the following dependency in your build system:
 **Maven:**
 
 ```xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+
 <dependency>
-    <groupId>io.github.jabrena</groupId>
+    <groupId>com.github.jabrena.spring-boot-user-beans</groupId>
     <artifactId>spring-boot-starter-user-beans</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>v0.2.0-SNAPSHOT</version>
 </dependency>
 ```
 
 **Gradle:**
 
 ```kotlin
-implementation 'io.github.jabrena:spring-boot-starter-user-beans:0.1.0-SNAPSHOT'
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+dependencies {
+    implementation 'com.github.jabrena.spring-boot-user-beans:spring-boot-starter-user-beans:v0.2.0-SNAPSHOT'
+}
 ```
+
+**Note:** Coming soon on Maven Central :)
 
 **Configuration:**
 
@@ -55,7 +72,7 @@ This library require a bit of configuration in the section about
 `spring boot actuator`:
 
 ```properties
-management.endpoints.web.exposure.include=beans,userbeans
+management.endpoints.web.exposure.include=beans,user-beans
 ```
 
 The library has a feature to explain your Beans using the ChatGTP capabilities.
@@ -164,11 +181,11 @@ https://en.wikipedia.org/wiki/Convention_over_configuration
 open http://localhost:8080/
 
 #UX
-curl -v http://localhost:8080/actuator/userbeans/graph | json_pp
-curl -v http://localhost:8080/actuator/userbeans/graph | json_pp > ./docs/graph.json
-curl -v http://localhost:8080/actuator/userbeans/graph-combo | json_pp
-curl -v http://localhost:8080/actuator/userbeans/graph-combo | json_pp > ./docs/graph-combo.json
-curl -v "http://localhost:8080/actuator/userbeans/graph?dependency=UNKNOWN" | json_pp
+curl -v http://localhost:8080/actuator/user-beans/graph | json_pp
+curl -v http://localhost:8080/actuator/user-beans/graph | json_pp > ./docs/graph.json
+curl -v http://localhost:8080/actuator/user-beans/graph-combo | json_pp
+curl -v http://localhost:8080/actuator/user-beans/graph-combo | json_pp > ./docs/graph-combo.json
+curl -v "http://localhost:8080/actuator/user-beans/graph?dependency=UNKNOWN" | json_pp
 ```
 
 # External tests

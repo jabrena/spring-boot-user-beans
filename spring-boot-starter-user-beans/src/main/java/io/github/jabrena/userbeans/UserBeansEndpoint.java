@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@RestControllerEndpoint(id = "userbeans")
+@RestControllerEndpoint(id = "user-beans")
 public class UserBeansEndpoint {
 
     private static final Logger logger = LoggerFactory.getLogger(UserBeansEndpoint.class);
@@ -23,7 +23,7 @@ public class UserBeansEndpoint {
 
     @GetMapping(path = "/", produces = MediaType.TEXT_HTML_VALUE)
     ResponseEntity<String> loadGraphWebDocument() {
-        logger.info("GET /actuator/userbeans");
+        logger.info("GET /actuator/user-beans");
         return ResponseEntity.ok().body(userBeansGraphService.generateGraphWebDocument());
     }
 
@@ -31,7 +31,7 @@ public class UserBeansEndpoint {
     @GetMapping(path = "/graph", produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<List<UserBeansGraphService.Edge>> getGraph(
             @RequestParam(name = "dependency", required = false) String dependency) {
-        logger.info("GET /actuator/userbeans/graph");
+        logger.info("GET /actuator/user-beans/graph");
         return ResponseEntity.ok().body(userBeansGraphService.generateGraphData(dependency));
     }
 
@@ -39,13 +39,13 @@ public class UserBeansEndpoint {
 
     @GetMapping(path = "/graph-combo", produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<List<UserBeansDependencyService.Dependency>> getGraphCombo() {
-        logger.info("GET /actuator/userbeans/graph-combo");
+        logger.info("GET /actuator/user-beans/graph-combo");
         return ResponseEntity.ok().body(userBeansGraphService.generateGraphCombo());
     }
 
     @GetMapping(path = "/details", produces = MediaType.TEXT_HTML_VALUE)
     ResponseEntity<String> loadDetailsWebDocument() {
-        logger.info("GET /actuator/userbeans/details");
+        logger.info("GET /actuator/user-beans/details");
         return ResponseEntity.ok().body(beanExplanationService.generateDetailsWebDocument());
     }
 
@@ -55,7 +55,7 @@ public class UserBeansEndpoint {
         @RequestParam(name = "class") String bean,
         @RequestParam(name = "package") String packageName,
         @RequestParam(name = "dependency") String dependency) {
-        logger.info("GET /actuator/userbeans/details-explanation");
+        logger.info("GET /actuator/user-beans/details-explanation");
         return ResponseEntity.ok().body(beanExplanationService.generateDetailsContent(bean, packageName, dependency));
     }
     // @formatter:on
