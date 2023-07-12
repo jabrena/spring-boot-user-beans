@@ -4,6 +4,8 @@
 
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=jabrena_spring-boot-user-beans)
 
+[![](https://jitpack.io/v/jabrena/spring-boot-user-beans.svg)](https://jitpack.io/#jabrena/spring-boot-user-beans)
+
 A visual way to increase the developer awareness to minimize the number of Beans in memory.
 
 The library exposes operational information about your Spring Beans running in the memory as another
@@ -153,7 +155,11 @@ https://en.wikipedia.org/wiki/Convention_over_configuration
 ```bash
 ./mvnw clean verify
 ./mvnw clean verify -Ppipelines
-./mvnw clean spring-boot:run -pl examples/hello-world-servlet/ -am -Dspring-boot.run.arguments="--userbeans.openapi.apikey=$OPENAI_API_KEY"
+./mvnw clean spring-boot:run \
+  -pl examples/hello-world-servlet/ -am \
+  -Dspring-boot.run.arguments="--userbeans.openapi.apikey=$OPENAI_API_KEY" \
+  -Dmaven.repo.local=./local-m2
+
 ./mvnw spring-boot:run -pl examples/hello-world-reactive/ -am -Puserbeans -Dspring-boot.run.arguments="--userbeans.openapi.apikey=$OPENAI_API_KEY"
 open http://localhost:8080/
 
