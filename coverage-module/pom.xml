@@ -6,12 +6,12 @@
 	<parent>
 		<groupId>io.github.jabrena</groupId>
 		<artifactId>spring-boot-user-beans</artifactId>
-		<version>0.1.0-SNAPSHOT</version>
+		<version>0.2.0-SNAPSHOT</version>
 	</parent>
 
     <groupId>io.github.jabrena</groupId>
     <artifactId>coverage-module</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.2.0-SNAPSHOT</version>
     <name>coverage-module</name>
     <description>coverage-module</description>
     <packaging>jar</packaging>
@@ -24,7 +24,7 @@
         <dependency>
             <groupId>io.github.jabrena</groupId>
 	        <artifactId>spring-boot-starter-user-beans</artifactId>
-	        <version>0.1.0-SNAPSHOT</version>
+	        <version>0.2.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

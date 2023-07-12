@@ -4,6 +4,8 @@
 
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=jabrena_spring-boot-user-beans)
 
+[![](https://jitpack.io/v/jabrena/spring-boot-user-beans.svg)](https://jitpack.io/#jabrena/spring-boot-user-beans)
+
 A visual way to increase the developer awareness to minimize the number of Beans in memory.
 
 The library exposes operational information about your Spring Beans running in the memory as another
@@ -19,7 +21,7 @@ The user interfaces will allow you searching
 your Beans by name or package and review the relations between them.
 Also, you can filter by the main dependencies used in your Spring Boot project.
 
-![](docs/design/user-beans12.png)
+![](docs/design/user-beans13.png)
 
 If you click in a any Green node (A Spring Bean which returns a Java class),
 you could navigate to a Detail page, in order receive an explanation from ChatGTP.
@@ -34,18 +36,35 @@ Add the following dependency in your build system:
 **Maven:**
 
 ```xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+
 <dependency>
-    <groupId>io.github.jabrena</groupId>
+    <groupId>com.github.jabrena.spring-boot-user-beans</groupId>
     <artifactId>spring-boot-starter-user-beans</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>v0.2.0-SNAPSHOT</version>
 </dependency>
 ```
 
 **Gradle:**
 
 ```kotlin
-implementation 'io.github.jabrena:spring-boot-starter-user-beans:0.1.0-SNAPSHOT'
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+dependencies {
+    implementation 'com.github.jabrena.spring-boot-user-beans:spring-boot-starter-user-beans:v0.2.0-SNAPSHOT'
+}
 ```
+
+**Note:** Coming soon on Maven Central :)
 
 **Configuration:**
 
@@ -153,7 +172,11 @@ https://en.wikipedia.org/wiki/Convention_over_configuration
 ```bash
 ./mvnw clean verify
 ./mvnw clean verify -Ppipelines
-./mvnw clean spring-boot:run -pl examples/hello-world-servlet/ -am -Dspring-boot.run.arguments="--userbeans.openapi.apikey=$OPENAI_API_KEY"
+./mvnw clean spring-boot:run \
+  -pl examples/hello-world-servlet/ -am \
+  -Dspring-boot.run.arguments="--userbeans.openapi.apikey=$OPENAI_API_KEY" \
+  -Dmaven.repo.local=./local-m2
+
 ./mvnw spring-boot:run -pl examples/hello-world-reactive/ -am -Puserbeans -Dspring-boot.run.arguments="--userbeans.openapi.apikey=$OPENAI_API_KEY"
 open http://localhost:8080/
 
@@ -197,6 +220,8 @@ sdk env
 ./mvnw prettier:write
 ./mvnw versions:display-dependency-updates
 ./mvnw versions:display-plugin-updates
+./mvnw versions:set -DnewVersion=0.2.0-SNAPSHOT
+./mvnw versions:commit -DprocessAllModules
 ```
 
 ## Source of inspiration

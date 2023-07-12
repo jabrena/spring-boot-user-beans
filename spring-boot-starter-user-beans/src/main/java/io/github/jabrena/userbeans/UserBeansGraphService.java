@@ -3,10 +3,6 @@ package io.github.jabrena.userbeans;
 import static io.github.jabrena.userbeans.UserBeansDependencyService.UNKNOWN_DEPENDENCY;
 import static io.github.jabrena.userbeans.UserBeansDependencyService.UNKNOWN_PACKAGE;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
@@ -20,10 +16,12 @@ public class UserBeansGraphService {
     private static final Logger logger = LoggerFactory.getLogger(UserBeansGraphService.class);
 
     private final UserBeansDependencyService userDependenciesService;
+    private final WebDocumentReader webDocumentReader;
 
     // @formatter:off
     public UserBeansGraphService(UserBeansDependencyService userDependenciesService) {
         this.userDependenciesService = userDependenciesService;
+        this.webDocumentReader = new WebDocumentReader();
     }
 
     // @formatter:on
@@ -31,14 +29,8 @@ public class UserBeansGraphService {
     // @formatter:off
     String generateGraphWebDocument() {
         logger.info("Generating Web Document");
-        String html = "";
-        try {
-            html = Files.readString(Paths.get(getClass().getClassLoader()
-                    .getResource("static/graph.html").toURI()));
-        } catch (IOException | URISyntaxException e) {
-            logger.warn(e.getMessage(), e);
-        }
-        return html;
+        String fileName = "static/graph.html";
+        return webDocumentReader.readFromResources(fileName);
     }
 
     // @formatter:on

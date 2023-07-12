@@ -1,12 +1,7 @@
 package io.github.jabrena.userbeans;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,20 +9,19 @@ public class UserBeansExplanationService {
 
     private static final Logger logger = LoggerFactory.getLogger(UserBeansExplanationService.class);
 
-    @Autowired
-    private ChatGTPProvider chatGTPProvider;
+    private final ChatGTPProvider chatGTPProvider;
+    private final WebDocumentReader webDocumentReader;
+
+    public UserBeansExplanationService(ChatGTPProvider chatGTPProvider) {
+        this.chatGTPProvider = chatGTPProvider;
+        this.webDocumentReader = new WebDocumentReader();
+    }
 
     // @formatter:off
     String generateDetailsWebDocument() {
         logger.info("Generating Web Document");
-        String html = "";
-        try {
-            html = Files.readString(Paths.get(getClass().getClassLoader()
-                    .getResource("static/details.html").toURI()));
-        } catch (IOException | URISyntaxException e) {
-            logger.warn(e.getMessage(), e);
-        }
-        return html;
+        String fileName = "static/details.html";
+        return webDocumentReader.readFromResources(fileName);
     }
 
     // @formatter:on
