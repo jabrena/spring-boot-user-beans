@@ -244,5 +244,6 @@ sdk env
 - https://platform.openai.com/account/usage
 - https://platform.openai.com/account/api-keys
 - https://openai.com/pricing
+- https://jitpack.io/#jabrena/spring-boot-user-beans/
 
 Made with ❤️ from Madrid
