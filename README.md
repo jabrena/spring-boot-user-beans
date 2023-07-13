@@ -8,7 +8,8 @@
 
 A visual way to increase the developer awareness to minimize the number of Beans in memory.
 
-The library exposes operational information about your Spring Beans running in the memory as another
+The library exposes operational information about
+your Spring Beans running in the memory as another
 metric included with `Spring Boot Actuator`.
 
 ## Motivation

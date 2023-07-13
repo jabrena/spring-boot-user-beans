@@ -14,6 +14,7 @@ A D3.js Graph developed after a long conversation between:
         .link {
             stroke: #999;
             stroke-opacity: 0.6;
+            marker-end: url(#arrowhead); /* Add this line to include the arrowhead marker */
         }
         .node-text {
             font-size: 12px;
@@ -223,7 +224,7 @@ A D3.js Graph developed after a long conversation between:
                     name: d,
                     package: data.find((item) => item.source.beanName === d)?.source.beanPackage || "",
                     dependency: data.find((item) => item.source.beanName === d)?.source.dependency || ""
-            }));
+                }));
 
             console.log("Printing nodes")
             console.log(nodes)
@@ -247,6 +248,20 @@ A D3.js Graph developed after a long conversation between:
                 .attr("r", 5)
                 .attr("fill", (d) => d.package ? "green" : "#ccc")
                 .call(drag(simulation));
+
+            const defs = svg.append("defs");
+
+            defs.append("marker")
+                .attr("id", "arrowhead")
+                .attr("viewBox", "-5 -5 10 10")
+                .attr("refX", 9) // Adjust the refX value to control the position of the arrowhead
+                .attr("refY", 0)
+                .attr("markerWidth", 10)
+                .attr("markerHeight", 10)
+                .attr("orient", "auto")
+                .append("path")
+                .attr("d", "M 0,-5 L 10,0 L 0,5") // Define the path of the arrowhead
+                .attr("fill", "#999"); // Adjust the fill color of the arrowhead if needed
 
             // Append a tooltip div to the body
             const tooltip = d3.select("body")
