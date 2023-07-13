@@ -225,7 +225,7 @@ sdk env
 ./mvnw prettier:write
 ./mvnw versions:display-dependency-updates
 ./mvnw versions:display-plugin-updates
-./mvnw versions:set -DnewVersion=0.2.0-SNAPSHOT
+./mvnw versions:set -DnewVersion=0.3.0-SNAPSHOT
 ./mvnw versions:commit -DprocessAllModules
 ```
 
