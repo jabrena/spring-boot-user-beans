@@ -22,7 +22,7 @@ The user interfaces will allow you searching
 your Beans by name or package and review the relations between them.
 Also, you can filter by the main dependencies used in your Spring Boot project.
 
-![](docs/design/user-beans13.png)
+![](docs/design/user-beans15.png)
 
 If you click in a any Green node (A Spring Bean which returns a Java class),
 you could navigate to a Detail page, in order receive an explanation from ChatGTP.
