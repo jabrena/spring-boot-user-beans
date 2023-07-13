@@ -117,7 +117,7 @@
    },
    {
       "source" : {
-         "beanName" : "AopAutoConfiguration$ClassProxyingConfiguration$$Lambda$368/0x0000000801270c68",
+         "beanName" : "AopAutoConfiguration$ClassProxyingConfiguration$$Lambda$368/0x0000000801271da8",
          "beanPackage" : "org.springframework.boot.autoconfigure.aop",
          "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
       },
@@ -1241,7 +1241,7 @@
    },
    {
       "source" : {
-         "beanName" : "JacksonEndpointAutoConfiguration$$Lambda$632/0x000000080133f590",
+         "beanName" : "JacksonEndpointAutoConfiguration$$Lambda$632/0x0000000801380000",
          "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.jackson",
          "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
       },
@@ -2257,7 +2257,7 @@
    },
    {
       "source" : {
-         "beanName" : "ServletManagementContextAutoConfiguration$$Lambda$713/0x00000008013c0698",
+         "beanName" : "ServletManagementContextAutoConfiguration$$Lambda$713/0x00000008013c1418",
          "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web.servlet",
          "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
       },
@@ -2269,7 +2269,7 @@
    },
    {
       "source" : {
-         "beanName" : "ServletManagementContextAutoConfiguration$$Lambda$713/0x00000008013c0698",
+         "beanName" : "ServletManagementContextAutoConfiguration$$Lambda$713/0x00000008013c1418",
          "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web.servlet",
          "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
       },

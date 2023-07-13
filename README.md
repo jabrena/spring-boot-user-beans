@@ -8,7 +8,8 @@
 
 A visual way to increase the developer awareness to minimize the number of Beans in memory.
 
-The library exposes operational information about your Spring Beans running in the memory as another
+The library exposes operational information about
+your Spring Beans running in the memory as another
 metric included with `Spring Boot Actuator`.
 
 ## Motivation
@@ -224,7 +225,7 @@ sdk env
 ./mvnw prettier:write
 ./mvnw versions:display-dependency-updates
 ./mvnw versions:display-plugin-updates
-./mvnw versions:set -DnewVersion=0.2.0-SNAPSHOT
+./mvnw versions:set -DnewVersion=0.3.0-SNAPSHOT
 ./mvnw versions:commit -DprocessAllModules
 ```
 
