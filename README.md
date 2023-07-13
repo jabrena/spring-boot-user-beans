@@ -26,9 +26,6 @@ Also, you can filter by the main dependencies used in your Spring Boot project.
 If you click in a any Green node (A Spring Bean which returns a Java class),
 you could navigate to a Detail page, in order receive an explanation from ChatGTP.
 
-**Note:** in order to enable that feature, you need to set in your
-environment a valid OPENAI_API_KEY.
-
 ## Getting Started
 
 Add the following dependency in your build system:
@@ -42,7 +39,9 @@ Add the following dependency in your build system:
         <url>https://jitpack.io</url>
     </repository>
 </repositories>
+```
 
+```xml
 <dependency>
     <groupId>com.github.jabrena.spring-boot-user-beans</groupId>
     <artifactId>spring-boot-starter-user-beans</artifactId>
@@ -58,15 +57,20 @@ allprojects {
         maven { url 'https://jitpack.io' }
     }
 }
+```
 
+```gradle
 dependencies {
     implementation 'com.github.jabrena.spring-boot-user-beans:spring-boot-starter-user-beans:v0.2.0-SNAPSHOT'
 }
 ```
 
-**Note:** Coming soon on Maven Central :)
+Further information: https://jitpack.io/#jabrena/spring-boot-user-beans/
 
-**Configuration:**
+
+**Note:** Coming soon on Maven Central with `JRELEASER`
+
+### Configuration:
 
 This library require a bit of configuration in the section about
 `spring boot actuator`:
@@ -75,15 +79,19 @@ This library require a bit of configuration in the section about
 management.endpoints.web.exposure.include=beans,userbeans
 ```
 
-The library has a feature to explain your Beans using the ChatGTP capabilities.
-In order to use this feature, you need set `OPENAI_API_KEY` as an environment
-variable.
+The library has an optional feature to explain your Beans using the ChatGTP capabilities.
+In order to use this feature, you need set a valid `OpenAI API Key`
+
+**Example:**
 
 ```bash
 export OPENAI_API_KEY=YOUR_API_KEY_VALUE
 echo $OPENAI_API_KEY
 ./mvnw spring-boot:run -Dspring-boot.run.arguments="--userbeans.openapi.apikey=$OPENAI_API_KEY"
 ```
+
+**Note:** If you don´t have a `OpenAI API Key`, you can use this library but the features from `ChatGTP`
+will be disabled.
 
 **Requirements:**
 
@@ -100,11 +108,6 @@ The project was tested with `Spring Boot 3.1.0`
 
 ### 1. Improve your Spring Beans composition
 
-Reviewing the Beans relations, you could see new opportunities
-to improve the Design of your solution.
-
-![](docs/design/use-case1.png)
-
 By leveraging the Graph representation,
 you gain the ability to visualize all the Beans actively running
 within your Spring Boot application. Additionally, you have
@@ -112,6 +115,8 @@ the flexibility to filter Beans based on their dependencies.
 Analyzing the Graph Shape can reveal valuable insights about
 the structure and relationships within your Spring solution,
 enabling you to make informed decisions and discover intriguing patterns.
+
+![](docs/design/use-case1.png)
 
 ### 2. Be Stateful or not
 
@@ -159,13 +164,10 @@ for information processing.
 - [x] List of user dependencies (Jars)
 - [x] Review quality of results
 - [x] Filter by Java class, Package or dependency
-- [ ] Learn to disable beans not used
 
 ## Convention over configuration
 
-Convention over configuration (also known as coding by convention) is a software design paradigm used by software frameworks that attempts to decrease the number of decisions that a developer using the framework is required to make without necessarily losing flexibility and don't repeat yourself (DRY) principles.
-
-https://en.wikipedia.org/wiki/Convention_over_configuration
+[Convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration) (also known as coding by convention) is a software design paradigm used by software frameworks that attempts to decrease the number of decisions that a developer using the framework is required to make without necessarily losing flexibility and don't repeat yourself (DRY) principles.
 
 ## How to build and test in local
 
@@ -192,7 +194,7 @@ curl -v "http://localhost:8080/actuator/userbeans/graph?dependency=UNKNOWN" | js
 
 The project was tested with the classic project **Spring PetClinic**.
 
-```
+```bash
 ./mvnw spring-boot:run -pl external-tests/spring-petclinic -am
 ```
 
@@ -235,9 +237,10 @@ sdk env
 - https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/package-summary.html
 - https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/package-summary.html
 - https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/beans/BeansEndpoint.html
+- https://github.com/spring-projects-experimental/spring-boot-thin-launcher
+- https://docs.spring.io/spring-boot/docs/current/reference/html/cli.html#cli.using-the-cli
 - https://jakarta.ee/specifications/cdi/3.0/
 - https://jakarta.ee/specifications/cdi/3.0/jakarta-cdi-spec-3.0.pdf
-- https://docs.spring.io/spring-boot/docs/current/reference/html/cli.html#cli.using-the-cli
 - https://d3js.org/
 - https://www.webjars.org/all
 - https://www.eclemma.org/jacoco/trunk/doc/maven.html
