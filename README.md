@@ -140,6 +140,8 @@ the decision-making process involved in designing these Starters,
 fostering a deeper understanding of Spring Boot and
 its versatile solutions.
 
+![](docs/design/user-beans14.png)
+
 ### 4. Learn about the Beans that you are using under the hood.
 
 When examining the Graph, you may notice the presence of numerous Beans
