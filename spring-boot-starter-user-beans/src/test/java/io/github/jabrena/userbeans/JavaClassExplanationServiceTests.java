@@ -15,13 +15,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 @SpringBootTest(classes = { TestApplication.class }, properties = { "management.endpoints.web.exposure.include=beans,userbeans" })
-class UserBeansExplanationServiceTests {
+class JavaClassExplanationServiceTests {
 
     @MockBean
     private ChatGTPProvider chatGTPProvider;
 
     @Autowired
-    private UserBeansExplanationService beanExplanationService;
+    private JavaClassExplanationService beanExplanationService;
 
     @Test
     void shouldReturnValidDetailsWebDocument() {

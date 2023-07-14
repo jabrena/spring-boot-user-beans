@@ -43,7 +43,7 @@ public class UserBeansGraphService {
     List<Edge> generateGraphData(String dependency) {
         logger.info("Generating Graph data");
 
-        List<UserBeansDependencyService.DependencyPackage> dependencyPackages = userDependenciesService.getDependencyPackages();
+        List<ClasspathDependencyService.DependencyPackage> dependencyPackages = userDependenciesService.getDependencyPackages();
 
         var edges = userDependenciesService.getDependencyDocuments().stream()
             .flatMap(dd -> {
@@ -69,7 +69,7 @@ public class UserBeansGraphService {
         UserBeansDependencyService.DependencyDocument dd,
         String beanName,
         String beanPackage,
-        List<UserBeansDependencyService.DependencyPackage> dependencyPackages
+        List<ClasspathDependencyService.DependencyPackage> dependencyPackages
     ) {
         if (!dd.beanDependencies().isEmpty()) {
             return toEdgeWithDependencies(dd, beanName, beanPackage, dependencyPackages);
@@ -82,7 +82,7 @@ public class UserBeansGraphService {
         UserBeansDependencyService.DependencyDocument bd,
         String beanName,
         String beanPackage,
-        List<UserBeansDependencyService.DependencyPackage> dependencyPackages
+        List<ClasspathDependencyService.DependencyPackage> dependencyPackages
     ) {
         return bd
             .beanDependencies()
@@ -101,7 +101,7 @@ public class UserBeansGraphService {
     private Stream<Edge> toEdgeWithoutDependencies(
         String beanName,
         String beanPackage,
-        List<UserBeansDependencyService.DependencyPackage> flatDependenciPackages
+        List<ClasspathDependencyService.DependencyPackage> flatDependenciPackages
     ) {
         return flatDependenciPackages
             .stream()
@@ -112,6 +112,6 @@ public class UserBeansGraphService {
     }
 
     List<UserBeansDependencyService.Dependency> generateGraphCombo() {
-        return userDependenciesService.getDependencies();
+        return userDependenciesService.getUserBeanDependencies();
     }
 }
