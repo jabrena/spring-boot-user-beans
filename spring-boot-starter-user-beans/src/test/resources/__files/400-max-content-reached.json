@@ -1,0 +1,8 @@
+{
+  "error": {
+    "message": "This model's maximum context length is 4097 tokens, however you requested 4130 tokens (130 in your prompt; 4000 for the completion). Please reduce your prompt; or completion length.",
+    "type": "invalid_request_error",
+    "param": null,
+    "code": null
+  }
+}

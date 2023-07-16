@@ -33,6 +33,12 @@ public class ChatGTPProvider {
     @Value("${userbeans.openapi.model}")
     private String model;
 
+    @Value("${userbeans.openapi.max_tokens}")
+    private Integer maxTokens;
+
+    @Value("${userbeans.openapi.temperature}")
+    private Integer temperature;
+
     private final String nokey = "nokey";
 
     @Value("${userbeans.openapi.apikey:nokey}")
@@ -111,7 +117,7 @@ public class ChatGTPProvider {
     // @formatter:on
 
     private String getBodyPayload(String question) throws JsonProcessingException {
-        RequestPayload payload = new RequestPayload(model, question, 4000, 0);
+        RequestPayload payload = new RequestPayload(model, question, maxTokens, temperature);
         return objectMapper.writeValueAsString(payload);
     }
 }
