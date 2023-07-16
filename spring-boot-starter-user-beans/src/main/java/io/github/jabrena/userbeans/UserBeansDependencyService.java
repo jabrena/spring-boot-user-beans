@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
 
+//TODO Bean candidate to be removed and be merged with UserBeansGraphService
 @Service
 public class UserBeansDependencyService {
 

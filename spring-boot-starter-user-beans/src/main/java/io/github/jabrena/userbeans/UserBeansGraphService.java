@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Stream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,6 +43,12 @@ public class UserBeansGraphService {
     public record Edge(BeanNode source, BeanNode target) {}
 
     public record GraphData(List<BeanNode> nodes, List<Edge> edges) {}
+
+    /*
+    List<BeanNode> getNodes() {
+        Set<BeanNode>
+    }
+    */
 
     // @formatter:off
     GraphData generateGraphData(String dependencyFilter) {
