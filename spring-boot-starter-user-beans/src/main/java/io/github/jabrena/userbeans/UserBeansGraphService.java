@@ -85,6 +85,7 @@ public class UserBeansGraphService {
                     return Stream.of(new Edge(sourceNode, null));
                 }
             })
+            .sorted(Comparator.comparing(edge -> edge.source().beanName()))
             .toList();
     }
 
@@ -98,9 +99,13 @@ public class UserBeansGraphService {
         if (Objects.isNull(dependencyFilter) || dependencyFilter.equals("ALL")) {
             return new GraphData(getNodes(), edges);
         } else {
-            return new GraphData(getNodes(), edges.stream()
+            var filteredNodes = getNodes().stream()
+                    .filter(beanNode -> beanNode.dependency.contains(dependencyFilter))
+                    .toList();
+            var filteredEdges = edges.stream()
                     .filter(edge -> edge.source().dependency.contains(dependencyFilter))
-                    .toList());
+                    .toList();
+            return new GraphData(filteredNodes, filteredEdges);
         }
     }
 
