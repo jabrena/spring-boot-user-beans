@@ -38,6 +38,12 @@ public class JavaClassExplanationService {
             of the Java class: %s
             with this package: %s
             included in this Dependency: %s
+            which include the following sections:
+            - Java class purpose
+            - How that Java Class interact with the rest of Spring Ecosystem?
+            - What is the benefit of that Java class in Spring?
+            - Is it necessary to customize in some way by the developer?
+
             in HTML format?
             """;
 
