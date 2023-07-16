@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,17 +39,21 @@ public class UserBeansGraphService {
 
     // @formatter:on
 
-    public record BeanNode(String beanName, String beanPackage, String dependency) {}
+    public record BeanNode(String beanName, String beanPackage, String dependency, Integer index) {}
 
-    public record Edge(BeanNode source, BeanNode target) {}
+    public record BeanEdge(String beanName, String beanPackage, String dependency) {}
+
+    public record Edge(BeanEdge source, BeanEdge target) {}
 
     public record GraphData(List<BeanNode> nodes, List<Edge> edges) {}
 
     List<BeanNode> getNodes() {
+        AtomicInteger counter = new AtomicInteger(0);
+
         var dependencyDocuments = userDependenciesService.getDependencyDocuments();
         List<BeanNode> beanNodeList = dependencyDocuments
             .stream()
-            .map(dd -> new BeanNode(dd.beanName(), dd.beanPackage(), dd.dependency()))
+            .map(dd -> new BeanNode(dd.beanName(), dd.beanPackage(), dd.dependency(), counter.incrementAndGet()))
             .distinct()
             .toList();
         List<String> listDependencies = dependencyDocuments.stream().flatMap(dd -> dd.beanDependencies().stream()).toList();
@@ -59,7 +64,7 @@ public class UserBeansGraphService {
                     .stream()
                     .filter(node -> dep.equals(node.beanName()))
                     .findFirst()
-                    .orElse(new BeanNode(dep, UNKNOWN_PACKAGE, UNKNOWN_DEPENDENCY))
+                    .orElse(new BeanNode(dep, UNKNOWN_PACKAGE, UNKNOWN_DEPENDENCY, counter.incrementAndGet()))
             )
             .toList();
 
@@ -74,11 +79,11 @@ public class UserBeansGraphService {
             .getDependencyDocuments()
             .stream()
             .flatMap(dd -> {
-                BeanNode sourceNode = new BeanNode(dd.beanName(), dd.beanPackage(), dd.dependency());
+                BeanEdge sourceNode = new BeanEdge(dd.beanName(), dd.beanPackage(), dd.dependency());
                 if (!dd.beanDependencies().isEmpty()) {
                     // @formatter:off
                         return dd.beanDependencies().stream()
-                                .map(dep -> new Edge(sourceNode, new BeanNode(dep, UNKNOWN_PACKAGE, UNKNOWN_DEPENDENCY)));
+                                .map(dep -> new Edge(sourceNode, new BeanEdge(dep, UNKNOWN_PACKAGE, UNKNOWN_DEPENDENCY)));
                     // @formatter:on
                 } else {
                     //TODO False edge; an evidence to redesign the graph to be consumed for D3.js

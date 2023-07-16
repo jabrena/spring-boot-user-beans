@@ -43,8 +43,7 @@ public class UserBeansService {
         return (beanNameParts.length > 0) ? beanNameParts[beanNameParts.length - 1] : beanName;
     };
 
-    private AtomicInteger unnamedCounter = new AtomicInteger(0);
-    static final String UNNAMED = "Unnamed";
+    static final String UNNAMED = "UnnamedBean";
 
     // @formatter:off
     private Function<Map.Entry<String, BeansEndpoint.BeanDescriptor>, BeanDocument> toBeanDocument = bean -> {
@@ -56,9 +55,9 @@ public class UserBeansService {
                 .map(removePackage)
                 .toList();
 
-        if (beanName.equals("")) {
-            beanName = UNNAMED + unnamedCounter.incrementAndGet();
-        }
+        //TODO Temporal fix for Micrometer core
+        beanName = beanName.equals("") ? packageName + "." + UNNAMED : beanName;
+
         return new BeanDocument(beanName, packageName, dependencies);
     };
     // @formatter:on
