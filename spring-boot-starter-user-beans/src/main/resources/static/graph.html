@@ -196,7 +196,7 @@ A D3.js Graph developed after a long conversation between:
 
         d3.json(address).then((data) => {
             //TODO Improve algorithm
-            links = data
+            links = data.edges
                 .map((d) => ({
                     source: d.source.beanName,
                     target: d.target ? d.target.beanName : null
@@ -206,7 +206,7 @@ A D3.js Graph developed after a long conversation between:
             //console.log("Printing links")
             //console.log(links)
 
-            linksRaw = data
+            linksRaw = data.edges
                 .map((d) => ({
                     source: d.source.beanName,
                     target: d.target ? d.target.beanName : null
@@ -222,8 +222,8 @@ A D3.js Graph developed after a long conversation between:
                 .map((d) => ({
                     id: d,
                     name: d,
-                    package: data.find((item) => item.source.beanName === d)?.source.beanPackage || "",
-                    dependency: data.find((item) => item.source.beanName === d)?.source.dependency || ""
+                    package: data.edges.find((item) => item.source.beanName === d)?.source.beanPackage || "",
+                    dependency: data.edges.find((item) => item.source.beanName === d)?.source.dependency || ""
             }));
 
             console.log("Printing nodes")
