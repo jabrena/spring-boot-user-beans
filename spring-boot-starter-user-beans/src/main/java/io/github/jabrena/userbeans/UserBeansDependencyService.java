@@ -4,24 +4,20 @@ import io.github.jabrena.userbeans.UserBeansService.BeanDocument;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserBeansDependencyService {
 
-    private static final Logger logger = LoggerFactory.getLogger(UserBeansDependencyService.class);
-
     public static final String UNKNOWN_DEPENDENCY = "UNKNOWN";
     public static final String UNKNOWN_PACKAGE = "UNKNOWN";
 
     private final UserBeansService userBeansService;
-    private final ClasspathDependencyService classpathDependencyService;
+    private final ClasspathDependencyReader classpathDependencyReader;
 
-    public UserBeansDependencyService(UserBeansService userBeansService, ClasspathDependencyService classpathDependencyService) {
+    public UserBeansDependencyService(UserBeansService userBeansService) {
         this.userBeansService = userBeansService;
-        this.classpathDependencyService = classpathDependencyService;
+        this.classpathDependencyReader = new ClasspathDependencyReader();
     }
 
     public record Dependency(String dependency) {}
@@ -31,14 +27,14 @@ public class UserBeansDependencyService {
     // @formatter:off
     public List<DependencyDocument> getDependencyDocuments() {
         List<BeanDocument> beanDocuments = userBeansService.getBeansDocuments();
-        List<ClasspathDependencyService.DependencyPackage> jars = classpathDependencyService.getDependencyPackages();
+        List<ClasspathDependencyReader.DependencyPackage> jars = classpathDependencyReader.getDependencyPackages();
 
         return beanDocuments.stream()
                 .map(bd -> {
-                    Optional<ClasspathDependencyService.DependencyPackage> matchingPackage = jars.stream()
+                    Optional<ClasspathDependencyReader.DependencyPackage> matchingPackage = jars.stream()
                             .filter(pkg -> pkg.packageName().equals(bd.beanPackage()))
                             .findFirst();
-                    String dependencyName = matchingPackage.map(ClasspathDependencyService.DependencyPackage::dependencyName)
+                    String dependencyName = matchingPackage.map(ClasspathDependencyReader.DependencyPackage::dependencyName)
                             .orElse(UNKNOWN_DEPENDENCY);
                     return new DependencyDocument(
                             bd.beanName(),

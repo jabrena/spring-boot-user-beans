@@ -13,12 +13,10 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
 
-@Service
-public class ClasspathDependencyService {
+public class ClasspathDependencyReader {
 
-    private static final Logger logger = LoggerFactory.getLogger(ClasspathDependencyService.class);
+    private static final Logger logger = LoggerFactory.getLogger(ClasspathDependencyReader.class);
 
     record ClasspathDependency(String dependency) {}
 

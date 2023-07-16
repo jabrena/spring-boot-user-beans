@@ -1,6 +1,5 @@
 io.github.jabrena.userbeans.UserBeansEndpoint
 io.github.jabrena.userbeans.UserBeansService
-io.github.jabrena.userbeans.ClasspathDependencyService
 io.github.jabrena.userbeans.UserBeansDependencyService
 io.github.jabrena.userbeans.JavaClassExplanationService
 io.github.jabrena.userbeans.UserBeansGraphService
