@@ -1,7 +1,7 @@
 io.github.jabrena.userbeans.UserBeansEndpoint
 io.github.jabrena.userbeans.UserBeansService
 io.github.jabrena.userbeans.UserBeansDependencyService
-io.github.jabrena.userbeans.UserBeansExplanationService
+io.github.jabrena.userbeans.JavaClassExplanationService
 io.github.jabrena.userbeans.UserBeansGraphService
 io.github.jabrena.userbeans.ChatGTPConfig
 io.github.jabrena.userbeans.ChatGTPProvider

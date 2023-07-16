@@ -40,78 +40,41 @@ public class UserBeansGraphService {
     public record Edge(BeanNode source, BeanNode target) {}
 
     // @formatter:off
-    List<Edge> generateGraphData(String dependency) {
+    List<Edge> generateGraphData(String dependencyFilter) {
         logger.info("Generating Graph data");
-
-        List<UserBeansDependencyService.DependencyPackage> dependencyPackages = userDependenciesService.getDependencyPackages();
 
         var edges = userDependenciesService.getDependencyDocuments().stream()
             .flatMap(dd -> {
-                String beanName = dd.beanName();
-                String beanPackage = dd.beanPackage();
-                return processDependencies(dd, beanName, beanPackage, dependencyPackages);
+                BeanNode sourceNode = new BeanNode(dd.beanName(), dd.beanPackage(), dd.dependency());
+                return processDependencies(sourceNode, dd);
             })
             .toList();
 
         //TODO Remove in the future the filter. Everything will be filtered in D3.js side.
-        if (Objects.isNull(dependency) || dependency.equals("ALL")) {
+        if (Objects.isNull(dependencyFilter) || dependencyFilter.equals("ALL")) {
             return edges;
         } else {
             return edges.stream()
-                    .filter(edge -> edge.source().dependency.contains(dependency))
+                    .filter(edge -> edge.source().dependency.contains(dependencyFilter))
                     .toList();
         }
     }
 
     // @formatter:on
 
-    private Stream<Edge> processDependencies(
-        UserBeansDependencyService.DependencyDocument dd,
-        String beanName,
-        String beanPackage,
-        List<UserBeansDependencyService.DependencyPackage> dependencyPackages
-    ) {
+    private Stream<Edge> processDependencies(BeanNode sourceNode, UserBeansDependencyService.DependencyDocument dd) {
         if (!dd.beanDependencies().isEmpty()) {
-            return toEdgeWithDependencies(dd, beanName, beanPackage, dependencyPackages);
+            // @formatter:off
+            return dd.beanDependencies().stream()
+                    .map(dep -> new Edge(sourceNode, new BeanNode(dep, UNKNOWN_PACKAGE, UNKNOWN_DEPENDENCY)));
+            // @formatter:on
         } else {
-            return toEdgeWithoutDependencies(beanName, beanPackage, dependencyPackages);
+            //TODO False edge; an evidence to redesign the graph to be consumed for D3.js
+            return Stream.of(new Edge(sourceNode, null));
         }
     }
 
-    private Stream<Edge> toEdgeWithDependencies(
-        UserBeansDependencyService.DependencyDocument bd,
-        String beanName,
-        String beanPackage,
-        List<UserBeansDependencyService.DependencyPackage> dependencyPackages
-    ) {
-        return bd
-            .beanDependencies()
-            .stream()
-            .map(dep -> {
-                BeanNode sourceNode = dependencyPackages
-                    .stream()
-                    .filter(fdp -> fdp.packageName().contains(beanPackage))
-                    .findFirst()
-                    .map(fdp -> new BeanNode(beanName, beanPackage, fdp.dependencyName()))
-                    .orElse(new BeanNode(beanName, beanPackage, UNKNOWN_DEPENDENCY));
-                return new Edge(sourceNode, new BeanNode(dep, UNKNOWN_PACKAGE, UNKNOWN_DEPENDENCY));
-            });
-    }
-
-    private Stream<Edge> toEdgeWithoutDependencies(
-        String beanName,
-        String beanPackage,
-        List<UserBeansDependencyService.DependencyPackage> flatDependenciPackages
-    ) {
-        return flatDependenciPackages
-            .stream()
-            .filter(fdp -> fdp.packageName().contains(beanPackage))
-            .findFirst()
-            .map(fdp -> Stream.of(new Edge(new BeanNode(beanName, beanPackage, fdp.dependencyName()), null)))
-            .orElse(Stream.of(new Edge(new BeanNode(beanName, beanPackage, UNKNOWN_DEPENDENCY), null)));
-    }
-
     List<UserBeansDependencyService.Dependency> generateGraphCombo() {
-        return userDependenciesService.getDependencies();
+        return userDependenciesService.getUserBeanDependencies();
     }
 }

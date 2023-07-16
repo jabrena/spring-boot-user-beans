@@ -47,6 +47,42 @@ class UserBeansGraphServiceTests {
     }
 
     @Test
+    void shouldReturnGraphDataForUnknownDependency() {
+        //Given
+        var filter = "UNKNOWN";
+
+        //When
+        var resuls = userBeansGraphService.generateGraphData(filter);
+
+        //Then
+        assertThat(resuls).hasSizeGreaterThan(0).hasSizeLessThan(20);
+    }
+
+    @Test
+    void shouldReturnGraphDataForMicrometerCore() {
+        //Given
+        var filter = "micrometer-core-1.11.0.jar";
+
+        //When
+        var resuls = userBeansGraphService.generateGraphData(filter);
+
+        //Then
+        assertThat(resuls).hasSizeGreaterThan(0).hasSizeLessThan(30);
+    }
+
+    @Test
+    void shouldReturnGraphDataForMicrometerObservation() {
+        //Given
+        var filter = "micrometer-observation-1.11.0.jar";
+
+        //When
+        var resuls = userBeansGraphService.generateGraphData(filter);
+
+        //Then
+        assertThat(resuls).hasSize(1);
+    }
+
+    @Test
     @DisplayName("Presence of false Edges")
     void shouldExistEdgesWithNoTarget() {
         //Given

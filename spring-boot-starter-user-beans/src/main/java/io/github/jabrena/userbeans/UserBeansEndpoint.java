@@ -19,7 +19,7 @@ public class UserBeansEndpoint {
     private UserBeansGraphService userBeansGraphService;
 
     @Autowired
-    private UserBeansExplanationService beanExplanationService;
+    private JavaClassExplanationService beanExplanationService;
 
     @GetMapping(path = "/", produces = MediaType.TEXT_HTML_VALUE)
     ResponseEntity<String> loadGraphWebDocument() {
@@ -51,7 +51,7 @@ public class UserBeansEndpoint {
 
     // @formatter:off
     @GetMapping(path = "/details-explanation", produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<UserBeansExplanationService.DetailsExplanation> loadDetailsContentWebDocument(
+    ResponseEntity<JavaClassExplanationService.DetailsExplanation> loadDetailsContentWebDocument(
         @RequestParam(name = "class") String bean,
         @RequestParam(name = "package") String packageName,
         @RequestParam(name = "dependency") String dependency) {

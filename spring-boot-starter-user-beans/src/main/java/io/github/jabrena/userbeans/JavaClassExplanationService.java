@@ -5,14 +5,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserBeansExplanationService {
+public class JavaClassExplanationService {
 
-    private static final Logger logger = LoggerFactory.getLogger(UserBeansExplanationService.class);
+    private static final Logger logger = LoggerFactory.getLogger(JavaClassExplanationService.class);
 
     private final ChatGTPProvider chatGTPProvider;
     private final WebDocumentReader webDocumentReader;
 
-    public UserBeansExplanationService(ChatGTPProvider chatGTPProvider) {
+    public JavaClassExplanationService(ChatGTPProvider chatGTPProvider) {
         this.chatGTPProvider = chatGTPProvider;
         this.webDocumentReader = new WebDocumentReader();
     }
