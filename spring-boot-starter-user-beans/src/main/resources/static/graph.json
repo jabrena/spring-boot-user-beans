@@ -1,0 +1,4768 @@
+{
+   "edges" : [
+      {
+         "source" : {
+            "beanName" : "AcceptHeaderLocaleResolver",
+            "beanPackage" : "org.springframework.web.servlet.i18n",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "AntPathMatcher",
+            "beanPackage" : "org.springframework.util",
+            "dependency" : "spring-core-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "AopAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.aop",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "AopAutoConfiguration$ClassProxyingConfiguration$$Lambda$368/0x0000000801271930",
+            "beanPackage" : "org.springframework.boot.autoconfigure.aop",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "ApplicationAvailabilityAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.availability",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "ApplicationAvailabilityBean",
+            "beanPackage" : "org.springframework.boot.availability",
+            "dependency" : "spring-boot-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "ApplicationAvailabilityAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "AvailabilityHealthContributorAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.availability",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "BasicErrorController",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "ErrorMvcAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "BasicErrorController",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "errorAttributes",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "BeanNameUrlHandlerMapping",
+            "beanPackage" : "org.springframework.web.servlet.handler",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "BeanNameUrlHandlerMapping",
+            "beanPackage" : "org.springframework.web.servlet.handler",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "mvcConversionService",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "BeanNameUrlHandlerMapping",
+            "beanPackage" : "org.springframework.web.servlet.handler",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "mvcResourceUrlProvider",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "BeanNameViewResolver",
+            "beanPackage" : "org.springframework.web.servlet.view",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "BeansEndpoint",
+            "beanPackage" : "org.springframework.boot.actuate.beans",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "BeansEndpointAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "BeansEndpoint",
+            "beanPackage" : "org.springframework.boot.actuate.beans",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "AnnotationConfigServletWebServerApplicationContext@33065d67",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "BeansEndpointAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.beans",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "CachingMetadataReaderFactory",
+            "beanPackage" : "org.springframework.core.type.classreading",
+            "dependency" : "spring-core-6.0.9.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "CachingOperationInvokerAdvisor",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.invoker.cache",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "EndpointAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "CachingOperationInvokerAdvisor",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.invoker.cache",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "environment",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ChatGTPConfig",
+            "beanPackage" : "io.github.jabrena.userbeans",
+            "dependency" : "UNKNOWN"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "ChatGTPProvider",
+            "beanPackage" : "io.github.jabrena.userbeans",
+            "dependency" : "UNKNOWN"
+         },
+         "target" : {
+            "beanName" : "ChatGTPMapper",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ClassLoaderMetrics",
+            "beanPackage" : "io.micrometer.core.instrument.binder.jvm",
+            "dependency" : "micrometer-core-1.11.0.jar"
+         },
+         "target" : {
+            "beanName" : "JvmMetricsAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ClassProxyingConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.aop",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "CompositeMeterRegistryAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "CompositeUriComponentsContributor",
+            "beanPackage" : "org.springframework.web.method.support",
+            "dependency" : "spring-web-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "CompositeUriComponentsContributor",
+            "beanPackage" : "org.springframework.web.method.support",
+            "dependency" : "spring-web-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "mvcConversionService",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "CompositeUriComponentsContributor",
+            "beanPackage" : "org.springframework.web.method.support",
+            "dependency" : "spring-web-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "requestMappingHandlerAdapter",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ConfigurationPropertiesAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.context",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "ContentNegotiatingViewResolver",
+            "beanPackage" : "org.springframework.web.servlet.view",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ContentNegotiatingViewResolver",
+            "beanPackage" : "org.springframework.web.servlet.view",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "DefaultListableBeanFactory@4397ad89",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ContentNegotiationManager",
+            "beanPackage" : "org.springframework.web.accept",
+            "dependency" : "spring-web-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ControllerEndpointDiscoverer",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web.annotation",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebEndpointAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ControllerEndpointHandlerMapping",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web.servlet",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcEndpointManagementContextConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ControllerEndpointHandlerMapping",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web.servlet",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "controllerEndpointDiscoverer",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ControllerEndpointHandlerMapping",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web.servlet",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "CorsEndpointProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ControllerEndpointHandlerMapping",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web.servlet",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebEndpointProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ConversionServiceParameterValueMapper",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.invoke.convert",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "EndpointAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "CorsEndpointProperties",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.web",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "DefaultErrorAttributes",
+            "beanPackage" : "org.springframework.boot.web.servlet.error",
+            "dependency" : "spring-boot-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "ErrorMvcAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "DefaultErrorViewResolver",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "ErrorMvcAutoConfiguration$DefaultErrorViewResolverConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "DefaultErrorViewResolverConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "AnnotationConfigServletWebServerApplicationContext@33065d67",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "DefaultErrorViewResolverConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "DefaultLifecycleProcessor",
+            "beanPackage" : "org.springframework.context.support",
+            "dependency" : "spring-context-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "LifecycleAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "DefaultLifecycleProcessor",
+            "beanPackage" : "org.springframework.context.support",
+            "dependency" : "spring-context-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "LifecycleProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "DefaultMeterObservationHandler",
+            "beanPackage" : "io.micrometer.core.instrument.observation",
+            "dependency" : "micrometer-core-1.11.0.jar"
+         },
+         "target" : {
+            "beanName" : "ObservationAutoConfiguration$MeterObservationHandlerConfiguration$OnlyMetricsMeterObservationHandlerConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "DefaultMeterObservationHandler",
+            "beanPackage" : "io.micrometer.core.instrument.observation",
+            "dependency" : "micrometer-core-1.11.0.jar"
+         },
+         "target" : {
+            "beanName" : "simpleMeterRegistry",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "DefaultRequestToViewNameTranslator",
+            "beanPackage" : "org.springframework.web.servlet.view",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "DefaultSslBundleRegistry",
+            "beanPackage" : "org.springframework.boot.ssl",
+            "dependency" : "spring-boot-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "SslAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "DefaultSslBundleRegistry",
+            "beanPackage" : "org.springframework.boot.ssl",
+            "dependency" : "spring-boot-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "sslPropertiesSslBundleRegistrar",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "DependsOnDatabaseInitializationPostProcessor",
+            "beanPackage" : "org.springframework.boot.sql.init.dependency",
+            "dependency" : "spring-boot-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "DiskSpaceHealthContributorAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.system",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "DiskSpaceHealthIndicator",
+            "beanPackage" : "org.springframework.boot.actuate.system",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "DiskSpaceHealthContributorAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "DiskSpaceHealthIndicator",
+            "beanPackage" : "org.springframework.boot.actuate.system",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "DiskSpaceHealthIndicatorProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "DiskSpaceHealthIndicatorProperties",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.system",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "DiskSpaceMetricsBinder",
+            "beanPackage" : "org.springframework.boot.actuate.metrics.system",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "SystemMetricsAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "DiskSpaceMetricsBinder",
+            "beanPackage" : "org.springframework.boot.actuate.metrics.system",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "MetricsProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "DispatcherServlet",
+            "beanPackage" : "org.springframework.web.servlet",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "DispatcherServletAutoConfiguration$DispatcherServletConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "DispatcherServlet",
+            "beanPackage" : "org.springframework.web.servlet",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "DispatcherServletAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "DispatcherServletConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "DispatcherServletRegistrationBean",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "DispatcherServletAutoConfiguration$DispatcherServletRegistrationConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "DispatcherServletRegistrationBean",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "dispatcherServlet",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "DispatcherServletRegistrationBean",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "DispatcherServletRegistrationConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "EmbeddedTomcat",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "EmbeddedWebServerFactoryCustomizerAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.embedded",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "EnableSameManagementContextConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web.server",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "EnableWebMvcConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "EnableWebMvcConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "EnableWebMvcConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "DefaultListableBeanFactory@4397ad89",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "EnableWebMvcConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "EnableWebMvcConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "endpointObjectMapperWebMvcConfigurer",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "EndpointAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "EndpointMediaTypes",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebEndpointAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ErrorMvcAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "ServerProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ErrorPageCustomizer",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "ErrorMvcAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ErrorPageCustomizer",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "dispatcherServletRegistration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ErrorPageRegistrarBeanPostProcessor",
+            "beanPackage" : "org.springframework.boot.web.server",
+            "dependency" : "spring-boot-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "FileDescriptorMetrics",
+            "beanPackage" : "io.micrometer.core.instrument.binder.system",
+            "dependency" : "micrometer-core-1.11.0.jar"
+         },
+         "target" : {
+            "beanName" : "SystemMetricsAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "FilterRegistrationBean",
+            "beanPackage" : "org.springframework.boot.web.servlet",
+            "dependency" : "spring-boot-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcObservationAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "FilterRegistrationBean",
+            "beanPackage" : "org.springframework.boot.web.servlet",
+            "dependency" : "spring-boot-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "observationRegistry",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "FixedThemeResolver",
+            "beanPackage" : "org.springframework.web.servlet.theme",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "HandlerExceptionResolverComposite",
+            "beanPackage" : "org.springframework.web.servlet.handler",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "HandlerExceptionResolverComposite",
+            "beanPackage" : "org.springframework.web.servlet.handler",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "mvcContentNegotiationManager",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "HandlerFunctionAdapter",
+            "beanPackage" : "org.springframework.web.servlet.function.support",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "HandlerMapping",
+            "beanPackage" : "org.springframework.web.servlet",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "HandlerMapping",
+            "beanPackage" : "org.springframework.web.servlet",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "HandlerMapping",
+            "beanPackage" : "org.springframework.web.servlet",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "mvcConversionService",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "HandlerMapping",
+            "beanPackage" : "org.springframework.web.servlet",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "mvcResourceUrlProvider",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "HealthContributorAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.health",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "HttpClientObservationsAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation.web.client",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "HttpEncodingAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "ServerProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "HttpMessageConverters",
+            "beanPackage" : "org.springframework.boot.autoconfigure.http",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "HttpMessageConvertersAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "HttpMessageConvertersAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.http",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "HttpRequestHandlerAdapter",
+            "beanPackage" : "org.springframework.web.servlet.mvc",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "IncludeExcludeEndpointFilter",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.expose",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebEndpointAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "IncludeExcludeEndpointFilter",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.expose",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebEndpointAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "IncludeExcludeEndpointFilter",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.expose",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "ServletEndpointManagementContextConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "IncludeExcludeEndpointFilter",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.expose",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebEndpointProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "InfoContributorAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.info",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "InfoContributorProperties",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.info",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "IntegrationMetricsAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics.integration",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "InternalResourceViewResolver",
+            "beanPackage" : "org.springframework.web.servlet.view",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "Jackson2ObjectMapperBuilder",
+            "beanPackage" : "org.springframework.http.converter.json",
+            "dependency" : "spring-web-6.0.9.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "Jackson2ObjectMapperBuilderCustomizerConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.jackson",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "JacksonAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.jackson",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "JacksonEndpointAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.jackson",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "JacksonEndpointAutoConfiguration$$Lambda$632/0x000000080133f590",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.jackson",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "JacksonEndpointAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "JacksonHttpMessageConvertersConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.http",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "JacksonMixinConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.jackson",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "JacksonObjectMapperBuilderConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.jackson",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "JacksonObjectMapperConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.jackson",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "JacksonProperties",
+            "beanPackage" : "org.springframework.boot.autoconfigure.jackson",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "JavaClassExplanationService",
+            "beanPackage" : "io.github.jabrena.userbeans",
+            "dependency" : "UNKNOWN"
+         },
+         "target" : {
+            "beanName" : "ChatGTPProvider",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "JsonComponentModule",
+            "beanPackage" : "org.springframework.boot.jackson",
+            "dependency" : "spring-boot-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "JacksonAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "JsonMixinModule",
+            "beanPackage" : "org.springframework.boot.jackson",
+            "dependency" : "spring-boot-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "JacksonAutoConfiguration$JacksonMixinConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "JsonMixinModule",
+            "beanPackage" : "org.springframework.boot.jackson",
+            "dependency" : "spring-boot-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "AnnotationConfigServletWebServerApplicationContext@33065d67",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "JsonMixinModule",
+            "beanPackage" : "org.springframework.boot.jackson",
+            "dependency" : "spring-boot-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "jsonMixinModuleEntries",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "JsonMixinModuleEntries",
+            "beanPackage" : "org.springframework.boot.jackson",
+            "dependency" : "spring-boot-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "AnnotationConfigServletWebServerApplicationContext@33065d67",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "JvmCompilationMetrics",
+            "beanPackage" : "io.micrometer.core.instrument.binder.jvm",
+            "dependency" : "micrometer-core-1.11.0.jar"
+         },
+         "target" : {
+            "beanName" : "JvmMetricsAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "JvmGcMetrics",
+            "beanPackage" : "io.micrometer.core.instrument.binder.jvm",
+            "dependency" : "micrometer-core-1.11.0.jar"
+         },
+         "target" : {
+            "beanName" : "JvmMetricsAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "JvmHeapPressureMetrics",
+            "beanPackage" : "io.micrometer.core.instrument.binder.jvm",
+            "dependency" : "micrometer-core-1.11.0.jar"
+         },
+         "target" : {
+            "beanName" : "JvmMetricsAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "JvmInfoMetrics",
+            "beanPackage" : "io.micrometer.core.instrument.binder.jvm",
+            "dependency" : "micrometer-core-1.11.0.jar"
+         },
+         "target" : {
+            "beanName" : "JvmMetricsAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "JvmMemoryMetrics",
+            "beanPackage" : "io.micrometer.core.instrument.binder.jvm",
+            "dependency" : "micrometer-core-1.11.0.jar"
+         },
+         "target" : {
+            "beanName" : "JvmMetricsAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "JvmMetricsAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "JvmThreadMetrics",
+            "beanPackage" : "io.micrometer.core.instrument.binder.jvm",
+            "dependency" : "micrometer-core-1.11.0.jar"
+         },
+         "target" : {
+            "beanName" : "JvmMetricsAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "LifecycleAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.context",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "LifecycleProperties",
+            "beanPackage" : "org.springframework.boot.autoconfigure.context",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "LocaleCharsetMappingsCustomizer",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "HttpEncodingAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "LogbackMetrics",
+            "beanPackage" : "io.micrometer.core.instrument.binder.logging",
+            "dependency" : "micrometer-core-1.11.0.jar"
+         },
+         "target" : {
+            "beanName" : "LogbackMetricsAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "LogbackMetricsAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "MainApplication",
+            "beanPackage" : "info.jab.ms",
+            "dependency" : "UNKNOWN"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "ManagementContextAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web.server",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "ManagementContextFactory",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "ManagementServerProperties",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web.server",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "MappingJackson2HttpMessageConverter",
+            "beanPackage" : "org.springframework.http.converter.json",
+            "dependency" : "spring-web-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "JacksonHttpMessageConvertersConfiguration$MappingJackson2HttpMessageConverterConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "MappingJackson2HttpMessageConverter",
+            "beanPackage" : "org.springframework.http.converter.json",
+            "dependency" : "spring-web-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "ChatGTPMapper",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "MappingJackson2HttpMessageConverterConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.http",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "MappingWebEndpointPathMapper",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.web",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebEndpointAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "MeterFilterConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation.web.client",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "MeterFilterConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation.web.servlet",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "MeterObservationHandlerConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "MeterRegistryPostProcessor",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "AnnotationConfigServletWebServerApplicationContext@33065d67",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "MetricsAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "MetricsProperties",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "MultipartAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "MultipartProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "MultipartConfigElement",
+            "beanPackage" : "jakarta.servlet",
+            "dependency" : "UNKNOWN"
+         },
+         "target" : {
+            "beanName" : "MultipartAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "MultipartProperties",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "MyController",
+            "beanPackage" : "info.jab.ms",
+            "dependency" : "UNKNOWN"
+         },
+         "target" : {
+            "beanName" : "myService",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "MyService",
+            "beanPackage" : "info.jab.ms",
+            "dependency" : "UNKNOWN"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "NoOpValidator",
+            "beanPackage" : "org.springframework.web.servlet.config.annotation",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ObjectMapper",
+            "beanPackage" : "com.fasterxml.jackson.databind",
+            "dependency" : "jackson-databind-2.15.0.jar"
+         },
+         "target" : {
+            "beanName" : "ChatGTPConfig",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ObservationAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "ObservationHandlerGrouping",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "ObservationAutoConfiguration$OnlyMetricsConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ObservationProperties",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "ObservationRegistryPostProcessor",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "ObservationRestTemplateCustomizer",
+            "beanPackage" : "org.springframework.boot.actuate.metrics.web.client",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "RestTemplateObservationConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ObservationRestTemplateCustomizer",
+            "beanPackage" : "org.springframework.boot.actuate.metrics.web.client",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "observationRegistry",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ObservationRestTemplateCustomizer",
+            "beanPackage" : "org.springframework.boot.actuate.metrics.web.client",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "ObservationProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ObservationRestTemplateCustomizer",
+            "beanPackage" : "org.springframework.boot.actuate.metrics.web.client",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "MetricsProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "OnlyMetricsConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "OnlyMetricsMeterObservationHandlerConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "OrderedCharacterEncodingFilter",
+            "beanPackage" : "org.springframework.boot.web.servlet.filter",
+            "dependency" : "spring-boot-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "HttpEncodingAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "OrderedFormContentFilter",
+            "beanPackage" : "org.springframework.boot.web.servlet.filter",
+            "dependency" : "spring-boot-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "OrderedRequestContextFilter",
+            "beanPackage" : "org.springframework.boot.web.servlet.filter",
+            "dependency" : "spring-boot-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "ParameterNamesModule",
+            "beanPackage" : "com.fasterxml.jackson.module.paramnames",
+            "dependency" : "jackson-module-parameter-names-2.15.0.jar"
+         },
+         "target" : {
+            "beanName" : "JacksonAutoConfiguration$ParameterNamesModuleConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ParameterNamesModuleConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.jackson",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "PathMappedEndpoints",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebEndpointAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "PathMappedEndpoints",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "servletEndpointDiscoverer",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "PathMappedEndpoints",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "webEndpointDiscoverer",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "PathMappedEndpoints",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "controllerEndpointDiscoverer",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "PathPatternParser",
+            "beanPackage" : "org.springframework.web.util.pattern",
+            "dependency" : "spring-web-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "PingHealthIndicator",
+            "beanPackage" : "org.springframework.boot.actuate.health",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "HealthContributorAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "PreserveErrorControllerTargetClassPostProcessor",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "ProcessorMetrics",
+            "beanPackage" : "io.micrometer.core.instrument.binder.system",
+            "dependency" : "micrometer-core-1.11.0.jar"
+         },
+         "target" : {
+            "beanName" : "SystemMetricsAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ProjectInfoAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.info",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "ProjectInfoProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ProjectInfoProperties",
+            "beanPackage" : "org.springframework.boot.autoconfigure.info",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "PropertiesMeterFilter",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "MetricsAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "PropertiesMeterFilter",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "MetricsProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "PropertyPlaceholderAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.context",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "PropertySourcesPlaceholderConfigurer",
+            "beanPackage" : "org.springframework.context.support",
+            "dependency" : "spring-context-6.0.9.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "RequestMappingHandlerAdapter",
+            "beanPackage" : "org.springframework.web.servlet.mvc.method.annotation",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "RequestMappingHandlerAdapter",
+            "beanPackage" : "org.springframework.web.servlet.mvc.method.annotation",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "mvcContentNegotiationManager",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "RequestMappingHandlerAdapter",
+            "beanPackage" : "org.springframework.web.servlet.mvc.method.annotation",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "mvcConversionService",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "RequestMappingHandlerAdapter",
+            "beanPackage" : "org.springframework.web.servlet.mvc.method.annotation",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "mvcValidator",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "RequestMappingHandlerMapping",
+            "beanPackage" : "org.springframework.web.servlet.mvc.method.annotation",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "RequestMappingHandlerMapping",
+            "beanPackage" : "org.springframework.web.servlet.mvc.method.annotation",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "mvcContentNegotiationManager",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "RequestMappingHandlerMapping",
+            "beanPackage" : "org.springframework.web.servlet.mvc.method.annotation",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "mvcConversionService",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "RequestMappingHandlerMapping",
+            "beanPackage" : "org.springframework.web.servlet.mvc.method.annotation",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "mvcResourceUrlProvider",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ResourceUrlProvider",
+            "beanPackage" : "org.springframework.web.servlet.resource",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "RestTemplateAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.client",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "RestTemplateObservationConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation.web.client",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "RouterFunctionMapping",
+            "beanPackage" : "org.springframework.web.servlet.function.support",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "RouterFunctionMapping",
+            "beanPackage" : "org.springframework.web.servlet.function.support",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "mvcConversionService",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "RouterFunctionMapping",
+            "beanPackage" : "org.springframework.web.servlet.function.support",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "mvcResourceUrlProvider",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "SameManagementContextConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web.server",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "environment",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ServerProperties",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "ServletEndpointDiscoverer",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web.annotation",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebEndpointAutoConfiguration$WebEndpointServletConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ServletEndpointDiscoverer",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web.annotation",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "AnnotationConfigServletWebServerApplicationContext@33065d67",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ServletEndpointManagementContextConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.web",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "ServletEndpointRegistrar",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "ServletEndpointManagementContextConfiguration$WebMvcServletEndpointManagementContextConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ServletEndpointRegistrar",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebEndpointProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ServletEndpointRegistrar",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "servletEndpointDiscoverer",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ServletEndpointRegistrar",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "dispatcherServletRegistration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ServletManagementContextAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "ServletManagementContextAutoConfiguration$$Lambda$713/0x00000008013c0fb8",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "ServletManagementContextAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ServletManagementContextAutoConfiguration$$Lambda$713/0x00000008013c0fb8",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebEndpointProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ServletWebServerFactoryAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "ServletWebServerFactoryCustomizer",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "ServletWebServerFactoryAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ServletWebServerFactoryCustomizer",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "ServerProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "SessionFlashMapManager",
+            "beanPackage" : "org.springframework.web.servlet.support",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "SimpleControllerHandlerAdapter",
+            "beanPackage" : "org.springframework.web.servlet.mvc",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "SimpleMeterRegistry",
+            "beanPackage" : "io.micrometer.core.instrument.simple",
+            "dependency" : "micrometer-core-1.11.0.jar"
+         },
+         "target" : {
+            "beanName" : "SimpleMetricsExportAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "SimpleMeterRegistry",
+            "beanPackage" : "io.micrometer.core.instrument.simple",
+            "dependency" : "micrometer-core-1.11.0.jar"
+         },
+         "target" : {
+            "beanName" : "simpleConfig",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "SimpleMeterRegistry",
+            "beanPackage" : "io.micrometer.core.instrument.simple",
+            "dependency" : "micrometer-core-1.11.0.jar"
+         },
+         "target" : {
+            "beanName" : "micrometerClock",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "SimpleMetricsExportAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics.export.simple",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "SimpleObservationRegistry",
+            "beanPackage" : "io.micrometer.observation",
+            "dependency" : "micrometer-observation-1.11.0.jar"
+         },
+         "target" : {
+            "beanName" : "ObservationAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "SimpleProperties",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics.export.simple",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "SimplePropertiesConfigAdapter",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics.export.simple",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "SimpleMetricsExportAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "SimplePropertiesConfigAdapter",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics.export.simple",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "SimpleProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "SimpleUrlHandlerMapping",
+            "beanPackage" : "org.springframework.web.servlet.handler",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "SimpleUrlHandlerMapping",
+            "beanPackage" : "org.springframework.web.servlet.handler",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "mvcContentNegotiationManager",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "SimpleUrlHandlerMapping",
+            "beanPackage" : "org.springframework.web.servlet.handler",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "mvcConversionService",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "SimpleUrlHandlerMapping",
+            "beanPackage" : "org.springframework.web.servlet.handler",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "mvcResourceUrlProvider",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "SqlInitializationAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.sql.init",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "SqlInitializationProperties",
+            "beanPackage" : "org.springframework.boot.autoconfigure.sql.init",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "SslAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.ssl",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "SslProperties",
+            "beanPackage" : "org.springframework.boot.autoconfigure.ssl",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "SslPropertiesBundleRegistrar",
+            "beanPackage" : "org.springframework.boot.autoconfigure.ssl",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "SslAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "SslPropertiesBundleRegistrar",
+            "beanPackage" : "org.springframework.boot.autoconfigure.ssl",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "SslProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "StandardJackson2ObjectMapperBuilderCustomizer",
+            "beanPackage" : "org.springframework.boot.autoconfigure.jackson",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "JacksonAutoConfiguration$Jackson2ObjectMapperBuilderCustomizerConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "StandardJackson2ObjectMapperBuilderCustomizer",
+            "beanPackage" : "org.springframework.boot.autoconfigure.jackson",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "JacksonProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "StandardServletMultipartResolver",
+            "beanPackage" : "org.springframework.web.multipart.support",
+            "dependency" : "spring-web-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "MultipartAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "StartupTimeMetricsListener",
+            "beanPackage" : "org.springframework.boot.actuate.metrics.startup",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "StartupTimeMetricsListenerAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "StartupTimeMetricsListener",
+            "beanPackage" : "org.springframework.boot.actuate.metrics.startup",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "simpleMeterRegistry",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "StartupTimeMetricsListenerAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics.startup",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "StaticView",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "StringHttpMessageConverter",
+            "beanPackage" : "org.springframework.http.converter",
+            "dependency" : "spring-web-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "HttpMessageConvertersAutoConfiguration$StringHttpMessageConverterConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "StringHttpMessageConverter",
+            "beanPackage" : "org.springframework.http.converter",
+            "dependency" : "spring-web-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "environment",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "StringHttpMessageConverterConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.http",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "SystemMetricsAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "TaskExecutionAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.task",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "TaskExecutionProperties",
+            "beanPackage" : "org.springframework.boot.autoconfigure.task",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "TaskExecutorBuilder",
+            "beanPackage" : "org.springframework.boot.task",
+            "dependency" : "spring-boot-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "TaskExecutionAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "TaskExecutorBuilder",
+            "beanPackage" : "org.springframework.boot.task",
+            "dependency" : "spring-boot-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "TaskExecutionProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "TaskExecutorMetricsAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics.task",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "applicationTaskExecutor",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "TaskExecutorMetricsAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics.task",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "simpleMeterRegistry",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "TaskSchedulerBuilder",
+            "beanPackage" : "org.springframework.boot.task",
+            "dependency" : "spring-boot-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "TaskSchedulingAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "TaskSchedulerBuilder",
+            "beanPackage" : "org.springframework.boot.task",
+            "dependency" : "spring-boot-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "TaskSchedulingProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "TaskSchedulingAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.task",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "TaskSchedulingProperties",
+            "beanPackage" : "org.springframework.boot.autoconfigure.task",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "ThreadPoolTaskExecutor",
+            "beanPackage" : "org.springframework.scheduling.concurrent",
+            "dependency" : "spring-context-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "TaskExecutionAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ThreadPoolTaskExecutor",
+            "beanPackage" : "org.springframework.scheduling.concurrent",
+            "dependency" : "spring-context-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "taskExecutorBuilder",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "TomcatMetricsAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics.web.tomcat",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "TomcatMetricsBinder",
+            "beanPackage" : "org.springframework.boot.actuate.metrics.web.tomcat",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "TomcatMetricsAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "TomcatMetricsBinder",
+            "beanPackage" : "org.springframework.boot.actuate.metrics.web.tomcat",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "simpleMeterRegistry",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "TomcatServletWebServerFactory",
+            "beanPackage" : "org.springframework.boot.web.embedded.tomcat",
+            "dependency" : "spring-boot-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "ServletWebServerFactoryConfiguration$EmbeddedTomcat",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "TomcatServletWebServerFactoryCustomizer",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "ServletWebServerFactoryAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "TomcatServletWebServerFactoryCustomizer",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "ServerProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "TomcatWebServerFactoryCustomizer",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.embedded",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "EmbeddedWebServerFactoryCustomizerAutoConfiguration$TomcatWebServerFactoryCustomizerConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "TomcatWebServerFactoryCustomizer",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.embedded",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "environment",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "TomcatWebServerFactoryCustomizer",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.embedded",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "ServerProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "TomcatWebServerFactoryCustomizerConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.embedded",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "TomcatWebSocketConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.websocket.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "TomcatWebSocketServletWebServerCustomizer",
+            "beanPackage" : "org.springframework.boot.autoconfigure.websocket.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebSocketServletAutoConfiguration$TomcatWebSocketConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "Unnamed7",
+            "beanPackage" : "io.micrometer.core.instrument.config",
+            "dependency" : "micrometer-core-1.11.0.jar"
+         },
+         "target" : {
+            "beanName" : "HttpClientObservationsAutoConfiguration$MeterFilterConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "Unnamed7",
+            "beanPackage" : "io.micrometer.core.instrument.config",
+            "dependency" : "micrometer-core-1.11.0.jar"
+         },
+         "target" : {
+            "beanName" : "ObservationProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "Unnamed7",
+            "beanPackage" : "io.micrometer.core.instrument.config",
+            "dependency" : "micrometer-core-1.11.0.jar"
+         },
+         "target" : {
+            "beanName" : "MetricsProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "Unnamed8",
+            "beanPackage" : "io.micrometer.core.instrument",
+            "dependency" : "micrometer-core-1.11.0.jar"
+         },
+         "target" : {
+            "beanName" : "MetricsAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "Unnamed9",
+            "beanPackage" : "io.micrometer.core.instrument.config",
+            "dependency" : "micrometer-core-1.11.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcObservationAutoConfiguration$MeterFilterConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "Unnamed9",
+            "beanPackage" : "io.micrometer.core.instrument.config",
+            "dependency" : "micrometer-core-1.11.0.jar"
+         },
+         "target" : {
+            "beanName" : "MetricsProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "Unnamed9",
+            "beanPackage" : "io.micrometer.core.instrument.config",
+            "dependency" : "micrometer-core-1.11.0.jar"
+         },
+         "target" : {
+            "beanName" : "ObservationProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "UptimeMetrics",
+            "beanPackage" : "io.micrometer.core.instrument.binder.system",
+            "dependency" : "micrometer-core-1.11.0.jar"
+         },
+         "target" : {
+            "beanName" : "SystemMetricsAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "UrlPathHelper",
+            "beanPackage" : "org.springframework.web.util",
+            "dependency" : "spring-web-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "UserBeansDependencyService",
+            "beanPackage" : "io.github.jabrena.userbeans",
+            "dependency" : "UNKNOWN"
+         },
+         "target" : {
+            "beanName" : "UserBeansService",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "UserBeansEndpoint",
+            "beanPackage" : "io.github.jabrena.userbeans",
+            "dependency" : "UNKNOWN"
+         },
+         "target" : {
+            "beanName" : "UserBeansGraphService",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "UserBeansEndpoint",
+            "beanPackage" : "io.github.jabrena.userbeans",
+            "dependency" : "UNKNOWN"
+         },
+         "target" : {
+            "beanName" : "JavaClassExplanationService",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "UserBeansGraphService",
+            "beanPackage" : "io.github.jabrena.userbeans",
+            "dependency" : "UNKNOWN"
+         },
+         "target" : {
+            "beanName" : "UserBeansDependencyService",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "UserBeansService",
+            "beanPackage" : "io.github.jabrena.userbeans",
+            "dependency" : "UNKNOWN"
+         },
+         "target" : {
+            "beanName" : "beansEndpoint",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ViewResolverComposite",
+            "beanPackage" : "org.springframework.web.servlet.view",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "ViewResolverComposite",
+            "beanPackage" : "org.springframework.web.servlet.view",
+            "dependency" : "spring-webmvc-6.0.9.jar"
+         },
+         "target" : {
+            "beanName" : "mvcContentNegotiationManager",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WebConversionService",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.format",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WebEndpointAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.web",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "AnnotationConfigServletWebServerApplicationContext@33065d67",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WebEndpointAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.web",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebEndpointProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WebEndpointDiscoverer",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web.annotation",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebEndpointAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WebEndpointDiscoverer",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web.annotation",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "endpointOperationParameterMapper",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WebEndpointDiscoverer",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web.annotation",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "endpointMediaTypes",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WebEndpointProperties",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.web",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "WebEndpointServletConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.web",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "WebMvcAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "WebMvcAutoConfigurationAdapter",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WebMvcAutoConfigurationAdapter",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WebMvcAutoConfigurationAdapter",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "DefaultListableBeanFactory@4397ad89",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WebMvcEndpointHandlerMapping",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web.servlet",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcEndpointManagementContextConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WebMvcEndpointHandlerMapping",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web.servlet",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "webEndpointDiscoverer",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WebMvcEndpointHandlerMapping",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web.servlet",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "servletEndpointDiscoverer",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WebMvcEndpointHandlerMapping",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web.servlet",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "controllerEndpointDiscoverer",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WebMvcEndpointHandlerMapping",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web.servlet",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "endpointMediaTypes",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WebMvcEndpointHandlerMapping",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web.servlet",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "CorsEndpointProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WebMvcEndpointHandlerMapping",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web.servlet",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebEndpointProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WebMvcEndpointHandlerMapping",
+            "beanPackage" : "org.springframework.boot.actuate.endpoint.web.servlet",
+            "dependency" : "spring-boot-actuator-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "environment",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WebMvcEndpointManagementContextConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.web.servlet",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "WebMvcObservationAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation.web.servlet",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "ObservationProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WebMvcObservationAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation.web.servlet",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "MetricsProperties",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WebMvcProperties",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "WebMvcServletEndpointManagementContextConfiguration",
+            "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.web",
+            "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "WebProperties",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "WebServerFactoryCustomizerBeanPostProcessor",
+            "beanPackage" : "org.springframework.boot.web.server",
+            "dependency" : "spring-boot-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "WebSocketServletAutoConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.websocket.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      },
+      {
+         "source" : {
+            "beanName" : "WelcomePageHandlerMapping",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WelcomePageHandlerMapping",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "AnnotationConfigServletWebServerApplicationContext@33065d67",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WelcomePageHandlerMapping",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "mvcConversionService",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WelcomePageHandlerMapping",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "mvcResourceUrlProvider",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WelcomePageNotAcceptableHandlerMapping",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WelcomePageNotAcceptableHandlerMapping",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "AnnotationConfigServletWebServerApplicationContext@33065d67",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WelcomePageNotAcceptableHandlerMapping",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "mvcConversionService",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WelcomePageNotAcceptableHandlerMapping",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : {
+            "beanName" : "mvcResourceUrlProvider",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      },
+      {
+         "source" : {
+            "beanName" : "WhitelabelErrorViewConfiguration",
+            "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error",
+            "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+         },
+         "target" : null
+      }
+   ],
+   "nodes" : [
+      {
+         "beanName" : "AcceptHeaderLocaleResolver",
+         "beanPackage" : "org.springframework.web.servlet.i18n",
+         "dependency" : "spring-webmvc-6.0.9.jar"
+      },
+      {
+         "beanName" : "AnnotationConfigServletWebServerApplicationContext@33065d67",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "AntPathMatcher",
+         "beanPackage" : "org.springframework.util",
+         "dependency" : "spring-core-6.0.9.jar"
+      },
+      {
+         "beanName" : "AopAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.aop",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "AopAutoConfiguration$ClassProxyingConfiguration$$Lambda$368/0x0000000801271930",
+         "beanPackage" : "org.springframework.boot.autoconfigure.aop",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "ApplicationAvailabilityAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.availability",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "ApplicationAvailabilityBean",
+         "beanPackage" : "org.springframework.boot.availability",
+         "dependency" : "spring-boot-3.1.0.jar"
+      },
+      {
+         "beanName" : "AvailabilityHealthContributorAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.availability",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "BasicErrorController",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "BeanNameUrlHandlerMapping",
+         "beanPackage" : "org.springframework.web.servlet.handler",
+         "dependency" : "spring-webmvc-6.0.9.jar"
+      },
+      {
+         "beanName" : "BeanNameViewResolver",
+         "beanPackage" : "org.springframework.web.servlet.view",
+         "dependency" : "spring-webmvc-6.0.9.jar"
+      },
+      {
+         "beanName" : "BeansEndpoint",
+         "beanPackage" : "org.springframework.boot.actuate.beans",
+         "dependency" : "spring-boot-actuator-3.1.0.jar"
+      },
+      {
+         "beanName" : "BeansEndpointAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.beans",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "CachingMetadataReaderFactory",
+         "beanPackage" : "org.springframework.core.type.classreading",
+         "dependency" : "spring-core-6.0.9.jar"
+      },
+      {
+         "beanName" : "CachingOperationInvokerAdvisor",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.invoker.cache",
+         "dependency" : "spring-boot-actuator-3.1.0.jar"
+      },
+      {
+         "beanName" : "ChatGTPConfig",
+         "beanPackage" : "io.github.jabrena.userbeans",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "ChatGTPMapper",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "ChatGTPProvider",
+         "beanPackage" : "io.github.jabrena.userbeans",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "ClassLoaderMetrics",
+         "beanPackage" : "io.micrometer.core.instrument.binder.jvm",
+         "dependency" : "micrometer-core-1.11.0.jar"
+      },
+      {
+         "beanName" : "ClassProxyingConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.aop",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "CompositeMeterRegistryAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "CompositeUriComponentsContributor",
+         "beanPackage" : "org.springframework.web.method.support",
+         "dependency" : "spring-web-6.0.9.jar"
+      },
+      {
+         "beanName" : "ConfigurationPropertiesAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.context",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "ContentNegotiatingViewResolver",
+         "beanPackage" : "org.springframework.web.servlet.view",
+         "dependency" : "spring-webmvc-6.0.9.jar"
+      },
+      {
+         "beanName" : "ContentNegotiationManager",
+         "beanPackage" : "org.springframework.web.accept",
+         "dependency" : "spring-web-6.0.9.jar"
+      },
+      {
+         "beanName" : "ControllerEndpointDiscoverer",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web.annotation",
+         "dependency" : "spring-boot-actuator-3.1.0.jar"
+      },
+      {
+         "beanName" : "ControllerEndpointHandlerMapping",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web.servlet",
+         "dependency" : "spring-boot-actuator-3.1.0.jar"
+      },
+      {
+         "beanName" : "ConversionServiceParameterValueMapper",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.invoke.convert",
+         "dependency" : "spring-boot-actuator-3.1.0.jar"
+      },
+      {
+         "beanName" : "CorsEndpointProperties",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.web",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "DefaultErrorAttributes",
+         "beanPackage" : "org.springframework.boot.web.servlet.error",
+         "dependency" : "spring-boot-3.1.0.jar"
+      },
+      {
+         "beanName" : "DefaultErrorViewResolver",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "DefaultErrorViewResolverConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "DefaultLifecycleProcessor",
+         "beanPackage" : "org.springframework.context.support",
+         "dependency" : "spring-context-6.0.9.jar"
+      },
+      {
+         "beanName" : "DefaultListableBeanFactory@4397ad89",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "DefaultMeterObservationHandler",
+         "beanPackage" : "io.micrometer.core.instrument.observation",
+         "dependency" : "micrometer-core-1.11.0.jar"
+      },
+      {
+         "beanName" : "DefaultRequestToViewNameTranslator",
+         "beanPackage" : "org.springframework.web.servlet.view",
+         "dependency" : "spring-webmvc-6.0.9.jar"
+      },
+      {
+         "beanName" : "DefaultSslBundleRegistry",
+         "beanPackage" : "org.springframework.boot.ssl",
+         "dependency" : "spring-boot-3.1.0.jar"
+      },
+      {
+         "beanName" : "DependsOnDatabaseInitializationPostProcessor",
+         "beanPackage" : "org.springframework.boot.sql.init.dependency",
+         "dependency" : "spring-boot-3.1.0.jar"
+      },
+      {
+         "beanName" : "DiskSpaceHealthContributorAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.system",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "DiskSpaceHealthIndicator",
+         "beanPackage" : "org.springframework.boot.actuate.system",
+         "dependency" : "spring-boot-actuator-3.1.0.jar"
+      },
+      {
+         "beanName" : "DiskSpaceHealthIndicatorProperties",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.system",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "DiskSpaceMetricsBinder",
+         "beanPackage" : "org.springframework.boot.actuate.metrics.system",
+         "dependency" : "spring-boot-actuator-3.1.0.jar"
+      },
+      {
+         "beanName" : "DispatcherServlet",
+         "beanPackage" : "org.springframework.web.servlet",
+         "dependency" : "spring-webmvc-6.0.9.jar"
+      },
+      {
+         "beanName" : "DispatcherServletAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "DispatcherServletAutoConfiguration$DispatcherServletConfiguration",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "DispatcherServletAutoConfiguration$DispatcherServletRegistrationConfiguration",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "DispatcherServletConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "DispatcherServletRegistrationBean",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "DispatcherServletRegistrationConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "EmbeddedTomcat",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "EmbeddedWebServerFactoryCustomizerAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.embedded",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "EmbeddedWebServerFactoryCustomizerAutoConfiguration$TomcatWebServerFactoryCustomizerConfiguration",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "EnableSameManagementContextConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web.server",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "EnableWebMvcConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "EndpointAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "EndpointMediaTypes",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web",
+         "dependency" : "spring-boot-actuator-3.1.0.jar"
+      },
+      {
+         "beanName" : "ErrorMvcAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "ErrorMvcAutoConfiguration$DefaultErrorViewResolverConfiguration",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "ErrorMvcAutoConfiguration$WhitelabelErrorViewConfiguration",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "ErrorPageCustomizer",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "ErrorPageRegistrarBeanPostProcessor",
+         "beanPackage" : "org.springframework.boot.web.server",
+         "dependency" : "spring-boot-3.1.0.jar"
+      },
+      {
+         "beanName" : "FileDescriptorMetrics",
+         "beanPackage" : "io.micrometer.core.instrument.binder.system",
+         "dependency" : "micrometer-core-1.11.0.jar"
+      },
+      {
+         "beanName" : "FilterRegistrationBean",
+         "beanPackage" : "org.springframework.boot.web.servlet",
+         "dependency" : "spring-boot-3.1.0.jar"
+      },
+      {
+         "beanName" : "FixedThemeResolver",
+         "beanPackage" : "org.springframework.web.servlet.theme",
+         "dependency" : "spring-webmvc-6.0.9.jar"
+      },
+      {
+         "beanName" : "HandlerExceptionResolverComposite",
+         "beanPackage" : "org.springframework.web.servlet.handler",
+         "dependency" : "spring-webmvc-6.0.9.jar"
+      },
+      {
+         "beanName" : "HandlerFunctionAdapter",
+         "beanPackage" : "org.springframework.web.servlet.function.support",
+         "dependency" : "spring-webmvc-6.0.9.jar"
+      },
+      {
+         "beanName" : "HandlerMapping",
+         "beanPackage" : "org.springframework.web.servlet",
+         "dependency" : "spring-webmvc-6.0.9.jar"
+      },
+      {
+         "beanName" : "HealthContributorAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.health",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "HttpClientObservationsAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation.web.client",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "HttpClientObservationsAutoConfiguration$MeterFilterConfiguration",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "HttpEncodingAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "HttpMessageConverters",
+         "beanPackage" : "org.springframework.boot.autoconfigure.http",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "HttpMessageConvertersAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.http",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "HttpMessageConvertersAutoConfiguration$StringHttpMessageConverterConfiguration",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "HttpRequestHandlerAdapter",
+         "beanPackage" : "org.springframework.web.servlet.mvc",
+         "dependency" : "spring-webmvc-6.0.9.jar"
+      },
+      {
+         "beanName" : "IncludeExcludeEndpointFilter",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.expose",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "InfoContributorAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.info",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "InfoContributorProperties",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.info",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "IntegrationMetricsAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics.integration",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "InternalResourceViewResolver",
+         "beanPackage" : "org.springframework.web.servlet.view",
+         "dependency" : "spring-webmvc-6.0.9.jar"
+      },
+      {
+         "beanName" : "Jackson2ObjectMapperBuilder",
+         "beanPackage" : "org.springframework.http.converter.json",
+         "dependency" : "spring-web-6.0.9.jar"
+      },
+      {
+         "beanName" : "Jackson2ObjectMapperBuilderCustomizerConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.jackson",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "JacksonAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.jackson",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "JacksonAutoConfiguration$Jackson2ObjectMapperBuilderCustomizerConfiguration",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "JacksonAutoConfiguration$JacksonMixinConfiguration",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "JacksonAutoConfiguration$ParameterNamesModuleConfiguration",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "JacksonEndpointAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.jackson",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "JacksonEndpointAutoConfiguration$$Lambda$632/0x000000080133f590",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.jackson",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "JacksonHttpMessageConvertersConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.http",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "JacksonHttpMessageConvertersConfiguration$MappingJackson2HttpMessageConverterConfiguration",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "JacksonMixinConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.jackson",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "JacksonObjectMapperBuilderConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.jackson",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "JacksonObjectMapperConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.jackson",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "JacksonProperties",
+         "beanPackage" : "org.springframework.boot.autoconfigure.jackson",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "JavaClassExplanationService",
+         "beanPackage" : "io.github.jabrena.userbeans",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "JsonComponentModule",
+         "beanPackage" : "org.springframework.boot.jackson",
+         "dependency" : "spring-boot-3.1.0.jar"
+      },
+      {
+         "beanName" : "JsonMixinModule",
+         "beanPackage" : "org.springframework.boot.jackson",
+         "dependency" : "spring-boot-3.1.0.jar"
+      },
+      {
+         "beanName" : "JsonMixinModuleEntries",
+         "beanPackage" : "org.springframework.boot.jackson",
+         "dependency" : "spring-boot-3.1.0.jar"
+      },
+      {
+         "beanName" : "JvmCompilationMetrics",
+         "beanPackage" : "io.micrometer.core.instrument.binder.jvm",
+         "dependency" : "micrometer-core-1.11.0.jar"
+      },
+      {
+         "beanName" : "JvmGcMetrics",
+         "beanPackage" : "io.micrometer.core.instrument.binder.jvm",
+         "dependency" : "micrometer-core-1.11.0.jar"
+      },
+      {
+         "beanName" : "JvmHeapPressureMetrics",
+         "beanPackage" : "io.micrometer.core.instrument.binder.jvm",
+         "dependency" : "micrometer-core-1.11.0.jar"
+      },
+      {
+         "beanName" : "JvmInfoMetrics",
+         "beanPackage" : "io.micrometer.core.instrument.binder.jvm",
+         "dependency" : "micrometer-core-1.11.0.jar"
+      },
+      {
+         "beanName" : "JvmMemoryMetrics",
+         "beanPackage" : "io.micrometer.core.instrument.binder.jvm",
+         "dependency" : "micrometer-core-1.11.0.jar"
+      },
+      {
+         "beanName" : "JvmMetricsAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "JvmThreadMetrics",
+         "beanPackage" : "io.micrometer.core.instrument.binder.jvm",
+         "dependency" : "micrometer-core-1.11.0.jar"
+      },
+      {
+         "beanName" : "LifecycleAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.context",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "LifecycleProperties",
+         "beanPackage" : "org.springframework.boot.autoconfigure.context",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "LocaleCharsetMappingsCustomizer",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "LogbackMetrics",
+         "beanPackage" : "io.micrometer.core.instrument.binder.logging",
+         "dependency" : "micrometer-core-1.11.0.jar"
+      },
+      {
+         "beanName" : "LogbackMetricsAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "MainApplication",
+         "beanPackage" : "info.jab.ms",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "ManagementContextAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web.server",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "ManagementContextFactory",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "ManagementServerProperties",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web.server",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "MappingJackson2HttpMessageConverter",
+         "beanPackage" : "org.springframework.http.converter.json",
+         "dependency" : "spring-web-6.0.9.jar"
+      },
+      {
+         "beanName" : "MappingJackson2HttpMessageConverterConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.http",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "MappingWebEndpointPathMapper",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.web",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "MeterFilterConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation.web.servlet",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "MeterFilterConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation.web.client",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "MeterObservationHandlerConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "MeterRegistryPostProcessor",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "MetricsAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "MetricsProperties",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "MultipartAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "MultipartConfigElement",
+         "beanPackage" : "jakarta.servlet",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "MultipartProperties",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "MyController",
+         "beanPackage" : "info.jab.ms",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "MyService",
+         "beanPackage" : "info.jab.ms",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "NoOpValidator",
+         "beanPackage" : "org.springframework.web.servlet.config.annotation",
+         "dependency" : "spring-webmvc-6.0.9.jar"
+      },
+      {
+         "beanName" : "ObjectMapper",
+         "beanPackage" : "com.fasterxml.jackson.databind",
+         "dependency" : "jackson-databind-2.15.0.jar"
+      },
+      {
+         "beanName" : "ObservationAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "ObservationAutoConfiguration$MeterObservationHandlerConfiguration$OnlyMetricsMeterObservationHandlerConfiguration",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "ObservationAutoConfiguration$OnlyMetricsConfiguration",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "ObservationHandlerGrouping",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "ObservationProperties",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "ObservationRegistryPostProcessor",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "ObservationRestTemplateCustomizer",
+         "beanPackage" : "org.springframework.boot.actuate.metrics.web.client",
+         "dependency" : "spring-boot-actuator-3.1.0.jar"
+      },
+      {
+         "beanName" : "OnlyMetricsConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "OnlyMetricsMeterObservationHandlerConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "OrderedCharacterEncodingFilter",
+         "beanPackage" : "org.springframework.boot.web.servlet.filter",
+         "dependency" : "spring-boot-3.1.0.jar"
+      },
+      {
+         "beanName" : "OrderedFormContentFilter",
+         "beanPackage" : "org.springframework.boot.web.servlet.filter",
+         "dependency" : "spring-boot-3.1.0.jar"
+      },
+      {
+         "beanName" : "OrderedRequestContextFilter",
+         "beanPackage" : "org.springframework.boot.web.servlet.filter",
+         "dependency" : "spring-boot-3.1.0.jar"
+      },
+      {
+         "beanName" : "ParameterNamesModule",
+         "beanPackage" : "com.fasterxml.jackson.module.paramnames",
+         "dependency" : "jackson-module-parameter-names-2.15.0.jar"
+      },
+      {
+         "beanName" : "ParameterNamesModuleConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.jackson",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "PathMappedEndpoints",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web",
+         "dependency" : "spring-boot-actuator-3.1.0.jar"
+      },
+      {
+         "beanName" : "PathPatternParser",
+         "beanPackage" : "org.springframework.web.util.pattern",
+         "dependency" : "spring-web-6.0.9.jar"
+      },
+      {
+         "beanName" : "PingHealthIndicator",
+         "beanPackage" : "org.springframework.boot.actuate.health",
+         "dependency" : "spring-boot-actuator-3.1.0.jar"
+      },
+      {
+         "beanName" : "PreserveErrorControllerTargetClassPostProcessor",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "ProcessorMetrics",
+         "beanPackage" : "io.micrometer.core.instrument.binder.system",
+         "dependency" : "micrometer-core-1.11.0.jar"
+      },
+      {
+         "beanName" : "ProjectInfoAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.info",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "ProjectInfoProperties",
+         "beanPackage" : "org.springframework.boot.autoconfigure.info",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "PropertiesMeterFilter",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "PropertyPlaceholderAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.context",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "PropertySourcesPlaceholderConfigurer",
+         "beanPackage" : "org.springframework.context.support",
+         "dependency" : "spring-context-6.0.9.jar"
+      },
+      {
+         "beanName" : "RequestMappingHandlerAdapter",
+         "beanPackage" : "org.springframework.web.servlet.mvc.method.annotation",
+         "dependency" : "spring-webmvc-6.0.9.jar"
+      },
+      {
+         "beanName" : "RequestMappingHandlerMapping",
+         "beanPackage" : "org.springframework.web.servlet.mvc.method.annotation",
+         "dependency" : "spring-webmvc-6.0.9.jar"
+      },
+      {
+         "beanName" : "ResourceUrlProvider",
+         "beanPackage" : "org.springframework.web.servlet.resource",
+         "dependency" : "spring-webmvc-6.0.9.jar"
+      },
+      {
+         "beanName" : "RestTemplateAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.client",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "RestTemplateObservationConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation.web.client",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "RouterFunctionMapping",
+         "beanPackage" : "org.springframework.web.servlet.function.support",
+         "dependency" : "spring-webmvc-6.0.9.jar"
+      },
+      {
+         "beanName" : "SameManagementContextConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web.server",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "ServerProperties",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "ServletEndpointDiscoverer",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web.annotation",
+         "dependency" : "spring-boot-actuator-3.1.0.jar"
+      },
+      {
+         "beanName" : "ServletEndpointManagementContextConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.web",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "ServletEndpointManagementContextConfiguration$WebMvcServletEndpointManagementContextConfiguration",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "ServletEndpointRegistrar",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web",
+         "dependency" : "spring-boot-actuator-3.1.0.jar"
+      },
+      {
+         "beanName" : "ServletManagementContextAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web.servlet",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "ServletManagementContextAutoConfiguration$$Lambda$713/0x00000008013c0fb8",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.web.servlet",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "ServletWebServerFactoryAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "ServletWebServerFactoryConfiguration$EmbeddedTomcat",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "ServletWebServerFactoryCustomizer",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "SessionFlashMapManager",
+         "beanPackage" : "org.springframework.web.servlet.support",
+         "dependency" : "spring-webmvc-6.0.9.jar"
+      },
+      {
+         "beanName" : "SimpleControllerHandlerAdapter",
+         "beanPackage" : "org.springframework.web.servlet.mvc",
+         "dependency" : "spring-webmvc-6.0.9.jar"
+      },
+      {
+         "beanName" : "SimpleMeterRegistry",
+         "beanPackage" : "io.micrometer.core.instrument.simple",
+         "dependency" : "micrometer-core-1.11.0.jar"
+      },
+      {
+         "beanName" : "SimpleMetricsExportAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics.export.simple",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "SimpleObservationRegistry",
+         "beanPackage" : "io.micrometer.observation",
+         "dependency" : "micrometer-observation-1.11.0.jar"
+      },
+      {
+         "beanName" : "SimpleProperties",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics.export.simple",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "SimplePropertiesConfigAdapter",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics.export.simple",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "SimpleUrlHandlerMapping",
+         "beanPackage" : "org.springframework.web.servlet.handler",
+         "dependency" : "spring-webmvc-6.0.9.jar"
+      },
+      {
+         "beanName" : "SqlInitializationAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.sql.init",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "SqlInitializationProperties",
+         "beanPackage" : "org.springframework.boot.autoconfigure.sql.init",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "SslAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.ssl",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "SslProperties",
+         "beanPackage" : "org.springframework.boot.autoconfigure.ssl",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "SslPropertiesBundleRegistrar",
+         "beanPackage" : "org.springframework.boot.autoconfigure.ssl",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "StandardJackson2ObjectMapperBuilderCustomizer",
+         "beanPackage" : "org.springframework.boot.autoconfigure.jackson",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "StandardServletMultipartResolver",
+         "beanPackage" : "org.springframework.web.multipart.support",
+         "dependency" : "spring-web-6.0.9.jar"
+      },
+      {
+         "beanName" : "StartupTimeMetricsListener",
+         "beanPackage" : "org.springframework.boot.actuate.metrics.startup",
+         "dependency" : "spring-boot-actuator-3.1.0.jar"
+      },
+      {
+         "beanName" : "StartupTimeMetricsListenerAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics.startup",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "StaticView",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "StringHttpMessageConverter",
+         "beanPackage" : "org.springframework.http.converter",
+         "dependency" : "spring-web-6.0.9.jar"
+      },
+      {
+         "beanName" : "StringHttpMessageConverterConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.http",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "SystemMetricsAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "TaskExecutionAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.task",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "TaskExecutionProperties",
+         "beanPackage" : "org.springframework.boot.autoconfigure.task",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "TaskExecutorBuilder",
+         "beanPackage" : "org.springframework.boot.task",
+         "dependency" : "spring-boot-3.1.0.jar"
+      },
+      {
+         "beanName" : "TaskExecutorMetricsAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics.task",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "TaskSchedulerBuilder",
+         "beanPackage" : "org.springframework.boot.task",
+         "dependency" : "spring-boot-3.1.0.jar"
+      },
+      {
+         "beanName" : "TaskSchedulingAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.task",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "TaskSchedulingProperties",
+         "beanPackage" : "org.springframework.boot.autoconfigure.task",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "ThreadPoolTaskExecutor",
+         "beanPackage" : "org.springframework.scheduling.concurrent",
+         "dependency" : "spring-context-6.0.9.jar"
+      },
+      {
+         "beanName" : "TomcatMetricsAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.metrics.web.tomcat",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "TomcatMetricsBinder",
+         "beanPackage" : "org.springframework.boot.actuate.metrics.web.tomcat",
+         "dependency" : "spring-boot-actuator-3.1.0.jar"
+      },
+      {
+         "beanName" : "TomcatServletWebServerFactory",
+         "beanPackage" : "org.springframework.boot.web.embedded.tomcat",
+         "dependency" : "spring-boot-3.1.0.jar"
+      },
+      {
+         "beanName" : "TomcatServletWebServerFactoryCustomizer",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "TomcatWebServerFactoryCustomizer",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.embedded",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "TomcatWebServerFactoryCustomizerConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.embedded",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "TomcatWebSocketConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.websocket.servlet",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "TomcatWebSocketServletWebServerCustomizer",
+         "beanPackage" : "org.springframework.boot.autoconfigure.websocket.servlet",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "Unnamed10",
+         "beanPackage" : "io.micrometer.core.instrument.config",
+         "dependency" : "micrometer-core-1.11.0.jar"
+      },
+      {
+         "beanName" : "Unnamed11",
+         "beanPackage" : "io.micrometer.core.instrument",
+         "dependency" : "micrometer-core-1.11.0.jar"
+      },
+      {
+         "beanName" : "Unnamed12",
+         "beanPackage" : "io.micrometer.core.instrument.config",
+         "dependency" : "micrometer-core-1.11.0.jar"
+      },
+      {
+         "beanName" : "UptimeMetrics",
+         "beanPackage" : "io.micrometer.core.instrument.binder.system",
+         "dependency" : "micrometer-core-1.11.0.jar"
+      },
+      {
+         "beanName" : "UrlPathHelper",
+         "beanPackage" : "org.springframework.web.util",
+         "dependency" : "spring-web-6.0.9.jar"
+      },
+      {
+         "beanName" : "UserBeansDependencyService",
+         "beanPackage" : "io.github.jabrena.userbeans",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "UserBeansEndpoint",
+         "beanPackage" : "io.github.jabrena.userbeans",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "UserBeansGraphService",
+         "beanPackage" : "io.github.jabrena.userbeans",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "UserBeansService",
+         "beanPackage" : "io.github.jabrena.userbeans",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "ViewResolverComposite",
+         "beanPackage" : "org.springframework.web.servlet.view",
+         "dependency" : "spring-webmvc-6.0.9.jar"
+      },
+      {
+         "beanName" : "WebConversionService",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.format",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "WebEndpointAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.web",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "WebEndpointAutoConfiguration$WebEndpointServletConfiguration",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "WebEndpointDiscoverer",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web.annotation",
+         "dependency" : "spring-boot-actuator-3.1.0.jar"
+      },
+      {
+         "beanName" : "WebEndpointProperties",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.web",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "WebEndpointServletConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.web",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "WebMvcAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "WebMvcAutoConfiguration$EnableWebMvcConfiguration",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "WebMvcAutoConfiguration$WebMvcAutoConfigurationAdapter",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "WebMvcAutoConfigurationAdapter",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "WebMvcEndpointHandlerMapping",
+         "beanPackage" : "org.springframework.boot.actuate.endpoint.web.servlet",
+         "dependency" : "spring-boot-actuator-3.1.0.jar"
+      },
+      {
+         "beanName" : "WebMvcEndpointManagementContextConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.web.servlet",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "WebMvcObservationAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.observation.web.servlet",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "WebMvcObservationAutoConfiguration$MeterFilterConfiguration",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "WebMvcProperties",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "WebMvcServletEndpointManagementContextConfiguration",
+         "beanPackage" : "org.springframework.boot.actuate.autoconfigure.endpoint.web",
+         "dependency" : "spring-boot-actuator-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "WebProperties",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "WebServerFactoryCustomizerBeanPostProcessor",
+         "beanPackage" : "org.springframework.boot.web.server",
+         "dependency" : "spring-boot-3.1.0.jar"
+      },
+      {
+         "beanName" : "WebSocketServletAutoConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.websocket.servlet",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "WebSocketServletAutoConfiguration$TomcatWebSocketConfiguration",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "WelcomePageHandlerMapping",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "WelcomePageNotAcceptableHandlerMapping",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "WhitelabelErrorViewConfiguration",
+         "beanPackage" : "org.springframework.boot.autoconfigure.web.servlet.error",
+         "dependency" : "spring-boot-autoconfigure-3.1.0.jar"
+      },
+      {
+         "beanName" : "applicationTaskExecutor",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "beansEndpoint",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "controllerEndpointDiscoverer",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "dispatcherServlet",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "dispatcherServletRegistration",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "endpointMediaTypes",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "endpointObjectMapperWebMvcConfigurer",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "endpointOperationParameterMapper",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "environment",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "errorAttributes",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "jsonMixinModuleEntries",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "micrometerClock",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "mvcContentNegotiationManager",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "mvcConversionService",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "mvcResourceUrlProvider",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "mvcValidator",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "myService",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "observationRegistry",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "requestMappingHandlerAdapter",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "servletEndpointDiscoverer",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "simpleConfig",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "simpleMeterRegistry",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "sslPropertiesSslBundleRegistrar",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "taskExecutorBuilder",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      },
+      {
+         "beanName" : "webEndpointDiscoverer",
+         "beanPackage" : "UNKNOWN",
+         "dependency" : "UNKNOWN"
+      }
+   ]
+}
