@@ -65,8 +65,29 @@ class ChatGTPProviderTests {
         wireMockServer.stubFor(post(urlEqualTo("/openapi"))
                 .willReturn(aResponse()
                         .withHeader("Content-Type", "application/json")
-                        .withStatus(200)
+                        .withStatus(401)
                         .withBodyFile("401-incorrect-api-key.json"))
+        );
+
+        // @formatter:on
+
+        //When
+        var response = chatGTPProvider.getAnswer("");
+
+        //Then
+        assertThat(response).as("Response should be 'Something went wrong'").isEqualTo("Something went wrong");
+    }
+
+    @Test
+    void shouldHandleMaxContentScenario() throws Exception {
+        // @formatter:off
+
+        //Given
+        wireMockServer.stubFor(post(urlEqualTo("/openapi"))
+                .willReturn(aResponse()
+                        .withHeader("Content-Type", "application/json")
+                        .withStatus(400)
+                        .withBodyFile("400-max-content-reached.json"))
         );
 
         // @formatter:on

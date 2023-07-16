@@ -34,10 +34,17 @@ public class JavaClassExplanationService {
         logger.info("Asking ChatGTP to explain a specific Spring Class");
 
         String question = """
-            Can you explain in 3 lines the purpose
+            Can you create an article about the purpose
             of the Java class: %s
             with this package: %s
-            included in this Dependency: %s ?
+            included in this Dependency: %s
+            which include the following sections:
+            - Java class purpose
+            - How that Java Class interact with the rest of Spring Ecosystem?
+            - What is the benefit of that Java class in Spring?
+            - Is it necessary to customize in some way by the developer?
+
+            in HTML format?
             """;
 
         question = String.format(question, beanClass, packageName, dependency);
