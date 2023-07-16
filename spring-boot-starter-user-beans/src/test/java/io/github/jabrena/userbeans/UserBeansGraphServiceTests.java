@@ -43,7 +43,7 @@ class UserBeansGraphServiceTests {
         var resuls = userBeansGraphService.generateGraphData(noFilter);
 
         //Then
-        assertThat(resuls).hasSizeGreaterThan(0);
+        assertThat(resuls.edges()).hasSizeGreaterThan(0);
     }
 
     @Test
@@ -55,7 +55,7 @@ class UserBeansGraphServiceTests {
         var resuls = userBeansGraphService.generateGraphData(filter);
 
         //Then
-        assertThat(resuls).hasSizeGreaterThan(0).hasSizeLessThan(20);
+        assertThat(resuls.edges()).hasSizeGreaterThan(0).hasSizeLessThan(20);
     }
 
     @Test
@@ -67,7 +67,7 @@ class UserBeansGraphServiceTests {
         var resuls = userBeansGraphService.generateGraphData(filter);
 
         //Then
-        assertThat(resuls).hasSizeGreaterThan(0).hasSizeLessThan(30);
+        assertThat(resuls.edges()).hasSizeGreaterThan(0).hasSizeLessThan(30);
     }
 
     @Test
@@ -79,7 +79,7 @@ class UserBeansGraphServiceTests {
         var resuls = userBeansGraphService.generateGraphData(filter);
 
         //Then
-        assertThat(resuls).hasSize(1);
+        assertThat(resuls.edges()).hasSize(1);
     }
 
     @Test
@@ -89,7 +89,7 @@ class UserBeansGraphServiceTests {
         var noFilter = "ALL";
 
         //When
-        var list = userBeansGraphService.generateGraphData(noFilter).stream().filter(edge -> Objects.isNull(edge.target())).toList();
+        var list = userBeansGraphService.generateGraphData(noFilter).edges().stream().filter(edge -> Objects.isNull(edge.target())).toList();
 
         //Then
         assertThat(list).hasSizeGreaterThan(0);
@@ -102,6 +102,7 @@ class UserBeansGraphServiceTests {
         //When
         var resuls = userBeansGraphService
             .generateGraphData("ALL")
+            .edges()
             .stream()
             .filter(edge -> edge.source().beanPackage().contains(beanPackage))
             .toList();

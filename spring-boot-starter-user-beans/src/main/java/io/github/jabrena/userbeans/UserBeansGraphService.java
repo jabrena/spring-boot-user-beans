@@ -3,6 +3,7 @@ package io.github.jabrena.userbeans;
 import static io.github.jabrena.userbeans.UserBeansDependencyService.UNKNOWN_DEPENDENCY;
 import static io.github.jabrena.userbeans.UserBeansDependencyService.UNKNOWN_PACKAGE;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
@@ -39,8 +40,10 @@ public class UserBeansGraphService {
 
     public record Edge(BeanNode source, BeanNode target) {}
 
+    public record GraphData(List<BeanNode> nodes, List<Edge> edges) {}
+
     // @formatter:off
-    List<Edge> generateGraphData(String dependencyFilter) {
+    GraphData generateGraphData(String dependencyFilter) {
         logger.info("Generating Graph data");
 
         var edges = userDependenciesService.getDependencyDocuments().stream()
@@ -52,11 +55,11 @@ public class UserBeansGraphService {
 
         //TODO Remove in the future the filter. Everything will be filtered in D3.js side.
         if (Objects.isNull(dependencyFilter) || dependencyFilter.equals("ALL")) {
-            return edges;
+            return new GraphData(new ArrayList<>(), edges);
         } else {
-            return edges.stream()
+            return new GraphData(new ArrayList<>(), edges.stream()
                     .filter(edge -> edge.source().dependency.contains(dependencyFilter))
-                    .toList();
+                    .toList());
         }
     }
 
