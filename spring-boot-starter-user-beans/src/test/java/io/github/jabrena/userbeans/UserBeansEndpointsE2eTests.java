@@ -50,9 +50,11 @@ class UserBeansEndpointsE2eTests {
         //Given
         final String baseUrl = "http://localhost:" + randomServerPort + "/actuator/userbeans/graph";
 
-        record BeanNode(String beanName, String beanPackage, String dependency) {}
+        record BeanNode(String beanName, String beanPackage, String dependency, Integer index) {}
 
-        record ExpectedEdge(BeanNode source, BeanNode target) {}
+        record BeanEdge(String beanName, String beanPackage, String dependency) {}
+
+        record ExpectedEdge(BeanEdge source, BeanEdge target) {}
 
         record ExpectedGraphData(List<BeanNode> nodes, List<ExpectedEdge> edges) {}
 
