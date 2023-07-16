@@ -63,10 +63,4 @@ public class UserBeansDependencyService {
             .sorted(Comparator.comparing(UserBeansDependencyService.Dependency::dependency))
             .toList();
     }
-
-    //TODO Remove in the future
-
-    List<ClasspathDependencyService.DependencyPackage> getDependencyPackages() {
-        return classpathDependencyService.getDependencyPackages();
-    }
 }

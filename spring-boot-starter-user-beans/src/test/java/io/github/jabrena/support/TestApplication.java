@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * A spring boot application used to manage
  * the Spring Context for testing purposes.
  */
-@SpringBootApplication
+@SpringBootApplication(proxyBeanMethods = false)
 public class TestApplication {
 
     public static void main(String[] args) {
