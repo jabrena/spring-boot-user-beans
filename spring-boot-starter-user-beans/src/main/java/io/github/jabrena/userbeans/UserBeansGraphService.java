@@ -4,6 +4,7 @@ import static io.github.jabrena.userbeans.UserBeansDependencyService.UNKNOWN_DEP
 import static io.github.jabrena.userbeans.UserBeansDependencyService.UNKNOWN_PACKAGE;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
@@ -77,7 +78,17 @@ public class UserBeansGraphService {
         }
     }
 
-    List<UserBeansDependencyService.Dependency> generateGraphCombo() {
-        return userDependenciesService.getUserBeanDependencies();
+    public record Dependency(String dependency) {}
+
+    List<Dependency> generateGraphCombo() {
+        return userDependenciesService
+            .getDependencyDocuments()
+            .stream()
+            .map(UserBeansDependencyService.DependencyDocument::dependency)
+            .filter(dependency -> !dependency.equals(UNKNOWN_DEPENDENCY))
+            .map(Dependency::new)
+            .distinct()
+            .sorted(Comparator.comparing(Dependency::dependency))
+            .toList();
     }
 }

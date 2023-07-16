@@ -18,16 +18,6 @@ class UserBeansDependencyServiceTests {
     private UserBeansDependencyService userDependenciesService;
 
     @Test
-    void testGetDependencies() {
-        //Given
-        //When
-        var list1 = userDependenciesService.getUserBeanDependencies();
-
-        //Then
-        assertThat(list1).as("List of dependencies should not be empty").isNotEmpty();
-    }
-
-    @Test
     void getDependencyDocuments() {
         //Given
         //When

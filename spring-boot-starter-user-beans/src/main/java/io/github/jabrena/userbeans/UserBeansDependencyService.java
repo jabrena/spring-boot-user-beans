@@ -20,8 +20,6 @@ public class UserBeansDependencyService {
         this.classpathDependencyReader = new ClasspathDependencyReader();
     }
 
-    public record Dependency(String dependency) {}
-
     public record DependencyDocument(String beanName, String beanPackage, List<String> beanDependencies, String dependency) {}
 
     // @formatter:off
@@ -46,17 +44,6 @@ public class UserBeansDependencyService {
                 .sorted(Comparator.comparing(DependencyDocument::beanName))
                 .toList();
     }
-
     // @formatter:on
 
-    public List<Dependency> getUserBeanDependencies() {
-        return getDependencyDocuments()
-            .stream()
-            .map(UserBeansDependencyService.DependencyDocument::dependency)
-            .filter(dependency -> !dependency.equals(UNKNOWN_DEPENDENCY))
-            .map(UserBeansDependencyService.Dependency::new)
-            .distinct()
-            .sorted(Comparator.comparing(UserBeansDependencyService.Dependency::dependency))
-            .toList();
-    }
 }
