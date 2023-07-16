@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
 
+//TODO Bean candidate to be removed and be merged with UserBeansGraphService
 @Service
 public class UserBeansDependencyService {
 
@@ -19,8 +20,6 @@ public class UserBeansDependencyService {
         this.userBeansService = userBeansService;
         this.classpathDependencyReader = new ClasspathDependencyReader();
     }
-
-    public record Dependency(String dependency) {}
 
     public record DependencyDocument(String beanName, String beanPackage, List<String> beanDependencies, String dependency) {}
 
@@ -46,17 +45,6 @@ public class UserBeansDependencyService {
                 .sorted(Comparator.comparing(DependencyDocument::beanName))
                 .toList();
     }
-
     // @formatter:on
 
-    public List<Dependency> getUserBeanDependencies() {
-        return getDependencyDocuments()
-            .stream()
-            .map(UserBeansDependencyService.DependencyDocument::dependency)
-            .filter(dependency -> !dependency.equals(UNKNOWN_DEPENDENCY))
-            .map(UserBeansDependencyService.Dependency::new)
-            .distinct()
-            .sorted(Comparator.comparing(UserBeansDependencyService.Dependency::dependency))
-            .toList();
-    }
 }

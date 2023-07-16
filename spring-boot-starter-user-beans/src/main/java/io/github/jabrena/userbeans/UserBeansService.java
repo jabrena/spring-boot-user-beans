@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
 import org.slf4j.Logger;
@@ -42,6 +43,9 @@ public class UserBeansService {
         return (beanNameParts.length > 0) ? beanNameParts[beanNameParts.length - 1] : beanName;
     };
 
+    private AtomicInteger unnamedCounter = new AtomicInteger(0);
+    static final String UNNAMED = "Unnamed";
+
     // @formatter:off
     private Function<Map.Entry<String, BeansEndpoint.BeanDescriptor>, BeanDocument> toBeanDocument = bean -> {
         String beanName = bean.getValue().getType().getSimpleName();
@@ -51,6 +55,10 @@ public class UserBeansService {
                 .stream(bean.getValue().getDependencies())
                 .map(removePackage)
                 .toList();
+
+        if (beanName.equals("")) {
+            beanName = UNNAMED + unnamedCounter.incrementAndGet();
+        }
         return new BeanDocument(beanName, packageName, dependencies);
     };
     // @formatter:on

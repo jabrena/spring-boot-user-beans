@@ -1,10 +1,12 @@
 package io.github.jabrena.userbeans;
 
+import static io.github.jabrena.userbeans.UserBeansService.UNNAMED;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import io.github.jabrena.support.SupportController;
 import io.github.jabrena.support.TestApplication;
 import java.util.Comparator;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -42,7 +44,8 @@ class UserBeansServiceTests {
         //When
         var beanList = userBeansService.getBeansDocuments();
         var unnamedBeans = beanList.stream()
-                .filter(beanDocument -> beanDocument.beanName().equals(""))
+                .filter(beanDocument -> beanDocument.beanName().contains(UNNAMED))
+                .peek(System.out::println)
                 .toList();
 
         //Then
@@ -63,5 +66,34 @@ class UserBeansServiceTests {
 
         //Then
         assertThat(beanListFiltered).hasSize(2);
+    }
+
+    @Disabled
+    @Test
+    void shouldRetrieveBeanDependencyInfo() {
+        //Given
+        //When
+        var list = userBeansService
+            .getBeansDocuments()
+            .stream()
+            .filter(bd -> bd.dependencies().size() > 0)
+            .flatMap(bd -> bd.dependencies().stream())
+            .distinct()
+            .sorted()
+            .map(str -> {
+                try {
+                    Class<?> myClass = this.getClass().getClassLoader().loadClass(str);
+                    System.out.println(myClass.getSimpleName());
+                    return myClass.getSimpleName();
+                } catch (ClassNotFoundException e) {
+                    //Empty on purpose
+                }
+                return "NOT-FOUND-" + str;
+            })
+            //.peek(System.out::println)
+            .toList();
+
+        //Then
+        assertThat(list).hasSizeGreaterThan(0);
     }
 }
