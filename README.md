@@ -247,7 +247,7 @@ sdk env
 - https://d3js.org/
 - https://www.webjars.org/all
 - https://www.eclemma.org/jacoco/trunk/doc/maven.html
-- https://platform.openai.com/docs/api-reference/completions/create
+- https://platform.openai.com/docs/api-reference/
 - https://platform.openai.com/account/usage
 - https://platform.openai.com/account/api-keys
 - https://openai.com/pricing

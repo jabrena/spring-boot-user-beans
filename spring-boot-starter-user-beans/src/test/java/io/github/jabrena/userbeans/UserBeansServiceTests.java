@@ -1,5 +1,6 @@
 package io.github.jabrena.userbeans;
 
+import static io.github.jabrena.userbeans.UserBeansService.UNNAMED;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import io.github.jabrena.support.SupportController;
@@ -43,7 +44,8 @@ class UserBeansServiceTests {
         //When
         var beanList = userBeansService.getBeansDocuments();
         var unnamedBeans = beanList.stream()
-                .filter(beanDocument -> beanDocument.beanName().equals(""))
+                .filter(beanDocument -> beanDocument.beanName().contains(UNNAMED))
+                .peek(System.out::println)
                 .toList();
 
         //Then

@@ -110,4 +110,14 @@ class UserBeansGraphServiceTests {
         //Then
         assertThat(resuls).hasSizeGreaterThan(0);
     }
+
+    @Test
+    void shouldGenerateNodes() {
+        //Given
+        //When
+        var resuls = userBeansGraphService.getNodes();
+
+        //Then
+        assertThat(resuls).hasSizeGreaterThan(0);
+    }
 }
