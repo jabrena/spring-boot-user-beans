@@ -1,25 +1,23 @@
 package io.github.jabrena.userbeans;
 
+import static org.assertj.core.api.Assertions.assertThat;
 
 import io.github.jabrena.support.SupportController;
 import io.github.jabrena.support.TestApplication;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.actuate.beans.BeansEndpoint;
-import org.springframework.boot.test.context.SpringBootTest;
-
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.actuate.beans.BeansEndpoint;
+import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest(
-        classes = { TestApplication.class, SupportController.class },
-        properties = { "management.endpoints.web.exposure.include=beans,userbeans" }
+    classes = { TestApplication.class, SupportController.class },
+    properties = { "management.endpoints.web.exposure.include=beans,userbeans" }
 )
 class UnnamedMicrometerBeanTests {
 
@@ -35,17 +33,13 @@ class UnnamedMicrometerBeanTests {
         String beanName = bean.getValue().getType().getSimpleName();
         Class<?> beanClass = bean.getValue().getType();
         String packageName = beanClass.getPackageName();
-        List<String> dependencies = Arrays
-                .stream(bean.getValue().getDependencies())
-                .map(removePackage)
-                .toList();
+        List<String> dependencies = Arrays.stream(bean.getValue().getDependencies()).map(removePackage).toList();
 
         return new UserBeansService.BeanDocument(beanName, packageName, dependencies);
     };
 
     @Test
     void shouldExist3UnnamedBeansFromMicrometerCore() {
-
         //Given
         int expectedUnnamedBeansCount = 3;
 
@@ -53,16 +47,15 @@ class UnnamedMicrometerBeanTests {
         Map<String, BeansEndpoint.ContextBeansDescriptor> beansMap = beansEndpoint.beans().getContexts();
         var contextBeansDescriptorList = beansMap.values().stream().toList();
         var unnamedBeanList = contextBeansDescriptorList
-                .stream()
-                .flatMap(cd -> cd.getBeans().entrySet().stream())
-                .map(toBeanDocument)
-                .filter(beanDocument -> beanDocument.beanName().equals(""))
-                .sorted(Comparator.comparing(UserBeansService.BeanDocument::beanPackage))
-                .peek(System.out::println)
-                .toList();
+            .stream()
+            .flatMap(cd -> cd.getBeans().entrySet().stream())
+            .map(toBeanDocument)
+            .filter(beanDocument -> beanDocument.beanName().equals(""))
+            .sorted(Comparator.comparing(UserBeansService.BeanDocument::beanPackage))
+            .peek(System.out::println)
+            .toList();
 
         //Then
         assertThat(unnamedBeanList).hasSize(expectedUnnamedBeansCount);
     }
-
 }
