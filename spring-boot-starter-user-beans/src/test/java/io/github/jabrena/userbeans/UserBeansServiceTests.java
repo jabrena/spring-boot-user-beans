@@ -53,9 +53,7 @@ class UserBeansServiceTests {
         var expectedUnnamedBeanCounter = 0;
 
         //When
-        var beanList = userBeansService.getBeansDocuments().stream()
-                .filter(bd -> bd.beanName().equals(""))
-                .toList();
+        var beanList = userBeansService.getBeansDocuments().stream().filter(bd -> bd.beanName().equals("")).toList();
 
         //Then
         assertThat(beanList).hasSize(expectedUnnamedBeanCounter);
