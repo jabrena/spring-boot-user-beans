@@ -203,8 +203,8 @@ A D3.js Graph developed after a long conversation between:
                 }))
                 .filter((link) => link.target !== null);
 
-            //console.log("Printing links")
-            //console.log(links)
+            console.log("Printing links")
+            console.log(links)
 
             linksRaw = data.edges
                 .map((d) => ({
@@ -216,6 +216,16 @@ A D3.js Graph developed after a long conversation between:
                 ...linksRaw.map((d) => d.source),
                 ...linksRaw.map((d) => d.target)
             ]);
+
+            /*
+            //New way
+            const nodes = data.nodes.map((d, index) => ({
+                id: d.beanName,
+                name: d.beanName,
+                package: d.beanPackage,
+                dependency: d.dependency
+            }));
+             */
 
             nodes = Array.from(nodesSet)
                 .filter((d) => d !== null) //TODO Clue that it is possible to improve the Graph generation
