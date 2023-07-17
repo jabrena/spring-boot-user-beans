@@ -120,4 +120,53 @@ class UserBeansGraphServiceTests {
         //Then
         assertThat(resuls).hasSizeGreaterThan(0);
     }
+
+    @Test
+    void getDependencyDocuments() {
+        //Given
+        //When
+        var result = userBeansGraphService.getDependencyDocuments();
+
+        //Then
+
+        assertThat(result).as("Result of dependency documents should not be empty").isNotEmpty();
+    }
+
+    @Test
+    void getDependencyDocumentsWithFilter() {
+        //Given
+        var dependency = "UNKNOWN";
+
+        // @formatter:off
+
+        //When
+        var result = userBeansGraphService.getDependencyDocuments().stream()
+                .filter(dd -> dd.dependency().contains(dependency))
+                .toList();
+
+        //Then
+        assertThat(result)
+                .as("Result of dependency documents should not be empty")
+                .hasSizeGreaterThan(0);
+        // @formatter:on
+    }
+
+    @Test
+    void getDependencyDocumentsWithFilter2() {
+        //Given
+        var dependency = "micrometer-observation-1.11.0.jar";
+
+        // @formatter:off
+
+        //When
+        var result = userBeansGraphService.getDependencyDocuments().stream()
+                .filter(dd -> dd.dependency().contains(dependency))
+                .toList();
+
+        //Then
+        assertThat(result)
+                .as("Result of dependency documents should not be empty")
+                .hasSizeGreaterThan(0);
+        // @formatter:on
+    }
 }

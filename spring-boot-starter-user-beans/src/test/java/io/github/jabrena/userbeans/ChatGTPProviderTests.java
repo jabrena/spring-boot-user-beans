@@ -17,7 +17,7 @@ import org.springframework.test.context.TestPropertySource;
 
 @SpringBootTest(classes = { TestApplication.class })
 @TestPropertySource(properties = { "userbeans.openapi.url=http://localhost:8090/openapi", "userbeans.openapi.apikey=XXXYYYZZZ" })
-@EnableAutoConfiguration(exclude = { UserBeansGraphService.class, UserBeansService.class, UserBeansDependencyService.class, UserBeansEndpoint.class })
+@EnableAutoConfiguration(exclude = { UserBeansGraphService.class, UserBeansService.class, UserBeansEndpoint.class })
 class ChatGTPProviderTests {
 
     @Autowired
