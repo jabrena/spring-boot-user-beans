@@ -45,7 +45,7 @@ public class UserBeansService {
 
     // @formatter:off
     private Function<Map.Entry<String, BeansEndpoint.BeanDescriptor>, BeanDocument> toBeanDocument = bean -> {
-        String beanName = (bean.getValue().getType().getSimpleName().equals("")) ? bean.getKey() : bean.getValue().getType().getSimpleName();
+        String beanName = (bean.getValue().getType().getSimpleName().length() == 0) ? bean.getKey() : bean.getValue().getType().getSimpleName();
         Class<?> beanClass = bean.getValue().getType();
         String packageName = beanClass.getPackageName();
         List<String> dependencies = Arrays
