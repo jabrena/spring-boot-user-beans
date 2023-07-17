@@ -1,12 +1,11 @@
 package io.github.jabrena.userbeans;
 
-import static io.github.jabrena.userbeans.UserBeansDependencyService.UNKNOWN_DEPENDENCY;
-import static io.github.jabrena.userbeans.UserBeansDependencyService.UNKNOWN_PACKAGE;
-
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
@@ -19,12 +18,17 @@ public class UserBeansGraphService {
 
     private static final Logger logger = LoggerFactory.getLogger(UserBeansGraphService.class);
 
-    private final UserBeansDependencyService userDependenciesService;
+    public static final String UNKNOWN_DEPENDENCY = "UNKNOWN";
+    public static final String UNKNOWN_PACKAGE = "UNKNOWN";
+    private final UserBeansService userBeansService;
+    private final ClasspathDependencyReader classpathDependencyReader;
+
     private final WebDocumentReader webDocumentReader;
 
     // @formatter:off
-    public UserBeansGraphService(UserBeansDependencyService userDependenciesService) {
-        this.userDependenciesService = userDependenciesService;
+    public UserBeansGraphService(UserBeansService userBeansService) {
+        this.userBeansService = userBeansService;
+        this.classpathDependencyReader = new ClasspathDependencyReader();
         this.webDocumentReader = new WebDocumentReader();
     }
 
@@ -35,6 +39,33 @@ public class UserBeansGraphService {
         logger.info("Generating Web Document");
         String fileName = "static/graph.html";
         return webDocumentReader.readFromResources(fileName);
+    }
+
+    // @formatter:on
+
+    public record DependencyDocument(String beanName, String beanPackage, List<String> beanDependencies, String dependency) {}
+
+    // @formatter:off
+    public List<DependencyDocument> getDependencyDocuments() {
+        List<UserBeansService.BeanDocument> beanDocuments = userBeansService.getBeansDocuments();
+        List<ClasspathDependencyReader.DependencyPackage> jars = classpathDependencyReader.getDependencyPackages();
+
+        return beanDocuments.stream()
+                .map(bd -> {
+                    Optional<ClasspathDependencyReader.DependencyPackage> matchingPackage = jars.stream()
+                            .filter(pkg -> pkg.packageName().equals(bd.beanPackage()))
+                            .findFirst();
+                    String dependencyName = matchingPackage.map(ClasspathDependencyReader.DependencyPackage::dependencyName)
+                            .orElse(UNKNOWN_DEPENDENCY);
+                    return new DependencyDocument(
+                            bd.beanName(),
+                            bd.beanPackage(),
+                            bd.dependencies(),
+                            dependencyName
+                    );
+                })
+                .sorted(Comparator.comparing(DependencyDocument::beanName))
+                .toList();
     }
 
     // @formatter:on
@@ -50,7 +81,7 @@ public class UserBeansGraphService {
     List<BeanNode> getNodes() {
         AtomicInteger counter = new AtomicInteger(0);
 
-        var dependencyDocuments = userDependenciesService.getDependencyDocuments();
+        var dependencyDocuments = this.getDependencyDocuments();
         List<BeanNode> beanNodeList = dependencyDocuments
             .stream()
             .map(dd -> new BeanNode(dd.beanName(), dd.beanPackage(), dd.dependency(), counter.incrementAndGet()))
@@ -75,8 +106,7 @@ public class UserBeansGraphService {
     }
 
     List<Edge> getEdges() {
-        return userDependenciesService
-            .getDependencyDocuments()
+        return this.getDependencyDocuments()
             .stream()
             .flatMap(dd -> {
                 BeanEdge sourceNode = new BeanEdge(dd.beanName(), dd.beanPackage(), dd.dependency());
@@ -102,15 +132,12 @@ public class UserBeansGraphService {
 
         //TODO Remove in the future the filter. Everything will be filtered in D3.js side.
         if (Objects.isNull(dependencyFilter) || dependencyFilter.equals("ALL")) {
-            return new GraphData(getNodes(), edges);
+            return new GraphData(new ArrayList<>(), edges);
         } else {
-            var filteredNodes = getNodes().stream()
-                    .filter(beanNode -> beanNode.dependency.contains(dependencyFilter))
-                    .toList();
             var filteredEdges = edges.stream()
                     .filter(edge -> edge.source().dependency.contains(dependencyFilter))
                     .toList();
-            return new GraphData(filteredNodes, filteredEdges);
+            return new GraphData(new ArrayList<>(), filteredEdges);
         }
     }
 
@@ -119,10 +146,9 @@ public class UserBeansGraphService {
     public record Dependency(String dependency) {}
 
     List<Dependency> generateGraphCombo() {
-        return userDependenciesService
-            .getDependencyDocuments()
+        return this.getDependencyDocuments()
             .stream()
-            .map(UserBeansDependencyService.DependencyDocument::dependency)
+            .map(DependencyDocument::dependency)
             .filter(dependency -> !dependency.equals(UNKNOWN_DEPENDENCY))
             .map(Dependency::new)
             .distinct()

@@ -1,24 +1,23 @@
 package io.github.jabrena.userbeans;
 
-import static io.github.jabrena.userbeans.UserBeansService.UNNAMED;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import io.github.jabrena.support.SupportController;
 import io.github.jabrena.support.TestApplication;
 import java.util.Comparator;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
 
-@SpringBootTest(
-    classes = { TestApplication.class, SupportController.class },
-    properties = { "management.endpoints.web.exposure.include=beans,userbeans" }
-)
+@SpringBootTest(classes = { TestApplication.class }, properties = { "management.endpoints.web.exposure.include=beans,userbeans" })
 class UserBeansServiceTests {
 
     @Autowired
     private UserBeansService userBeansService;
+
+    @Autowired
+    private ApplicationContext applicationContext;
 
     // @formatter:off
     @Test
@@ -31,25 +30,6 @@ class UserBeansServiceTests {
         assertThat(beanList)
                 .isSortedAccordingTo(Comparator.comparing(UserBeansService.BeanDocument::beanName))
                 .hasSizeGreaterThan(0);
-    }
-
-    // @formatter:on
-
-    // @formatter:off
-
-    //TODO A possible small issue to raise in Micrometer
-    @Test
-    void shouldOnlyExistThreeBeansWithoutName() {
-        //Given
-        //When
-        var beanList = userBeansService.getBeansDocuments();
-        var unnamedBeans = beanList.stream()
-                .filter(beanDocument -> beanDocument.beanName().contains(UNNAMED))
-                .peek(System.out::println)
-                .toList();
-
-        //Then
-        assertThat(unnamedBeans).hasSize(3);
     }
 
     // @formatter:on
@@ -68,34 +48,48 @@ class UserBeansServiceTests {
         assertThat(beanListFiltered).hasSize(2);
     }
 
-    @Disabled
     @Test
-    void shouldRetrieveBeanDependencyInfo() {
+    void shouldNoReturnAnyUnnamedBean() {
         //Given
+        var expectedUnnamedBeanCounter = 0;
+
         //When
-        var list = userBeansService
+        var beanList = userBeansService.getBeansDocuments().stream().filter(bd -> bd.beanName().equals("")).toList();
+
+        //Then
+        assertThat(beanList).hasSize(expectedUnnamedBeanCounter);
+    }
+
+    @Test
+    void shouldRetrieveAllBeans() {
+        //Given
+        var expectedUnnamedBeanCounter = 0;
+
+        record BeanDocument(String beanName, String beanPackage) {}
+
+        //When
+        var beanList = userBeansService
             .getBeansDocuments()
             .stream()
             .filter(bd -> bd.dependencies().size() > 0)
             .flatMap(bd -> bd.dependencies().stream())
             .distinct()
-            .sorted()
             .map(str -> {
                 try {
-                    var classLoader = Thread.currentThread().getContextClassLoader();
-                    Class<?> myClass = classLoader.loadClass(str);
-                    //Class<?> myClass = Class.forName(str);
-                    System.out.println(myClass.getSimpleName());
-                    return myClass.getSimpleName();
-                } catch (ClassNotFoundException e) {
+                    Class<?> myClass = applicationContext.getBean(str).getClass();
+                    String beanName = (myClass.getSimpleName().length() == 0) ? myClass.getName() : myClass.getSimpleName();
+                    String beanPackage = myClass.getPackageName();
+                    return new BeanDocument(beanName, beanPackage);
+                } catch (NoSuchBeanDefinitionException e) {
                     //Empty on purpose
                 }
-                return "NOT-FOUND-" + str;
+                return new BeanDocument(str, "UNKNOWN");
             })
+            .sorted(Comparator.comparing(BeanDocument::beanName))
             .peek(System.out::println)
             .toList();
 
         //Then
-        assertThat(list).hasSizeGreaterThan(0);
+        assertThat(beanList).hasSizeGreaterThan(expectedUnnamedBeanCounter);
     }
 }
