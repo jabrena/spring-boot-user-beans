@@ -3,6 +3,7 @@ package io.github.jabrena.userbeans;
 import static io.github.jabrena.userbeans.UserBeansDependencyService.UNKNOWN_DEPENDENCY;
 import static io.github.jabrena.userbeans.UserBeansDependencyService.UNKNOWN_PACKAGE;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
@@ -102,15 +103,12 @@ public class UserBeansGraphService {
 
         //TODO Remove in the future the filter. Everything will be filtered in D3.js side.
         if (Objects.isNull(dependencyFilter) || dependencyFilter.equals("ALL")) {
-            return new GraphData(getNodes(), edges);
+            return new GraphData(new ArrayList<>(), edges);
         } else {
-            var filteredNodes = getNodes().stream()
-                    .filter(beanNode -> beanNode.dependency.contains(dependencyFilter))
-                    .toList();
             var filteredEdges = edges.stream()
                     .filter(edge -> edge.source().dependency.contains(dependencyFilter))
                     .toList();
-            return new GraphData(filteredNodes, filteredEdges);
+            return new GraphData(new ArrayList<>(), filteredEdges);
         }
     }
 
