@@ -43,21 +43,15 @@ public class UserBeansService {
         return (beanNameParts.length > 0) ? beanNameParts[beanNameParts.length - 1] : beanName;
     };
 
-    static final String UNNAMED = "UnnamedBean";
-
     // @formatter:off
     private Function<Map.Entry<String, BeansEndpoint.BeanDescriptor>, BeanDocument> toBeanDocument = bean -> {
-        String beanName = bean.getValue().getType().getSimpleName();
+        String beanName = (bean.getValue().getType().getSimpleName().equals("")) ? bean.getKey() : bean.getValue().getType().getSimpleName();
         Class<?> beanClass = bean.getValue().getType();
         String packageName = beanClass.getPackageName();
         List<String> dependencies = Arrays
                 .stream(bean.getValue().getDependencies())
                 .map(removePackage)
                 .toList();
-
-        //TODO Temporal fix for Micrometer core
-        beanName = beanName.equals("") ? packageName + "." + UNNAMED : beanName;
-
         return new BeanDocument(beanName, packageName, dependencies);
     };
     // @formatter:on
