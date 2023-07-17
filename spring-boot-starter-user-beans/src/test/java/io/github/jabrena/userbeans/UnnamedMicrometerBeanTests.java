@@ -15,10 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.beans.BeansEndpoint;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest(
-    classes = { TestApplication.class, SupportController.class },
-    properties = { "management.endpoints.web.exposure.include=beans,userbeans" }
-)
+@SpringBootTest(classes = { TestApplication.class }, properties = { "management.endpoints.web.exposure.include=beans" })
 class UnnamedMicrometerBeanTests {
 
     @Autowired
