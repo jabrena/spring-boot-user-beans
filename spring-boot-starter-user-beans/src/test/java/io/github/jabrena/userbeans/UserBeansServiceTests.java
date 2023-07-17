@@ -82,7 +82,9 @@ class UserBeansServiceTests {
             .sorted()
             .map(str -> {
                 try {
-                    Class<?> myClass = this.getClass().getClassLoader().loadClass(str);
+                    var classLoader = Thread.currentThread().getContextClassLoader();
+                    Class<?> myClass = classLoader.loadClass(str);
+                    //Class<?> myClass = Class.forName(str);
                     System.out.println(myClass.getSimpleName());
                     return myClass.getSimpleName();
                 } catch (ClassNotFoundException e) {
@@ -90,7 +92,7 @@ class UserBeansServiceTests {
                 }
                 return "NOT-FOUND-" + str;
             })
-            //.peek(System.out::println)
+            .peek(System.out::println)
             .toList();
 
         //Then
