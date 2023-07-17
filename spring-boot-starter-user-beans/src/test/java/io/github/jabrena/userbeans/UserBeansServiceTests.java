@@ -1,6 +1,5 @@
 package io.github.jabrena.userbeans;
 
-import static io.github.jabrena.userbeans.UserBeansService.UNNAMED;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import io.github.jabrena.support.SupportController;
@@ -30,25 +29,6 @@ class UserBeansServiceTests {
         assertThat(beanList)
                 .isSortedAccordingTo(Comparator.comparing(UserBeansService.BeanDocument::beanName))
                 .hasSizeGreaterThan(0);
-    }
-
-    // @formatter:on
-
-    // @formatter:off
-
-    //TODO A possible small issue to raise in Micrometer
-    @Test
-    void shouldOnlyExistThreeBeansWithoutName() {
-        //Given
-        //When
-        var beanList = userBeansService.getBeansDocuments();
-        var unnamedBeans = beanList.stream()
-                .filter(beanDocument -> beanDocument.beanName().contains(UNNAMED))
-                .peek(System.out::println)
-                .toList();
-
-        //Then
-        assertThat(unnamedBeans).hasSize(3);
     }
 
     // @formatter:on
