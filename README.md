@@ -219,6 +219,75 @@ sdk env install
 sdk env
 ```
 
+## Limitations
+
+**Graph Generation:**
+
+Currently the D3.js graph is generated only using information from Edges
+and it is possible to be improved.
+
+Example: `curl -v "http://localhost:8080/actuator/userbeans/graph?dependency=micrometer-observation-1.11.0.jar" | json_pp`
+
+```json
+{
+   "edges" : [
+      {
+         "source" : {
+            "beanName" : "SimpleObservationRegistry",
+            "beanPackage" : "io.micrometer.observation",
+            "dependency" : "micrometer-observation-1.11.0.jar"
+         },
+         "target" : {
+            "beanName" : "ObservationAutoConfiguration",
+            "beanPackage" : "UNKNOWN",
+            "dependency" : "UNKNOWN"
+         }
+      }
+   ],
+   "nodes" : []
+}
+```
+
+This data structure need to be evolved a better way:
+
+```js
+var nodes = [
+    {name: 'A'},
+    {name: 'B'},
+    {name: 'C'},
+    {name: 'D'},
+    {name: 'E'},
+    {name: 'F'},
+    {name: 'G'},
+    {name: 'H'},
+]
+
+var links = [
+    {source: 0, target: 1},
+    {source: 0, target: 2},
+    {source: 0, target: 3},
+    {source: 1, target: 6},
+    {source: 3, target: 4},
+    {source: 3, target: 7},
+    {source: 4, target: 5},
+    {source: 4, target: 7}
+]
+```
+
+https://codepen.io/jabrena/pen/zYMWpJw
+
+Related issues:
+
+- https://github.com/jabrena/spring-boot-user-beans/issues/111
+- https://github.com/jabrena/spring-boot-user-beans/issues/85
+
+**Current limitation to get Class from deps:**
+
+The Bean `BeansEndpoint` provides a way to retrieve
+all Beans and dependencies, but some dependencies are not easy
+to retrieve the class. I believe that I need to learn more about
+`Proxy Beans`.
+
 ## Other commands
 
 ```
