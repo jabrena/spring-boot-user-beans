@@ -104,8 +104,8 @@
                 </dependencies>
                 <configuration>
                     <!-- https://github.com/checkstyle/checkstyle/blob/master/src/main/resources/google_checks.xml -->
-                    <configLocation>google_checks.xml</configLocation>
-                    <suppressionsLocation>checkstyle-suppressions.xml</suppressionsLocation>
+                    <configLocation>src/checkstyle/google_checks.xml</configLocation>
+                    <suppressionsLocation>src/checkstyle/checkstyle-suppressions.xml</suppressionsLocation>
                     <includeTestSourceDirectory>true</includeTestSourceDirectory>
                     <encoding>UTF-8</encoding>
                     <consoleOutput>true</consoleOutput>
