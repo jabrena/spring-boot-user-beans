@@ -11,6 +11,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,13 +24,17 @@ public class UserBeansGraphService {
     public static final String UNKNOWN_DEPENDENCY = "UNKNOWN";
     public static final String UNKNOWN_PACKAGE = "UNKNOWN";
     private final UserBeansService userBeansService;
+
+    private final ApplicationContext applicationContext;
+
     private final ClasspathDependencyReader classpathDependencyReader;
 
     private final WebDocumentReader webDocumentReader;
 
     // @formatter:off
-    public UserBeansGraphService(UserBeansService userBeansService) {
+    public UserBeansGraphService(UserBeansService userBeansService, ApplicationContext applicationContext) {
         this.userBeansService = userBeansService;
+        this.applicationContext = applicationContext;
         this.classpathDependencyReader = new ClasspathDependencyReader();
         this.webDocumentReader = new WebDocumentReader();
     }
@@ -113,7 +120,18 @@ public class UserBeansGraphService {
                 if (!dd.beanDependencies().isEmpty()) {
                     // @formatter:off
                         return dd.beanDependencies().stream()
-                                .map(dep -> new Edge(sourceNode, new BeanEdge(dep, UNKNOWN_PACKAGE, UNKNOWN_DEPENDENCY)));
+                                .map(dep -> {
+                                    BeanEdge targetNode;
+                                    try {
+                                        Class<?> myClass = applicationContext.getBean(dep).getClass();
+                                        String beanName = (myClass.getSimpleName().length() == 0) ? myClass.getName() : myClass.getSimpleName();
+                                        String beanPackage = myClass.getPackageName();
+                                        targetNode = new BeanEdge(beanName, beanPackage, UNKNOWN_DEPENDENCY);
+                                    } catch (NoSuchBeanDefinitionException e) {
+                                        targetNode = new BeanEdge(dep, UNKNOWN_PACKAGE, UNKNOWN_DEPENDENCY);
+                                    }
+                                    return new Edge(sourceNode, targetNode);
+                                });
                     // @formatter:on
                 } else {
                     //TODO False edge; an evidence to redesign the graph to be consumed for D3.js
