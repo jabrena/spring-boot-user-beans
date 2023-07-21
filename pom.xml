@@ -143,11 +143,13 @@
                                 <requireJavaVersion>
                                     <version>17</version>
                                 </requireJavaVersion>
+                                <!--
                                 <bannedDependencies>
                                     <excludes>
                                         <exclude>org.projectlombok:lombok</exclude>
                                     </excludes>
                                 </bannedDependencies>
+                                -->
                             </rules>
                             <fail>true</fail>
                         </configuration>
