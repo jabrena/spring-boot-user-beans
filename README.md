@@ -25,7 +25,7 @@ Also, you can filter by the main dependencies used in your Spring Boot project.
 ![](docs/design/user-beans16.png)
 
 If you click in a any Green node (A Spring Bean which returns a Java class),
-you could navigate to a Detail page, in order receive an explanation from ChatGTP.
+you could navigate to a Detail page, in order receive an explanation from ChatGPT.
 
 ## Getting Started
 
@@ -80,7 +80,7 @@ This library require a bit of configuration in the section about
 management.endpoints.web.exposure.include=beans,userbeans
 ```
 
-The library has an optional feature to explain your Beans using the ChatGTP capabilities.
+The library has an optional feature to explain your Beans using the ChatGPT capabilities.
 In order to use this feature, you need set a valid `OpenAI API Key`
 
 **Example:**
@@ -91,7 +91,7 @@ echo $OPENAI_API_KEY
 ./mvnw spring-boot:run -Dspring-boot.run.arguments="--userbeans.openapi.apikey=$OPENAI_API_KEY"
 ```
 
-**Note:** If you don´t have a `OpenAI API Key`, you can use this library but the features from `ChatGTP`
+**Note:** If you don´t have a `OpenAI API Key`, you can use this library but the features from `ChatGPT`
 will be disabled.
 
 **Requirements:**
