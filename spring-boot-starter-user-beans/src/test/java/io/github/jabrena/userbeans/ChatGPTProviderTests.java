@@ -18,10 +18,10 @@ import org.springframework.test.context.TestPropertySource;
 @SpringBootTest(classes = { TestApplication.class })
 @TestPropertySource(properties = { "userbeans.openapi.url=http://localhost:8090/openapi", "userbeans.openapi.apikey=XXXYYYZZZ" })
 @EnableAutoConfiguration(exclude = { UserBeansGraphService.class, UserBeansService.class, UserBeansEndpoint.class })
-class ChatGTPProviderTests {
+class ChatGPTProviderTests {
 
     @Autowired
-    private ChatGTPProvider chatGTPProvider;
+    private ChatGPTProvider chatGPTProvider;
 
     WireMockServer wireMockServer;
 
@@ -51,7 +51,7 @@ class ChatGTPProviderTests {
         // @formatter:on
 
         //When
-        var response = chatGTPProvider.getAnswer("");
+        var response = chatGPTProvider.getAnswer("");
 
         //Then
         assertThat(response).as("Response should not be null").isNotNull();
@@ -72,7 +72,7 @@ class ChatGTPProviderTests {
         // @formatter:on
 
         //When
-        var response = chatGTPProvider.getAnswer("");
+        var response = chatGPTProvider.getAnswer("");
 
         //Then
         assertThat(response).as("Response should be 'Something went wrong'").isEqualTo("Something went wrong");
@@ -93,7 +93,7 @@ class ChatGTPProviderTests {
         // @formatter:on
 
         //When
-        var response = chatGTPProvider.getAnswer("");
+        var response = chatGPTProvider.getAnswer("");
 
         //Then
         assertThat(response).as("Response should be 'Something went wrong'").isEqualTo("Something went wrong");
@@ -114,7 +114,7 @@ class ChatGTPProviderTests {
         // @formatter:on
 
         //When
-        var response = chatGTPProvider.getAnswer("");
+        var response = chatGPTProvider.getAnswer("");
 
         //Then
         assertThat(response).as("Response should not be empty").isNotEmpty();

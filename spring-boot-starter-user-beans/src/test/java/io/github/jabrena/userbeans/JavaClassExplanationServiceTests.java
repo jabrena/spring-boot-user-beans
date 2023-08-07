@@ -18,7 +18,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 class JavaClassExplanationServiceTests {
 
     @MockBean
-    private ChatGTPProvider chatGTPProvider;
+    private ChatGPTProvider chatGPTProvider;
 
     @Autowired
     private JavaClassExplanationService beanExplanationService;
@@ -41,10 +41,10 @@ class JavaClassExplanationServiceTests {
             // Add more test cases as needed
         }
     )
-    void shouldProcessAnswerFromChatGTP(String input1, String input2, String input3, String expectedResult) {
+    void shouldProcessAnswerFromChatGPT(String input1, String input2, String input3, String expectedResult) {
         //Given
         //var expectedResult = "Mocked Result";
-        when(chatGTPProvider.getAnswer(anyString())).thenReturn(expectedResult);
+        when(chatGPTProvider.getAnswer(anyString())).thenReturn(expectedResult);
 
         //When
         var result = beanExplanationService.generateDetailsContent(input1, input2, input3);
