@@ -5,9 +5,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration(proxyBeanMethods = false)
-public class ChatGTPConfig {
+public class ChatGPTConfig {
 
-    @Bean(name = "ChatGTPMapper")
+    @Bean(name = "ChatGPTMapper")
     public ObjectMapper getMapper() {
         return new ObjectMapper();
     }

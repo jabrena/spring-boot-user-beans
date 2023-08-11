@@ -289,7 +289,7 @@
    },
    {
       "source" : {
-         "beanName" : "ChatGTPConfig",
+         "beanName" : "ChatGPTConfig",
          "beanPackage" : "io.github.jabrena.userbeans",
          "dependency" : "UNKNOWN"
       },
@@ -297,12 +297,12 @@
    },
    {
       "source" : {
-         "beanName" : "ChatGTPProvider",
+         "beanName" : "ChatGPTProvider",
          "beanPackage" : "io.github.jabrena.userbeans",
          "dependency" : "UNKNOWN"
       },
       "target" : {
-         "beanName" : "ChatGTPMapper",
+         "beanName" : "ChatGPTMapper",
          "beanPackage" : "UNKNOWN",
          "dependency" : "UNKNOWN"
       }
@@ -1530,7 +1530,7 @@
          "dependency" : "spring-web-6.0.9.jar"
       },
       "target" : {
-         "beanName" : "ChatGTPMapper",
+         "beanName" : "ChatGPTMapper",
          "beanPackage" : "UNKNOWN",
          "dependency" : "UNKNOWN"
       }
@@ -1678,7 +1678,7 @@
          "dependency" : "jackson-databind-2.15.0.jar"
       },
       "target" : {
-         "beanName" : "ChatGTPConfig",
+         "beanName" : "ChatGPTConfig",
          "beanPackage" : "UNKNOWN",
          "dependency" : "UNKNOWN"
       }
@@ -2974,7 +2974,7 @@
          "dependency" : "UNKNOWN"
       },
       "target" : {
-         "beanName" : "ChatGTPProvider",
+         "beanName" : "ChatGPTProvider",
          "beanPackage" : "UNKNOWN",
          "dependency" : "UNKNOWN"
       }

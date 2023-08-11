@@ -19,11 +19,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 @PropertySource("classpath:/io/github/jabrena/userbeans/application.properties")
-public class ChatGTPProvider {
+public class ChatGPTProvider {
 
-    private static final Logger logger = LoggerFactory.getLogger(ChatGTPProvider.class);
+    private static final Logger logger = LoggerFactory.getLogger(ChatGPTProvider.class);
 
-    @Qualifier("ChatGTPMapper")
+    @Qualifier("ChatGPTMapper")
     @Autowired
     private ObjectMapper objectMapper;
 
@@ -54,7 +54,7 @@ public class ChatGTPProvider {
     }
 
     // @formatter:off
-    public record ChaptGTPAnswer(String id, String object, Integer created, String model, List<Choice> choices, Usage usage) {}
+    public record ChaptGPTAnswer(String id, String object, Integer created, String model, List<Choice> choices, Usage usage) {}
 
     public record Usage(Integer prompt_tokens, Integer completion_tokens, Integer total_tokens) {}
 
@@ -65,20 +65,20 @@ public class ChatGTPProvider {
     // @formatter:on
 
     String getAnswer(String question) {
-        logger.info("Sending a HTTP request to ChatGTP");
+        logger.info("Sending a HTTP request to ChatGPT");
 
         String result = "";
 
         try {
-            HttpRequest request = prepareRequestToChatGTP(url, question, apiKey);
+            HttpRequest request = prepareRequestToChatGPT(url, question, apiKey);
             HttpClient client = HttpClient.newHttpClient();
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-            logger.info("Processing response from ChatGTP");
+            logger.info("Processing response from ChatGPT");
 
             if (response.statusCode() == 200) {
                 String responseBody = response.body();
-                ChaptGTPAnswer answer = objectMapper.readValue(responseBody, ChaptGTPAnswer.class);
+                ChaptGPTAnswer answer = objectMapper.readValue(responseBody, ChaptGPTAnswer.class);
                 result = answer.choices().get(0).text();
             } else {
                 logger.warn("Status code: {}, Message: {}", response.statusCode(), response.body());
@@ -95,7 +95,7 @@ public class ChatGTPProvider {
         return result;
     }
 
-    private HttpRequest prepareRequestToChatGTP(String url, String question, String key) throws JsonProcessingException {
+    private HttpRequest prepareRequestToChatGPT(String url, String question, String key) throws JsonProcessingException {
         return HttpRequest
             .newBuilder()
             .uri(URI.create(url))

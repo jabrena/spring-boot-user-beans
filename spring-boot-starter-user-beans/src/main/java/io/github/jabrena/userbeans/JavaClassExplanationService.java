@@ -9,11 +9,11 @@ public class JavaClassExplanationService {
 
     private static final Logger logger = LoggerFactory.getLogger(JavaClassExplanationService.class);
 
-    private final ChatGTPProvider chatGTPProvider;
+    private final ChatGPTProvider chatGPTProvider;
     private final WebDocumentReader webDocumentReader;
 
-    public JavaClassExplanationService(ChatGTPProvider chatGTPProvider) {
-        this.chatGTPProvider = chatGTPProvider;
+    public JavaClassExplanationService(ChatGPTProvider chatGPTProvider) {
+        this.chatGPTProvider = chatGPTProvider;
         this.webDocumentReader = new WebDocumentReader();
     }
 
@@ -31,7 +31,7 @@ public class JavaClassExplanationService {
     // @formatter:off
     public DetailsExplanation generateDetailsContent(String beanClass, String packageName, String dependency) {
 
-        logger.info("Asking ChatGTP to explain a specific Spring Class");
+        logger.info("Asking ChatGPT to explain a specific Spring Class");
 
         String question = """
             Can you create an article about the purpose
@@ -48,7 +48,7 @@ public class JavaClassExplanationService {
             """;
 
         question = String.format(question, beanClass, packageName, dependency);
-        return new DetailsExplanation(chatGTPProvider.getAnswer(question));
+        return new DetailsExplanation(chatGPTProvider.getAnswer(question));
     }
     // @formatter:on
 }
